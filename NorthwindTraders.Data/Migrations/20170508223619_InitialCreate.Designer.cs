@@ -8,7 +8,7 @@ using NorthwindTraders.Data;
 namespace NorthwindTraders.Data.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    [Migration("20170410033655_InitialCreate")]
+    [Migration("20170508223619_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,7 +94,8 @@ namespace NorthwindTraders.Data.Migrations
                     b.HasKey("CustomerId", "CustomerTypeId")
                         .HasName("PK_CustomerCustomerDemo");
 
-                    b.HasIndex("CustomerTypeId");
+                    b.HasIndex("CustomerTypeId")
+                        .HasName("IX_CustomerCustomerDemo_CustomerTypeID");
 
                     b.ToTable("CustomerCustomerDemo");
                 });
@@ -174,7 +175,8 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.HasKey("EmployeeId");
 
-                    b.HasIndex("ReportsTo");
+                    b.HasIndex("ReportsTo")
+                        .HasName("IX_Employees_ReportsTo");
 
                     b.ToTable("Employees");
                 });
@@ -191,7 +193,8 @@ namespace NorthwindTraders.Data.Migrations
                     b.HasKey("EmployeeId", "TerritoryId")
                         .HasName("PK_EmployeeTerritories");
 
-                    b.HasIndex("TerritoryId");
+                    b.HasIndex("TerritoryId")
+                        .HasName("IX_EmployeeTerritories_TerritoryID");
 
                     b.ToTable("EmployeeTerritories");
                 });
@@ -245,11 +248,14 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerId")
+                        .HasName("IX_Orders_CustomerID");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("EmployeeId")
+                        .HasName("IX_Orders_EmployeeID");
 
-                    b.HasIndex("ShipVia");
+                    b.HasIndex("ShipVia")
+                        .HasName("IX_Orders_ShipVia");
 
                     b.ToTable("Orders");
                 });
@@ -278,7 +284,8 @@ namespace NorthwindTraders.Data.Migrations
                     b.HasKey("OrderId", "ProductId")
                         .HasName("PK_Order_Details");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .HasName("IX_Order Details_ProductID");
 
                     b.ToTable("Order Details");
                 });
@@ -325,9 +332,11 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryId")
+                        .HasName("IX_Products_CategoryID");
 
-                    b.HasIndex("SupplierId");
+                    b.HasIndex("SupplierId")
+                        .HasName("IX_Products_SupplierID");
 
                     b.ToTable("Products");
                 });
@@ -425,7 +434,8 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.HasKey("TerritoryId");
 
-                    b.HasIndex("RegionId");
+                    b.HasIndex("RegionId")
+                        .HasName("IX_Territories_RegionID");
 
                     b.ToTable("Territories");
                 });
