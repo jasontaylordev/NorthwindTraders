@@ -18,7 +18,7 @@ You will need the following tools:
 Follow these steps to get your development environment setup:
 
   1. Clone the repository
-  2. At the root directory, restore required NuGet packages by running:
+  2. At the root directory, restore required packages by running:
      ```
      dotnet restore
      ```
