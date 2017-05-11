@@ -11,22 +11,22 @@ Use these instuctions to get the project up and running.
 ### Prerequisites
 You will need the following tools:
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* [Visual Studio Code or 2017](https://www.visualstudio.com/downloads/)
 * [.NET Core Tools](https://www.microsoft.com/net/download/core)
 
 ### Setup
 Follow these steps to get your development environment setup:
 
   1. Clone the repository
-  2. At the root directory, restore required NuGet packages by running:
+  2. At the root directory, restore required packages by running:
      ```
      dotnet restore
      ```
-  3. Next, build the project by running:
+  3. Next, build the solution by running:
      ```
      dotnet build
      ```
-  4. Finally, launch the project by running:
+  4. Finally, within the `NorthwindTraders` directory, launch the project by running:
      ```
      dotnet run
      ```
