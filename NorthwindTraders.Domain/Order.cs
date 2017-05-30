@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class Order
     {
@@ -13,22 +13,19 @@ namespace NorthwindTraders.Data
         }
 
         [Column("OrderID")]
-        [Key]
         public int OrderId { get; set; }
 
-        [Column("CustomerID", TypeName = "nchar(5)")]
+        [Column("CustomerID")]
+        [MaxLength(5)]
         public string CustomerId { get; set; }
 
         [Column("EmployeeID")]
         public int? EmployeeId { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal? Freight { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime? OrderDate { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime? RequiredDate { get; set; }
 
         [MaxLength(60)]
@@ -51,17 +48,14 @@ namespace NorthwindTraders.Data
 
         public int? ShipVia { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime? ShippedDate { get; set; }
 
         [InverseProperty("Order")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        [ForeignKey("CustomerId")]
         [InverseProperty("Orders")]
         public virtual Customer Customer { get; set; }
 
-        [ForeignKey("EmployeeId")]
         [InverseProperty("Orders")]
         public virtual Employee Employee { get; set; }
 

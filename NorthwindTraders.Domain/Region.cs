@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class Region
     {
@@ -15,7 +15,7 @@ namespace NorthwindTraders.Data
         public int RegionId { get; set; }
 
         [Required]
-        [Column(TypeName = "nchar(50)")]
+        [MaxLength(50)]
         public string RegionDescription { get; set; }
 
         [InverseProperty("Region")]

@@ -1,20 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class CustomerCustomerDemo
     {
-        [Column("CustomerID", TypeName = "nchar(5)")]
+        [Column("CustomerID")]
+        [MaxLength(5)]
         public string CustomerId { get; set; }
 
-        [Column("CustomerTypeID", TypeName = "nchar(10)")]
+        [Column("CustomerTypeID")]
+        [MaxLength(10)]
         public string CustomerTypeId { get; set; }
 
-        [ForeignKey("CustomerId")]
         [InverseProperty("CustomerCustomerDemo")]
         public virtual Customer Customer { get; set; }
 
-        [ForeignKey("CustomerTypeId")]
         [InverseProperty("CustomerCustomerDemo")]
         public virtual CustomerDemographics CustomerType { get; set; }
     }

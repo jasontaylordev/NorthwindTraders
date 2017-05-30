@@ -8,13 +8,13 @@ using NorthwindTraders.Data;
 namespace NorthwindTraders.Data.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    [Migration("20170508223619_InitialCreate")]
+    [Migration("20170530003557_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.1")
+                .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("NorthwindTraders.Data.Category", b =>
@@ -27,11 +27,9 @@ namespace NorthwindTraders.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(15);
 
-                    b.Property<string>("Description")
-                        .HasColumnType("ntext");
+                    b.Property<string>("Description");
 
-                    b.Property<byte[]>("Picture")
-                        .HasColumnType("image");
+                    b.Property<byte[]>("Picture");
 
                     b.HasKey("CategoryId");
 
@@ -43,7 +41,7 @@ namespace NorthwindTraders.Data.Migrations
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CustomerID")
-                        .HasColumnType("nchar(5)");
+                        .HasMaxLength(5);
 
                     b.Property<string>("Address")
                         .HasMaxLength(60);
@@ -85,11 +83,11 @@ namespace NorthwindTraders.Data.Migrations
                 {
                     b.Property<string>("CustomerId")
                         .HasColumnName("CustomerID")
-                        .HasColumnType("nchar(5)");
+                        .HasMaxLength(5);
 
                     b.Property<string>("CustomerTypeId")
                         .HasColumnName("CustomerTypeID")
-                        .HasColumnType("nchar(10)");
+                        .HasMaxLength(10);
 
                     b.HasKey("CustomerId", "CustomerTypeId")
                         .HasName("PK_CustomerCustomerDemo");
@@ -105,10 +103,9 @@ namespace NorthwindTraders.Data.Migrations
                     b.Property<string>("CustomerTypeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CustomerTypeID")
-                        .HasColumnType("nchar(10)");
+                        .HasMaxLength(10);
 
-                    b.Property<string>("CustomerDesc")
-                        .HasColumnType("ntext");
+                    b.Property<string>("CustomerDesc");
 
                     b.HasKey("CustomerTypeId");
 
@@ -124,8 +121,7 @@ namespace NorthwindTraders.Data.Migrations
                     b.Property<string>("Address")
                         .HasMaxLength(60);
 
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("BirthDate");
 
                     b.Property<string>("City")
                         .HasMaxLength(15);
@@ -140,8 +136,7 @@ namespace NorthwindTraders.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(10);
 
-                    b.Property<DateTime?>("HireDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("HireDate");
 
                     b.Property<string>("HomePhone")
                         .HasMaxLength(24);
@@ -150,11 +145,9 @@ namespace NorthwindTraders.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<string>("Notes")
-                        .HasColumnType("ntext");
+                    b.Property<string>("Notes");
 
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("image");
+                    b.Property<byte[]>("Photo");
 
                     b.Property<string>("PhotoPath")
                         .HasMaxLength(255);
@@ -207,21 +200,18 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.Property<string>("CustomerId")
                         .HasColumnName("CustomerID")
-                        .HasColumnType("nchar(5)");
+                        .HasMaxLength(5);
 
                     b.Property<int?>("EmployeeId")
                         .HasColumnName("EmployeeID");
 
                     b.Property<decimal?>("Freight")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("money")
                         .HasDefaultValueSql("0");
 
-                    b.Property<DateTime?>("OrderDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("OrderDate");
 
-                    b.Property<DateTime?>("RequiredDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("RequiredDate");
 
                     b.Property<string>("ShipAddress")
                         .HasMaxLength(60);
@@ -243,8 +233,7 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.Property<int?>("ShipVia");
 
-                    b.Property<DateTime?>("ShippedDate")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("ShippedDate");
 
                     b.HasKey("OrderId");
 
@@ -278,7 +267,6 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.Property<decimal>("UnitPrice")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("money")
                         .HasDefaultValueSql("0");
 
                     b.HasKey("OrderId", "ProductId")
@@ -319,7 +307,6 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.Property<decimal?>("UnitPrice")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("money")
                         .HasDefaultValueSql("0");
 
                     b.Property<short?>("UnitsInStock")
@@ -348,7 +335,7 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.Property<string>("RegionDescription")
                         .IsRequired()
-                        .HasColumnType("nchar(50)");
+                        .HasMaxLength(50);
 
                     b.HasKey("RegionId");
 
@@ -401,8 +388,7 @@ namespace NorthwindTraders.Data.Migrations
                     b.Property<string>("Fax")
                         .HasMaxLength(24);
 
-                    b.Property<string>("HomePage")
-                        .HasColumnType("ntext");
+                    b.Property<string>("HomePage");
 
                     b.Property<string>("Phone")
                         .HasMaxLength(24);
@@ -430,7 +416,7 @@ namespace NorthwindTraders.Data.Migrations
 
                     b.Property<string>("TerritoryDescription")
                         .IsRequired()
-                        .HasColumnType("nchar(50)");
+                        .HasMaxLength(50);
 
                     b.HasKey("TerritoryId");
 

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class Supplier
     {
@@ -12,7 +12,6 @@ namespace NorthwindTraders.Data
         }
 
         [Column("SupplierID")]
-        [Key]
         public int SupplierId { get; set; }
 
         [MaxLength(60)]
@@ -36,8 +35,7 @@ namespace NorthwindTraders.Data
 
         [MaxLength(24)]
         public string Fax { get; set; }
-
-        [Column(TypeName = "ntext")]
+        
         public string HomePage { get; set; }
 
         [MaxLength(24)]

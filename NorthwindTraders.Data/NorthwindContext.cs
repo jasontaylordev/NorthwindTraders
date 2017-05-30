@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NorthwindTraders.Domain;
 
 namespace NorthwindTraders.Data
 {

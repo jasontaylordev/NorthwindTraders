@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class Customer
     {
@@ -12,8 +12,8 @@ namespace NorthwindTraders.Data
             Orders = new HashSet<Order>();
         }
 
-        [Column("CustomerID", TypeName = "nchar(5)")]
-        [Key]
+        [Column("CustomerID")]
+        [MaxLength(5)]
         public string CustomerId { get; set; }
 
         [MaxLength(60)]

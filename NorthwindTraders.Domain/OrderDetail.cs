@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     [Table("Order Details")]
     public partial class OrderDetail
@@ -14,15 +14,12 @@ namespace NorthwindTraders.Data
         public float Discount { get; set; }
 
         public short Quantity { get; set; }
-
-        [Column(TypeName = "money")]
+        
         public decimal UnitPrice { get; set; }
 
-        [ForeignKey("OrderId")]
         [InverseProperty("OrderDetails")]
         public virtual Order Order { get; set; }
 
-        [ForeignKey("ProductId")]
         [InverseProperty("OrderDetails")]
         public virtual Product Product { get; set; }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class Employee
     {
@@ -14,13 +14,11 @@ namespace NorthwindTraders.Data
         }
 
         [Column("EmployeeID")]
-        [Key]
         public int EmployeeId { get; set; }
 
         [MaxLength(60)]
         public string Address { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime? BirthDate { get; set; }
 
         [MaxLength(15)]
@@ -36,7 +34,6 @@ namespace NorthwindTraders.Data
         [MaxLength(10)]
         public string FirstName { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime? HireDate { get; set; }
 
         [MaxLength(24)]
@@ -46,10 +43,8 @@ namespace NorthwindTraders.Data
         [MaxLength(20)]
         public string LastName { get; set; }
 
-        [Column(TypeName = "ntext")]
         public string Notes { get; set; }
 
-        [Column(TypeName = "image")]
         public byte[] Photo { get; set; }
 
         [MaxLength(255)]

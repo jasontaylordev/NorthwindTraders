@@ -16,8 +16,8 @@ namespace NorthwindTraders.Data.Migrations
                     CategoryID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CategoryName = table.Column<string>(maxLength: 15, nullable: false),
-                    Description = table.Column<string>(type: "ntext", nullable: true),
-                    Picture = table.Column<byte[]>(type: "image", nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Picture = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,7 +28,7 @@ namespace NorthwindTraders.Data.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    CustomerID = table.Column<string>(type: "nchar(5)", nullable: false),
+                    CustomerID = table.Column<string>(maxLength: 5, nullable: false),
                     Address = table.Column<string>(maxLength: 60, nullable: true),
                     City = table.Column<string>(maxLength: 15, nullable: true),
                     CompanyName = table.Column<string>(maxLength: 40, nullable: false),
@@ -49,8 +49,8 @@ namespace NorthwindTraders.Data.Migrations
                 name: "CustomerDemographics",
                 columns: table => new
                 {
-                    CustomerTypeID = table.Column<string>(type: "nchar(10)", nullable: false),
-                    CustomerDesc = table.Column<string>(type: "ntext", nullable: true)
+                    CustomerTypeID = table.Column<string>(maxLength: 10, nullable: false),
+                    CustomerDesc = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -64,16 +64,16 @@ namespace NorthwindTraders.Data.Migrations
                     EmployeeID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Address = table.Column<string>(maxLength: 60, nullable: true),
-                    BirthDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: true),
                     City = table.Column<string>(maxLength: 15, nullable: true),
                     Country = table.Column<string>(maxLength: 15, nullable: true),
                     Extension = table.Column<string>(maxLength: 4, nullable: true),
                     FirstName = table.Column<string>(maxLength: 10, nullable: false),
-                    HireDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    HireDate = table.Column<DateTime>(nullable: true),
                     HomePhone = table.Column<string>(maxLength: 24, nullable: true),
                     LastName = table.Column<string>(maxLength: 20, nullable: false),
-                    Notes = table.Column<string>(type: "ntext", nullable: true),
-                    Photo = table.Column<byte[]>(type: "image", nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    Photo = table.Column<byte[]>(nullable: true),
                     PhotoPath = table.Column<string>(maxLength: 255, nullable: true),
                     PostalCode = table.Column<string>(maxLength: 10, nullable: true),
                     Region = table.Column<string>(maxLength: 15, nullable: true),
@@ -97,7 +97,7 @@ namespace NorthwindTraders.Data.Migrations
                 columns: table => new
                 {
                     RegionID = table.Column<int>(nullable: false),
-                    RegionDescription = table.Column<string>(type: "nchar(50)", nullable: false)
+                    RegionDescription = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -131,7 +131,7 @@ namespace NorthwindTraders.Data.Migrations
                     ContactTitle = table.Column<string>(maxLength: 30, nullable: true),
                     Country = table.Column<string>(maxLength: 15, nullable: true),
                     Fax = table.Column<string>(maxLength: 24, nullable: true),
-                    HomePage = table.Column<string>(type: "ntext", nullable: true),
+                    HomePage = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(maxLength: 24, nullable: true),
                     PostalCode = table.Column<string>(maxLength: 10, nullable: true),
                     Region = table.Column<string>(maxLength: 15, nullable: true)
@@ -145,8 +145,8 @@ namespace NorthwindTraders.Data.Migrations
                 name: "CustomerCustomerDemo",
                 columns: table => new
                 {
-                    CustomerID = table.Column<string>(type: "nchar(5)", nullable: false),
-                    CustomerTypeID = table.Column<string>(type: "nchar(10)", nullable: false)
+                    CustomerID = table.Column<string>(maxLength: 5, nullable: false),
+                    CustomerTypeID = table.Column<string>(maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -171,7 +171,7 @@ namespace NorthwindTraders.Data.Migrations
                 {
                     TerritoryID = table.Column<string>(maxLength: 20, nullable: false),
                     RegionID = table.Column<int>(nullable: false),
-                    TerritoryDescription = table.Column<string>(type: "nchar(50)", nullable: false)
+                    TerritoryDescription = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,11 +190,11 @@ namespace NorthwindTraders.Data.Migrations
                 {
                     OrderID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CustomerID = table.Column<string>(type: "nchar(5)", nullable: true),
+                    CustomerID = table.Column<string>(maxLength: 5, nullable: true),
                     EmployeeID = table.Column<int>(nullable: true),
-                    Freight = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "0"),
-                    OrderDate = table.Column<DateTime>(type: "datetime", nullable: true),
-                    RequiredDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    Freight = table.Column<decimal>(nullable: true, defaultValueSql: "0"),
+                    OrderDate = table.Column<DateTime>(nullable: true),
+                    RequiredDate = table.Column<DateTime>(nullable: true),
                     ShipAddress = table.Column<string>(maxLength: 60, nullable: true),
                     ShipCity = table.Column<string>(maxLength: 15, nullable: true),
                     ShipCountry = table.Column<string>(maxLength: 15, nullable: true),
@@ -202,7 +202,7 @@ namespace NorthwindTraders.Data.Migrations
                     ShipPostalCode = table.Column<string>(maxLength: 10, nullable: true),
                     ShipRegion = table.Column<string>(maxLength: 15, nullable: true),
                     ShipVia = table.Column<int>(nullable: true),
-                    ShippedDate = table.Column<DateTime>(type: "datetime", nullable: true)
+                    ShippedDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -239,7 +239,7 @@ namespace NorthwindTraders.Data.Migrations
                     QuantityPerUnit = table.Column<string>(maxLength: 20, nullable: true),
                     ReorderLevel = table.Column<short>(nullable: true, defaultValueSql: "0"),
                     SupplierID = table.Column<int>(nullable: true),
-                    UnitPrice = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "0"),
+                    UnitPrice = table.Column<decimal>(nullable: true, defaultValueSql: "0"),
                     UnitsInStock = table.Column<short>(nullable: true, defaultValueSql: "0"),
                     UnitsOnOrder = table.Column<short>(nullable: true, defaultValueSql: "0")
                 },
@@ -292,7 +292,7 @@ namespace NorthwindTraders.Data.Migrations
                     ProductID = table.Column<int>(nullable: false),
                     Discount = table.Column<float>(nullable: false, defaultValueSql: "0"),
                     Quantity = table.Column<short>(nullable: false, defaultValueSql: "1"),
-                    UnitPrice = table.Column<decimal>(type: "money", nullable: false, defaultValueSql: "0")
+                    UnitPrice = table.Column<decimal>(nullable: false, defaultValueSql: "0")
                 },
                 constraints: table =>
                 {

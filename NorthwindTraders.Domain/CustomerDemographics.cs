@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class CustomerDemographics
     {
@@ -11,11 +11,10 @@ namespace NorthwindTraders.Data
             CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
         }
 
-        [Column("CustomerTypeID", TypeName = "nchar(10)")]
         [Key]
+        [Column("CustomerTypeID"), MaxLength(10)]
         public string CustomerTypeId { get; set; }
 
-        [Column(TypeName = "ntext")]
         public string CustomerDesc { get; set; }
 
         [InverseProperty("CustomerType")]

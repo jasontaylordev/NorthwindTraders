@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NorthwindTraders.Data\NorthwindTraders.Data.csproj" />
+    <ProjectReference Include="..\NorthwindTraders.Domain\NorthwindTraders.Domain.csproj" />
   </ItemGroup>
 
 </Project>

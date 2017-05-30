@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindTraders", "NorthwindTraders\NorthwindTraders.csproj", "{5EE72F3D-9D81-4C30-A520-9C6185E09063}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindTraders.Domain", "NorthwindTraders.Domain\NorthwindTraders.Domain.csproj", "{48EEC8A5-0682-495B-9065-B3F1C3E2B1CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{BF6DC0C6-C1F4-488B-8ABC-641C05656A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF6DC0C6-C1F4-488B-8ABC-641C05656A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF6DC0C6-C1F4-488B-8ABC-641C05656A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EEC8A5-0682-495B-9065-B3F1C3E2B1CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EEC8A5-0682-495B-9065-B3F1C3E2B1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EEC8A5-0682-495B-9065-B3F1C3E2B1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EEC8A5-0682-495B-9065-B3F1C3E2B1CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

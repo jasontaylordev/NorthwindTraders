@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Domain
 {
     public partial class Product
     {
@@ -12,7 +12,6 @@ namespace NorthwindTraders.Data
         }
 
         [Column("ProductID")]
-        [Key]
         public int ProductId { get; set; }
 
         [Column("CategoryID")]
@@ -31,8 +30,7 @@ namespace NorthwindTraders.Data
 
         [Column("SupplierID")]
         public int? SupplierId { get; set; }
-
-        [Column(TypeName = "money")]
+        
         public decimal? UnitPrice { get; set; }
 
         public short? UnitsInStock { get; set; }
@@ -42,11 +40,9 @@ namespace NorthwindTraders.Data
         [InverseProperty("Product")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        [ForeignKey("CategoryId")]
         [InverseProperty("Products")]
         public virtual Category Category { get; set; }
 
-        [ForeignKey("SupplierId")]
         [InverseProperty("Products")]
         public virtual Supplier Supplier { get; set; }
     }
