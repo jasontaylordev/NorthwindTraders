@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NorthwindTraders.Data\Persistance.csproj" />
+    <ProjectReference Include="..\Persistance\Persistance.csproj" />
   </ItemGroup>
 
 </Project>

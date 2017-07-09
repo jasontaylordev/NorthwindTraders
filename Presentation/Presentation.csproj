@@ -30,8 +30,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\NorthwindTraders.Data\Persistance.csproj" />
-    <ProjectReference Include="..\NorthwindTraders.Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>
