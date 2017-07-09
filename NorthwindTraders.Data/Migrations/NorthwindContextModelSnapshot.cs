@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using NorthwindTraders.Data;
+using NorthwindTraders.Persistance;
 
-namespace NorthwindTraders.Data.Migrations
+namespace NorthwindTraders.Persistance.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
     partial class NorthwindContextModelSnapshot : ModelSnapshot

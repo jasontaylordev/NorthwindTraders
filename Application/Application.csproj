@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>NorthwindTraders.Application</AssemblyName>
+    <RootNamespace>NorthwindTraders.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Customers\Queries\GetCustomerDetail\IGetCustomerDetailQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindTraders.Data\Persistance.csproj" />
+  </ItemGroup>
+
+</Project>

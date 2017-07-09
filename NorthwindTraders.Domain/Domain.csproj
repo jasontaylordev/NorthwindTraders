@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>NorthwindTraders.Domain</AssemblyName>
+    <RootNamespace>NorthwindTraders.Domain</RootNamespace>
+  </PropertyGroup>
+
+</Project>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace NorthwindTraders.Data.Migrations
+namespace NorthwindTraders.Persistance.Migrations
 {
     public partial class InitialCreate : Migration
     {

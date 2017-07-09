@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NorthwindTraders.Domain;
 
-namespace NorthwindTraders.Data
+namespace NorthwindTraders.Persistance
 {
     public class NorthwindInitializer
     {

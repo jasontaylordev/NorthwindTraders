@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NorthwindTraders.Domain\NorthwindTraders.Domain.csproj" />
+    <ProjectReference Include="..\NorthwindTraders.Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>
