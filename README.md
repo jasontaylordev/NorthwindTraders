@@ -33,9 +33,9 @@ Follow these steps to get your development environment setup:
  
 
 ## Technologies
-* .NET Core 1.1
-* ASP.NET Core 1.1
-* Entity Framework Core 1.1
+* .NET Core 2.0
+* ASP.NET Core 2.0
+* Entity Framework Core 2.0
 
 ## License
 
