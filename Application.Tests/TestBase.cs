@@ -7,6 +7,7 @@ namespace Application.Tests
 {
     public class TestBase
     {
+        // https://www.thereformedprogrammer.net/using-in-memory-databases-for-unit-testing-ef-core-applications/
         private bool useSqlite;
 
         public NorthwindContext GetDbContext()

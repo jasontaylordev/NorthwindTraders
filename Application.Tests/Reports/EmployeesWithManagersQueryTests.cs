@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Application.Tests.Reports
 {
-    public class EmployeesManagementHierarchyQueryTests : TestBase
+    public class EmployeesWithManagersQueryTests : TestBase
     {
         [Fact]
         public async Task ShouldReturnReport()
@@ -16,7 +16,7 @@ namespace Application.Tests.Reports
             var context = GetDbContext();
             NorthwindInitializer.Initialize(context);
 
-            var query = new EmployeesManagementHierarchyQuery(context);
+            var query = new EmployeesWithManagersQuery(context);
             var result = await query.Execute();
 
             Assert.NotEmpty(result);

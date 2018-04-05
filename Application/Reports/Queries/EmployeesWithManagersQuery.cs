@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NorthwindTraders.Application.Reports.Queries
 {
-    public class EmployeesManagementHierarchyQuery
+    public class EmployeesWithManagersQuery
     {
         private readonly NorthwindContext _context;
 
-        public EmployeesManagementHierarchyQuery(NorthwindContext context)
+        public EmployeesWithManagersQuery(NorthwindContext context)
         {
             _context = context;
         }
@@ -23,8 +23,9 @@ SELECT e.FirstName as EmployeeFirstName, e.LastName as EmployeeLastName, e.Title
 FROM employees AS e
 JOIN employees AS m ON e.ReportsTo = m.EmployeeID
 WHERE e.ReportsTo is not null";
-            return await _context.Database.GetDbConnection().QueryAsync<EmployeeManagerModel>(sql);
+
+            return await _context.Database.GetDbConnection()
+                .QueryAsync<EmployeeManagerModel>(sql);
         }
     }
 }
-
