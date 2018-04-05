@@ -12,11 +12,9 @@ namespace NorthwindTraders.Infrastructure
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<GetCustomersListQuery>().As<IGetCustomersListQuery>();
-            builder.RegisterType<GetCustomerDetailQuery>().As<IGetCustomerDetailQuery>();
-            builder.RegisterType<CreateCustomerCommand>().As<ICreateCustomerCommand>();
-            builder.RegisterType<UpdateCustomerCommand>().As<IUpdateCustomerCommand>();
-            builder.RegisterType<DeleteCustomerCommand>().As<IDeleteCustomerCommand>();
+            builder.RegisterAssemblyTypes(typeof(GetCustomersListQuery).Assembly)
+                .Where(x => x.Name.EndsWith("Command") || x.Name.EndsWith("Query") || x.Name.EndsWith("Service"))
+                .AsImplementedInterfaces();
             builder.RegisterType<MachineDateTime>().As<IDateTime>();
         }
     }
