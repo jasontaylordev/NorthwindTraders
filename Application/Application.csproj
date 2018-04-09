@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Persistance\Persistance.csproj" />
   </ItemGroup>
 

@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "Persistance\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Tests", "Application.Tests\Application.Tests.csproj", "{1E4614A8-045C-49BF-B88B-E0262704955C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,8 +46,15 @@ Global
 		{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E4614A8-045C-49BF-B88B-E0262704955C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4614A8-045C-49BF-B88B-E0262704955C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E4614A8-045C-49BF-B88B-E0262704955C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E4614A8-045C-49BF-B88B-E0262704955C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03F59BDB-18B1-4A4D-B68E-C692541FEA60}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NorthwindTraders.Application.Employees.Commands.ChangeEmployeesManager;
+using NorthwindTraders.Application.Employees.Queries.EmployeesWithManagers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NorthwindTraders.Controllers
 {
@@ -6,20 +10,20 @@ namespace NorthwindTraders.Controllers
     [Route("api/[controller]/[action]")]
     public class AdminController
     {
-        //[HttpPost]
-        //public void ChangeEmployeeManager(
-        //    [FromServices] IChangeEmployeeReportToCommand command,
-        //    [FromBody] EmployeeUnderManagerModel model)
-        //{
-        //    command.Execute(model);
-        //}
+        [HttpPost]
+        public void ChangeEmployeeManager(
+            [FromServices] IChangeEmployeesManagerCommand command,
+            [FromBody] ChangeEmployeeManagerModel model)
+        {
+            command.Execute(model);
+        }
 
-        //[HttpGet]
-        //public Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport(
-        //    [FromServices] IEmployeesWithManagersQuery query
-        //    )
-        //{
-        //    return query.Execute();
-        //}
+        [HttpGet]
+        public async Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport(
+            [FromServices] IEmployeesWithManagersQuery query
+            )
+        {
+            return await query.Execute();
+        }
     }
 }
