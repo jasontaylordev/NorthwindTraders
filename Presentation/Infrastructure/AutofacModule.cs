@@ -1,8 +1,4 @@
 ﻿using Autofac;
-using NorthwindTraders.Application.Customers.Commands.CreateCustomer;
-using NorthwindTraders.Application.Customers.Commands.DeleteCustomer;
-using NorthwindTraders.Application.Customers.Commands.UpdateCustomer;
-using NorthwindTraders.Application.Customers.Queries.GetCustomerDetail;
 using NorthwindTraders.Application.Customers.Queries.GetCustomersList;
 using NorthwindTraders.Common.Dates;
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using NorthwindTraders.Persistance;
 using System;
 
@@ -7,7 +6,6 @@ namespace Application.Tests
 {
     public class TestBase
     {
-        // https://www.thereformedprogrammer.net/using-in-memory-databases-for-unit-testing-ef-core-applications/
         private bool useSqlite;
 
         public NorthwindContext GetDbContext()
@@ -21,10 +19,7 @@ namespace Application.Tests
             else
             {
                 // Use In-Memory DB.
-                builder.UseInMemoryDatabase(Guid.NewGuid().ToString()).ConfigureWarnings(w =>
-                {
-                    w.Ignore(InMemoryEventId.TransactionIgnoredWarning);
-                });
+                builder.UseInMemoryDatabase(Guid.NewGuid().ToString());
             }
 
             var dbContext = new NorthwindContext(builder.Options);
