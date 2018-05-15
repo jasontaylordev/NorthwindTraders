@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "Persistance\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Tests", "Application.Tests\Application.Tests.csproj", "{679185AF-A1FB-4225-837C-0BF71225D160}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,8 +46,15 @@ Global
 		{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1238BA4D-C9BC-4CE5-BCD1-7A958F62102A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{679185AF-A1FB-4225-837C-0BF71225D160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679185AF-A1FB-4225-837C-0BF71225D160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679185AF-A1FB-4225-837C-0BF71225D160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679185AF-A1FB-4225-837C-0BF71225D160}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D5D0CA3-C6B8-436C-82B0-39820C8A13FA}
 	EndGlobalSection
 EndGlobal
