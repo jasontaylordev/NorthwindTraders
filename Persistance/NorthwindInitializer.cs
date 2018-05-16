@@ -7,13 +7,19 @@ namespace NorthwindTraders.Persistance
 {
     public class NorthwindInitializer
     {
-        private static readonly Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
-        private static readonly Dictionary<int, Supplier> Suppliers = new Dictionary<int, Supplier>();
-        private static readonly Dictionary<int, Category> Categories = new Dictionary<int, Category>();
-        private static readonly Dictionary<int, Shipper> Shippers = new Dictionary<int, Shipper>();
-        private static readonly Dictionary<int, Product> Products = new Dictionary<int, Product>();
+        private readonly Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
+        private readonly Dictionary<int, Supplier> Suppliers = new Dictionary<int, Supplier>();
+        private readonly Dictionary<int, Category> Categories = new Dictionary<int, Category>();
+        private readonly Dictionary<int, Shipper> Shippers = new Dictionary<int, Shipper>();
+        private readonly Dictionary<int, Product> Products = new Dictionary<int, Product>();
 
         public static void Initialize(NorthwindContext context)
+        {
+            var initializer = new NorthwindInitializer();
+            initializer.SeedEverything(context);
+        }
+
+        public void SeedEverything(NorthwindContext context)
         {
             context.Database.EnsureCreated();
 
@@ -41,7 +47,7 @@ namespace NorthwindTraders.Persistance
             SeedOrders(context);
         }
 
-        public static void SeedCustomers(NorthwindContext context)
+        public void SeedCustomers(NorthwindContext context)
         {
             var customers = new[]
             {
@@ -143,7 +149,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedRegions(NorthwindContext context)
+        private void SeedRegions(NorthwindContext context)
         {
             var regions = new[]
             {
@@ -158,7 +164,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedTerritories(NorthwindContext context)
+        private void SeedTerritories(NorthwindContext context)
         {
             var territories = new[]
             {
@@ -222,7 +228,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedEmployees(NorthwindContext context)
+        private void SeedEmployees(NorthwindContext context)
         {
             Employees.Add(2,
                 new Employee
@@ -505,7 +511,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedCategories(NorthwindContext context)
+        private void SeedCategories(NorthwindContext context)
         {
             Categories.Add(1, new Category
             {
@@ -571,7 +577,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedShippers(NorthwindContext context)
+        private void SeedShippers(NorthwindContext context)
         {
             Shippers.Add(1, new Shipper { CompanyName = "Speedy Express", Phone = "(503) 555-9831" });
             Shippers.Add(2, new Shipper { CompanyName = "United Package", Phone = "(503) 555-3199" });
@@ -585,7 +591,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedSuppliers(NorthwindContext context)
+        private void SeedSuppliers(NorthwindContext context)
         {
             Suppliers.Add(1, new Supplier { CompanyName = "Exotic Liquids", ContactName = "Charlotte Cooper", ContactTitle = "Purchasing Manager", Address = "49 Gilbert St.", City = "London", PostalCode = "EC1 4SD", Fax = "", Phone = "(171) 555-2222", HomePage = "" });
             Suppliers.Add(2, new Supplier { CompanyName = "New Orleans Cajun Delights", ContactName = "Shelley Burke", ContactTitle = "Order Administrator", Address = "P.O. Box 78934", City = "New Orleans", Region = "LA", PostalCode = "70117", Fax = "", Phone = "(100) 555-4822", HomePage = "#CAJUN.HTM#" });
@@ -625,7 +631,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedProducts(NorthwindContext context)
+        private void SeedProducts(NorthwindContext context)
         {
             Products.Add(1, new Product { ProductName = "Chai", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "10 boxes x 20 bags", UnitPrice = 18.00m, UnitsInStock = 39, UnitsOnOrder = 0, ReorderLevel = 10, Discontinued = false });
             Products.Add(2, new Product { ProductName = "Chang", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "24 - 12 oz bottles", UnitPrice = 19.00m, UnitsInStock = 17, UnitsOnOrder = 40, ReorderLevel = 25, Discontinued = false });
@@ -713,7 +719,7 @@ namespace NorthwindTraders.Persistance
             context.SaveChanges();
         }
 
-        private static void SeedOrders(NorthwindContext context)
+        private void SeedOrders(NorthwindContext context)
         {
             var orders = new List<Order>();
 
