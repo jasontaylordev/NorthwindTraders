@@ -1,16 +1,21 @@
 ﻿using Northwind.Domain;
 using Northwind.Data;
 using System.Threading.Tasks;
+using Northwind.Application.Interfaces;
 
 namespace Northwind.Application.Customers.Commands.CreateCustomer
 {
     public class CreateCustomerCommand : ICreateCustomerCommand
     {
         public readonly NorthwindContext _context;
+        private readonly INotificationService _notificationService;
 
-        public CreateCustomerCommand(NorthwindContext context)
+        public CreateCustomerCommand(
+            NorthwindContext context,
+            INotificationService notificationService)
         {
             _context = context;
+            _notificationService = notificationService;
         }
 
         public async Task Execute(CreateCustomerModel model)
@@ -32,6 +37,8 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
             _context.Customers.Add(entity);
 
             await _context.SaveChangesAsync();
+
+            _notificationService.Send();
         }
     }
 }
