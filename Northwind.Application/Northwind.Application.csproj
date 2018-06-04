@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Northwind.Application</AssemblyName>
+    <RootNamespace>Northwind.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Customers\Queries\GetCustomerDetail\IGetCustomerDetailQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj" />
+  </ItemGroup>
+
+</Project>

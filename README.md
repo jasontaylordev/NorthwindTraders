@@ -20,7 +20,7 @@ You will need the following tools:
 * [.NET Core SDK 2.1](https://www.microsoft.com/net/download/)
 
 ### Setup
-Follow these steps to get your development environment setup:
+Follow these steps to get your development environment set up:
 
   1. Clone the repository
   2. At the root directory, restore required packages by running:
@@ -31,7 +31,7 @@ Follow these steps to get your development environment setup:
      ```
      dotnet build
      ```
-  4. Finally, within the `NorthwindTraders` directory, launch the project by running:
+  4. Finally, within the `Northwind.Web` directory, launch the project by running:
      ```
      dotnet run
      ```

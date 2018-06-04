@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Northwind.Web</AssemblyName>
+    <RootNamespace>Northwind.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
+		<PackageReference Include="Autofac" Version="4.8.1" />
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
+		<PackageReference Include="NSwag.AspNetCore" Version="11.17.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj" />
+    <ProjectReference Include="..\Northwind.Common\Northwind.Common.csproj" />
+  </ItemGroup>
+
+</Project>
