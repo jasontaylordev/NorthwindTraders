@@ -10,10 +10,9 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-rc1-final" />
+		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
 		<PackageReference Include="Autofac" Version="4.8.1" />
 		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final" />
 		<PackageReference Include="NSwag.AspNetCore" Version="11.17.5" />
   </ItemGroup>
   <ItemGroup>

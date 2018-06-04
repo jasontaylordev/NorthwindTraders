@@ -17,7 +17,7 @@ Use these instuctions to get the project up and running.
 You will need the following tools:
 
 * [Visual Studio Code or 2017](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.1 RC](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-rc1)
+* [.NET Core SDK 2.1](https://www.microsoft.com/net/download/)
 
 ### Setup
 Follow these steps to get your development environment setup:
@@ -38,9 +38,9 @@ Follow these steps to get your development environment setup:
  
 
 ## Technologies
-* .NET Core 2.1 RC
-* ASP.NET Core 2.1 RC
-* Entity Framework Core 2.1 RC
+* .NET Core 2.1
+* ASP.NET Core 2.1
+* Entity Framework Core 2.1
 
 ## License
 
