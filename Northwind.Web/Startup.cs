@@ -6,12 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NJsonSchema;
-using Northwind.Infrastructure;
+using Northwind.Web.Infrastructure;
 using Northwind.Data;
 using NSwag.AspNetCore;
 using System.Reflection;
 
-namespace Northwind
+namespace Northwind.Web
 {
     public class Startup
     {

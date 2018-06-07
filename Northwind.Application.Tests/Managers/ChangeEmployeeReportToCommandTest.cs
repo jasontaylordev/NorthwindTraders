@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using Xunit;
 
-namespace Application.Tests.Managers
+namespace Northwind.Application.Tests.Managers
 {
     public class ChangeEmployeeReportToCommandTest
         : TestBase

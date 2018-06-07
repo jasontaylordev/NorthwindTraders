@@ -2,7 +2,7 @@
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Common.Dates;
 
-namespace Northwind.Infrastructure
+namespace Northwind.Web.Infrastructure
 {
     public class AutofacModule : Module
     {

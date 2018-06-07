@@ -2,7 +2,7 @@
 using Northwind.Data;
 using System;
 
-namespace Application.Tests
+namespace Northwind.Application.Tests
 {
     public class TestBase
     {

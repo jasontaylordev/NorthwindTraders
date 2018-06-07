@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Northwind.Data.Migrations
 {
@@ -16,8 +15,8 @@ namespace Northwind.Data.Migrations
                     CategoryID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CategoryName = table.Column<string>(maxLength: 15, nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Picture = table.Column<byte[]>(nullable: true)
+                    Description = table.Column<string>(type: "ntext", nullable: true),
+                    Picture = table.Column<byte[]>(type: "image", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,32 +28,20 @@ namespace Northwind.Data.Migrations
                 columns: table => new
                 {
                     CustomerID = table.Column<string>(maxLength: 5, nullable: false),
-                    Address = table.Column<string>(maxLength: 60, nullable: true),
-                    City = table.Column<string>(maxLength: 15, nullable: true),
                     CompanyName = table.Column<string>(maxLength: 40, nullable: false),
                     ContactName = table.Column<string>(maxLength: 30, nullable: true),
                     ContactTitle = table.Column<string>(maxLength: 30, nullable: true),
-                    Country = table.Column<string>(maxLength: 15, nullable: true),
-                    Fax = table.Column<string>(maxLength: 24, nullable: true),
-                    Phone = table.Column<string>(maxLength: 24, nullable: true),
+                    Address = table.Column<string>(maxLength: 60, nullable: true),
+                    City = table.Column<string>(maxLength: 15, nullable: true),
+                    Region = table.Column<string>(maxLength: 15, nullable: true),
                     PostalCode = table.Column<string>(maxLength: 10, nullable: true),
-                    Region = table.Column<string>(maxLength: 15, nullable: true)
+                    Country = table.Column<string>(maxLength: 15, nullable: true),
+                    Phone = table.Column<string>(maxLength: 24, nullable: true),
+                    Fax = table.Column<string>(maxLength: 24, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.CustomerID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CustomerDemographics",
-                columns: table => new
-                {
-                    CustomerTypeID = table.Column<string>(maxLength: 10, nullable: false),
-                    CustomerDesc = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CustomerDemographics", x => x.CustomerTypeID);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,29 +50,29 @@ namespace Northwind.Data.Migrations
                 {
                     EmployeeID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(maxLength: 60, nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: true),
-                    City = table.Column<string>(maxLength: 15, nullable: true),
-                    Country = table.Column<string>(maxLength: 15, nullable: true),
-                    Extension = table.Column<string>(maxLength: 4, nullable: true),
-                    FirstName = table.Column<string>(maxLength: 10, nullable: false),
-                    HireDate = table.Column<DateTime>(nullable: true),
-                    HomePhone = table.Column<string>(maxLength: 24, nullable: true),
                     LastName = table.Column<string>(maxLength: 20, nullable: false),
-                    Notes = table.Column<string>(nullable: true),
-                    Photo = table.Column<byte[]>(nullable: true),
-                    PhotoPath = table.Column<string>(maxLength: 255, nullable: true),
-                    PostalCode = table.Column<string>(maxLength: 10, nullable: true),
-                    Region = table.Column<string>(maxLength: 15, nullable: true),
-                    ReportsTo = table.Column<int>(nullable: true),
+                    FirstName = table.Column<string>(maxLength: 10, nullable: false),
                     Title = table.Column<string>(maxLength: 30, nullable: true),
-                    TitleOfCourtesy = table.Column<string>(maxLength: 25, nullable: true)
+                    TitleOfCourtesy = table.Column<string>(maxLength: 25, nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    HireDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    Address = table.Column<string>(maxLength: 60, nullable: true),
+                    City = table.Column<string>(maxLength: 15, nullable: true),
+                    Region = table.Column<string>(maxLength: 15, nullable: true),
+                    PostalCode = table.Column<string>(maxLength: 10, nullable: true),
+                    Country = table.Column<string>(maxLength: 15, nullable: true),
+                    HomePhone = table.Column<string>(maxLength: 24, nullable: true),
+                    Extension = table.Column<string>(maxLength: 4, nullable: true),
+                    Photo = table.Column<byte[]>(type: "image", nullable: true),
+                    Notes = table.Column<string>(type: "ntext", nullable: true),
+                    ReportsTo = table.Column<int>(nullable: true),
+                    PhotoPath = table.Column<string>(maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.EmployeeID);
                     table.ForeignKey(
-                        name: "FK_Employees_Employees_ReportsTo",
+                        name: "FK_Employees_Employees",
                         column: x => x.ReportsTo,
                         principalTable: "Employees",
                         principalColumn: "EmployeeID",
@@ -101,7 +88,8 @@ namespace Northwind.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Region", x => x.RegionID);
+                    table.PrimaryKey("PK_Region", x => x.RegionID)
+                        .Annotation("SqlServer:Clustered", false);
                 });
 
             migrationBuilder.CreateTable(
@@ -124,17 +112,17 @@ namespace Northwind.Data.Migrations
                 {
                     SupplierID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(maxLength: 60, nullable: true),
-                    City = table.Column<string>(maxLength: 15, nullable: true),
                     CompanyName = table.Column<string>(maxLength: 40, nullable: false),
                     ContactName = table.Column<string>(maxLength: 30, nullable: true),
                     ContactTitle = table.Column<string>(maxLength: 30, nullable: true),
-                    Country = table.Column<string>(maxLength: 15, nullable: true),
-                    Fax = table.Column<string>(maxLength: 24, nullable: true),
-                    HomePage = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(maxLength: 24, nullable: true),
+                    Address = table.Column<string>(maxLength: 60, nullable: true),
+                    City = table.Column<string>(maxLength: 15, nullable: true),
+                    Region = table.Column<string>(maxLength: 15, nullable: true),
                     PostalCode = table.Column<string>(maxLength: 10, nullable: true),
-                    Region = table.Column<string>(maxLength: 15, nullable: true)
+                    Country = table.Column<string>(maxLength: 15, nullable: true),
+                    Phone = table.Column<string>(maxLength: 24, nullable: true),
+                    Fax = table.Column<string>(maxLength: 24, nullable: true),
+                    HomePage = table.Column<string>(type: "ntext", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -142,46 +130,23 @@ namespace Northwind.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CustomerCustomerDemo",
-                columns: table => new
-                {
-                    CustomerID = table.Column<string>(maxLength: 5, nullable: false),
-                    CustomerTypeID = table.Column<string>(maxLength: 10, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CustomerCustomerDemo", x => new { x.CustomerID, x.CustomerTypeID });
-                    table.ForeignKey(
-                        name: "FK_CustomerCustomerDemo_Customers_CustomerID",
-                        column: x => x.CustomerID,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CustomerCustomerDemo_CustomerDemographics_CustomerTypeID",
-                        column: x => x.CustomerTypeID,
-                        principalTable: "CustomerDemographics",
-                        principalColumn: "CustomerTypeID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Territories",
                 columns: table => new
                 {
                     TerritoryID = table.Column<string>(maxLength: 20, nullable: false),
-                    RegionID = table.Column<int>(nullable: false),
-                    TerritoryDescription = table.Column<string>(maxLength: 50, nullable: false)
+                    TerritoryDescription = table.Column<string>(maxLength: 50, nullable: false),
+                    RegionID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Territories", x => x.TerritoryID);
+                    table.PrimaryKey("PK_Territories", x => x.TerritoryID)
+                        .Annotation("SqlServer:Clustered", false);
                     table.ForeignKey(
-                        name: "FK_Territories_Region_RegionID",
+                        name: "FK_Territories_Region",
                         column: x => x.RegionID,
                         principalTable: "Region",
                         principalColumn: "RegionID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -192,35 +157,35 @@ namespace Northwind.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CustomerID = table.Column<string>(maxLength: 5, nullable: true),
                     EmployeeID = table.Column<int>(nullable: true),
-                    Freight = table.Column<decimal>(nullable: true, defaultValueSql: "0"),
-                    OrderDate = table.Column<DateTime>(nullable: true),
-                    RequiredDate = table.Column<DateTime>(nullable: true),
+                    OrderDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    RequiredDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    ShippedDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    ShipVia = table.Column<int>(nullable: true),
+                    Freight = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "((0))"),
+                    ShipName = table.Column<string>(maxLength: 40, nullable: true),
                     ShipAddress = table.Column<string>(maxLength: 60, nullable: true),
                     ShipCity = table.Column<string>(maxLength: 15, nullable: true),
-                    ShipCountry = table.Column<string>(maxLength: 15, nullable: true),
-                    ShipName = table.Column<string>(maxLength: 40, nullable: true),
-                    ShipPostalCode = table.Column<string>(maxLength: 10, nullable: true),
                     ShipRegion = table.Column<string>(maxLength: 15, nullable: true),
-                    ShipVia = table.Column<int>(nullable: true),
-                    ShippedDate = table.Column<DateTime>(nullable: true)
+                    ShipPostalCode = table.Column<string>(maxLength: 10, nullable: true),
+                    ShipCountry = table.Column<string>(maxLength: 15, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderID);
                     table.ForeignKey(
-                        name: "FK_Orders_Customers_CustomerID",
+                        name: "FK_Orders_Customers",
                         column: x => x.CustomerID,
                         principalTable: "Customers",
                         principalColumn: "CustomerID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Orders_Employees_EmployeeID",
+                        name: "FK_Orders_Employees",
                         column: x => x.EmployeeID,
                         principalTable: "Employees",
                         principalColumn: "EmployeeID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Orders_Shippers_ShipVia",
+                        name: "FK_Orders_Shippers",
                         column: x => x.ShipVia,
                         principalTable: "Shippers",
                         principalColumn: "ShipperID",
@@ -233,27 +198,27 @@ namespace Northwind.Data.Migrations
                 {
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CategoryID = table.Column<int>(nullable: true),
-                    Discontinued = table.Column<bool>(nullable: false, defaultValueSql: "0"),
                     ProductName = table.Column<string>(maxLength: 40, nullable: false),
-                    QuantityPerUnit = table.Column<string>(maxLength: 20, nullable: true),
-                    ReorderLevel = table.Column<short>(nullable: true, defaultValueSql: "0"),
                     SupplierID = table.Column<int>(nullable: true),
-                    UnitPrice = table.Column<decimal>(nullable: true, defaultValueSql: "0"),
-                    UnitsInStock = table.Column<short>(nullable: true, defaultValueSql: "0"),
-                    UnitsOnOrder = table.Column<short>(nullable: true, defaultValueSql: "0")
+                    CategoryID = table.Column<int>(nullable: true),
+                    QuantityPerUnit = table.Column<string>(maxLength: 20, nullable: true),
+                    UnitPrice = table.Column<decimal>(type: "money", nullable: true, defaultValueSql: "((0))"),
+                    UnitsInStock = table.Column<short>(nullable: true, defaultValueSql: "((0))"),
+                    UnitsOnOrder = table.Column<short>(nullable: true, defaultValueSql: "((0))"),
+                    ReorderLevel = table.Column<short>(nullable: true, defaultValueSql: "((0))"),
+                    Discontinued = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductID);
                     table.ForeignKey(
-                        name: "FK_Products_Categories_CategoryID",
+                        name: "FK_Products_Categories",
                         column: x => x.CategoryID,
                         principalTable: "Categories",
                         principalColumn: "CategoryID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Products_Suppliers_SupplierID",
+                        name: "FK_Products_Suppliers",
                         column: x => x.SupplierID,
                         principalTable: "Suppliers",
                         principalColumn: "SupplierID",
@@ -269,19 +234,20 @@ namespace Northwind.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeTerritories", x => new { x.EmployeeID, x.TerritoryID });
+                    table.PrimaryKey("PK_EmployeeTerritories", x => new { x.EmployeeID, x.TerritoryID })
+                        .Annotation("SqlServer:Clustered", false);
                     table.ForeignKey(
-                        name: "FK_EmployeeTerritories_Employees_EmployeeID",
+                        name: "FK_EmployeeTerritories_Employees",
                         column: x => x.EmployeeID,
                         principalTable: "Employees",
                         principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_EmployeeTerritories_Territories_TerritoryID",
+                        name: "FK_EmployeeTerritories_Territories",
                         column: x => x.TerritoryID,
                         principalTable: "Territories",
                         principalColumn: "TerritoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -290,31 +256,26 @@ namespace Northwind.Data.Migrations
                 {
                     OrderID = table.Column<int>(nullable: false),
                     ProductID = table.Column<int>(nullable: false),
-                    Discount = table.Column<float>(nullable: false, defaultValueSql: "0"),
-                    Quantity = table.Column<short>(nullable: false, defaultValueSql: "1"),
-                    UnitPrice = table.Column<decimal>(nullable: false, defaultValueSql: "0")
+                    UnitPrice = table.Column<decimal>(type: "money", nullable: false),
+                    Quantity = table.Column<short>(nullable: false, defaultValueSql: "((1))"),
+                    Discount = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order_Details", x => new { x.OrderID, x.ProductID });
+                    table.PrimaryKey("PK_Order Details", x => new { x.OrderID, x.ProductID });
                     table.ForeignKey(
-                        name: "FK_Order Details_Orders_OrderID",
+                        name: "FK_Order_Details_Orders",
                         column: x => x.OrderID,
                         principalTable: "Orders",
                         principalColumn: "OrderID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Order Details_Products_ProductID",
+                        name: "FK_Order_Details_Products",
                         column: x => x.ProductID,
                         principalTable: "Products",
                         principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CustomerCustomerDemo_CustomerTypeID",
-                table: "CustomerCustomerDemo",
-                column: "CustomerTypeID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_ReportsTo",
@@ -325,6 +286,11 @@ namespace Northwind.Data.Migrations
                 name: "IX_EmployeeTerritories_TerritoryID",
                 table: "EmployeeTerritories",
                 column: "TerritoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Order Details_ProductID",
+                table: "Order Details",
+                column: "ProductID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerID",
@@ -340,11 +306,6 @@ namespace Northwind.Data.Migrations
                 name: "IX_Orders_ShipVia",
                 table: "Orders",
                 column: "ShipVia");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Order Details_ProductID",
-                table: "Order Details",
-                column: "ProductID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryID",
@@ -365,16 +326,10 @@ namespace Northwind.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CustomerCustomerDemo");
-
-            migrationBuilder.DropTable(
                 name: "EmployeeTerritories");
 
             migrationBuilder.DropTable(
                 name: "Order Details");
-
-            migrationBuilder.DropTable(
-                name: "CustomerDemographics");
 
             migrationBuilder.DropTable(
                 name: "Territories");

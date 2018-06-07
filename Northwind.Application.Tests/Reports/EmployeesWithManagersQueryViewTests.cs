@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Application.Tests.Reports
+namespace Northwind.Application.Tests.Reports
 {
     public class EmployeesWithManagersQueryViewTests : TestBase
     {

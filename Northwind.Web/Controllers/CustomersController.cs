@@ -7,7 +7,7 @@ using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Customers.Commands.UpdateCustomer;
 using Northwind.Application.Customers.Commands.DeleteCustomer;
 
-namespace Northwind.Controllers
+namespace Northwind.Web.Controllers
 {
     [Produces("application/json")]
     [Route("api/Customers")]
