@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Northwind.Persistence.Extensions
+namespace Northwind.Domain.Extensions
 {
     public static class ModelBuilderExtensions
     {

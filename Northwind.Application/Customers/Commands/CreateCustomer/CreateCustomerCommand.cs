@@ -1,5 +1,4 @@
 ﻿using Northwind.Domain;
-using Northwind.Persistence;
 using System.Threading.Tasks;
 using Northwind.Application.Interfaces;
 

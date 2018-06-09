@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Northwind.Persistence.Migrations
+namespace Northwind.Domain.Migrations
 {
     public partial class InitialCreate : Migration
     {

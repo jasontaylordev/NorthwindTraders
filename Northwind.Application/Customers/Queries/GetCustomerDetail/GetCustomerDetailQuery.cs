@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Persistence;
+using Northwind.Domain;
 using System.Threading.Tasks;
 
 namespace Northwind.Application.Customers.Queries.GetCustomerDetail

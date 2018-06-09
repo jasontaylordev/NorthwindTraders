@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Northwind.Domain;
 
-namespace Northwind.Persistence
+namespace Northwind.Domain
 {
     public class NorthwindInitializer
     {

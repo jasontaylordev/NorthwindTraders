@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Reports.Queries;
-using Northwind.Persistence;
+using Northwind.Domain;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
