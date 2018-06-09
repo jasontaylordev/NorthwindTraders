@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Domain;
 
-namespace Northwind.Data.Configurations
+namespace Northwind.Persistence.Configurations
 {
     public class EmployeeTerritoryConfiguration : IEntityTypeConfiguration<EmployeeTerritory>
     {

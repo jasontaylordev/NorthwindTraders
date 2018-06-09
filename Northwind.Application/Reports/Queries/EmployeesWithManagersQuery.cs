@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Data;
+using Northwind.Persistence;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

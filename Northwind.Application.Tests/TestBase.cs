@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Data;
+using Northwind.Persistence;
 using System;
 
 namespace Northwind.Application.Tests

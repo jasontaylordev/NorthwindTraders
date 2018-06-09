@@ -1,4 +1,4 @@
-﻿using Northwind.Data;
+﻿using Northwind.Persistence;
 using System;
 
 namespace Northwind.Application.Employees.Commands.ChangeEmployeesManager

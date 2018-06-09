@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Northwind.Data;
+using Northwind.Persistence;
 
-namespace Northwind.Data.Migrations
+namespace Northwind.Persistence.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
     [Migration("20180607065932_InitialCreate")]

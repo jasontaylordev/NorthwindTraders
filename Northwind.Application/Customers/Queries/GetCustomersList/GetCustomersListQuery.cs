@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Data;
+using Northwind.Persistence;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

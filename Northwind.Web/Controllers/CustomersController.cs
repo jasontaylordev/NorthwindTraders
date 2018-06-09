@@ -13,11 +13,11 @@ namespace Northwind.Web.Controllers
     [Route("api/Customers")]
     public class CustomersController : Controller
     {
-        public readonly IGetCustomersListQuery _getCustomersListQuery;
-        public readonly IGetCustomerDetailQuery _getCustomerDetailQuery;
-        public readonly ICreateCustomerCommand _createCustomerCommand;
-        public readonly IUpdateCustomerCommand _updateCustomerCommand;
-        public readonly IDeleteCustomerCommand _deleteCustomerCommand;
+        private readonly IGetCustomersListQuery _getCustomersListQuery;
+        private readonly IGetCustomerDetailQuery _getCustomerDetailQuery;
+        private readonly ICreateCustomerCommand _createCustomerCommand;
+        private readonly IUpdateCustomerCommand _updateCustomerCommand;
+        private readonly IDeleteCustomerCommand _deleteCustomerCommand;
 
         public CustomersController(
             IGetCustomersListQuery getCustomersListQuery,

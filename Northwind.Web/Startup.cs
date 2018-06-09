@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NJsonSchema;
 using Northwind.Web.Infrastructure;
-using Northwind.Data;
+using Northwind.Persistence;
 using NSwag.AspNetCore;
 using System.Reflection;
 
