@@ -11,6 +11,7 @@ namespace Northwind.Web.Infrastructure
             builder.RegisterAssemblyTypes(typeof(GetCustomersListQuery).Assembly)
                 .Where(x => x.Name.EndsWith("Command") || x.Name.EndsWith("Query") || x.Name.EndsWith("Service"))
                 .AsImplementedInterfaces();
+
             builder.RegisterType<MachineDateTime>().As<IDateTime>();
         }
     }
