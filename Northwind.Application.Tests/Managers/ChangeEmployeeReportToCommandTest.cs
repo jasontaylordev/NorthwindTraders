@@ -2,6 +2,7 @@
 using Northwind.Domain;
 using System;
 using System.Linq;
+using Northwind.Persistence;
 using Xunit;
 
 namespace Northwind.Application.Tests.Managers

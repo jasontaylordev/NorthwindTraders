@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Domain\Northwind.Domain.csproj" />
+    <ProjectReference Include="..\Northwind.Persistence\Northwind.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

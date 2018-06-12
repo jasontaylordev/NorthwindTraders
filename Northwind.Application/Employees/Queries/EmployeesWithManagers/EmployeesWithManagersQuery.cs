@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Northwind.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Employees.Queries.EmployeesWithManagers
 {

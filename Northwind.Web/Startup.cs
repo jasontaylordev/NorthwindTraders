@@ -14,6 +14,7 @@ using MediatR;
 using MediatR.Pipeline;
 using Northwind.Application.Infrastructure;
 using Northwind.Application.Products.Queries;
+using Northwind.Persistence;
 
 namespace Northwind.Web
 {

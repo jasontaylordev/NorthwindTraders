@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Categories.Models;
 using Northwind.Domain;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Categories.Queries
 {

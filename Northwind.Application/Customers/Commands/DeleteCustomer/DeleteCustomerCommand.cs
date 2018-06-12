@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Northwind.Domain;
 using System.Threading.Tasks;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Commands.DeleteCustomer
 {
     public class DeleteCustomerCommand : IDeleteCustomerCommand
     {
-        public readonly NorthwindContext _context;
+        private readonly NorthwindContext _context;
 
         public DeleteCustomerCommand(NorthwindContext context)
         {

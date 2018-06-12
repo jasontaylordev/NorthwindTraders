@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Northwind.Domain;
 
-namespace Northwind.Domain.Migrations
+namespace Northwind.Persistence.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    [Migration("20180611041835_User")]
-    partial class User
+    [Migration("20180607065932_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -166,17 +166,6 @@ namespace Northwind.Domain.Migrations
                     b.HasIndex("TerritoryId");
 
                     b.ToTable("EmployeeTerritories");
-                });
-
-            modelBuilder.Entity("Northwind.Domain.Entities.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Northwind.Domain.Order", b =>
@@ -430,27 +419,6 @@ namespace Northwind.Domain.Migrations
                         .WithMany("EmployeeTerritories")
                         .HasForeignKey("TerritoryId")
                         .HasConstraintName("FK_EmployeeTerritories_Territories");
-                });
-
-            modelBuilder.Entity("Northwind.Domain.Entities.User", b =>
-                {
-                    b.OwnsOne("Northwind.Domain.ValueObjects.AdAccount", "AdAccount", b1 =>
-                        {
-                            b1.Property<int?>("UserId")
-                                .ValueGeneratedOnAdd()
-                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                            b1.Property<string>("Domain");
-
-                            b1.Property<string>("Name");
-
-                            b1.ToTable("Users");
-
-                            b1.HasOne("Northwind.Domain.Entities.User")
-                                .WithOne("AdAccount")
-                                .HasForeignKey("Northwind.Domain.ValueObjects.AdAccount", "UserId")
-                                .OnDelete(DeleteBehavior.Cascade);
-                        });
                 });
 
             modelBuilder.Entity("Northwind.Domain.Order", b =>

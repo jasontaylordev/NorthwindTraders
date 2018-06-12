@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Domain.Configurations;
+using Northwind.Domain;
+using Northwind.Persistence.Configurations;
 using Northwind.Domain.Entities;
 
-namespace Northwind.Domain
+namespace Northwind.Persistence
 {
     public class NorthwindContext : DbContext
     {

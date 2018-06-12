@@ -2,6 +2,7 @@
 using Northwind.Domain;
 using System.Linq;
 using System.Threading.Tasks;
+using Northwind.Persistence;
 using Xunit;
 
 namespace Northwind.Application.Tests.Reports

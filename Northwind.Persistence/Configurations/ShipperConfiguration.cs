@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Domain;
 
-namespace Northwind.Domain.Configurations
+namespace Northwind.Persistence.Configurations
 {
     public class ShipperConfiguration : IEntityTypeConfiguration<Shipper>
     {

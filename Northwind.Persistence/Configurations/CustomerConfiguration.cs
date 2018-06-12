@@ -2,15 +2,18 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Domain;
 
-namespace Northwind.Domain.Configurations
+namespace Northwind.Persistence.Configurations
 {
-    public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
+    public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
-        public void Configure(EntityTypeBuilder<Supplier> builder)
+        public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.HasKey(e => e.SupplierId);
+            builder.HasKey(e => e.CustomerId);
 
-            builder.Property(e => e.SupplierId).HasColumnName("SupplierID");
+            builder.Property(e => e.CustomerId)
+                .HasColumnName("CustomerID")
+                .HasMaxLength(5)
+                .ValueGeneratedNever();
 
             builder.Property(e => e.Address).HasMaxLength(60);
 
@@ -27,8 +30,6 @@ namespace Northwind.Domain.Configurations
             builder.Property(e => e.Country).HasMaxLength(15);
 
             builder.Property(e => e.Fax).HasMaxLength(24);
-
-            builder.Property(e => e.HomePage).HasColumnType("ntext");
 
             builder.Property(e => e.Phone).HasMaxLength(24);
 

@@ -1,6 +1,7 @@
 ﻿using Northwind.Domain;
 using System;
 using System.Linq;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Managers.Commands
 {

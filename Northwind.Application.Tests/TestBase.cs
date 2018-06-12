@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Northwind.Domain;
 using System;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Tests
 {

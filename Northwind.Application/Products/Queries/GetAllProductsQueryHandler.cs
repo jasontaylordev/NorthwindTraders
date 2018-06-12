@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Products.Models;
 using Northwind.Domain;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Queries
 {

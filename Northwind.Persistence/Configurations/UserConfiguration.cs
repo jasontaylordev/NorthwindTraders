@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Domain.Entities;
 
-namespace Northwind.Domain.Configurations
+namespace Northwind.Persistence.Configurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {
