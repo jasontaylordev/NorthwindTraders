@@ -10,6 +10,10 @@ using Northwind.Web.Infrastructure;
 using Northwind.Domain;
 using NSwag.AspNetCore;
 using System.Reflection;
+using MediatR;
+using MediatR.Pipeline;
+using Northwind.Application.Infrastructure;
+using Northwind.Application.Products.Queries;
 
 namespace Northwind.Web
 {
@@ -26,9 +30,12 @@ namespace Northwind.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
+            services.AddMediatR(typeof(GetProductQuery).GetTypeInfo().Assembly);
             services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
-
             services.AddSwagger();
+            services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
             services.AddMvc();
         }
 
@@ -46,11 +53,13 @@ namespace Northwind.Web
 
             app.UseSwaggerUi3(typeof(Startup).GetTypeInfo().Assembly, s =>
             {
+                s.GeneratorSettings.Title = "Northwind Traders API";
                 s.GeneratorSettings.DefaultUrlTemplate = "{controller}/{action}/{id?}";
                 s.GeneratorSettings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
             });
 
             app.UseMvc();
+
             NorthwindInitializer.Initialize(context);
         }
     }

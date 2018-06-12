@@ -25,7 +25,7 @@ namespace Northwind.Domain.Tests
         [Fact]
         public void ToStringReturnsDomainAndName()
         {
-            var value = "SSW\\Jason";
+            const string value = "SSW\\Jason";
 
             var account = new AdAccount(value);
 
@@ -33,9 +33,9 @@ namespace Northwind.Domain.Tests
         }
 
         [Fact]
-        public void ImplicitOperatorReturnsDomainAndName()
+        public void ImplicitConversionToStringReturnsDomainAndName()
         {
-            var value = "SSW\\Jason";
+            const string value = "SSW\\Jason";
 
             var account = new AdAccount(value);
 
@@ -45,7 +45,7 @@ namespace Northwind.Domain.Tests
         }
 
         [Fact]
-        public void ExplicitOperatorWorks()
+        public void ExplicitConversionFromStringSetsDomainAndName()
         {
             var account = (AdAccount) "SSW\\Jason";
 

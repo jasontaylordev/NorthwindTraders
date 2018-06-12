@@ -9,8 +9,8 @@ using Northwind.Application.Customers.Commands.DeleteCustomer;
 
 namespace Northwind.Web.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/Customers")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class CustomersController : Controller
     {
         private readonly IGetCustomersListQuery _getCustomersListQuery;

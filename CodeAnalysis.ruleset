@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Custom Ruleset" Description="Custom Ruleset" ToolsVersion="15.0">
+  <IncludeAll Action="Error" />
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1600" Action="None" />
+    <Rule Id="SA1601" Action="None" />
+    <Rule Id="SA1602" Action="None" />
+    <Rule Id="SA1633" Action="None" />
+    <Rule Id="SA0001" Action="None" />
+    <Rule Id="SA1027" Action="None" />
+    <Rule Id="CA1056" Action="None" />
+    <Rule Id="SA1101" Action="None" />
+    <Rule Id="SA1200" Action="None" />
+    <Rule Id="SA1309" Action="None" />
+    <Rule Id="SA1413" Action="None" />
+    <Rule Id="CA1308" Action="None" />
+    <Rule Id="CA2007" Action="None" />
+    <Rule Id="SA1124" Action="None" />
+    <Rule Id="SA1204" Action="None" />
+    <Rule Id="SX1309" Action="Error" />
+    <Rule Id="SX1101" Action="Error" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.ApiDesignGuidelines.Analyzers" RuleNamespace="Microsoft.ApiDesignGuidelines.Analyzers">
+  </Rules>
+</RuleSet>

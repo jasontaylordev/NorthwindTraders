@@ -6,7 +6,7 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 {
     public class CreateCustomerCommand : ICreateCustomerCommand
     {
-        public readonly NorthwindContext _context;
+        private readonly NorthwindContext _context;
         private readonly INotificationService _notificationService;
 
         public CreateCustomerCommand(

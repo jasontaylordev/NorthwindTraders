@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Northwind.Domain;
 using System.Threading.Tasks;
+using Northwind.Application.Exceptions;
 
 namespace Northwind.Application.Customers.Commands.UpdateCustomer
 {
     public class UpdateCustomerCommand : IUpdateCustomerCommand
     {
-        public readonly NorthwindContext _context;
+        private readonly NorthwindContext _context;
 
         public UpdateCustomerCommand(NorthwindContext context)
         {
@@ -15,6 +16,13 @@ namespace Northwind.Application.Customers.Commands.UpdateCustomer
 
         public async Task Execute(UpdateCustomerModel model)
         {
+            var validator = new UpdateCustomerModelValidator();
+            var validationResult = validator.Validate(model);
+            if (!validationResult.IsValid)
+            {
+                throw new InvalidModelException(nameof(model));
+            }
+
             var entity = await _context.Customers.SingleAsync(c => c.CustomerId == model.Id);
 
             entity.Address = model.Address;

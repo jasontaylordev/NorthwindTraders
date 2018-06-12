@@ -1,4 +1,8 @@
-﻿namespace Northwind.Application.Customers.Queries.GetCustomerDetail
+﻿using System;
+using System.Linq.Expressions;
+using Northwind.Domain;
+
+namespace Northwind.Application.Customers.Queries.GetCustomerDetail
 {
     public class CustomerDetailModel
     {
@@ -13,5 +17,31 @@
         public string Phone { get; set; }
         public string PostalCode { get; set; }
         public string Region { get; set; }
+
+        public static Expression<Func<Customer, CustomerDetailModel>> Projection
+        {
+            get
+            {
+                return customer => new CustomerDetailModel
+                {
+                    Id = customer.CustomerId,
+                    Address = customer.Address,
+                    City = customer.City,
+                    CompanyName = customer.CompanyName,
+                    ContactName = customer.ContactName,
+                    ContactTitle = customer.ContactTitle,
+                    Country = customer.Country,
+                    Fax = customer.Fax,
+                    Phone = customer.Phone,
+                    PostalCode = customer.PostalCode,
+                    Region = customer.Region
+                };
+            }
+        }
+
+        public static CustomerDetailModel Create(Customer customer)
+        {
+            return Projection.Compile().Invoke(customer);
+        }
     }
 }

@@ -1,5 +1,5 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!--<Import Project="..\Northwind.CodeAnalysis.targets" />-->
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
