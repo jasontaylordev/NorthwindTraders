@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using Northwind.Application.Customers.Queries.GetCustomersList;
-using Northwind.Common.Dates;
+using Northwind.Common;
 
 namespace Northwind.Web.Infrastructure
 {
