@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Products.Commands;
 using Northwind.Application.Products.Models;
@@ -10,50 +9,43 @@ namespace Northwind.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
-        private readonly IMediator _mediator;
-
-        public ProductsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
-
         // GET: api/Products
         [HttpGet]
         public async Task<IEnumerable<ProductDto>> GetProducts()
         {
-            return await _mediator.Send(new GetAllProductsQuery());
+            return await Mediator.Send(new GetAllProductsQuery());
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
-            return Ok(await _mediator.Send(new GetProductQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetProductQuery(id)));
         }
 
         // POST: api/Products
         [HttpPost]
-        public async Task<IActionResult> PostProduct([FromBody] ProductDto product)
+        public async Task<IActionResult> PostProduct([FromBody] CreateProductCommand command)
         {
-            var newProduct = await _mediator.Send(new CreateProductCommand { Product = product });
+            var newProduct = await Mediator.Send(command);
 
             return CreatedAtAction("GetProduct", new { id = newProduct.ProductId }, newProduct);
         }
 
         // PUT: api/Products/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct([FromBody] ProductDto product)
+        public async Task<IActionResult> PutProduct([FromBody] UpdateProductCommand command)
         {
-            return Ok(await _mediator.Send(new UpdateProductCommand { Product = product }));
+            return Ok(await Mediator.Send(command));
         }
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            await _mediator.Send(new DeleteProductCommand { Id = id });
+            await Mediator.Send(new DeleteProductCommand(id));
 
             return NoContent();
         }

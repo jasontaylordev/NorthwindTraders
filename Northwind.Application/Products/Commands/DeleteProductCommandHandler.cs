@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Exceptions;
@@ -23,6 +24,12 @@ namespace Northwind.Application.Products.Commands
             if (entity == null)
             {
                 throw new EntityNotFoundException(nameof(Product), request.Id);
+            }
+
+            var hasOrders = _context.OrderDetails.Any(od => od.ProductId == entity.ProductId);
+            if (hasOrders)
+            {
+                throw new EntityDeleteFailureException(nameof(Product), request.Id, "There are existing orders associated with this product.");
             }
 
             _context.Products.Remove(entity);
