@@ -1,16 +1,19 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
+using Northwind.Application.Customers.Models;
 using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Customers.Commands.CreateCustomer
+namespace Northwind.Application.Customers.Commands
 {
-    public class CreateCustomerCommand : ICreateCustomerCommand
+    public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CustomerDetailModel>
     {
         private readonly NorthwindDbContext _context;
         private readonly INotificationService _notificationService;
 
-        public CreateCustomerCommand(
+        public CreateCustomerCommandHandler(
             NorthwindDbContext context,
             INotificationService notificationService)
         {
@@ -18,8 +21,10 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
             _notificationService = notificationService;
         }
 
-        public async Task Execute(CreateCustomerModel model)
+        public async Task<CustomerDetailModel> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
+            var model = request.Customer;
+
             var entity = new Customer
             {
                 CustomerId = model.Id,
@@ -36,9 +41,11 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 
             _context.Customers.Add(entity);
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             _notificationService.Send();
+
+            return CustomerDetailModel.Create(entity);
         }
     }
 }

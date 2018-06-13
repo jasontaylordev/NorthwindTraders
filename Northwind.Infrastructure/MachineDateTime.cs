@@ -1,6 +1,7 @@
 ﻿using System;
+using Northwind.Common;
 
-namespace Northwind.Common
+namespace Northwind.Infrastructure
 {
     public class MachineDateTime : IDateTime
     {

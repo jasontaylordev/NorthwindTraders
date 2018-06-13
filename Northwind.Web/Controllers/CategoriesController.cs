@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,8 @@ namespace Northwind.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryPreviewDto>>> GetCategoryPreview(
+        [ProducesResponseType(typeof(IEnumerable<CategoryPreviewDto>), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetCategoryPreview(
             [FromQuery] GetCategoryPreviewQuery query)
         {
             return Ok(await _mediator.Send(query));

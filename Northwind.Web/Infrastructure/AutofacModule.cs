@@ -1,6 +1,7 @@
 ﻿using Autofac;
-using Northwind.Application.Customers.Queries.GetCustomersList;
+using Northwind.Application.Customers.Queries;
 using Northwind.Common;
+using Northwind.Infrastructure;
 
 namespace Northwind.Web.Infrastructure
 {
@@ -8,7 +9,7 @@ namespace Northwind.Web.Infrastructure
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(typeof(GetCustomersListQuery).Assembly)
+            builder.RegisterAssemblyTypes(typeof(GetCustomersListQueryHandler).Assembly)
                 .Where(x => x.Name.EndsWith("Command") || x.Name.EndsWith("Query") || x.Name.EndsWith("Service"))
                 .AsImplementedInterfaces();
 

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
+using Northwind.Application.Customers.Models;
 
-namespace Northwind.Application.Customers.Commands.CreateCustomer
+namespace Northwind.Application.Customers.Validators
 {
     public class CreateCustomerModelValidator : AbstractValidator<CreateCustomerModel>
     {

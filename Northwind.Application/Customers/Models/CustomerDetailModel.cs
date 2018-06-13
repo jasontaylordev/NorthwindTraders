@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using Northwind.Domain.Entities;
 
-namespace Northwind.Application.Customers.Queries.GetCustomerDetail
+namespace Northwind.Application.Customers.Models
 {
     public class CustomerDetailModel
     {

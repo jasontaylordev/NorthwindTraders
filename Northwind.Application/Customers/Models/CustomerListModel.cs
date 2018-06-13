@@ -1,4 +1,4 @@
-﻿namespace Northwind.Application.Customers.Queries.GetCustomersList
+﻿namespace Northwind.Application.Customers.Models
 {
     public class CustomerListModel
     {

@@ -1,4 +1,4 @@
-﻿namespace Northwind.Application.Customers.Commands.UpdateCustomer
+﻿namespace Northwind.Application.Customers.Models
 {
     public class UpdateCustomerModel
     {
