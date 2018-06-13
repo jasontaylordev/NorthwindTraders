@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Reports.Queries;
 using Northwind.Domain;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Northwind.Persistence;
 using Xunit;
@@ -28,8 +29,9 @@ FROM employees AS e
 JOIN employees AS m ON e.ReportsTo = m.EmployeeID
 WHERE e.ReportsTo is not null");
 
-            var query = new EmployeesWithManagersViewQuery(context);
-            var result = await query.Execute();
+            var query = new EmployeesWithManagersViewQuery();
+            var queryHandler = new EmployeesWithManagersViewQueryHandler(context);
+            var result = await queryHandler.Handle(query, CancellationToken.None);
 
             Assert.NotEmpty(result);
             Assert.Equal(8, result.Count());

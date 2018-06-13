@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Northwind.Application.Reports.Queries
+﻿namespace Northwind.Application.Reports.Models
 {
     public class EmployeeManagerModel
     {

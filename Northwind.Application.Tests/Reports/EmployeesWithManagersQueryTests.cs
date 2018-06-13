@@ -1,6 +1,7 @@
 ﻿using Northwind.Application.Reports.Queries;
 using Northwind.Domain;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Northwind.Persistence;
 using Xunit;
@@ -15,8 +16,9 @@ namespace Northwind.Application.Tests.Reports
             var context = GetDbContext(useSqlLite: true);
             NorthwindInitializer.Initialize(context);
 
-            var query = new EmployeesWithManagersQuery(context);
-            var result = await query.Execute();
+            var query = new EmployeesWithManagersQuery();
+            var queryHandler = new EmployeesWithManagersQueryHandler(context);
+            var result = await queryHandler.Handle(query, CancellationToken.None);
 
             Assert.NotEmpty(result);
             Assert.Equal(8, result.Count());
