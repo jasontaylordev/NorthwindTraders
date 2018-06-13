@@ -9,7 +9,7 @@ using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Queries
 {
-    public class GetProductQueryHandler : MediatR.IRequestHandler<GetProductQuery, ProductDto>
+    public class GetProductQueryHandler : MediatR.IRequestHandler<GetProductQuery, ProductViewModel>
     {
         private readonly NorthwindDbContext _context;
 
@@ -18,7 +18,7 @@ namespace Northwind.Application.Products.Queries
             _context = context;
         }
 
-        public async Task<ProductDto> Handle(GetProductQuery request, CancellationToken cancellationToken)
+        public async Task<ProductViewModel> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
             var product = await _context.Products
                 .Where(p => p.ProductId == request.Id)
@@ -30,7 +30,15 @@ namespace Northwind.Application.Products.Queries
                 throw new EntityNotFoundException(nameof(Product), request.Id);
             }
 
-            return product;
+            // TODO: Set view model state based on user permissions.
+            var model = new ProductViewModel
+            {
+                Product = product,
+                EditEnabled = true,
+                DeleteEnabled = false
+            };
+
+            return model;
         }
     }
 }

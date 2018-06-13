@@ -13,7 +13,7 @@ namespace Northwind.Web.Controllers
     {
         // GET: api/Products
         [HttpGet]
-        public async Task<IEnumerable<ProductDto>> GetProducts()
+        public async Task<ProductsListViewModel> GetProducts()
         {
             return await Mediator.Send(new GetAllProductsQuery());
         }

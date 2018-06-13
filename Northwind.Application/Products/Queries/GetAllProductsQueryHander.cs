@@ -9,7 +9,7 @@ using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Queries
 {
-    public class GetAllProductsQueryHander : IRequestHandler<GetAllProductsQuery, IEnumerable<ProductDto>>
+    public class GetAllProductsQueryHander : IRequestHandler<GetAllProductsQuery, ProductsListViewModel>
     {
         private readonly NorthwindDbContext _context;
 
@@ -18,12 +18,19 @@ namespace Northwind.Application.Products.Queries
             _context = context;
         }
 
-        public async Task<IEnumerable<ProductDto>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
+        public async Task<ProductsListViewModel> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Products
-                .Select(ProductDto.Projection)
-                .OrderBy(p => p.ProductName)
-                .ToListAsync(cancellationToken);
+            // TODO: Set view model state based on user permissions.
+            var model = new ProductsListViewModel
+            {
+                Products = await _context.Products
+                    .Select(ProductDto.Projection)
+                    .OrderBy(p => p.ProductName)
+                    .ToListAsync(cancellationToken),
+                CreateEnabled = true
+            };
+
+            return model;
         }
     }
 }

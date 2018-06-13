@@ -3,7 +3,7 @@ using Northwind.Application.Products.Models;
 
 namespace Northwind.Application.Products.Queries
 {
-    public class GetProductQuery : IRequest<ProductDto>
+    public class GetProductQuery : IRequest<ProductViewModel>
     {
         public GetProductQuery()
         {
