@@ -12,9 +12,13 @@ namespace Northwind.Application.Products.Models
 
         public decimal? UnitPrice { get; set; }
 
-        public string CategoryName { get; set; }
+        public int? SupplierId { get; set; }
 
         public string SupplierCompanyName { get; set; }
+
+        public int? CategoryId { get; set; }
+
+        public string CategoryName { get; set; }
 
         public bool Discontinued { get; set; }
 
@@ -27,9 +31,13 @@ namespace Northwind.Application.Products.Models
                     ProductId = p.ProductId,
                     ProductName = p.ProductName,
                     UnitPrice = p.UnitPrice,
-                    CategoryName = p.Category.CategoryName,
-                    SupplierCompanyName = p.Supplier.CompanyName,
-                    Discontinued = p.Discontinued,
+                    SupplierId = p.SupplierId,
+                    SupplierCompanyName = p.SupplierId.HasValue
+                        ? p.Supplier.CompanyName : string.Empty,
+                    CategoryId = p.CategoryId,
+                    CategoryName = p.CategoryId.HasValue
+                        ? p.Category.CategoryName : string.Empty,
+                    Discontinued = p.Discontinued
                 };
             }
         }

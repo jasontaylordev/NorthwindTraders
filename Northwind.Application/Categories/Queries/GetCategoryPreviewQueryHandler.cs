@@ -11,9 +11,9 @@ namespace Northwind.Application.Categories.Queries
 {
     public class GetCategoryPreviewQueryHandler : IRequestHandler<GetCategoryPreviewQuery, CategoryPreviewDto>
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public GetCategoryPreviewQueryHandler(NorthwindContext context)
+        public GetCategoryPreviewQueryHandler(NorthwindDbContext context)
         {
             _context = context;
         }

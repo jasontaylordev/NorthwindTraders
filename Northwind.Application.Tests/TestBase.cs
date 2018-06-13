@@ -9,9 +9,9 @@ namespace Northwind.Application.Tests
     {
         private bool useSqlite;
 
-        public NorthwindContext GetDbContext()
+        public NorthwindDbContext GetDbContext()
         {
-            var builder = new DbContextOptionsBuilder<NorthwindContext>();
+            var builder = new DbContextOptionsBuilder<NorthwindDbContext>();
             if (useSqlite)
             {
                 // Use Sqlite DB.
@@ -23,7 +23,7 @@ namespace Northwind.Application.Tests
                 builder.UseInMemoryDatabase(Guid.NewGuid().ToString());
             }
 
-            var dbContext = new NorthwindContext(builder.Options);
+            var dbContext = new NorthwindDbContext(builder.Options);
             if (useSqlite)
             {
                 // SQLite needs to open connection to the DB.

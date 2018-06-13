@@ -7,9 +7,9 @@ namespace Northwind.Application.Customers.Queries.GetCustomerDetail
 {
     public class GetCustomerDetailQuery : IGetCustomerDetailQuery
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public GetCustomerDetailQuery(NorthwindContext context)
+        public GetCustomerDetailQuery(NorthwindDbContext context)
         {
             _context = context;
         }

@@ -62,7 +62,7 @@ namespace Northwind.Application.Tests.Managers
             }));
         }
 
-        private NorthwindContext InitAndGetDbContext()
+        private NorthwindDbContext InitAndGetDbContext()
         {
             //UseSqlite();
             var context = GetDbContext();

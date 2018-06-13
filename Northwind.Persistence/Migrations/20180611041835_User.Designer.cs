@@ -9,7 +9,7 @@ using Northwind.Domain;
 
 namespace Northwind.Persistence.Migrations
 {
-    [DbContext(typeof(NorthwindContext))]
+    [DbContext(typeof(NorthwindDbContext))]
     [Migration("20180611041835_User")]
     partial class User
     {

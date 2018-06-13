@@ -7,9 +7,9 @@ namespace Northwind.Application.Customers.Commands.DeleteCustomer
 {
     public class DeleteCustomerCommand : IDeleteCustomerCommand
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public DeleteCustomerCommand(NorthwindContext context)
+        public DeleteCustomerCommand(NorthwindDbContext context)
         {
             _context = context;
         }

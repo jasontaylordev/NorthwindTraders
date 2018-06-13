@@ -5,9 +5,9 @@ using Northwind.Domain.Entities;
 
 namespace Northwind.Persistence
 {
-    public class NorthwindContext : DbContext
+    public class NorthwindDbContext : DbContext
     {
-        public NorthwindContext(DbContextOptions<NorthwindContext> options)
+        public NorthwindDbContext(DbContextOptions<NorthwindDbContext> options)
             : base(options)
         {
         }

@@ -13,13 +13,13 @@ namespace Northwind.Persistence
         private readonly Dictionary<int, Shipper> Shippers = new Dictionary<int, Shipper>();
         private readonly Dictionary<int, Product> Products = new Dictionary<int, Product>();
 
-        public static void Initialize(NorthwindContext context)
+        public static void Initialize(NorthwindDbContext context)
         {
             var initializer = new NorthwindInitializer();
             initializer.SeedEverything(context);
         }
 
-        public void SeedEverything(NorthwindContext context)
+        public void SeedEverything(NorthwindDbContext context)
         {
             context.Database.EnsureCreated();
 
@@ -47,7 +47,7 @@ namespace Northwind.Persistence
             SeedOrders(context);
         }
 
-        public void SeedCustomers(NorthwindContext context)
+        public void SeedCustomers(NorthwindDbContext context)
         {
             var customers = new[]
             {
@@ -149,7 +149,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedRegions(NorthwindContext context)
+        private void SeedRegions(NorthwindDbContext context)
         {
             var regions = new[]
             {
@@ -164,7 +164,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedTerritories(NorthwindContext context)
+        private void SeedTerritories(NorthwindDbContext context)
         {
             var territories = new[]
             {
@@ -228,7 +228,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedEmployees(NorthwindContext context)
+        private void SeedEmployees(NorthwindDbContext context)
         {
             Employees.Add(2,
                 new Employee
@@ -511,7 +511,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedCategories(NorthwindContext context)
+        private void SeedCategories(NorthwindDbContext context)
         {
             Categories.Add(1, new Category
             {
@@ -577,7 +577,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedShippers(NorthwindContext context)
+        private void SeedShippers(NorthwindDbContext context)
         {
             Shippers.Add(1, new Shipper { CompanyName = "Speedy Express", Phone = "(503) 555-9831" });
             Shippers.Add(2, new Shipper { CompanyName = "United Package", Phone = "(503) 555-3199" });
@@ -591,7 +591,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedSuppliers(NorthwindContext context)
+        private void SeedSuppliers(NorthwindDbContext context)
         {
             Suppliers.Add(1, new Supplier { CompanyName = "Exotic Liquids", ContactName = "Charlotte Cooper", ContactTitle = "Purchasing Manager", Address = "49 Gilbert St.", City = "London", PostalCode = "EC1 4SD", Fax = "", Phone = "(171) 555-2222", HomePage = "" });
             Suppliers.Add(2, new Supplier { CompanyName = "New Orleans Cajun Delights", ContactName = "Shelley Burke", ContactTitle = "Order Administrator", Address = "P.O. Box 78934", City = "New Orleans", Region = "LA", PostalCode = "70117", Fax = "", Phone = "(100) 555-4822", HomePage = "#CAJUN.HTM#" });
@@ -631,7 +631,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedProducts(NorthwindContext context)
+        private void SeedProducts(NorthwindDbContext context)
         {
             Products.Add(1, new Product { ProductName = "Chai", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "10 boxes x 20 bags", UnitPrice = 18.00m, UnitsInStock = 39, UnitsOnOrder = 0, ReorderLevel = 10, Discontinued = false });
             Products.Add(2, new Product { ProductName = "Chang", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "24 - 12 oz bottles", UnitPrice = 19.00m, UnitsInStock = 17, UnitsOnOrder = 40, ReorderLevel = 25, Discontinued = false });
@@ -719,7 +719,7 @@ namespace Northwind.Persistence
             context.SaveChanges();
         }
 
-        private void SeedOrders(NorthwindContext context)
+        private void SeedOrders(NorthwindDbContext context)
         {
             var orders = new List<Order>();
 

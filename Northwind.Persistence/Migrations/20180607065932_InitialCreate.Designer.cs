@@ -9,7 +9,7 @@ using Northwind.Domain;
 
 namespace Northwind.Persistence.Migrations
 {
-    [DbContext(typeof(NorthwindContext))]
+    [DbContext(typeof(NorthwindDbContext))]
     [Migration("20180607065932_InitialCreate")]
     partial class InitialCreate
     {

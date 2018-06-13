@@ -7,9 +7,9 @@ namespace Northwind.Application.Managers.Commands
 {
     public class ChangeEmployeeReportToCommand : IChangeEmployeeReportToCommand
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public ChangeEmployeeReportToCommand(NorthwindContext context)
+        public ChangeEmployeeReportToCommand(NorthwindDbContext context)
         {
             _context = context;
         }

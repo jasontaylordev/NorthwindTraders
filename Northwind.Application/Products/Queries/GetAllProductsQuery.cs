@@ -1,13 +1,29 @@
-﻿using System.Collections.Generic;
-using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Products.Models;
+using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Queries
 {
-    public class GetAllProductsQuery : IRequest, IRequest<IEnumerable<ProductDto>>
+    public class GetAllProductsQuery : IGetAllProductsQuery
     {
-        public int PageIndex { get; set; }
+        private readonly NorthwindDbContext _context;
 
-        public int PageSize { get; set; }
+        public GetAllProductsQuery(NorthwindDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<ProductDto>> Execute()
+        {
+            return await _context.Products
+                .Select(ProductDto.Projection)
+                .OrderBy(p => p.ProductName)
+                .ToListAsync();
+        }
     }
 }

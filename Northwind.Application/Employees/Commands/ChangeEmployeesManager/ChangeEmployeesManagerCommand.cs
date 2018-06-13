@@ -6,9 +6,9 @@ namespace Northwind.Application.Employees.Commands.ChangeEmployeesManager
 {
     public class ChangeEmployeesManagerCommand : IChangeEmployeesManagerCommand
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public ChangeEmployeesManagerCommand(NorthwindContext context)
+        public ChangeEmployeesManagerCommand(NorthwindDbContext context)
         {
             _context = context;
         }

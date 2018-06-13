@@ -7,11 +7,11 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 {
     public class CreateCustomerCommand : ICreateCustomerCommand
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
         private readonly INotificationService _notificationService;
 
         public CreateCustomerCommand(
-            NorthwindContext context,
+            NorthwindDbContext context,
             INotificationService notificationService)
         {
             _context = context;

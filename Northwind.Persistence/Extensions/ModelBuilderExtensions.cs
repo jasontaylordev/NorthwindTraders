@@ -14,7 +14,7 @@ namespace Northwind.Persistence.Extensions
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .First(m => m.Name.Equals("ApplyConfiguration", StringComparison.OrdinalIgnoreCase));
 
-            typeof(NorthwindContext).Assembly
+            typeof(NorthwindDbContext).Assembly
                 .GetTypes()
                 .Select(type => (type,
                     i: type.GetInterfaces()

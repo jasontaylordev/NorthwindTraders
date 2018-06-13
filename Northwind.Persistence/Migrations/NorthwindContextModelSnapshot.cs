@@ -8,7 +8,7 @@ using Northwind.Domain;
 
 namespace Northwind.Persistence.Migrations
 {
-    [DbContext(typeof(NorthwindContext))]
+    [DbContext(typeof(NorthwindDbContext))]
     partial class NorthwindContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

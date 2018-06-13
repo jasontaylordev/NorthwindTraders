@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NJsonSchema;
 using Northwind.Web.Infrastructure;
-using Northwind.Domain;
 using NSwag.AspNetCore;
 using System.Reflection;
 using MediatR;
@@ -15,6 +14,7 @@ using MediatR.Pipeline;
 using Northwind.Application.Infrastructure;
 using Northwind.Application.Products.Queries;
 using Northwind.Persistence;
+using Northwind.Web.Filters;
 
 namespace Northwind.Web
 {
@@ -34,10 +34,10 @@ namespace Northwind.Web
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddMediatR(typeof(GetProductQuery).GetTypeInfo().Assembly);
-            services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
+            services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
             services.AddSwagger();
             services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
-            services.AddMvc();
+            services.AddMvc(options => { options.Filters.Add(typeof(CustomExceptionFilterAttribute)); });
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -46,7 +46,7 @@ namespace Northwind.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, NorthwindContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, NorthwindDbContext context)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();

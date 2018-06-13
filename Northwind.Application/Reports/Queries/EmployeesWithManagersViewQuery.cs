@@ -9,9 +9,9 @@ namespace Northwind.Application.Reports.Queries
 {
     public class EmployeesWithManagersViewQuery
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public EmployeesWithManagersViewQuery(NorthwindContext context)
+        public EmployeesWithManagersViewQuery(NorthwindDbContext context)
         {
             _context = context;
         }

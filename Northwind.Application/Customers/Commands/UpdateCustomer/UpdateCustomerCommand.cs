@@ -8,9 +8,9 @@ namespace Northwind.Application.Customers.Commands.UpdateCustomer
 {
     public class UpdateCustomerCommand : IUpdateCustomerCommand
     {
-        private readonly NorthwindContext _context;
+        private readonly NorthwindDbContext _context;
 
-        public UpdateCustomerCommand(NorthwindContext context)
+        public UpdateCustomerCommand(NorthwindDbContext context)
         {
             _context = context;
         }
