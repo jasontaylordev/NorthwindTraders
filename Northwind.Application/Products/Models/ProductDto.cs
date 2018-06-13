@@ -32,10 +32,10 @@ namespace Northwind.Application.Products.Models
                     ProductName = p.ProductName,
                     UnitPrice = p.UnitPrice,
                     SupplierId = p.SupplierId,
-                    SupplierCompanyName = p.SupplierId.HasValue
+                    SupplierCompanyName = p.Supplier != null
                         ? p.Supplier.CompanyName : string.Empty,
                     CategoryId = p.CategoryId,
-                    CategoryName = p.CategoryId.HasValue
+                    CategoryName = p.Category != null
                         ? p.Category.CategoryName : string.Empty,
                     Discontinued = p.Discontinued
                 };

@@ -39,8 +39,15 @@ namespace Northwind.Web.Controllers
         // PUT: api/Products/5
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ProductDto), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> PutProduct([FromBody] UpdateProductCommand command)
+        public async Task<IActionResult> PutProduct(
+            [FromRoute] int id,
+            [FromBody] UpdateProductCommand command)
         {
+            if (id != command.Product.ProductId)
+            {
+                return BadRequest();
+            }
+
             return Ok(await Mediator.Send(command));
         }
 
