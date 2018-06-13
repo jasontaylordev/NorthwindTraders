@@ -1,15 +1,15 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Categories.Models;
-using Northwind.Domain;
 using Northwind.Persistence;
 
 namespace Northwind.Application.Categories.Queries
 {
-    public class GetCategoryPreviewQueryHandler : IRequestHandler<GetCategoryPreviewQuery, CategoryPreviewDto>
+    public class GetCategoryPreviewQueryHandler : IRequestHandler<GetCategoryPreviewQuery, IEnumerable<CategoryPreviewDto>>
     {
         private readonly NorthwindDbContext _context;
 
@@ -18,14 +18,26 @@ namespace Northwind.Application.Categories.Queries
             _context = context;
         }
 
-        public async Task<CategoryPreviewDto> Handle(GetCategoryPreviewQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<CategoryPreviewDto>> Handle(GetCategoryPreviewQuery request, CancellationToken cancellationToken)
         {
             Thread.Sleep(500);
 
+            // BUG: This nested projection results in N + 1
             return await _context.Categories
                 .Select(CategoryPreviewDto.Projection)
-                .Where(c => c.CategoryId == request.CategoryId)
-                .FirstAsync(cancellationToken);
+                .ToListAsync(cancellationToken);
+
+            /*
+            Temporary Fix - load data into memory and project in-memory.
+
+            var data = await _context.Categories
+                .Include(c => c.Products)
+                .ToListAsync(cancellationToken);
+
+            return data.AsQueryable()
+                .Select(CategoryPreviewDto.Projection)
+                .ToList();
+             */
         }
     }
 }

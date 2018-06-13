@@ -1,9 +1,10 @@
-﻿using MediatR;
+﻿using System.Collections.Generic;
+using MediatR;
 using Northwind.Application.Categories.Models;
 
 namespace Northwind.Application.Categories.Queries
 {
-    public class GetCategoryPreviewQuery : IRequest<CategoryPreviewDto>
+    public class GetCategoryPreviewQuery : IRequest<IEnumerable<CategoryPreviewDto>>
     {
         public int CategoryId { get; set; }
     }
