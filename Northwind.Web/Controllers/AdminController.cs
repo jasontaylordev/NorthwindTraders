@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Northwind.Application.Employees.Commands;
 using Northwind.Application.Employees.Models;
 using Northwind.Application.Employees.Queries;
+using Northwind.Web.Infrastructure;
 
 namespace Northwind.Web.Controllers
 {

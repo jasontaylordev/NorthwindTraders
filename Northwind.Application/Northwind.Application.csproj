@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
-    <PackageReference Include="FluentValidation" Version="7.6.100" />
+    <PackageReference Include="FluentValidation" Version="7.6.101" />
     <PackageReference Include="MediatR" Version="5.0.1" />
   </ItemGroup>
 

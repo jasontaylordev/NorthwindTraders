@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Northwind.Web.Controllers
+namespace Northwind.Web.Infrastructure
 {
     public abstract class BaseController : Controller
     {

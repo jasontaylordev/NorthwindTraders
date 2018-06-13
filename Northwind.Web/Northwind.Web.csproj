@@ -15,8 +15,9 @@
 		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
 		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
-		<PackageReference Include="NSwag.AspNetCore" Version="11.17.13" />
+		<PackageReference Include="NSwag.AspNetCore" Version="11.17.14" />
 		<PackageReference Include="Seq.Extensions.Logging" Version="4.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="7.6.101" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj" />

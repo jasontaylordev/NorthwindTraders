@@ -2,7 +2,7 @@ using Northwind.Domain.Exceptions;
 using Northwind.Domain.ValueObjects;
 using Xunit;
 
-namespace Northwind.Domain.Tests
+namespace Northwind.Domain.Tests.ValueObjects
 {
     public class AdAccountTests
     {

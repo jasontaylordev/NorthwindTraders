@@ -9,8 +9,10 @@ using NJsonSchema;
 using Northwind.Web.Infrastructure;
 using NSwag.AspNetCore;
 using System.Reflection;
+using FluentValidation.AspNetCore;
 using MediatR;
 using MediatR.Pipeline;
+using Northwind.Application.Customers.Models;
 using Northwind.Application.Infrastructure;
 using Northwind.Application.Products.Queries;
 using Northwind.Persistence;
@@ -31,13 +33,25 @@ namespace Northwind.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            // Add MediatR
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
-            services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
+            // Add DbContext using SQL Server Provider
+            services.AddDbContext<NorthwindDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
+            // Add Open API support (will generate specification document)
             services.AddSwagger();
+            // Add Logging + Seq
             services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
-            services.AddMvc(options => { options.Filters.Add(typeof(CustomExceptionFilterAttribute)); });
+            // Mvc + Custom Excception Filter
+            services
+                .AddMvc(options =>
+                {
+                    options.Filters.Add(typeof(CustomExceptionFilterAttribute));
+                })
+                .AddFluentValidation(fv => 
+                    fv.RegisterValidatorsFromAssemblyContaining<CustomerDetailModel>());
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

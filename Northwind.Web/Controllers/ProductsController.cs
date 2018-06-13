@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Products.Commands;
 using Northwind.Application.Products.Models;
 using Northwind.Application.Products.Queries;
+using Northwind.Web.Infrastructure;
 
 namespace Northwind.Web.Controllers
 {

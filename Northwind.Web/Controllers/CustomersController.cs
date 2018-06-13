@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Northwind.Application.Customers.Commands;
 using Northwind.Application.Customers.Models;
 using Northwind.Application.Customers.Queries;
+using Northwind.Web.Infrastructure;
 
 namespace Northwind.Web.Controllers
 {
