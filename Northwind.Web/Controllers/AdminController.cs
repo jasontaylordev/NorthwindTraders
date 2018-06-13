@@ -1,25 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Northwind.Application.Employees.Commands.ChangeEmployeesManager;
-using Northwind.Application.Employees.Queries.EmployeesWithManagers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Northwind.Application.Employees.Commands;
+using Northwind.Application.Employees.Models;
+using Northwind.Application.Employees.Queries;
 
 namespace Northwind.Web.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]/[action]")]
-    public class AdminController
+    public class AdminController : BaseController
     {
-        [HttpPost]
-        public void ChangeEmployeeManager([FromServices] IChangeEmployeesManagerCommand command, [FromBody] ChangeEmployeeManagerModel model)
+        [HttpGet("[action]")]
+        public async Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport()
         {
-            command.Execute(model);
+            return await Mediator.Send(new EmployeesWithManagersQuery());
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport([FromServices] IEmployeesWithManagersQuery query)
+        [HttpPost]
+        public IActionResult ChangeEmployeeManager(ChangeEmployeesManagerCommand command)
         {
-            return await query.Execute();
+            Mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

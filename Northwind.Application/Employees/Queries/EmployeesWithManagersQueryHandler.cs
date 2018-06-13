@@ -1,22 +1,24 @@
-﻿using Dapper;
-using Microsoft.EntityFrameworkCore;
-using Northwind.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using Dapper;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Northwind.Application.Employees.Models;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Employees.Queries.EmployeesWithManagers
+namespace Northwind.Application.Employees.Queries
 {
-    public class EmployeesWithManagersQuery : IEmployeesWithManagersQuery
+    public class EmployeesWithManagersQueryHandler : IRequestHandler<EmployeesWithManagersQuery, IEnumerable<EmployeeManagerModel>>
     {
         private readonly NorthwindDbContext _context;
 
-        public EmployeesWithManagersQuery(NorthwindDbContext context)
+        public EmployeesWithManagersQueryHandler(NorthwindDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<EmployeeManagerModel>> Execute()
+        public async Task<IEnumerable<EmployeeManagerModel>> Handle(EmployeesWithManagersQuery request, CancellationToken cancellationToken)
         {
             var sql = @"
 SELECT e.EmployeeId as EmployeeId, e.FirstName as EmployeeFirstName, e.LastName as EmployeeLastName, e.Title as EmployeeTitle,

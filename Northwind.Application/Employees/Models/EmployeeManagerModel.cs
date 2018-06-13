@@ -1,4 +1,4 @@
-﻿namespace Northwind.Application.Employees.Queries.EmployeesWithManagers
+﻿namespace Northwind.Application.Employees.Models
 {
     public class EmployeeManagerModel
     {
