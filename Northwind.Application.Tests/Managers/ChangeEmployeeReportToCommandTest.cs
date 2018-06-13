@@ -1,70 +1,77 @@
 ﻿using Northwind.Application.Managers.Commands;
 using System;
-using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 using Xunit;
 
 namespace Northwind.Application.Tests.Managers
 {
-    public class ChangeEmployeeReportToCommandTest
-        : TestBase
+    public class ChangeEmployeeReportToCommandTest 
+        : TestBase, IDisposable
     {
-        [Fact]
-        public void ShouldMoveEmployeeUnderManager()
+        private readonly NorthwindDbContext _context;
+        private readonly ChangeEmployeeReportToCommandHandler _commandHandler;
+
+        public ChangeEmployeeReportToCommandTest()
         {
-            // Prepare
-            var context = InitAndGetDbContext();
-            var command = new ChangeEmployeeReportToCommand(context);
-
-            // Execute
-            int reportTo = 2;
-            command.Execute(new EmployeeUnderManagerModel
-            {
-                EmployeeId = 1,
-                ManagerId = reportTo
-            });
-
-            // Asses
-            Assert.Single(context.Employees
-                .Where(e => e.EmployeeId == 1 && e.ReportsTo == reportTo));
+            _context = InitAndGetDbContext();
+            _commandHandler = new ChangeEmployeeReportToCommandHandler(_context);
         }
 
         [Fact]
-        public void ShouldFailForNonExistingManager()
+        public async Task ShouldMoveEmployeeUnderManager()
         {
-            // Prepare
-            var context = InitAndGetDbContext();
-            var command = new ChangeEmployeeReportToCommand(context);
-
-            // Execute and asses
-            int reportTo = 3;
-            Assert.Throws<ArgumentException>(() => command.Execute(new EmployeeUnderManagerModel
+            // Arrange
+            var command = new ChangeEmployeeReportToCommand
             {
                 EmployeeId = 1,
-                ManagerId = reportTo
-            }));
+                ManagerId = 2
+            };
+
+            // Act
+            await _commandHandler.Handle(command, CancellationToken.None);
+
+            var employee = await _context.Employees.FindAsync(command.EmployeeId);
+
+            // Assert
+            Assert.Equal(employee.ReportsTo, command.ManagerId);
         }
-        
-        [Fact]
-        public void ShouldNotBeManagerOfItself()
-        {
-            // Prepare
-            var context = InitAndGetDbContext();
-            var command = new ChangeEmployeeReportToCommand(context);
 
-            // Execute and asses
-            int reportTo = 1;
-            Assert.Throws<ArgumentException>(() => command.Execute(new EmployeeUnderManagerModel
+        [Fact]
+        public async Task ShouldFailForNonExistingManager()
+        {
+            // Arrange
+            var command = new ChangeEmployeeReportToCommand
             {
                 EmployeeId = 1,
-                ManagerId = reportTo
-            }));
+                ManagerId = 3
+            };
+
+            // Act + Assert
+            await Assert.ThrowsAsync<ArgumentException>(() =>
+                _commandHandler.Handle(command, CancellationToken.None));
+        }
+
+        [Fact]
+        public async Task ShouldNotBeManagerOfItself()
+        {
+            // Arrange
+            var command = new ChangeEmployeeReportToCommand
+            {
+                EmployeeId = 1,
+                ManagerId = 1
+            };
+
+            // Act + Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => 
+                _commandHandler.Handle(command, CancellationToken.None));
         }
 
         private NorthwindDbContext InitAndGetDbContext()
         {
-            //UseSqlite();
+            //var context = GetDbContext(useSqlLite: true);
             var context = GetDbContext();
 
             context.Employees.Add(new Employee
@@ -80,7 +87,13 @@ namespace Northwind.Application.Tests.Managers
                 LastName = ""
             });
             context.SaveChanges();
+
             return context;
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

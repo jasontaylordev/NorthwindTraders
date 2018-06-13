@@ -12,9 +12,7 @@ namespace Northwind.Application.Tests.Reports
         [Fact]
         public async Task ShouldReturnReport()
         {
-            UseSqlite();
-
-            var context = GetDbContext();
+            var context = GetDbContext(useSqlLite: true);
             NorthwindInitializer.Initialize(context);
 
             var query = new EmployeesWithManagersQuery(context);

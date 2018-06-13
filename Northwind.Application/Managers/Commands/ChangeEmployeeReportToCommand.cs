@@ -1,36 +1,11 @@
-﻿using Northwind.Domain;
-using System;
-using System.Linq;
-using Northwind.Persistence;
+﻿using MediatR;
 
 namespace Northwind.Application.Managers.Commands
 {
-    public class ChangeEmployeeReportToCommand : IChangeEmployeeReportToCommand
+    public class ChangeEmployeeReportToCommand : IRequest
     {
-        private readonly NorthwindDbContext _context;
+        public int EmployeeId { get; set; }
 
-        public ChangeEmployeeReportToCommand(NorthwindDbContext context)
-        {
-            _context = context;
-        }
-
-        public void Execute(EmployeeUnderManagerModel model)
-        {
-            if (model.ManagerId == model.EmployeeId)
-            {
-                throw new ArgumentException("Employee and manager ID must not be the same", nameof(model));
-            }
-
-            var employee = _context.Employees.FirstOrDefault(e => e.EmployeeId == model.EmployeeId);
-            var managerExists = _context.Employees.Any(e => e.EmployeeId == model.ManagerId);
-            if (employee == null || !managerExists)
-            {
-                throw new ArgumentException("Employee or manager not existing.", nameof(model));
-            }
-
-            employee.ReportsTo = model.ManagerId;
-
-            _context.SaveChanges();
-        }
+        public int ManagerId { get; set; }
     }
 }
