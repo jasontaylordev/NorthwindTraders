@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Northwind.Domain
+namespace Northwind.Domain.Entities
 {
     public class Shipper
     {
@@ -13,6 +13,6 @@ namespace Northwind.Domain
         public string CompanyName { get; set; }
         public string Phone { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; private set; }
     }
 }

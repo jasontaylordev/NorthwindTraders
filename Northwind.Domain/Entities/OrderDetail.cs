@@ -1,4 +1,4 @@
-﻿namespace Northwind.Domain
+﻿namespace Northwind.Domain.Entities
 {
     public class OrderDetail
     {

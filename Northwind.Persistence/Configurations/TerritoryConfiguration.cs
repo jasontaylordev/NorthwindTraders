@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Domain;
+using Northwind.Domain.Entities;
 
 namespace Northwind.Persistence.Configurations
 {

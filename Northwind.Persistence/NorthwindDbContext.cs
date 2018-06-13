@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Domain;
 using Northwind.Domain.Entities;
 using Northwind.Persistence.Extensions;
 

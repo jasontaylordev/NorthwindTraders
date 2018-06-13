@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Northwind.Domain
+namespace Northwind.Domain.Entities
 {
     public class Employee
     {
@@ -33,7 +33,7 @@ namespace Northwind.Domain
 
         public Employee Manager { get; set; }
         public ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
-        public ICollection<Employee> DirectReports { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Employee> DirectReports { get; private set; }
+        public ICollection<Order> Orders { get; private set; }
     }
 }

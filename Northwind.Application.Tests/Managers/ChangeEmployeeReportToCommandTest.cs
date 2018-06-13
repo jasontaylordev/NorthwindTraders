@@ -1,7 +1,7 @@
 ﻿using Northwind.Application.Managers.Commands;
-using Northwind.Domain;
 using System;
 using System.Linq;
+using Northwind.Domain.Entities;
 using Northwind.Persistence;
 using Xunit;
 

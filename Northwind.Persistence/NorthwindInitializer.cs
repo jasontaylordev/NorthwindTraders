@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Northwind.Domain;
+using Northwind.Domain.Entities;
 
 namespace Northwind.Persistence
 {
@@ -722,7 +722,6 @@ namespace Northwind.Persistence
         private void SeedOrders(NorthwindDbContext context)
         {
             var orders = new List<Order>();
-
 
             orders.Add(new Order
             {

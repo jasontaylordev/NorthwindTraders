@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Northwind.Domain
+namespace Northwind.Domain.Entities
 {
     public class Category
     {
@@ -14,6 +14,6 @@ namespace Northwind.Domain
         public string Description { get; set; }
         public byte[] Picture { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; private set; }
     }
 }

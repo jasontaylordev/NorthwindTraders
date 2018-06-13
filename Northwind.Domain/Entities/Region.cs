@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Northwind.Domain
+namespace Northwind.Domain.Entities
 {
     public class Region
     {
@@ -12,6 +12,6 @@ namespace Northwind.Domain
         public int RegionId { get; set; }
         public string RegionDescription { get; set; }
 
-        public ICollection<Territory> Territories { get; set; }
+        public ICollection<Territory> Territories { get; private set; }
     }
 }

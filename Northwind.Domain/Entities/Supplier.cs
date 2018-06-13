@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Northwind.Domain
+namespace Northwind.Domain.Entities
 {
     public class Supplier
     {
@@ -22,6 +22,6 @@ namespace Northwind.Domain
         public string Fax { get; set; }
         public string HomePage { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; private set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Domain;
 using System.Threading.Tasks;
 using Northwind.Persistence;
 

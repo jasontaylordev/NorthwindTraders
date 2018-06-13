@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Exceptions;
 using Northwind.Application.Products.Models;
-using Northwind.Domain;
+using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Queries

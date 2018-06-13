@@ -1,6 +1,6 @@
-﻿using Northwind.Domain;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Northwind.Application.Interfaces;
+using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Commands.CreateCustomer

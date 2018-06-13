@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Northwind.Domain;
+using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Categories.Models
 {

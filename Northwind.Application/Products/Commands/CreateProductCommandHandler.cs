@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Products.Models;
-using Northwind.Domain;
+using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Commands
