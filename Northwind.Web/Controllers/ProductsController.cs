@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Products.Commands;
@@ -20,6 +20,7 @@ namespace Northwind.Web.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetProduct(int id)
         {
             return Ok(await Mediator.Send(new GetProductQuery(id)));
@@ -27,6 +28,7 @@ namespace Northwind.Web.Controllers
 
         // POST: api/Products
         [HttpPost]
+        [ProducesResponseType(typeof(ProductDto), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> PostProduct([FromBody] CreateProductCommand command)
         {
             var newProduct = await Mediator.Send(command);
@@ -36,6 +38,7 @@ namespace Northwind.Web.Controllers
 
         // PUT: api/Products/5
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ProductDto), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> PutProduct([FromBody] UpdateProductCommand command)
         {
             return Ok(await Mediator.Send(command));
@@ -43,6 +46,7 @@ namespace Northwind.Web.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             await Mediator.Send(new DeleteProductCommand(id));
