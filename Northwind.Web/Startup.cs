@@ -33,7 +33,7 @@ namespace Northwind.Web
             // Add framework services.
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
-            services.AddMediatR(typeof(GetProductQuery).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
             services.AddDbContext<NorthwindDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
             services.AddSwagger();
             services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
