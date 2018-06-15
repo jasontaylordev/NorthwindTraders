@@ -2,39 +2,41 @@
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Products.Models;
+using Northwind.Application.Products.Queries;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Commands
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, ProductDto>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, ProductViewModel>
     {
         private readonly NorthwindDbContext _context;
+        private readonly IMediator _mediator;
 
-        public CreateProductCommandHandler(NorthwindDbContext context)
+        public CreateProductCommandHandler(
+            NorthwindDbContext context,
+            IMediator mediator)
         {
             _context = context;
+            _mediator = mediator;
         }
 
-        public async Task<ProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<ProductViewModel> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = request.Product;
-
             var entity = new Product
             {
-                ProductId = product.ProductId,
-                ProductName = product.ProductName,
-                CategoryId = product.CategoryId,
-                SupplierId = product.SupplierId,
-                UnitPrice = product.UnitPrice,
-                Discontinued = product.Discontinued
+                ProductName = request.ProductName,
+                CategoryId = request.CategoryId,
+                SupplierId = request.SupplierId,
+                UnitPrice = request.UnitPrice,
+                Discontinued = request.Discontinued
             };
 
             _context.Products.Add(entity);
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return ProductDto.Create(entity);
+            return await _mediator.Send(new GetProductQuery(entity.ProductId), cancellationToken);
         }
     }
 }

@@ -29,12 +29,12 @@ namespace Northwind.Web.Controllers
 
         // POST: api/Products
         [HttpPost]
-        [ProducesResponseType(typeof(ProductDto), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> PostProduct([FromBody] CreateProductCommand command)
         {
-            var newProduct = await Mediator.Send(command);
+            var viewModel = await Mediator.Send(command);
 
-            return CreatedAtAction("GetProduct", new { id = newProduct.ProductId }, newProduct);
+            return CreatedAtAction("GetProduct", new { id = viewModel.Product.ProductId }, viewModel);
         }
 
         // PUT: api/Products/5
