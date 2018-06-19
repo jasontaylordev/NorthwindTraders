@@ -28,7 +28,7 @@ namespace Northwind.Application.Categories.Queries
                 .ToListAsync(cancellationToken);
 
             /*
-            Temporary Fix - load data into memory and project in-memnory.
+            Temporary Fix - load data into memory and project in-memory.
 
             var data = await _context.Categories
                 .Include(c => c.Products)
