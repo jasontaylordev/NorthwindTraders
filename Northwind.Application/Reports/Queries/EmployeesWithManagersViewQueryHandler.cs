@@ -18,11 +18,11 @@ namespace Northwind.Application.Reports.Queries
             _context = context;
         }
 
-        public async Task<IEnumerable<EmployeeManagerModel>> Handle(EmployeesWithManagersViewQuery request, CancellationToken cancellationToken)
+        public Task<IEnumerable<EmployeeManagerModel>> Handle(EmployeesWithManagersViewQuery request, CancellationToken cancellationToken)
         {
             var sql = "select * from viewEmployeesWithManagers";
 
-            return await _context.Database.GetDbConnection()
+            return _context.Database.GetDbConnection()
                 .QueryAsync<EmployeeManagerModel>(sql);
         }
     }

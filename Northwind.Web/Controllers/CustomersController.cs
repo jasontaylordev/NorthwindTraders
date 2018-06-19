@@ -14,9 +14,9 @@ namespace Northwind.Web.Controllers
     {
         // GET api/customers
         [HttpGet]
-        public async Task<IEnumerable<CustomerListModel>> Get()
+        public Task<List<CustomerListModel>> Get()
         {
-            return await Mediator.Send(new GetCustomerListQuery());
+            return Mediator.Send(new GetCustomerListQuery());
         }
 
         // GET api/customers/5

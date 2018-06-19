@@ -9,7 +9,7 @@ using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Queries
 {
-    public class GetCustomersListQueryHandler : IRequestHandler<GetCustomerListQuery, IEnumerable<CustomerListModel>>
+    public class GetCustomersListQueryHandler : IRequestHandler<GetCustomerListQuery, List<CustomerListModel>>
     {
         private readonly NorthwindDbContext _context;
 
@@ -18,9 +18,9 @@ namespace Northwind.Application.Customers.Queries
             _context = context;
         }
 
-        public async Task<IEnumerable<CustomerListModel>> Handle(GetCustomerListQuery request, CancellationToken cancellationToken)
+        public Task<List<CustomerListModel>> Handle(GetCustomerListQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Customers.Select(c =>
+            return _context.Customers.Select(c =>
                 new CustomerListModel
                 {
                     Id = c.CustomerId,

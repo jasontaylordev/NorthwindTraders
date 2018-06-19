@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Northwind.Application.Tests.Managers
 {
-    public class ChangeEmployeeReportToCommandTest 
+    public class ChangeEmployeeReportToCommandTest
         : TestBase, IDisposable
     {
         private readonly NorthwindDbContext _context;
@@ -40,7 +40,7 @@ namespace Northwind.Application.Tests.Managers
         }
 
         [Fact]
-        public async Task ShouldFailForNonExistingManager()
+        public Task ShouldFailForNonExistingManager()
         {
             // Arrange
             var command = new ChangeEmployeeReportToCommand
@@ -50,12 +50,12 @@ namespace Northwind.Application.Tests.Managers
             };
 
             // Act + Assert
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            return Assert.ThrowsAsync<ArgumentException>(() =>
                 _commandHandler.Handle(command, CancellationToken.None));
         }
 
         [Fact]
-        public async Task ShouldNotBeManagerOfItself()
+        public Task ShouldNotBeManagerOfItself()
         {
             // Arrange
             var command = new ChangeEmployeeReportToCommand
@@ -65,7 +65,7 @@ namespace Northwind.Application.Tests.Managers
             };
 
             // Act + Assert
-            await Assert.ThrowsAsync<ArgumentException>(() => 
+            return Assert.ThrowsAsync<ArgumentException>(() =>
                 _commandHandler.Handle(command, CancellationToken.None));
         }
 
