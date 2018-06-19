@@ -18,9 +18,9 @@ namespace Northwind.Domain.ValueObjects
                 Domain = value.Substring(0, index);
                 Name = value.Substring(index + 1);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new AdAccountInvalidException(value);
+                throw new AdAccountInvalidException(value, ex);
             }
         }
 

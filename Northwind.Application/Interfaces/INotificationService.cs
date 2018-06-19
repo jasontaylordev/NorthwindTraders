@@ -1,7 +1,9 @@
-﻿namespace Northwind.Application.Interfaces
+﻿using Northwind.Application.Notifications.Models;
+
+namespace Northwind.Application.Interfaces
 {
     public interface INotificationService
     {
-        void Send();
+        void Send(Message message);
     }
 }

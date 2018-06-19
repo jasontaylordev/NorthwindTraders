@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Customers.Models;
 using Northwind.Application.Interfaces;
+using Northwind.Application.Notifications.Models;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
@@ -43,7 +44,14 @@ namespace Northwind.Application.Customers.Commands
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            _notificationService.Send();
+            _notificationService.Send(new Message
+            {
+                From = "jasontaylor@ssw.com.au",
+                To = "jasontaylor@ssw.com.au",
+                Subject = "MediatR - Events",
+                Body = "Remember to update the create customer command" +
+                       "handler demo to use a MediatR event."
+            });
 
             return CustomerDetailModel.Create(entity);
         }
