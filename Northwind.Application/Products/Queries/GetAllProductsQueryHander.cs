@@ -8,11 +8,11 @@ using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Queries
 {
-    public class GetAllProductsQueryHander : IRequestHandler<GetAllProductsQuery, ProductsListViewModel>
+    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, ProductsListViewModel>
     {
         private readonly NorthwindDbContext _context;
 
-        public GetAllProductsQueryHander(NorthwindDbContext context)
+        public GetAllProductsQueryHandler(NorthwindDbContext context)
         {
             _context = context;
         }
