@@ -4,7 +4,7 @@ using Northwind.Application.Categories.Models;
 
 namespace Northwind.Application.Categories.Queries
 {
-    public class GetCategoryPreviewQuery : IRequest<IEnumerable<CategoryPreviewDto>>
+    public class GetCategoryPreviewQuery : IRequest<List<CategoryPreviewDto>>
     {
         public int CategoryId { get; set; }
     }

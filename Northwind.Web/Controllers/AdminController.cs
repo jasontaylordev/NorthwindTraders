@@ -13,9 +13,9 @@ namespace Northwind.Web.Controllers
     public class AdminController : BaseController
     {
         [HttpGet("[action]")]
-        public async Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport()
+        public Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport()
         {
-            return await Mediator.Send(new EmployeesWithManagersQuery());
+            return Mediator.Send(new EmployeesWithManagersQuery());
         }
 
         [HttpPost]

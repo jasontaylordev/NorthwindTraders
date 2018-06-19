@@ -9,7 +9,7 @@ using Northwind.Persistence;
 
 namespace Northwind.Application.Categories.Queries
 {
-    public class GetCategoryPreviewQueryHandler : IRequestHandler<GetCategoryPreviewQuery, IEnumerable<CategoryPreviewDto>>
+    public class GetCategoryPreviewQueryHandler : IRequestHandler<GetCategoryPreviewQuery, List<CategoryPreviewDto>>
     {
         private readonly NorthwindDbContext _context;
 
@@ -18,12 +18,12 @@ namespace Northwind.Application.Categories.Queries
             _context = context;
         }
 
-        public async Task<IEnumerable<CategoryPreviewDto>> Handle(GetCategoryPreviewQuery request, CancellationToken cancellationToken)
+        public Task<List<CategoryPreviewDto>> Handle(GetCategoryPreviewQuery request, CancellationToken cancellationToken)
         {
             Thread.Sleep(500);
 
             // BUG: This nested projection results in N + 1
-            return await _context.Categories
+            return _context.Categories
                 .Select(CategoryPreviewDto.Projection)
                 .ToListAsync(cancellationToken);
 

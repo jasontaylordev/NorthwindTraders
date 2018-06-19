@@ -44,13 +44,13 @@ namespace Northwind.Web
             services.AddSwagger();
             // Add Logging + Seq
             services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
-            // Mvc + Custom Excception Filter
+            // Mvc + Custom Exception Filter
             services
                 .AddMvc(options =>
                 {
                     options.Filters.Add(typeof(CustomExceptionFilterAttribute));
                 })
-                .AddFluentValidation(fv => 
+                .AddFluentValidation(fv =>
                     fv.RegisterValidatorsFromAssemblyContaining<CustomerDetailModel>());
         }
 
