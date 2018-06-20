@@ -35,12 +35,12 @@ Follow these steps to get your development environment set up:
      ```
      dotnet run
      ```
- 
+   5. Finally, launch [http://localhost:5211/swagger/]() in your browser to view the Swagger UI for the Northwind API.
 
 ## Technologies
-* .NET Core 2.1
-* ASP.NET Core 2.1
-* Entity Framework Core 2.1
+* [.NET Core 2.1](https://blogs.msdn.microsoft.com/dotnet/2018/05/30/announcing-net-core-2-1/)
+* [ASP.NET Core 2.1](https://blogs.msdn.microsoft.com/webdev/2018/05/30/asp-net-core-2-1-0-now-available/)
+* [Entity Framework Core 2.1](https://blogs.msdn.microsoft.com/dotnet/2018/05/30/announcing-entity-framework-core-2-1/)
 
 ## License
 
