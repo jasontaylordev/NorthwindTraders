@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Northwind.Application.Employees.Commands;
 using Northwind.Application.Employees.Models;
 using Northwind.Application.Employees.Queries;
-using Northwind.Web.Infrastructure;
+using Northwind.WebApi.Infrastructure;
 
-namespace Northwind.Web.Controllers
+namespace Northwind.WebApi.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]/[action]")]

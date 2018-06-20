@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NJsonSchema;
-using Northwind.Web.Infrastructure;
 using NSwag.AspNetCore;
 using System.Reflection;
 using FluentValidation.AspNetCore;
@@ -16,9 +15,10 @@ using Northwind.Application.Customers.Models;
 using Northwind.Application.Infrastructure;
 using Northwind.Application.Products.Queries;
 using Northwind.Persistence;
-using Northwind.Web.Filters;
+using Northwind.WebApi.Filters;
+using Northwind.WebApi.Infrastructure;
 
-namespace Northwind.Web
+namespace Northwind.WebApi
 {
     public class Startup
     {

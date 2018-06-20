@@ -3,7 +3,7 @@ using Northwind.Application.Customers.Queries;
 using Northwind.Common;
 using Northwind.Infrastructure;
 
-namespace Northwind.Web.Infrastructure
+namespace Northwind.WebApi.Infrastructure
 {
     public class AutofacModule : Module
     {

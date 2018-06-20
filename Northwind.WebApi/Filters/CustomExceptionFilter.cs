@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Northwind.Application.Exceptions;
 
-namespace Northwind.Web.Filters
+namespace Northwind.WebApi.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class CustomExceptionFilterAttribute : ExceptionFilterAttribute

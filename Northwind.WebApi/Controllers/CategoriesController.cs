@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Categories.Models;
 using Northwind.Application.Categories.Queries;
-using Northwind.Web.Infrastructure;
+using Northwind.WebApi.Infrastructure;
 
-namespace Northwind.Web.Controllers
+namespace Northwind.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

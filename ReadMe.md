@@ -31,7 +31,7 @@ Follow these steps to get your development environment set up:
      ```
      dotnet build
      ```
-  4. Finally, within the `Northwind.Web` directory, launch the project by running:
+  4. Finally, within the `Northwind.WebApi` directory, launch the project by running:
      ```
      dotnet run
      ```

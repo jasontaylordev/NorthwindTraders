@@ -2,8 +2,8 @@
   <!--<Import Project="..\Northwind.CodeAnalysis.targets" />-->
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>Northwind.Web</AssemblyName>
-    <RootNamespace>Northwind.Web</RootNamespace>
+    <AssemblyName>Northwind.WebApi</AssemblyName>
+    <RootNamespace>Northwind.WebApi</RootNamespace>
     <UserSecretsId>3c12852f-eb54-48c4-b8fe-39ae17adc4b5</UserSecretsId>
   </PropertyGroup>
 
