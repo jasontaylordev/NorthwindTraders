@@ -1,10 +1,10 @@
 # NorthwindTraders
 
-Northwind Traders is a sample application built using ASP.NET Core and Entity Framework Core.
+Northwind Traders is a sample application built using ASP.NET Core and Entity Framework Core. The architecture and design of the project is explained in the video:
 
-The initial purpose of this solution is to create a code first version of Northwind, using the .NET Core stack.
+* [Developing Enterprise Apps with ASP.NET Core 2.1](https://youtu.be/fAJrVf8f6M4)
 
-The construction of this project is explained in the following blog posts:
+The initial construction of this project is explained in the following blog posts:
 
 * [Code: Northwind Traders with Entity Framework Core](http://www.codingflow.net/northwind-traders-with-entity-framework-core/)
 * [Create Northwind Traders Code First with Entity Framework Core – Part 1](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-1/)
