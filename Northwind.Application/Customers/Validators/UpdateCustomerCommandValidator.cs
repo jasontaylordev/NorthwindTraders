@@ -18,8 +18,8 @@ namespace Northwind.Application.Customers.Validators
             RuleFor(x => x.ContactName).MaximumLength(30);
             RuleFor(x => x.ContactTitle).MaximumLength(30);
             RuleFor(x => x.Country).MaximumLength(15);
-            RuleFor(x => x.Fax).MaximumLength(24);
-            RuleFor(x => x.Phone).MaximumLength(24);
+            RuleFor(x => x.Fax).MaximumLength(24).NotEmpty();
+            RuleFor(x => x.Phone).MaximumLength(24).NotEmpty();
             RuleFor(x => x.PostalCode).MaximumLength(10);
             RuleFor(x => x.Region).MaximumLength(15);
 

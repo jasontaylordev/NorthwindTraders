@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Customers.Models;
-using Northwind.Application.Customers.Validators;
 using Northwind.Application.Exceptions;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;

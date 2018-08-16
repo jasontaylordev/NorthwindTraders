@@ -1,5 +1,4 @@
-﻿using System;
-using Northwind.Application.Interfaces;
+﻿using Northwind.Application.Interfaces;
 using Northwind.Application.Notifications.Models;
 
 namespace Northwind.Infrastructure
@@ -8,7 +7,7 @@ namespace Northwind.Infrastructure
     {
         public void Send(Message message)
         {
-            throw new NotImplementedException();
+            // Do nothing
         }
     }
 }

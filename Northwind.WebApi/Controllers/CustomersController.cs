@@ -30,9 +30,7 @@ namespace Northwind.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody]CreateCustomerCommand command)
         {
-            var newCustomer = await Mediator.Send(command);
-
-            return CreatedAtRoute("Create", new { newCustomer.Id }, newCustomer);
+            return Ok(await Mediator.Send(command));
         }
 
         // PUT api/customers/5
@@ -51,7 +49,7 @@ namespace Northwind.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            await Mediator.Send(new DeleteCustomerCommand {Id = id});
+            await Mediator.Send(new DeleteCustomerCommand { Id = id });
 
             return NoContent();
         }

@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Northwind.Application.Customers.Queries;
+using Northwind.Application.Interfaces;
 using Northwind.Common;
 using Northwind.Infrastructure;
 
@@ -14,6 +15,7 @@ namespace Northwind.WebApi.Infrastructure
                 .AsImplementedInterfaces();
 
             builder.RegisterType<MachineDateTime>().As<IDateTime>();
+            builder.RegisterType<NotificationService>().As<INotificationService>();
         }
     }
 }
