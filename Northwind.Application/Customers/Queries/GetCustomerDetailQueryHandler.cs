@@ -20,7 +20,7 @@ namespace Northwind.Application.Customers.Queries
         public async Task<CustomerDetailModel> Handle(GetCustomerDetailQuery request, CancellationToken cancellationToken)
         {
             var entity = await _context.Customers
-                .FindAsync(request.Id, cancellationToken);
+                .FindAsync(request.Id);
 
             if (entity == null)
             {

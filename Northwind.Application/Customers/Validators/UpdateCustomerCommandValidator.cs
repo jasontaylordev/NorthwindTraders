@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using FluentValidation.Validators;
-using Northwind.Application.Customers.Models;
+using Northwind.Application.Customers.Commands;
 
 namespace Northwind.Application.Customers.Validators
 {
-    public class UpdateCustomerModelValidator : AbstractValidator<UpdateCustomerModel>
+    public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
     {
-        public UpdateCustomerModelValidator()
+        public UpdateCustomerCommandValidator()
         {
             RuleFor(x => x.Id)
                 .MaximumLength(5).WithMessage("Customer Id has max. length of 5 characters")
@@ -32,7 +32,7 @@ namespace Northwind.Application.Customers.Validators
                 .WithMessage("Customers in QLD require at least one QLD landline.");
         }
 
-        private static bool HaveQueenslandLandLine(UpdateCustomerModel model, string phoneValue, PropertyValidatorContext ctx)
+        private static bool HaveQueenslandLandLine(UpdateCustomerCommand model, string phoneValue, PropertyValidatorContext ctx)
         {
             return model.Phone.StartsWith("07") || model.Fax.StartsWith("07");
         }

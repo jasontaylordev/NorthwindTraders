@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
-using Northwind.Application.Customers.Models;
+using Northwind.Application.Customers.Commands;
 
 namespace Northwind.Application.Customers.Validators
 {
-    public class CreateCustomerModelValidator : AbstractValidator<CreateCustomerModel>
+    public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
-        public CreateCustomerModelValidator()
+        public CreateCustomerCommandValidator()
         {
             RuleFor(x => x.Id)
                 .MaximumLength(5).WithMessage("Customer Id has max. length of 5 characters")

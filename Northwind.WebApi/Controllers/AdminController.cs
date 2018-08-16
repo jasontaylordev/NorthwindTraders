@@ -8,8 +8,8 @@ using Northwind.WebApi.Infrastructure;
 
 namespace Northwind.WebApi.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/[controller]/[action]")]
+    [ApiController]
+    [Route("api/[controller]")]
     public class AdminController : BaseController
     {
         [HttpGet("[action]")]

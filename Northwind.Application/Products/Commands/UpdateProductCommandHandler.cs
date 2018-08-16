@@ -19,22 +19,20 @@ namespace Northwind.Application.Products.Commands
 
         public async Task<ProductDto> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = request.Product;
-
             var entity = await _context.Products
-                .FindAsync(product.ProductId);
+                .FindAsync(request.ProductId);
 
             if (entity == null)
             {
-                throw new EntityNotFoundException(nameof(Product), product.ProductId);
+                throw new EntityNotFoundException(nameof(Product), request.ProductId);
             }
 
-            entity.ProductId = product.ProductId;
-            entity.ProductName = product.ProductName;
-            entity.CategoryId = product.CategoryId;
-            entity.SupplierId = product.SupplierId;
-            entity.UnitPrice = product.UnitPrice;
-            entity.Discontinued = product.Discontinued;
+            entity.ProductId = request.ProductId;
+            entity.ProductName = request.ProductName;
+            entity.CategoryId = request.CategoryId;
+            entity.SupplierId = request.SupplierId;
+            entity.UnitPrice = request.UnitPrice;
+            entity.Discontinued = request.Discontinued;
 
             await _context.SaveChangesAsync(cancellationToken);
 

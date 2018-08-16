@@ -8,8 +8,8 @@ using Northwind.WebApi.Infrastructure;
 
 namespace Northwind.WebApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ProductsController : BaseController
     {
         // GET: api/Products
@@ -44,7 +44,7 @@ namespace Northwind.WebApi.Controllers
             [FromRoute] int id,
             [FromBody] UpdateProductCommand command)
         {
-            if (id != command.Product.ProductId)
+            if (id != command.ProductId)
             {
                 return BadRequest();
             }

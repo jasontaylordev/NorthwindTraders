@@ -21,32 +21,23 @@ namespace Northwind.Application.Customers.Commands
 
         public async Task<CustomerDetailModel> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var model = request.Customer;
-
-            var validator = new UpdateCustomerModelValidator();
-            var validationResult = validator.Validate(model);
-            if (!validationResult.IsValid)
-            {
-                throw new InvalidModelException(nameof(model));
-            }
-
             var entity = await _context.Customers
-                .SingleAsync(c => c.CustomerId == model.Id, cancellationToken);
+                .SingleAsync(c => c.CustomerId == request.Id, cancellationToken);
 
             if (entity == null)
             {
-                throw new EntityNotFoundException(nameof(Customer), request.Customer.Id);
+                throw new EntityNotFoundException(nameof(Customer), request.Id);
             }
 
-            entity.Address = model.Address;
-            entity.City = model.City;
-            entity.CompanyName = model.CompanyName;
-            entity.ContactName = model.ContactName;
-            entity.ContactTitle = model.ContactTitle;
-            entity.Country = model.Country;
-            entity.Fax = model.Fax;
-            entity.Phone = model.Phone;
-            entity.PostalCode = model.PostalCode;
+            entity.Address = request.Address;
+            entity.City = request.City;
+            entity.CompanyName = request.CompanyName;
+            entity.ContactName = request.ContactName;
+            entity.ContactTitle = request.ContactTitle;
+            entity.Country = request.Country;
+            entity.Fax = request.Fax;
+            entity.Phone = request.Phone;
+            entity.PostalCode = request.PostalCode;
 
             _context.Customers.Update(entity);
 

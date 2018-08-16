@@ -24,20 +24,18 @@ namespace Northwind.Application.Customers.Commands
 
         public async Task<CustomerDetailModel> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var model = request.Customer;
-
             var entity = new Customer
             {
-                CustomerId = model.Id,
-                Address = model.Address,
-                City = model.City,
-                CompanyName = model.CompanyName,
-                ContactName = model.ContactName,
-                ContactTitle = model.ContactTitle,
-                Country = model.Country,
-                Fax = model.Fax,
-                Phone = model.Phone,
-                PostalCode = model.PostalCode
+                CustomerId = request.Id,
+                Address = request.Address,
+                City = request.City,
+                CompanyName = request.CompanyName,
+                ContactName = request.ContactName,
+                ContactTitle = request.ContactTitle,
+                Country = request.Country,
+                Fax = request.Fax,
+                Phone = request.Phone,
+                PostalCode = request.PostalCode
             };
 
             _context.Customers.Add(entity);

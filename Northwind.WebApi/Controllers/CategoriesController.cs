@@ -8,14 +8,13 @@ using Northwind.WebApi.Infrastructure;
 
 namespace Northwind.WebApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class CategoriesController : BaseController
     {
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<CategoryPreviewDto>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetCategoryPreview(
-            [FromQuery] GetCategoryPreviewQuery query)
+        public async Task<IActionResult> GetCategoryPreview([FromQuery] GetCategoryPreviewQuery query)
         {
             return Ok(await Mediator.Send(query));
         }

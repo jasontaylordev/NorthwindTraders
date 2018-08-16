@@ -17,6 +17,7 @@ using Northwind.Application.Products.Queries;
 using Northwind.Persistence;
 using Northwind.WebApi.Filters;
 using Northwind.WebApi.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Northwind.WebApi
 {
@@ -36,22 +37,29 @@ namespace Northwind.WebApi
             // Add MediatR
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
+            
             // Add DbContext using SQL Server Provider
             services.AddDbContext<NorthwindDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
+            
             // Add Open API support (will generate specification document)
             services.AddSwagger();
+            
             // Add Logging + Seq
             services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
+            
             // Mvc + Custom Exception Filter
             services
-                .AddMvc(options =>
-                {
-                    options.Filters.Add(typeof(CustomExceptionFilterAttribute));
-                })
-                .AddFluentValidation(fv =>
-                    fv.RegisterValidatorsFromAssemblyContaining<CustomerDetailModel>());
+                .AddMvc(options =>options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CustomerDetailModel>());
+
+            // Customise default API behavour
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

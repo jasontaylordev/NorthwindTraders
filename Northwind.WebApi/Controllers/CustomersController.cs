@@ -8,8 +8,8 @@ using Northwind.WebApi.Infrastructure;
 
 namespace Northwind.WebApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class CustomersController : BaseController
     {
         // GET api/customers
@@ -28,23 +28,23 @@ namespace Northwind.WebApi.Controllers
 
         // POST api/customers
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody]CreateCustomerModel customer)
+        public async Task<IActionResult> Create([FromBody]CreateCustomerCommand command)
         {
-            var newCustomer = await Mediator.Send(new CreateCustomerCommand { Customer = customer });
+            var newCustomer = await Mediator.Send(command);
 
             return CreatedAtRoute("Create", new { newCustomer.Id }, newCustomer);
         }
 
         // PUT api/customers/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerModel customer)
+        public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerCommand command)
         {
-            if (customer == null || customer.Id != id)
+            if (command == null || command.Id != id)
             {
                 return BadRequest();
             }
 
-            return Ok(await Mediator.Send(new UpdateCustomerCommand { Customer = customer }));
+            return Ok(await Mediator.Send(command));
         }
 
         // DELETE api/customers/5
