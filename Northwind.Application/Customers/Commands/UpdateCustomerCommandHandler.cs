@@ -26,7 +26,7 @@ namespace Northwind.Application.Customers.Commands
 
             if (entity == null)
             {
-                throw new EntityNotFoundException(nameof(Customer), request.Id);
+                throw new NotFoundException(nameof(Customer), request.Id);
             }
 
             entity.Address = request.Address;

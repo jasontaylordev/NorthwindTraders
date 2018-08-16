@@ -24,7 +24,7 @@ namespace Northwind.Application.Products.Commands
 
             if (entity == null)
             {
-                throw new EntityNotFoundException(nameof(Product), request.ProductId);
+                throw new NotFoundException(nameof(Product), request.ProductId);
             }
 
             entity.ProductId = request.ProductId;

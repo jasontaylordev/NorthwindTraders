@@ -2,9 +2,9 @@
 
 namespace Northwind.Application.Exceptions
 {
-    public class EntityDeleteFailureException : Exception
+    public class DeleteFailureException : Exception
     {
-        public EntityDeleteFailureException(string name, object key, string message)
+        public DeleteFailureException(string name, object key, string message)
             : base($"Deletion of entity \"{name}\" ({key}) failed. {message}")
         {
         }

@@ -24,7 +24,7 @@ namespace Northwind.Application.Customers.Queries
 
             if (entity == null)
             {
-                throw new EntityNotFoundException(nameof(Customer), request.Id);
+                throw new NotFoundException(nameof(Customer), request.Id);
             }
 
             return new CustomerDetailModel

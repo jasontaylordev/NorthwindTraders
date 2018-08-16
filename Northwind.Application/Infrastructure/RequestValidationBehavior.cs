@@ -29,7 +29,7 @@ namespace Northwind.Application.Infrastructure
 
             if (failures.Count != 0)
             {
-                throw new ValidationException(failures);
+                throw new Exceptions.ValidationException(failures);
             }
 
             return next();

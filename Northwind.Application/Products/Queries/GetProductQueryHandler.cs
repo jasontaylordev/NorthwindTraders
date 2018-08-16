@@ -27,7 +27,7 @@ namespace Northwind.Application.Products.Queries
 
             if (product == null)
             {
-                throw new EntityNotFoundException(nameof(Product), request.Id);
+                throw new NotFoundException(nameof(Product), request.Id);
             }
 
             // TODO: Set view model state based on user permissions.
