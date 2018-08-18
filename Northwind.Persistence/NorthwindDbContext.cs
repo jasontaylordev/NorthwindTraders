@@ -38,19 +38,7 @@ namespace Northwind.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyAllConfigurations();
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeTerritoryConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new RegionConfiguration());
-            modelBuilder.ApplyConfiguration(new ShipperConfiguration());
-            modelBuilder.ApplyConfiguration(new SupplierConfiguration());
-            modelBuilder.ApplyConfiguration(new TerritoryConfiguration());
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyAllConfigurations();
         }
     }
 }
