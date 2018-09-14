@@ -8,10 +8,7 @@ namespace Northwind.Application.Customers.Validators
     {
         public UpdateCustomerCommandValidator()
         {
-            RuleFor(x => x.Id)
-                .MaximumLength(5).WithMessage("Customer Id has max. length of 5 characters")
-                .NotEmpty().WithMessage("Customer Id is required.");
-
+            RuleFor(x => x.Id).MaximumLength(5).NotEmpty();
             RuleFor(x => x.Address).MaximumLength(60);
             RuleFor(x => x.City).MaximumLength(15);
             RuleFor(x => x.CompanyName).MaximumLength(40).NotEmpty();
@@ -27,7 +24,8 @@ namespace Northwind.Application.Customers.Validators
                 .When(c => c.Country == "Australia")
                 .WithMessage("Australian Postcodes have 4 digits");
 
-            RuleFor(c => c.Phone).Must(HaveQueenslandLandLine)
+            RuleFor(c => c.Phone)
+                .Must(HaveQueenslandLandLine)
                 .When(c => c.Country == "Australia" && c.PostalCode.StartsWith("4"))
                 .WithMessage("Customers in QLD require at least one QLD landline.");
         }
