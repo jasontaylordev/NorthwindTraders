@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Northwind.Domain.Entities;
-using Northwind.Persistence.Configurations;
 using Northwind.Persistence.Extensions;
 
 namespace Northwind.Persistence
