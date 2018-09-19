@@ -21,9 +21,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -73,8 +75,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
             "assets": [
               "src/assets"

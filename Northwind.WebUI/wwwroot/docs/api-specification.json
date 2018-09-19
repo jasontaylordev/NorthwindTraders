@@ -17,6 +17,62 @@
     "text/json"
   ],
   "paths": {
+    "/api/Admin/EmployeeManagerReport": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "operationId": "Admin_EmployeeManagerReport",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeManagerModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Admin": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "operationId": "Admin_ChangeEmployeeManager",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeEmployeesManagerCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Categories": {
       "get": {
         "tags": [
@@ -343,66 +399,58 @@
           }
         }
       }
-    },
-    "/api/Admin/EmployeeManagerReport": {
-      "get": {
-        "tags": [
-          "Admin"
-        ],
-        "operationId": "Admin_EmployeeManagerReport",
-        "responses": {
-          "200": {
-            "x-nullable": true,
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EmployeeManagerModel"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Admin": {
-      "post": {
-        "tags": [
-          "Admin"
-        ],
-        "operationId": "Admin_ChangeEmployeeManager",
-        "requestBody": {
-          "x-name": "command",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeEmployeesManagerCommand"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "x-nullable": true,
-            "description": "",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
+      "EmployeeManagerModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "employeeId": {
+            "type": "string"
+          },
+          "employeeFirstName": {
+            "type": "string"
+          },
+          "employeeLastName": {
+            "type": "string"
+          },
+          "managerId": {
+            "type": "string"
+          },
+          "employeeTitle": {
+            "type": "string"
+          },
+          "managerFirstName": {
+            "type": "string"
+          },
+          "managerLastName": {
+            "type": "string"
+          },
+          "managerTitle": {
+            "type": "string"
+          }
+        }
+      },
+      "ChangeEmployeesManagerCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "employeeId",
+          "managerId"
+        ],
+        "properties": {
+          "employeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "managerId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "CategoryPreviewDto": {
         "type": "object",
         "additionalProperties": false,
@@ -684,54 +732,6 @@
           },
           "discontinued": {
             "type": "boolean"
-          }
-        }
-      },
-      "EmployeeManagerModel": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "employeeId": {
-            "type": "string"
-          },
-          "employeeFirstName": {
-            "type": "string"
-          },
-          "employeeLastName": {
-            "type": "string"
-          },
-          "managerId": {
-            "type": "string"
-          },
-          "employeeTitle": {
-            "type": "string"
-          },
-          "managerFirstName": {
-            "type": "string"
-          },
-          "managerLastName": {
-            "type": "string"
-          },
-          "managerTitle": {
-            "type": "string"
-          }
-        }
-      },
-      "ChangeEmployeesManagerCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "employeeId",
-          "managerId"
-        ],
-        "properties": {
-          "employeeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "managerId": {
-            "type": "integer",
-            "format": "int32"
           }
         }
       }

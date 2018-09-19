@@ -2,33 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
+import { NavSideMenuComponent } from './nav-side-menu/nav-side-menu.component';
+import { NavTopMenuComponent } from './nav-top-menu/nav-top-menu.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 
 import { CustomersClient } from './northwind-traders-api';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
+    NavTopMenuComponent,
+    NavSideMenuComponent,
+    DashboardComponent,
     CustomersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'customers', component: CustomersClient },
-    ])
+    AppRoutingModule
   ],
   providers: [CustomersClient],
   bootstrap: [AppComponent]

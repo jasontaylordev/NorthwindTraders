@@ -13,6 +13,126 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angula
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
+export interface IAdminClient {
+    employeeManagerReport(): Observable<EmployeeManagerModel[] | null>;
+    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse | null>;
+}
+
+@Injectable()
+export class AdminClient implements IAdminClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    employeeManagerReport(): Observable<EmployeeManagerModel[] | null> {
+        let url_ = this.baseUrl + "/api/Admin/EmployeeManagerReport";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processEmployeeManagerReport(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processEmployeeManagerReport(<any>response_);
+                } catch (e) {
+                    return <Observable<EmployeeManagerModel[] | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<EmployeeManagerModel[] | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processEmployeeManagerReport(response: HttpResponseBase): Observable<EmployeeManagerModel[] | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (resultData200 && resultData200.constructor === Array) {
+                result200 = [];
+                for (let item of resultData200)
+                    result200.push(EmployeeManagerModel.fromJS(item));
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<EmployeeManagerModel[] | null>(<any>null);
+    }
+
+    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse | null> {
+        let url_ = this.baseUrl + "/api/Admin";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(command);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processChangeEmployeeManager(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processChangeEmployeeManager(<any>response_);
+                } catch (e) {
+                    return <Observable<FileResponse | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<FileResponse | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processChangeEmployeeManager(response: HttpResponseBase): Observable<FileResponse | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200 || status === 206) {
+            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
+            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
+            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
+            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<FileResponse | null>(<any>null);
+    }
+}
+
 export interface ICategoriesClient {
     getCategoryPreview(categoryId: number | undefined): Observable<CategoryPreviewDto[] | null>;
 }
@@ -638,124 +758,108 @@ export class ProductsClient implements IProductsClient {
     }
 }
 
-export interface IAdminClient {
-    employeeManagerReport(): Observable<EmployeeManagerModel[] | null>;
-    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse | null>;
+export class EmployeeManagerModel implements IEmployeeManagerModel {
+    employeeId?: string | undefined;
+    employeeFirstName?: string | undefined;
+    employeeLastName?: string | undefined;
+    managerId?: string | undefined;
+    employeeTitle?: string | undefined;
+    managerFirstName?: string | undefined;
+    managerLastName?: string | undefined;
+    managerTitle?: string | undefined;
+
+    constructor(data?: IEmployeeManagerModel) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.employeeId = data["employeeId"];
+            this.employeeFirstName = data["employeeFirstName"];
+            this.employeeLastName = data["employeeLastName"];
+            this.managerId = data["managerId"];
+            this.employeeTitle = data["employeeTitle"];
+            this.managerFirstName = data["managerFirstName"];
+            this.managerLastName = data["managerLastName"];
+            this.managerTitle = data["managerTitle"];
+        }
+    }
+
+    static fromJS(data: any): EmployeeManagerModel {
+        data = typeof data === 'object' ? data : {};
+        let result = new EmployeeManagerModel();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["employeeId"] = this.employeeId;
+        data["employeeFirstName"] = this.employeeFirstName;
+        data["employeeLastName"] = this.employeeLastName;
+        data["managerId"] = this.managerId;
+        data["employeeTitle"] = this.employeeTitle;
+        data["managerFirstName"] = this.managerFirstName;
+        data["managerLastName"] = this.managerLastName;
+        data["managerTitle"] = this.managerTitle;
+        return data; 
+    }
 }
 
-@Injectable()
-export class AdminClient implements IAdminClient {
-    private http: HttpClient;
-    private baseUrl: string;
-    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+export interface IEmployeeManagerModel {
+    employeeId?: string | undefined;
+    employeeFirstName?: string | undefined;
+    employeeLastName?: string | undefined;
+    managerId?: string | undefined;
+    employeeTitle?: string | undefined;
+    managerFirstName?: string | undefined;
+    managerLastName?: string | undefined;
+    managerTitle?: string | undefined;
+}
 
-    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
-        this.http = http;
-        this.baseUrl = baseUrl ? baseUrl : "";
-    }
+export class ChangeEmployeesManagerCommand implements IChangeEmployeesManagerCommand {
+    employeeId!: number;
+    managerId!: number;
 
-    employeeManagerReport(): Observable<EmployeeManagerModel[] | null> {
-        let url_ = this.baseUrl + "/api/Admin/EmployeeManagerReport";
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processEmployeeManagerReport(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processEmployeeManagerReport(<any>response_);
-                } catch (e) {
-                    return <Observable<EmployeeManagerModel[] | null>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<EmployeeManagerModel[] | null>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processEmployeeManagerReport(response: HttpResponseBase): Observable<EmployeeManagerModel[] | null> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (resultData200 && resultData200.constructor === Array) {
-                result200 = [];
-                for (let item of resultData200)
-                    result200.push(EmployeeManagerModel.fromJS(item));
+    constructor(data?: IChangeEmployeesManagerCommand) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
             }
-            return _observableOf(result200);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
         }
-        return _observableOf<EmployeeManagerModel[] | null>(<any>null);
     }
 
-    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Admin";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(command);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processChangeEmployeeManager(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processChangeEmployeeManager(<any>response_);
-                } catch (e) {
-                    return <Observable<FileResponse | null>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<FileResponse | null>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processChangeEmployeeManager(response: HttpResponseBase): Observable<FileResponse | null> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200 || status === 206) {
-            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
-            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
-            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
-            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
+    init(data?: any) {
+        if (data) {
+            this.employeeId = data["employeeId"];
+            this.managerId = data["managerId"];
         }
-        return _observableOf<FileResponse | null>(<any>null);
     }
+
+    static fromJS(data: any): ChangeEmployeesManagerCommand {
+        data = typeof data === 'object' ? data : {};
+        let result = new ChangeEmployeesManagerCommand();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["employeeId"] = this.employeeId;
+        data["managerId"] = this.managerId;
+        return data; 
+    }
+}
+
+export interface IChangeEmployeesManagerCommand {
+    employeeId: number;
+    managerId: number;
 }
 
 export class CategoryPreviewDto implements ICategoryPreviewDto {
@@ -1312,110 +1416,6 @@ export interface IUpdateProductCommand {
     supplierId?: number | undefined;
     categoryId?: number | undefined;
     discontinued: boolean;
-}
-
-export class EmployeeManagerModel implements IEmployeeManagerModel {
-    employeeId?: string | undefined;
-    employeeFirstName?: string | undefined;
-    employeeLastName?: string | undefined;
-    managerId?: string | undefined;
-    employeeTitle?: string | undefined;
-    managerFirstName?: string | undefined;
-    managerLastName?: string | undefined;
-    managerTitle?: string | undefined;
-
-    constructor(data?: IEmployeeManagerModel) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.employeeId = data["employeeId"];
-            this.employeeFirstName = data["employeeFirstName"];
-            this.employeeLastName = data["employeeLastName"];
-            this.managerId = data["managerId"];
-            this.employeeTitle = data["employeeTitle"];
-            this.managerFirstName = data["managerFirstName"];
-            this.managerLastName = data["managerLastName"];
-            this.managerTitle = data["managerTitle"];
-        }
-    }
-
-    static fromJS(data: any): EmployeeManagerModel {
-        data = typeof data === 'object' ? data : {};
-        let result = new EmployeeManagerModel();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["employeeId"] = this.employeeId;
-        data["employeeFirstName"] = this.employeeFirstName;
-        data["employeeLastName"] = this.employeeLastName;
-        data["managerId"] = this.managerId;
-        data["employeeTitle"] = this.employeeTitle;
-        data["managerFirstName"] = this.managerFirstName;
-        data["managerLastName"] = this.managerLastName;
-        data["managerTitle"] = this.managerTitle;
-        return data; 
-    }
-}
-
-export interface IEmployeeManagerModel {
-    employeeId?: string | undefined;
-    employeeFirstName?: string | undefined;
-    employeeLastName?: string | undefined;
-    managerId?: string | undefined;
-    employeeTitle?: string | undefined;
-    managerFirstName?: string | undefined;
-    managerLastName?: string | undefined;
-    managerTitle?: string | undefined;
-}
-
-export class ChangeEmployeesManagerCommand implements IChangeEmployeesManagerCommand {
-    employeeId!: number;
-    managerId!: number;
-
-    constructor(data?: IChangeEmployeesManagerCommand) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.employeeId = data["employeeId"];
-            this.managerId = data["managerId"];
-        }
-    }
-
-    static fromJS(data: any): ChangeEmployeesManagerCommand {
-        data = typeof data === 'object' ? data : {};
-        let result = new ChangeEmployeesManagerCommand();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["employeeId"] = this.employeeId;
-        data["managerId"] = this.managerId;
-        return data; 
-    }
-}
-
-export interface IChangeEmployeesManagerCommand {
-    employeeId: number;
-    managerId: number;
 }
 
 export interface FileResponse {
