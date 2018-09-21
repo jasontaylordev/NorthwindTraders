@@ -8,32 +8,32 @@ using System;
 
 namespace Northwind.WebUI
 {
-  public class Program
-  {
-    public static void Main(string[] args)
+    public class Program
     {
-      var host = CreateWebHostBuilder(args).Build();
-
-      // migrate the database.  Best practice = in Main, using service scope
-      using (var scope = host.Services.CreateScope())
-      {
-        try
+        public static void Main(string[] args)
         {
-          var context = scope.ServiceProvider.GetService<NorthwindDbContext>();
-          context.Database.Migrate();
-        }
-        catch (Exception ex)
-        {
-          var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-          logger.LogError(ex, "An error occurred while migrating the database.");
-        }
-      }
+            var host = CreateWebHostBuilder(args).Build();
 
-      // run the web app
-      host.Run();
+            using (var scope = host.Services.CreateScope())
+            {
+                try
+                {
+                    var context = scope.ServiceProvider.GetService<NorthwindDbContext>();
+                    context.Database.Migrate();
+
+                    NorthwindInitializer.Initialize(context);
+                }
+                catch (Exception ex)
+                {
+                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while migrating the database.");
+                }
+            }
+
+            host.Run();
+        }
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
     }
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>();
-  }
 }
