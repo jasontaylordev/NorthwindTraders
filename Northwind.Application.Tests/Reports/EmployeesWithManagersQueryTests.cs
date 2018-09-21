@@ -13,7 +13,7 @@ namespace Northwind.Application.Tests.Reports
         public async Task ShouldReturnReport()
         {
             var context = GetDbContext(useSqlLite: true);
-            NorthwindInitializer.Initialize(context);
+            context.SeedEverything();
 
             var query = new EmployeesWithManagersQuery();
             var queryHandler = new EmployeesWithManagersQueryHandler(context);

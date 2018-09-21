@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Northwind.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System;
 
 namespace Northwind.WebUI
@@ -20,8 +21,7 @@ namespace Northwind.WebUI
                 {
                     var context = scope.ServiceProvider.GetService<NorthwindDbContext>();
                     context.Database.Migrate();
-
-                    NorthwindInitializer.Initialize(context);
+                    context.SeedEverything();
                 }
                 catch (Exception ex)
                 {

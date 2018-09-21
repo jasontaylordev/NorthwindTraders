@@ -15,7 +15,7 @@ namespace Northwind.Application.Tests.Reports
         public async Task ShouldReturnReport()
         {
             var context = GetDbContext(useSqlLite: true);
-            NorthwindInitializer.Initialize(context);
+            context.SeedEverything();
 
             context.Database.GetDbConnection().Execute(@"
 CREATE VIEW viewEmployeesWithManagers(
