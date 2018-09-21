@@ -105,7 +105,7 @@ namespace Northwind.WebUI
             });
 
             // TODO: Review recommendations for EF Core 2.1 seeding, and update.
-            NorthwindInitializer.Initialize(context);
+            //NorthwindInitializer.Initialize(context);
         }
     }
 }
