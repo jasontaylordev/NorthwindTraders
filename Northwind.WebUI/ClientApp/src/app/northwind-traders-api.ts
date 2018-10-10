@@ -207,11 +207,11 @@ export class CategoriesClient implements ICategoriesClient {
 }
 
 export interface ICustomersClient {
-    getAll(): Observable<CustomerListModel[] | null>;
-    create(command: CreateCustomerCommand): Observable<FileResponse | null>;
+    getAll(): Observable<CustomersListViewModel | null>;
     get(id: string | null): Observable<FileResponse | null>;
     update(id: string | null, command: UpdateCustomerCommand): Observable<FileResponse | null>;
     delete(id: string | null): Observable<FileResponse | null>;
+    create(command: CreateCustomerCommand): Observable<FileResponse | null>;
 }
 
 @Injectable()
@@ -225,8 +225,8 @@ export class CustomersClient implements ICustomersClient {
         this.baseUrl = baseUrl ? baseUrl : "";
     }
 
-    getAll(): Observable<CustomerListModel[] | null> {
-        let url_ = this.baseUrl + "/api/Customers";
+    getAll(): Observable<CustomersListViewModel | null> {
+        let url_ = this.baseUrl + "/api/Customers/GetAll";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -245,14 +245,14 @@ export class CustomersClient implements ICustomersClient {
                 try {
                     return this.processGetAll(<any>response_);
                 } catch (e) {
-                    return <Observable<CustomerListModel[] | null>><any>_observableThrow(e);
+                    return <Observable<CustomersListViewModel | null>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<CustomerListModel[] | null>><any>_observableThrow(response_);
+                return <Observable<CustomersListViewModel | null>><any>_observableThrow(response_);
         }));
     }
 
-    protected processGetAll(response: HttpResponseBase): Observable<CustomerListModel[] | null> {
+    protected processGetAll(response: HttpResponseBase): Observable<CustomersListViewModel | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -263,11 +263,7 @@ export class CustomersClient implements ICustomersClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (resultData200 && resultData200.constructor === Array) {
-                result200 = [];
-                for (let item of resultData200)
-                    result200.push(CustomerListModel.fromJS(item));
-            }
+            result200 = resultData200 ? CustomersListViewModel.fromJS(resultData200) : <any>null;
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -275,57 +271,7 @@ export class CustomersClient implements ICustomersClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<CustomerListModel[] | null>(<any>null);
-    }
-
-    create(command: CreateCustomerCommand): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Customers";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(command);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processCreate(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processCreate(<any>response_);
-                } catch (e) {
-                    return <Observable<FileResponse | null>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<FileResponse | null>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processCreate(response: HttpResponseBase): Observable<FileResponse | null> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200 || status === 206) {
-            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
-            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
-            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
-            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<FileResponse | null>(<any>null);
+        return _observableOf<CustomersListViewModel | null>(<any>null);
     }
 
     get(id: string | null): Observable<FileResponse | null> {
@@ -462,6 +408,56 @@ export class CustomersClient implements ICustomersClient {
     }
 
     protected processDelete(response: HttpResponseBase): Observable<FileResponse | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200 || status === 206) {
+            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
+            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
+            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
+            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<FileResponse | null>(<any>null);
+    }
+
+    create(command: CreateCustomerCommand): Observable<FileResponse | null> {
+        let url_ = this.baseUrl + "/api/Customers";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(command);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(<any>response_);
+                } catch (e) {
+                    return <Observable<FileResponse | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<FileResponse | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<FileResponse | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -962,11 +958,55 @@ export interface IProductPreviewDto {
     unitPrice?: number | undefined;
 }
 
-export class CustomerListModel implements ICustomerListModel {
+export class CustomersListViewModel implements ICustomersListViewModel {
+    customers?: CustomerLookupModel[] | undefined;
+
+    constructor(data?: ICustomersListViewModel) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            if (data["customers"] && data["customers"].constructor === Array) {
+                this.customers = [];
+                for (let item of data["customers"])
+                    this.customers.push(CustomerLookupModel.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): CustomersListViewModel {
+        data = typeof data === 'object' ? data : {};
+        let result = new CustomersListViewModel();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        if (this.customers && this.customers.constructor === Array) {
+            data["customers"] = [];
+            for (let item of this.customers)
+                data["customers"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+export interface ICustomersListViewModel {
+    customers?: CustomerLookupModel[] | undefined;
+}
+
+export class CustomerLookupModel implements ICustomerLookupModel {
     id?: string | undefined;
     name?: string | undefined;
 
-    constructor(data?: ICustomerListModel) {
+    constructor(data?: ICustomerLookupModel) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -982,9 +1022,9 @@ export class CustomerListModel implements ICustomerListModel {
         }
     }
 
-    static fromJS(data: any): CustomerListModel {
+    static fromJS(data: any): CustomerLookupModel {
         data = typeof data === 'object' ? data : {};
-        let result = new CustomerListModel();
+        let result = new CustomerLookupModel();
         result.init(data);
         return result;
     }
@@ -997,7 +1037,7 @@ export class CustomerListModel implements ICustomerListModel {
     }
 }
 
-export interface ICustomerListModel {
+export interface ICustomerLookupModel {
     id?: string | undefined;
     name?: string | undefined;
 }
@@ -1006,7 +1046,7 @@ export class CreateCustomerCommand implements ICreateCustomerCommand {
     id?: string | undefined;
     address?: string | undefined;
     city?: string | undefined;
-    companyName!: string;
+    companyName?: string | undefined;
     contactName?: string | undefined;
     contactTitle?: string | undefined;
     country?: string | undefined;
@@ -1068,7 +1108,7 @@ export interface ICreateCustomerCommand {
     id?: string | undefined;
     address?: string | undefined;
     city?: string | undefined;
-    companyName: string;
+    companyName?: string | undefined;
     contactName?: string | undefined;
     contactTitle?: string | undefined;
     country?: string | undefined;

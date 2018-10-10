@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using Northwind.Application.Customers.Models;
 
-namespace Northwind.Application.Customers.Queries
+namespace Northwind.Application.Customers.Queries.GetCustomerDetail
 {
     public class GetCustomerDetailQuery : IRequest<CustomerDetailModel>
     {

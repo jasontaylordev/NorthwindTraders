@@ -1,10 +1,11 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Northwind.Application.Customers.Commands;
-using Northwind.Application.Customers.Models;
-using Northwind.Application.Customers.Queries;
 using Northwind.WebUI.Infrastructure;
+using Northwind.Application.Customers.Queries.GetCustomersList;
+using Northwind.Application.Customers.Queries.GetCustomerDetail;
+using Northwind.Application.Customers.Commands.UpdateCustomer;
+using Northwind.Application.Customers.Commands.CreateCustomer;
+using Northwind.Application.Customers.Commands.DeleteCustomer;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -13,10 +14,10 @@ namespace Northwind.WebUI.Controllers
     public class CustomersController : BaseController
     {
         // GET api/customers
-        [HttpGet]
-        public Task<List<CustomerListModel>> Get()
+        [HttpGet("[action]")]
+        public async Task<ActionResult<CustomersListViewModel>> GetAll()
         {
-            return Mediator.Send(new GetCustomerListQuery());
+            return Ok(await Mediator.Send(new GetCustomersListQuery()));
         }
 
         // GET api/customers/5

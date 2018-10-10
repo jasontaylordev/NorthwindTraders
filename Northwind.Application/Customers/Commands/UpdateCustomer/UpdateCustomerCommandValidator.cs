@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Validators;
-using Northwind.Application.Customers.Commands;
 
-namespace Northwind.Application.Customers.Validators
+namespace Northwind.Application.Customers.Commands.UpdateCustomer
 {
     public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
     {

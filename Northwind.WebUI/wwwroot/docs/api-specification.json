@@ -106,7 +106,7 @@
         }
       }
     },
-    "/api/Customers": {
+    "/api/Customers/GetAll": {
       "get": {
         "tags": [
           "Customers"
@@ -119,40 +119,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CustomerListModel"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "Customers_Create",
-        "requestBody": {
-          "x-name": "command",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCustomerCommand"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "x-nullable": true,
-            "description": "",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
+                  "$ref": "#/components/schemas/CustomersListViewModel"
                 }
               }
             }
@@ -242,6 +209,38 @@
             "nullable": true
           }
         ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customers": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomerCommand"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "x-nullable": true,
@@ -496,7 +495,19 @@
           }
         }
       },
-      "CustomerListModel": {
+      "CustomersListViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerLookupModel"
+            }
+          }
+        }
+      },
+      "CustomerLookupModel": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -511,54 +522,39 @@
       "CreateCustomerCommand": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "companyName"
-        ],
         "properties": {
           "id": {
-            "type": "string",
-            "maxLength": 5
+            "type": "string"
           },
           "address": {
-            "type": "string",
-            "maxLength": 60
+            "type": "string"
           },
           "city": {
-            "type": "string",
-            "maxLength": 15
+            "type": "string"
           },
           "companyName": {
-            "type": "string",
-            "maxLength": 40,
-            "minLength": 1
+            "type": "string"
           },
           "contactName": {
-            "type": "string",
-            "maxLength": 30
+            "type": "string"
           },
           "contactTitle": {
-            "type": "string",
-            "maxLength": 30
+            "type": "string"
           },
           "country": {
-            "type": "string",
-            "maxLength": 15
+            "type": "string"
           },
           "fax": {
-            "type": "string",
-            "maxLength": 24
+            "type": "string"
           },
           "phone": {
-            "type": "string",
-            "maxLength": 24
+            "type": "string"
           },
           "postalCode": {
-            "type": "string",
-            "maxLength": 10
+            "type": "string"
           },
           "region": {
-            "type": "string",
-            "maxLength": 15
+            "type": "string"
           }
         }
       },

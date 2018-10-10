@@ -9,8 +9,9 @@ import { NavTopMenuComponent } from './nav-top-menu/nav-top-menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 
-import { CustomersClient } from './northwind-traders-api';
+import { CustomersClient, ProductsClient } from './northwind-traders-api';
 import { AppRoutingModule } from './/app-routing.module';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './/app-routing.module';
     NavTopMenuComponent,
     NavSideMenuComponent,
     DashboardComponent,
-    CustomersComponent
+    CustomersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,7 +28,10 @@ import { AppRoutingModule } from './/app-routing.module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [CustomersClient],
+  providers: [
+    CustomersClient,
+    ProductsClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

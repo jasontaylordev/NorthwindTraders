@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Northwind.Application.Customers.Models;
+using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Infrastructure;
 using Northwind.Application.Products.Queries;
 using Northwind.Persistence;
@@ -45,7 +45,7 @@ namespace Northwind.WebUI
             services
                 .AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CustomerDetailModel>());
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
             // Customise default API behavour
             services.Configure<ApiBehaviorOptions>(options =>

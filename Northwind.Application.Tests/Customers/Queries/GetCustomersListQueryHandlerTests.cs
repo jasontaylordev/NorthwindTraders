@@ -1,9 +1,7 @@
-﻿using Northwind.Application.Customers.Models;
-using Northwind.Application.Customers.Queries;
+﻿using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Tests.Infrastructure;
 using Northwind.Persistence;
 using Shouldly;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -25,11 +23,11 @@ namespace NorthwindTraders.Application.UnitTests.Infrastructure
         {
             var sut = new GetCustomersListQueryHandler(_context);
 
-            var result = await sut.Handle(new GetCustomerListQuery(), CancellationToken.None);
+            var result = await sut.Handle(new GetCustomersListQuery(), CancellationToken.None);
 
-            result.ShouldBeOfType<List<CustomerListModel>>();
+            result.ShouldBeOfType<CustomersListViewModel>();
 
-            result.Count.ShouldBe(3);
+            result.Customers.Count.ShouldBe(3);
         }
     }
 }

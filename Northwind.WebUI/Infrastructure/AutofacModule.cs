@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Northwind.Application.Customers.Queries;
+using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Interfaces;
 using Northwind.Common;
 using Northwind.Infrastructure;

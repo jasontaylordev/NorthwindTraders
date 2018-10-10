@@ -6,7 +6,7 @@ using Northwind.Application.Exceptions;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Customers.Commands
+namespace Northwind.Application.Customers.Commands.DeleteCustomer
 {
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand>
     {

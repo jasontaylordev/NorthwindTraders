@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomersClient, CustomerListModel } from '../northwind-traders-api';
+import { CustomersClient, CustomersListViewModel } from '../northwind-traders-api';
 
 @Component({
   selector: 'app-customers',
@@ -7,11 +7,11 @@ import { CustomersClient, CustomerListModel } from '../northwind-traders-api';
 })
 export class CustomersComponent {
 
-  customers: CustomerListModel[];
+  vm: CustomersListViewModel;
 
   constructor(client: CustomersClient) {
     client.getAll().subscribe(result => {
-      this.customers = result;
+      this.vm = result;
     }, error => console.error(error));
   }
 }

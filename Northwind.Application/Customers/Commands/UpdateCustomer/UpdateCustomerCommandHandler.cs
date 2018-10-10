@@ -2,14 +2,13 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Customers.Models;
 using Northwind.Application.Exceptions;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Customers.Commands
+namespace Northwind.Application.Customers.Commands.UpdateCustomer
 {
-    public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, CustomerDetailModel>
+    public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, Unit>
     {
         private readonly NorthwindDbContext _context;
 
@@ -18,7 +17,7 @@ namespace Northwind.Application.Customers.Commands
             _context = context;
         }
 
-        public async Task<CustomerDetailModel> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var entity = await _context.Customers
                 .SingleAsync(c => c.CustomerId == request.Id, cancellationToken);
@@ -42,7 +41,7 @@ namespace Northwind.Application.Customers.Commands
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return CustomerDetailModel.Create(entity);
+            return Unit.Value;
         }
     }
 }

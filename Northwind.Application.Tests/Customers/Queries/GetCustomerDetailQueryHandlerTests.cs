@@ -1,5 +1,4 @@
-﻿using Northwind.Application.Customers.Models;
-using Northwind.Application.Customers.Queries;
+﻿using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Tests.Infrastructure;
 using Northwind.Persistence;
 using Shouldly;
