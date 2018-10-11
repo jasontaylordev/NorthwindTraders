@@ -1,27 +1,21 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Northwind.Application.Products.Models;
-using Northwind.Application.Products.Queries;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Products.Commands
+namespace Northwind.Application.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, ProductViewModel>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
         private readonly NorthwindDbContext _context;
-        private readonly IMediator _mediator;
 
-        public CreateProductCommandHandler(
-            NorthwindDbContext context,
-            IMediator mediator)
+        public CreateProductCommandHandler(NorthwindDbContext context)
         {
             _context = context;
-            _mediator = mediator;
         }
 
-        public async Task<ProductViewModel> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var entity = new Product
             {
@@ -36,7 +30,7 @@ namespace Northwind.Application.Products.Commands
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return await _mediator.Send(new GetProductQuery(entity.ProductId), cancellationToken);
+            return entity.ProductId;
         }
     }
 }

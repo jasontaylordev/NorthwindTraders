@@ -1,12 +1,9 @@
 ﻿using MediatR;
-using Northwind.Application.Products.Models;
 
-namespace Northwind.Application.Products.Commands
+namespace Northwind.Application.Products.Commands.CreateProduct
 {
-    public class UpdateProductCommand : IRequest<ProductDto>
+    public class CreateProductCommand : IRequest<int>
     {
-        public int ProductId { get; set; }
-
         public string ProductName { get; set; }
 
         public decimal? UnitPrice { get; set; }

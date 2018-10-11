@@ -3,10 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Products.Models;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Products.Queries
+namespace Northwind.Application.Products.Queries.GetAllProducts
 {
     public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, ProductsListViewModel>
     {

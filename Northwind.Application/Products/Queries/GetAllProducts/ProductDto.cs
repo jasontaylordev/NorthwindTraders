@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using Northwind.Domain.Entities;
 
-namespace Northwind.Application.Products.Models
+namespace Northwind.Application.Products.Queries.GetAllProducts
 {
     public class ProductDto
     {

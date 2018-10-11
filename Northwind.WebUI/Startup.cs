@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Infrastructure;
-using Northwind.Application.Products.Queries;
+using Northwind.Application.Products.Queries.GetProduct;
 using Northwind.Persistence;
 using Northwind.WebUI.Filters;
 using NSwag.AspNetCore;

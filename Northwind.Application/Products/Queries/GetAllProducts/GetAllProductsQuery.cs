@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using Northwind.Application.Products.Models;
 
-namespace Northwind.Application.Products.Queries
+namespace Northwind.Application.Products.Queries.GetAllProducts
 {
     public class GetAllProductsQuery : IRequest<ProductsListViewModel>
     {

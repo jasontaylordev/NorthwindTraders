@@ -3,11 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Exceptions;
-using Northwind.Application.Products.Models;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
-namespace Northwind.Application.Products.Queries
+namespace Northwind.Application.Products.Queries.GetProduct
 {
     public class GetProductQueryHandler : MediatR.IRequestHandler<GetProductQuery, ProductViewModel>
     {
@@ -22,7 +21,7 @@ namespace Northwind.Application.Products.Queries
         {
             var product = await _context.Products
                 .Where(p => p.ProductId == request.Id)
-                .Select(ProductDto.Projection)
+                .Select(ProductViewModel.Projection)
                 .SingleOrDefaultAsync(cancellationToken);
 
             if (product == null)
@@ -31,14 +30,10 @@ namespace Northwind.Application.Products.Queries
             }
 
             // TODO: Set view model state based on user permissions.
-            var model = new ProductViewModel
-            {
-                Product = product,
-                EditEnabled = true,
-                DeleteEnabled = false
-            };
+            product.EditEnabled = true;
+            product.DeleteEnabled = false;
 
-            return model;
+            return product;
         }
     }
 }

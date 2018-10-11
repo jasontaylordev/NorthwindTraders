@@ -1307,7 +1307,14 @@ export interface IProductDto {
 }
 
 export class ProductViewModel implements IProductViewModel {
-    product?: ProductDto | undefined;
+    productId!: number;
+    productName?: string | undefined;
+    unitPrice?: number | undefined;
+    supplierId?: number | undefined;
+    supplierCompanyName?: string | undefined;
+    categoryId?: number | undefined;
+    categoryName?: string | undefined;
+    discontinued!: boolean;
     editEnabled!: boolean;
     deleteEnabled!: boolean;
 
@@ -1322,7 +1329,14 @@ export class ProductViewModel implements IProductViewModel {
 
     init(data?: any) {
         if (data) {
-            this.product = data["product"] ? ProductDto.fromJS(data["product"]) : <any>undefined;
+            this.productId = data["productId"];
+            this.productName = data["productName"];
+            this.unitPrice = data["unitPrice"];
+            this.supplierId = data["supplierId"];
+            this.supplierCompanyName = data["supplierCompanyName"];
+            this.categoryId = data["categoryId"];
+            this.categoryName = data["categoryName"];
+            this.discontinued = data["discontinued"];
             this.editEnabled = data["editEnabled"];
             this.deleteEnabled = data["deleteEnabled"];
         }
@@ -1337,7 +1351,14 @@ export class ProductViewModel implements IProductViewModel {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["product"] = this.product ? this.product.toJSON() : <any>undefined;
+        data["productId"] = this.productId;
+        data["productName"] = this.productName;
+        data["unitPrice"] = this.unitPrice;
+        data["supplierId"] = this.supplierId;
+        data["supplierCompanyName"] = this.supplierCompanyName;
+        data["categoryId"] = this.categoryId;
+        data["categoryName"] = this.categoryName;
+        data["discontinued"] = this.discontinued;
         data["editEnabled"] = this.editEnabled;
         data["deleteEnabled"] = this.deleteEnabled;
         return data; 
@@ -1345,7 +1366,14 @@ export class ProductViewModel implements IProductViewModel {
 }
 
 export interface IProductViewModel {
-    product?: ProductDto | undefined;
+    productId: number;
+    productName?: string | undefined;
+    unitPrice?: number | undefined;
+    supplierId?: number | undefined;
+    supplierCompanyName?: string | undefined;
+    categoryId?: number | undefined;
+    categoryName?: string | undefined;
+    discontinued: boolean;
     editEnabled: boolean;
     deleteEnabled: boolean;
 }

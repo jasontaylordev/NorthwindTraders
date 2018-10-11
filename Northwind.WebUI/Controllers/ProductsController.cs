@@ -1,9 +1,11 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Northwind.Application.Products.Commands;
-using Northwind.Application.Products.Models;
-using Northwind.Application.Products.Queries;
+using Northwind.Application.Products.Commands.CreateProduct;
+using Northwind.Application.Products.Commands.DeleteProduct;
+using Northwind.Application.Products.Commands.UpdateProduct;
+using Northwind.Application.Products.Queries.GetAllProducts;
+using Northwind.Application.Products.Queries.GetProduct;
 using Northwind.WebUI.Infrastructure;
 
 namespace Northwind.WebUI.Controllers
@@ -24,7 +26,7 @@ namespace Northwind.WebUI.Controllers
         [ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetProduct(int id)
         {
-            return Ok(await Mediator.Send(new GetProductQuery(id)));
+            return Ok(await Mediator.Send(new GetProductQuery { Id = id }));
         }
 
         // POST: api/Products
@@ -32,9 +34,9 @@ namespace Northwind.WebUI.Controllers
         [ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> PostProduct([FromBody] CreateProductCommand command)
         {
-            var viewModel = await Mediator.Send(command);
+            var productId = await Mediator.Send(command);
 
-            return CreatedAtAction("GetProduct", new { id = viewModel.Product.ProductId }, viewModel);
+            return CreatedAtAction("GetProduct", new { id = productId });
         }
 
         // PUT: api/Products/5
@@ -57,7 +59,7 @@ namespace Northwind.WebUI.Controllers
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            await Mediator.Send(new DeleteProductCommand(id));
+            await Mediator.Send(new DeleteProductCommand { Id = id });
 
             return NoContent();
         }

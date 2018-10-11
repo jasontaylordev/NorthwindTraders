@@ -657,12 +657,39 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "productId",
+          "discontinued",
           "editEnabled",
           "deleteEnabled"
         ],
         "properties": {
-          "product": {
-            "$ref": "#/components/schemas/ProductDto"
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productName": {
+            "type": "string"
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "supplierId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "supplierCompanyName": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryName": {
+            "type": "string"
+          },
+          "discontinued": {
+            "type": "boolean"
           },
           "editEnabled": {
             "type": "boolean"
