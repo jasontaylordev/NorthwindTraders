@@ -35,7 +35,7 @@
       "schemaNameGeneratorType": null,
       "contractResolverType": null,
       "serializerSettingsType": null,
-      "output": "wwwroot/docs/api-specification.json",
+      "output": "wwwroot/api/specification.json",
       "outputType": "OpenApi3",
       "assemblyPaths": [],
       "assemblyConfig": null,
