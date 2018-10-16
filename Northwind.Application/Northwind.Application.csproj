@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <!--<Import Project="..\Northwind.CodeAnalysis.targets" />-->
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <AssemblyName>Northwind.Application</AssemblyName>
     <RootNamespace>Northwind.Application</RootNamespace>
   </PropertyGroup>
@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="FluentValidation" Version="7.6.101" />
-    <PackageReference Include="MediatR" Version="5.0.1" />
+    <PackageReference Include="MediatR" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
