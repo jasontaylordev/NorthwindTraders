@@ -31,13 +31,17 @@ Follow these steps to get your development environment set up:
      ```
      dotnet build
      ```
-  4. Finally, within the `Northwind.WebUI` directory, launch the project by running:
+  4. Next, within the `Northwind.WebUI\ClientApp` directory, launch the front end by running:
      ```
-     dotnet run
+     npm start
      ```
-   5. Launch [http://localhost:52468/](http://localhost:52468/) in your browser to view the Web UI
+  5. Once the front end has started, within the `Northwind.WebUI` directory, launch the back end by running:
+     ```
+	 dotnet run
+	 ```
+  5. Launch [http://localhost:52468/](http://localhost:52468/) in your browser to view the Web UI
   
-   6. Launch [http://localhost:52468/api](http://localhost:52468/api) in your browser to view the API
+  6. Launch [http://localhost:52468/api](http://localhost:52468/api) in your browser to view the API
 
 ## Technologies
 * [.NET Core 2.2](https://blogs.msdn.microsoft.com/dotnet/2018/09/12/announcing-net-core-2-2-preview-2/)
