@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Northwind.WebUI.Infrastructure
+namespace Northwind.WebUI.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]/[action]")]
     public abstract class BaseController : Controller
     {
         private IMediator _mediator;

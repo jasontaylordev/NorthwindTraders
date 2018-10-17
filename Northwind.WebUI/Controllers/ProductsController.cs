@@ -6,17 +6,14 @@ using Northwind.Application.Products.Commands.DeleteProduct;
 using Northwind.Application.Products.Commands.UpdateProduct;
 using Northwind.Application.Products.Queries.GetAllProducts;
 using Northwind.Application.Products.Queries.GetProduct;
-using Northwind.WebUI.Infrastructure;
 
 namespace Northwind.WebUI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class ProductsController : BaseController
     {
         // GET: api/Products
         [HttpGet]
-        public Task<ProductsListViewModel> GetProducts()
+        public Task<ProductsListViewModel> GetAll()
         {
             return Mediator.Send(new GetAllProductsQuery());
         }
@@ -24,7 +21,7 @@ namespace Northwind.WebUI.Controllers
         // GET: api/Products/5
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetProduct(int id)
+        public async Task<IActionResult> Get(int id)
         {
             return Ok(await Mediator.Send(new GetProductQuery { Id = id }));
         }
@@ -32,7 +29,7 @@ namespace Northwind.WebUI.Controllers
         // POST: api/Products
         [HttpPost]
         [ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> PostProduct([FromBody] CreateProductCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateProductCommand command)
         {
             var productId = await Mediator.Send(command);
 
@@ -42,7 +39,7 @@ namespace Northwind.WebUI.Controllers
         // PUT: api/Products/5
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ProductDto), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> PutProduct(
+        public async Task<IActionResult> Update(
             [FromRoute] int id,
             [FromBody] UpdateProductCommand command)
         {
@@ -57,7 +54,7 @@ namespace Northwind.WebUI.Controllers
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             await Mediator.Send(new DeleteProductCommand { Id = id });
 

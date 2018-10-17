@@ -83,7 +83,7 @@ export class AdminClient implements IAdminClient {
     }
 
     changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Admin";
+        let url_ = this.baseUrl + "/api/Admin/ChangeEmployeeManager";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(command);
@@ -149,7 +149,7 @@ export class CategoriesClient implements ICategoriesClient {
     }
 
     getCategoryPreview(categoryId: number | undefined): Observable<CategoryPreviewDto[] | null> {
-        let url_ = this.baseUrl + "/api/Categories?";
+        let url_ = this.baseUrl + "/api/Categories/GetCategoryPreview?";
         if (categoryId === null)
             throw new Error("The parameter 'categoryId' cannot be null.");
         else if (categoryId !== undefined)
@@ -209,9 +209,9 @@ export class CategoriesClient implements ICategoriesClient {
 export interface ICustomersClient {
     getAll(): Observable<CustomersListViewModel | null>;
     get(id: string | null): Observable<FileResponse | null>;
+    create(command: CreateCustomerCommand): Observable<FileResponse | null>;
     update(id: string | null, command: UpdateCustomerCommand): Observable<FileResponse | null>;
     delete(id: string | null): Observable<FileResponse | null>;
-    create(command: CreateCustomerCommand): Observable<FileResponse | null>;
 }
 
 @Injectable()
@@ -275,7 +275,7 @@ export class CustomersClient implements ICustomersClient {
     }
 
     get(id: string | null): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Customers/{id}";
+        let url_ = this.baseUrl + "/api/Customers/Get/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -324,8 +324,58 @@ export class CustomersClient implements ICustomersClient {
         return _observableOf<FileResponse | null>(<any>null);
     }
 
+    create(command: CreateCustomerCommand): Observable<FileResponse | null> {
+        let url_ = this.baseUrl + "/api/Customers/Create";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(command);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(<any>response_);
+                } catch (e) {
+                    return <Observable<FileResponse | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<FileResponse | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<FileResponse | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200 || status === 206) {
+            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
+            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
+            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
+            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<FileResponse | null>(<any>null);
+    }
+
     update(id: string | null, command: UpdateCustomerCommand): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Customers/{id}";
+        let url_ = this.baseUrl + "/api/Customers/Update/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -378,7 +428,7 @@ export class CustomersClient implements ICustomersClient {
     }
 
     delete(id: string | null): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Customers/{id}";
+        let url_ = this.baseUrl + "/api/Customers/Delete/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -426,64 +476,14 @@ export class CustomersClient implements ICustomersClient {
         }
         return _observableOf<FileResponse | null>(<any>null);
     }
-
-    create(command: CreateCustomerCommand): Observable<FileResponse | null> {
-        let url_ = this.baseUrl + "/api/Customers";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(command);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processCreate(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processCreate(<any>response_);
-                } catch (e) {
-                    return <Observable<FileResponse | null>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<FileResponse | null>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processCreate(response: HttpResponseBase): Observable<FileResponse | null> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200 || status === 206) {
-            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
-            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
-            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
-            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<FileResponse | null>(<any>null);
-    }
 }
 
 export interface IProductsClient {
-    getProducts(): Observable<ProductsListViewModel | null>;
-    postProduct(command: CreateProductCommand): Observable<ProductViewModel | null>;
-    getProduct(id: number): Observable<ProductViewModel | null>;
-    putProduct(id: number, command: UpdateProductCommand): Observable<ProductDto | null>;
-    deleteProduct(id: number): Observable<void>;
+    getAll(): Observable<ProductsListViewModel | null>;
+    get(id: number): Observable<ProductViewModel | null>;
+    create(command: CreateProductCommand): Observable<ProductViewModel | null>;
+    update(id: number, command: UpdateProductCommand): Observable<ProductDto | null>;
+    delete(id: number): Observable<void>;
 }
 
 @Injectable()
@@ -497,8 +497,8 @@ export class ProductsClient implements IProductsClient {
         this.baseUrl = baseUrl ? baseUrl : "";
     }
 
-    getProducts(): Observable<ProductsListViewModel | null> {
-        let url_ = this.baseUrl + "/api/Products";
+    getAll(): Observable<ProductsListViewModel | null> {
+        let url_ = this.baseUrl + "/api/Products/GetAll";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -511,11 +511,11 @@ export class ProductsClient implements IProductsClient {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGetProducts(response_);
+            return this.processGetAll(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGetProducts(<any>response_);
+                    return this.processGetAll(<any>response_);
                 } catch (e) {
                     return <Observable<ProductsListViewModel | null>><any>_observableThrow(e);
                 }
@@ -524,7 +524,7 @@ export class ProductsClient implements IProductsClient {
         }));
     }
 
-    protected processGetProducts(response: HttpResponseBase): Observable<ProductsListViewModel | null> {
+    protected processGetAll(response: HttpResponseBase): Observable<ProductsListViewModel | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -546,60 +546,8 @@ export class ProductsClient implements IProductsClient {
         return _observableOf<ProductsListViewModel | null>(<any>null);
     }
 
-    postProduct(command: CreateProductCommand): Observable<ProductViewModel | null> {
-        let url_ = this.baseUrl + "/api/Products";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(command);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processPostProduct(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processPostProduct(<any>response_);
-                } catch (e) {
-                    return <Observable<ProductViewModel | null>><any>_observableThrow(e);
-                }
-            } else
-                return <Observable<ProductViewModel | null>><any>_observableThrow(response_);
-        }));
-    }
-
-    protected processPostProduct(response: HttpResponseBase): Observable<ProductViewModel | null> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 ? ProductViewModel.fromJS(resultData200) : <any>null;
-            return _observableOf(result200);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf<ProductViewModel | null>(<any>null);
-    }
-
-    getProduct(id: number): Observable<ProductViewModel | null> {
-        let url_ = this.baseUrl + "/api/Products/{id}";
+    get(id: number): Observable<ProductViewModel | null> {
+        let url_ = this.baseUrl + "/api/Products/Get/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -615,11 +563,11 @@ export class ProductsClient implements IProductsClient {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGetProduct(response_);
+            return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGetProduct(<any>response_);
+                    return this.processGet(<any>response_);
                 } catch (e) {
                     return <Observable<ProductViewModel | null>><any>_observableThrow(e);
                 }
@@ -628,7 +576,7 @@ export class ProductsClient implements IProductsClient {
         }));
     }
 
-    protected processGetProduct(response: HttpResponseBase): Observable<ProductViewModel | null> {
+    protected processGet(response: HttpResponseBase): Observable<ProductViewModel | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -650,8 +598,60 @@ export class ProductsClient implements IProductsClient {
         return _observableOf<ProductViewModel | null>(<any>null);
     }
 
-    putProduct(id: number, command: UpdateProductCommand): Observable<ProductDto | null> {
-        let url_ = this.baseUrl + "/api/Products/{id}";
+    create(command: CreateProductCommand): Observable<ProductViewModel | null> {
+        let url_ = this.baseUrl + "/api/Products/Create";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(command);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(<any>response_);
+                } catch (e) {
+                    return <Observable<ProductViewModel | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<ProductViewModel | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<ProductViewModel | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? ProductViewModel.fromJS(resultData200) : <any>null;
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<ProductViewModel | null>(<any>null);
+    }
+
+    update(id: number, command: UpdateProductCommand): Observable<ProductDto | null> {
+        let url_ = this.baseUrl + "/api/Products/Update/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -670,11 +670,11 @@ export class ProductsClient implements IProductsClient {
         };
 
         return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processPutProduct(response_);
+            return this.processUpdate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processPutProduct(<any>response_);
+                    return this.processUpdate(<any>response_);
                 } catch (e) {
                     return <Observable<ProductDto | null>><any>_observableThrow(e);
                 }
@@ -683,7 +683,7 @@ export class ProductsClient implements IProductsClient {
         }));
     }
 
-    protected processPutProduct(response: HttpResponseBase): Observable<ProductDto | null> {
+    protected processUpdate(response: HttpResponseBase): Observable<ProductDto | null> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -705,8 +705,8 @@ export class ProductsClient implements IProductsClient {
         return _observableOf<ProductDto | null>(<any>null);
     }
 
-    deleteProduct(id: number): Observable<void> {
-        let url_ = this.baseUrl + "/api/Products/{id}";
+    delete(id: number): Observable<void> {
+        let url_ = this.baseUrl + "/api/Products/Delete/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -721,11 +721,11 @@ export class ProductsClient implements IProductsClient {
         };
 
         return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processDeleteProduct(response_);
+            return this.processDelete(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processDeleteProduct(<any>response_);
+                    return this.processDelete(<any>response_);
                 } catch (e) {
                     return <Observable<void>><any>_observableThrow(e);
                 }
@@ -734,7 +734,7 @@ export class ProductsClient implements IProductsClient {
         }));
     }
 
-    protected processDeleteProduct(response: HttpResponseBase): Observable<void> {
+    protected processDelete(response: HttpResponseBase): Observable<void> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 

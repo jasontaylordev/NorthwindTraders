@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Northwind.WebUI.Infrastructure;
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Customers.Commands.UpdateCustomer;
@@ -9,12 +8,10 @@ using Northwind.Application.Customers.Commands.DeleteCustomer;
 
 namespace Northwind.WebUI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class CustomersController : BaseController
     {
         // GET api/customers
-        [HttpGet("[action]")]
+        [HttpGet]
         public async Task<ActionResult<CustomersListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetCustomersListQuery()));

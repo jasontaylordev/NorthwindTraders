@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Northwind.Domain.Exceptions;
+using Northwind.Domain.Infrastructure;
 
 namespace Northwind.Domain.ValueObjects
 {

@@ -41,7 +41,7 @@
         }
       }
     },
-    "/api/Admin": {
+    "/api/Admin/ChangeEmployeeManager": {
       "post": {
         "tags": [
           "Admin"
@@ -73,7 +73,7 @@
         }
       }
     },
-    "/api/Categories": {
+    "/api/Categories/GetCategoryPreview": {
       "get": {
         "tags": [
           "Categories"
@@ -127,7 +127,7 @@
         }
       }
     },
-    "/api/Customers/{id}": {
+    "/api/Customers/Get/{id}": {
       "get": {
         "tags": [
           "Customers"
@@ -155,7 +155,41 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Customers/Create": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomerCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customers/Update/{id}": {
       "put": {
         "tags": [
           "Customers"
@@ -194,7 +228,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Customers/Delete/{id}": {
       "delete": {
         "tags": [
           "Customers"
@@ -224,44 +260,12 @@
         }
       }
     },
-    "/api/Customers": {
-      "post": {
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "Customers_Create",
-        "requestBody": {
-          "x-name": "command",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCustomerCommand"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "x-nullable": true,
-            "description": "",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Products": {
+    "/api/Products/GetAll": {
       "get": {
         "tags": [
           "Products"
         ],
-        "operationId": "Products_GetProducts",
+        "operationId": "Products_GetAll",
         "responses": {
           "200": {
             "x-nullable": true,
@@ -275,12 +279,45 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Products/Get/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Products_Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products/Create": {
       "post": {
         "tags": [
           "Products"
         ],
-        "operationId": "Products_PostProduct",
+        "operationId": "Products_Create",
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -307,41 +344,12 @@
         }
       }
     },
-    "/api/Products/{id}": {
-      "get": {
-        "tags": [
-          "Products"
-        ],
-        "operationId": "Products_GetProduct",
-        "parameters": [
-          {
-            "type": "integer",
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "format": "int32",
-            "nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": true,
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductViewModel"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/Products/Update/{id}": {
       "put": {
         "tags": [
           "Products"
         ],
-        "operationId": "Products_PutProduct",
+        "operationId": "Products_Update",
         "parameters": [
           {
             "type": "integer",
@@ -376,12 +384,14 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Products/Delete/{id}": {
       "delete": {
         "tags": [
           "Products"
         ],
-        "operationId": "Products_DeleteProduct",
+        "operationId": "Products_Delete",
         "parameters": [
           {
             "type": "integer",

@@ -4,12 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Categories.Models;
 using Northwind.Application.Categories.Queries;
-using Northwind.WebUI.Infrastructure;
 
 namespace Northwind.WebUI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class CategoriesController : BaseController
     {
         [HttpGet]

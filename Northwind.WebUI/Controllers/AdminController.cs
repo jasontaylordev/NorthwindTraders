@@ -4,15 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Employees.Commands;
 using Northwind.Application.Employees.Models;
 using Northwind.Application.Employees.Queries;
-using Northwind.WebUI.Infrastructure;
 
 namespace Northwind.WebUI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class AdminController : BaseController
     {
-        [HttpGet("[action]")]
+        [HttpGet]
         public Task<IEnumerable<EmployeeManagerModel>> EmployeeManagerReport()
         {
             return Mediator.Send(new EmployeesWithManagersQuery());

@@ -9,9 +9,8 @@ export class ProductsComponent {
   productsListVm: ProductsListViewModel;
 
   constructor(client: ProductsClient) {
-    client.getProducts().subscribe(result => {
+    client.getAll().subscribe(result => {
       this.productsListVm = result;
-      console.log(result);
     }, error => console.error(error));
   }
 }
