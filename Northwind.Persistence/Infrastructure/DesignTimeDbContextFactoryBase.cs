@@ -14,15 +14,17 @@ namespace Northwind.Persistence.Infrastructure
 
         public TContext CreateDbContext(string[] args)
         {
-            return Create(Directory.GetCurrentDirectory(), Environment.GetEnvironmentVariable(AspNetCoreEnvironment));
+            var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}Northwind.WebUI", Path.DirectorySeparatorChar);
+            return Create(basePath, Environment.GetEnvironmentVariable(AspNetCoreEnvironment));
         }
 
         protected abstract TContext CreateNewInstance(DbContextOptions<TContext> options);
 
         private TContext Create(string basePath, string environmentName)
         {
+            
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(basePath + "\\..\\Northwind..WebUI")
+                .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.Local.json", optional: true)
                 .AddJsonFile($"appsettings.{environmentName}.json", optional: true)
