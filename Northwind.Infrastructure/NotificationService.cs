@@ -1,13 +1,14 @@
 ﻿using Northwind.Application.Interfaces;
 using Northwind.Application.Notifications.Models;
+using System.Threading.Tasks;
 
 namespace Northwind.Infrastructure
 {
     public class NotificationService : INotificationService
     {
-        public void Send(Message message)
+        public Task SendAsync(Message message)
         {
-            // Do nothing
+            return Task.CompletedTask;
         }
     }
 }

@@ -4,13 +4,15 @@ using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Infrastructure;
+using Northwind.Application.Interfaces;
 using Northwind.Application.Products.Queries.GetProduct;
+using Northwind.Common;
+using Northwind.Infrastructure;
 using Northwind.Persistence;
 using Northwind.WebUI.Filters;
 using NSwag.AspNetCore;
@@ -31,6 +33,9 @@ namespace Northwind.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddTransient<INotificationService, NotificationService>();
+            services.AddTransient<IDateTime, MachineDateTime>();
+
             // Add MediatR
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
@@ -40,7 +45,6 @@ namespace Northwind.WebUI
             // Add DbContext using SQL Server Provider
             services.AddDbContext<NorthwindDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
-
 
             services
                 .AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
