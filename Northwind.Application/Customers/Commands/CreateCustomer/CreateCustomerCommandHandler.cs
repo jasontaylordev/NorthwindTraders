@@ -14,6 +14,7 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 
         public CreateCustomerCommandHandler(
             NorthwindDbContext context,
+            IEventPublisher eventPublisher,
             INotificationService notificationService)
         {
             _context = context;
@@ -39,7 +40,7 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
             _context.Customers.Add(entity);
 
             await _context.SaveChangesAsync(cancellationToken);
-
+            eventPublisher.Publish(new CustomerCreatedEvent(Unit.Value)); //<==
             return Unit.Value;
         }
     }
