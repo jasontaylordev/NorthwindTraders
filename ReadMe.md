@@ -11,7 +11,7 @@ The initial construction of this project is explained in the following blog post
 * [Create Northwind Traders Code First with Entity Framework Core – Part 2](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-2/)
 
 ## Getting Started
-Use these instuctions to get the project up and running.
+Use these instructions to get the project up and running.
 
 ### Prerequisites
 You will need the following tools:
