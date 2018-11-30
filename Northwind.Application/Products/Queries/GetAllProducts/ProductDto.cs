@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq.Expressions;
+using AutoMapper;
+using Northwind.Application.Interfaces.Mapping;
 using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetAllProducts
 {
-    public class ProductDto
+    public class ProductDto : IHaveCustomMapping
     {
         public int ProductId { get; set; }
 
@@ -22,29 +24,11 @@ namespace Northwind.Application.Products.Queries.GetAllProducts
 
         public bool Discontinued { get; set; }
 
-        public static Expression<Func<Product, ProductDto>> Projection
+        public void CreateMappings(Profile configuration)
         {
-            get
-            {
-                return p => new ProductDto
-                {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    UnitPrice = p.UnitPrice,
-                    SupplierId = p.SupplierId,
-                    SupplierCompanyName = p.Supplier != null
-                        ? p.Supplier.CompanyName : string.Empty,
-                    CategoryId = p.CategoryId,
-                    CategoryName = p.Category != null
-                        ? p.Category.CategoryName : string.Empty,
-                    Discontinued = p.Discontinued
-                };
-            }
-        }
-
-        public static ProductDto Create(Product product)
-        {
-            return Projection.Compile().Invoke(product);
+            configuration.CreateMap<Product, ProductDto>()
+                .ForMember(pDTO => pDTO.SupplierCompanyName, opt => opt.MapFrom(p => p.Supplier != null ? p.Supplier.CompanyName : string.Empty))
+                .ForMember(pDTO => pDTO.CategoryName, opt => opt.MapFrom(p => p.Category != null ? p.Category.CategoryName : string.Empty));
         }
     }
 }
