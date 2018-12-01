@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Northwind.Domain.Entities;
+using Northwind.Persistence.Infrastructure;
 
 namespace Northwind.Persistence
 {
@@ -738,12 +739,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "51100",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 14.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 9.80m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 5, Discount = 0F }
+                ));
 
             orders.Add(new Order
             {
@@ -760,11 +760,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44087",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 9, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -781,12 +779,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 35, Discount = 0.15F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -803,12 +799,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[22], UnitPrice = 16.80m, Quantity = 6, Discount = 0.05F },
                     new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -825,12 +819,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 64.80m, Quantity = 40, Discount = 0.05F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 25, Discount = 0.05F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -847,12 +839,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 42, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -869,12 +859,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 15, Discount = 0.15F },
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 21, Discount = 0.15F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -891,13 +879,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 35, Discount = 0F },
                     new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -914,11 +900,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -935,12 +919,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[27], UnitPrice = 35.10m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -957,12 +939,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 50, Discount = 0.2F },
                     new OrderDetail { Product = Products[5], UnitPrice = 17.00m, Quantity = 65, Discount = 0.2F },
-                    new OrderDetail { Product = Products[32], UnitPrice = 25.60m, Quantity = 6, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[32], UnitPrice = 25.60m, Quantity = 6, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -979,11 +959,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05022",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[37], UnitPrice = 20.80m, Quantity = 1, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[37], UnitPrice = 20.80m, Quantity = 1, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1000,13 +978,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 16, Discount = 0.25F },
                     new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 15, Discount = 0.25F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 21, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 21, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -1023,12 +999,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[]
-                {
-                                new OrderDetail {Product = Products[21], UnitPrice = 8.00m, Quantity = 20, Discount = 0F},
-                                new OrderDetail {Product = Products[35], UnitPrice = 14.40m, Quantity = 20, Discount = 0F},
-                }
-            });
+            }.AddOrderDetails(
+                                new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 20, Discount = 0F },
+                                new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1045,13 +1018,10 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[]
-                {
-                                new OrderDetail {Product = Products[5], UnitPrice = 17.00m, Quantity = 12, Discount = 0.2F},
-                                new OrderDetail {Product = Products[7], UnitPrice = 24.00m, Quantity = 15, Discount = 0F},
-                                new OrderDetail {Product = Products[56], UnitPrice = 30.40m, Quantity = 2, Discount = 0F},
-                }
-            });
+            }.AddOrderDetails(
+                                new OrderDetail { Product = Products[5], UnitPrice = 17.00m, Quantity = 12, Discount = 0.2F },
+                                new OrderDetail { Product = Products[7], UnitPrice = 24.00m, Quantity = 15, Discount = 0F },
+                                new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1068,13 +1038,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 60, Discount = 0.25F },
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 28, Discount = 0F },
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 60, Discount = 0.25F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 36, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 36, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -1091,11 +1059,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 25, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 25, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -1112,11 +1078,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1133,10 +1097,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[12], UnitPrice = 30.40m, Quantity = 12, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[12], UnitPrice = 30.40m, Quantity = 12, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -1153,12 +1115,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 70, Discount = 0.15F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -1175,11 +1135,9 @@ namespace Northwind.Persistence
                 ShipRegion = "DF",
                 ShipPostalCode = "1081",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1196,11 +1154,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 60, Discount = 0.05F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -1217,11 +1173,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1238,10 +1192,8 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 24, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1258,12 +1210,10 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 64.80m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1280,14 +1230,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 24, Discount = 0.05F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 15, Discount = 0.05F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 60, Discount = 0.05F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 33, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 33, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -1304,11 +1252,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "51100",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1325,11 +1271,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 12, Discount = 0.05F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 6, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 6, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -1346,11 +1290,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1367,11 +1309,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "04179",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1388,13 +1328,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 12.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 12.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1411,10 +1349,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 15, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 15, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -1431,12 +1367,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1453,12 +1387,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28001",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 1, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1475,11 +1407,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28001",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1496,13 +1426,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[15], UnitPrice = 12.40m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1519,13 +1447,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[27], UnitPrice = 35.10m, Quantity = 15, Discount = 0.25F },
                     new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 20, Discount = 0.25F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 11.20m, Quantity = 5, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 11.20m, Quantity = 5, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -1542,12 +1468,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 45, Discount = 0.2F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 40, Discount = 0.2F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 36, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 36, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -1564,11 +1488,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 100, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1585,12 +1507,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 40, Discount = 0.15F },
                     new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -1607,11 +1527,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 10, Discount = 0.1F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 3, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 3, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -1628,11 +1546,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 8.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1649,13 +1565,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05432-043",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[5], UnitPrice = 17.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1672,12 +1586,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 24, Discount = 0.1F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 2, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 2, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -1694,10 +1606,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05634-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[20], UnitPrice = 64.80m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[20], UnitPrice = 64.80m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1714,13 +1624,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 50.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1737,14 +1645,12 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1761,10 +1667,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "51100",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 4, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1781,12 +1685,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1803,11 +1705,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1824,13 +1724,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 40, Discount = 0.25F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 30, Discount = 0.25F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1847,11 +1745,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1868,11 +1764,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[66], UnitPrice = 13.60m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1889,11 +1783,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1910,12 +1802,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 28, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1932,12 +1822,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 40, Discount = 0.1F },
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -1954,12 +1842,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -1976,12 +1862,10 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 50.00m, Quantity = 25, Discount = 0.1F },
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 25, Discount = 0.1F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 30, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 30, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -1998,12 +1882,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28001",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2020,11 +1902,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2041,11 +1921,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05021",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 1, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2062,14 +1940,12 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[6], UnitPrice = 20.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 2, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2086,11 +1962,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97201",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2107,11 +1981,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2128,13 +2000,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 4, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2151,10 +2021,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 12, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2171,12 +2039,10 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[32], UnitPrice = 25.60m, Quantity = 40, Discount = 0.1F },
                     new OrderDetail { Product = Products[58], UnitPrice = 10.60m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 25, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 25, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -2193,11 +2059,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 14, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2214,11 +2078,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 70, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 70, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2235,10 +2097,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2255,11 +2115,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2276,12 +2134,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 8, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 14, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2298,10 +2154,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 30, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2318,10 +2172,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2338,10 +2190,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2358,12 +2208,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[15], UnitPrice = 12.40m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2380,14 +2228,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 21, Discount = 0.15F },
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 70, Discount = 0.15F },
                     new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 40, Discount = 0.15F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 80, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 80, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -2404,14 +2250,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 20.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 9, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2428,12 +2272,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28023",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 16, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2450,13 +2292,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 25, Discount = 0.2F },
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 50, Discount = 0.2F },
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 35, Discount = 0.2F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 10.60m, Quantity = 30, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 10.60m, Quantity = 30, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -2473,12 +2313,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 9, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2495,13 +2333,11 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 10, Discount = 0.05F },
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 8, Discount = 0.05F },
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 20, Discount = 0.05F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 12, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 12, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -2518,11 +2354,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 50, Discount = 0.15F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 25, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 25, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -2539,10 +2373,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 15, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2559,12 +2391,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 50.00m, Quantity = 40, Discount = 0.2F },
                     new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 10, Discount = 0.2F },
-                    new OrderDetail { Product = Products[47], UnitPrice = 7.60m, Quantity = 16, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[47], UnitPrice = 7.60m, Quantity = 16, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -2581,12 +2411,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 10, Discount = 0.1F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 40, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 40, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -2603,11 +2431,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2624,13 +2450,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 7, Discount = 0.2F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 25, Discount = 0.2F },
                     new OrderDetail { Product = Products[32], UnitPrice = 25.60m, Quantity = 6, Discount = 0.2F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 48, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 48, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -2647,10 +2471,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1756",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 18, Discount = 0.1F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 18, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -2667,14 +2489,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[37], UnitPrice = 20.80m, Quantity = 28, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2691,11 +2511,9 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2712,12 +2530,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 70, Discount = 0.05F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 28, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2734,12 +2550,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 50.00m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 12, Discount = 0.05F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 40, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 40, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -2756,11 +2570,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 9, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 9, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -2777,13 +2589,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 24, Discount = 0.2F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 56, Discount = 0.2F },
                     new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 40, Discount = 0.2F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 40, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 40, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -2800,12 +2610,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 4, Discount = 0.05F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2822,11 +2630,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[8], UnitPrice = 32.00m, Quantity = 70, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[8], UnitPrice = 32.00m, Quantity = 70, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -2843,12 +2649,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 32.00m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 80, Discount = 0F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2865,11 +2669,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 36, Discount = 0.1F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2886,13 +2688,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 50, Discount = 0.15F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 6, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 6, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -2909,11 +2709,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 15, Discount = 0.15F },
-                    new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2930,10 +2728,8 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 24, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -2950,11 +2746,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[50], UnitPrice = 13.00m, Quantity = 15, Discount = 0.1F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 18, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 18, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -2971,13 +2765,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 13, Discount = 0F },
                     new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 77, Discount = 0.05F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 10, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 10, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -2994,11 +2786,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 20, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 20, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -3015,11 +2805,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 12, Discount = 0.2F },
-                    new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 50, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 50, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -3036,11 +2824,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3057,11 +2843,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3078,12 +2862,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3100,12 +2882,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 30, Discount = 0.2F },
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 16, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 8, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 8, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -3122,12 +2902,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 10, Discount = 0.05F },
                     new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 10, Discount = 0.05F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -3144,12 +2922,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 56, Discount = 0.05F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 70, Discount = 0.05F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 80, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 80, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -3166,14 +2942,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 35, Discount = 0F },
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 28, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3190,11 +2964,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 54, Discount = 0.1F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 55, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 55, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -3211,12 +2983,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3233,12 +3003,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "52066",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3255,11 +3023,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3276,10 +3042,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 24, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3296,11 +3060,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8022",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3317,13 +3079,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 36, Discount = 0F },
                     new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3340,13 +3100,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 5, Discount = 0.1F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 13, Discount = 0.1F },
                     new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 35, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 35, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -3363,11 +3121,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 18, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 18, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -3384,12 +3140,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 15, Discount = 0.15F },
                     new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 20, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 20, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -3406,10 +3160,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 6, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 6, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -3426,13 +3178,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 64.80m, Quantity = 12, Discount = 0.25F },
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 40, Discount = 0.25F },
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 70, Discount = 0.25F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 42, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 42, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -3449,11 +3199,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[58], UnitPrice = 10.60m, Quantity = 80, Discount = 0.2F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 50, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 50, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -3470,11 +3218,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 10.60m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 10.60m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3491,11 +3237,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97827",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3512,10 +3256,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 42, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 42, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -3532,11 +3274,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 20, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 20, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -3553,10 +3293,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 6, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3573,12 +3311,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 8, Discount = 0.1F },
                     new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 16, Discount = 0.1F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 20, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 20, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -3595,13 +3331,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 18, Discount = 0.1F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 6, Discount = 0.1F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3618,10 +3352,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 14, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3638,14 +3370,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[5], UnitPrice = 17.00m, Quantity = 32, Discount = 0F },
                     new OrderDetail { Product = Products[18], UnitPrice = 50.00m, Quantity = 9, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3662,12 +3392,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[50], UnitPrice = 13.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3684,11 +3412,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 64.80m, Quantity = 28, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3705,12 +3431,10 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 24.00m, Quantity = 10, Discount = 0.2F },
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 8, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 8, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -3727,11 +3451,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3748,13 +3470,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "4110",
                 ShipCountry = "Norway",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3771,12 +3491,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[45], UnitPrice = 7.60m, Quantity = 15, Discount = 0.2F },
                     new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3793,13 +3511,11 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3816,13 +3532,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 60, Discount = 0.1F },
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 40, Discount = 0.1F },
                     new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 45, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 24, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 24, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -3839,10 +3553,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "52066",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 18, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3859,10 +3571,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 50, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3879,14 +3589,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 25, Discount = 0.25F },
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 42, Discount = 0.25F },
                     new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 7, Discount = 0.25F },
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 70, Discount = 0.25F },
-                    new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 32, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 32, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3903,11 +3611,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97827",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3924,12 +3630,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 28, Discount = 0.1F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 70, Discount = 0.1F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3946,12 +3650,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -3968,11 +3670,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1756",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 10, Discount = 0.15F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 18, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 18, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -3989,11 +3689,9 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 120, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 120, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -4010,13 +3708,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4033,12 +3729,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4055,13 +3749,11 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4078,11 +3770,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 65, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 65, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4099,11 +3789,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 21, Discount = 0.15F },
-                    new OrderDetail { Product = Products[48], UnitPrice = 10.20m, Quantity = 70, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[48], UnitPrice = 10.20m, Quantity = 70, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -4120,12 +3808,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 30, Discount = 0.05F },
                     new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 40, Discount = 0.05F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 30, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 30, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -4142,10 +3828,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[3], UnitPrice = 8.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[3], UnitPrice = 8.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4162,14 +3846,12 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 30, Discount = 0.1F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 42, Discount = 0.1F },
                     new OrderDetail { Product = Products[36], UnitPrice = 15.20m, Quantity = 5, Discount = 0.1F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 2, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 2, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -4186,12 +3868,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4208,12 +3888,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "59000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[37], UnitPrice = 20.80m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4230,11 +3908,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4251,11 +3927,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 49, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 16, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4272,12 +3946,10 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 25, Discount = 0.2F },
                     new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 40, Discount = 0.2F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 9, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 9, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -4294,10 +3966,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 20, Discount = 0.1F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 20, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -4314,12 +3984,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4336,11 +4004,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 18, Discount = 0.05F },
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4357,11 +4023,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97827",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 2, Discount = 0F },
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4378,12 +4042,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4400,13 +4062,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 2, Discount = 0.25F },
                     new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 36, Discount = 0.25F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4423,13 +4083,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 7.60m, Quantity = 55, Discount = 0F },
                     new OrderDetail { Product = Products[61], UnitPrice = 22.80m, Quantity = 16, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4446,11 +4104,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 60, Discount = 0.05F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -4467,13 +4123,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[9], UnitPrice = 77.60m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 2, Discount = 0.1F },
                     new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 8, Discount = 0.1F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 12.00m, Quantity = 20, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 12.00m, Quantity = 20, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -4490,13 +4144,11 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 4, Discount = 0.15F },
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 15, Discount = 0.15F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 10, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 10, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -4513,10 +4165,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "10100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 2, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4533,11 +4183,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 14, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4554,12 +4202,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 60, Discount = 0.2F },
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 49, Discount = 0.2F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 30, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 30, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -4576,11 +4222,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 10, Discount = 0.25F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 20, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 20, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -4597,11 +4241,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8022",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4618,10 +4260,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 35, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4638,10 +4278,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4658,11 +4296,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[50], UnitPrice = 13.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 35.10m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -4679,13 +4315,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 45, Discount = 0.2F },
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 70, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 70, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -4702,12 +4336,10 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 50, Discount = 0.25F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 50, Discount = 0.25F },
-                    new OrderDetail { Product = Products[47], UnitPrice = 7.60m, Quantity = 30, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[47], UnitPrice = 7.60m, Quantity = 30, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -4724,11 +4356,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4745,10 +4375,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1756",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 28, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4765,11 +4393,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 18, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 18, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -4786,12 +4412,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX1 6LT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[22], UnitPrice = 16.80m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4808,13 +4432,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 40, Discount = 0.1F },
                     new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 24, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 24, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -4831,10 +4453,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 15, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4851,12 +4471,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44087",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 15, Discount = 0.2F },
                     new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 15, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 15.60m, Quantity = 15, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -4873,13 +4491,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 30.40m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4896,13 +4512,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 45, Discount = 0.15F },
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 49, Discount = 0.15F },
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 24, Discount = 0.15F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 22.80m, Quantity = 90, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 22.80m, Quantity = 90, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -4919,10 +4533,8 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[27], UnitPrice = 35.10m, Quantity = 50, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[27], UnitPrice = 35.10m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4939,12 +4551,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 80, Discount = 0F },
-                    new OrderDetail { Product = Products[66], UnitPrice = 13.60m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[66], UnitPrice = 13.60m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4961,11 +4571,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 6, Discount = 0.2F },
-                    new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -4982,13 +4590,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 31.20m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 14.40m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5005,11 +4611,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5026,13 +4630,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44087",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 12, Discount = 0.1F },
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 3, Discount = 0.1F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -5049,12 +4651,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5071,11 +4671,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5092,12 +4690,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[52], UnitPrice = 5.60m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 39.40m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5114,11 +4710,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 6, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 6, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -5135,13 +4729,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 120, Discount = 0.1F },
                     new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 35, Discount = 0.1F },
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 28, Discount = 0.1F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 55, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 55, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -5158,11 +4750,9 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 100, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 100, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -5179,11 +4769,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[48], UnitPrice = 10.20m, Quantity = 15, Discount = 0.1F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 25, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 25, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -5200,12 +4788,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 20, Discount = 0.2F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 10, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 10, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -5222,13 +4808,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[61], UnitPrice = 22.80m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5245,11 +4829,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 40, Discount = 0.15F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 21, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 21, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -5266,10 +4848,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 36, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 36, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5286,14 +4866,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5310,12 +4888,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 24.00m, Quantity = 16, Discount = 0.05F },
                     new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 20, Discount = 0.05F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5332,11 +4908,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 21, Discount = 0.25F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 4, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 4, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -5353,12 +4927,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 40, Discount = 0.25F },
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 28, Discount = 0.25F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 60, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 60, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -5375,11 +4947,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX1 6LT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 4.80m, Quantity = 1, Discount = 0F },
-                    new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5396,11 +4966,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5417,13 +4985,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 17.60m, Quantity = 16, Discount = 0.2F },
                     new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 30, Discount = 0.2F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5440,14 +5006,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 99.00m, Quantity = 18, Discount = 0.1F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[45], UnitPrice = 7.60m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[50], UnitPrice = 13.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[50], UnitPrice = 13.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5464,11 +5028,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05432-043",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 9.60m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5485,11 +5047,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 28, Discount = 0F },
-                    new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5506,11 +5066,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 20.70m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 36.80m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5527,12 +5085,10 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 40, Discount = 0.15F },
                     new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 35, Discount = 0.15F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 2, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 2, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -5549,12 +5105,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 50.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5571,11 +5125,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 24.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5592,11 +5144,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 3.60m, Quantity = 80, Discount = 0.05F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5613,11 +5163,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.00m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 17.20m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5634,13 +5182,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 18.60m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 36.40m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5657,12 +5203,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 35, Discount = 0.15F },
                     new OrderDetail { Product = Products[66], UnitPrice = 13.60m, Quantity = 60, Discount = 0.15F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 42, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 14.40m, Quantity = 42, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -5679,11 +5223,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 2, Discount = 0.05F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5700,12 +5242,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1756",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 14.40m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 21, Discount = 0.25F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 20, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 14.40m, Quantity = 20, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -5722,10 +5262,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[10], UnitPrice = 24.80m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -5742,13 +5280,11 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 210.80m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 26.20m, Quantity = 28, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 26.60m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5765,11 +5301,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "59000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[47], UnitPrice = 7.60m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5786,11 +5320,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[49], UnitPrice = 16.00m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 27.20m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5807,10 +5339,8 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "99362",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5827,11 +5357,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 11.20m, Quantity = 35, Discount = 0.05F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 30, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 30, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -5848,12 +5376,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 8.00m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 14.70m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5870,13 +5396,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 15.20m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[3], UnitPrice = 8.00m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[55], UnitPrice = 19.20m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 60, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 12.00m, Quantity = 60, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -5893,12 +5417,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 42.40m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 16, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 8.00m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5915,12 +5437,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 7.30m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 24.90m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 24, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 5.90m, Quantity = 24, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -5937,11 +5457,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 12.00m, Quantity = 20, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 12.00m, Quantity = 20, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -5958,11 +5476,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 16.80m, Quantity = 15, Discount = 0.25F },
-                    new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[16], UnitPrice = 13.90m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -5979,12 +5495,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[59], UnitPrice = 44.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[68], UnitPrice = 10.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 36, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 6.20m, Quantity = 36, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6001,11 +5515,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[44], UnitPrice = 15.50m, Quantity = 15, Discount = 0.15F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 7, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 7, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -6022,11 +5534,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 11.20m, Quantity = 60, Discount = 0.05F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 11.20m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -6043,12 +5553,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[65], UnitPrice = 16.80m, Quantity = 15, Discount = 0.1F },
                     new OrderDetail { Product = Products[66], UnitPrice = 13.60m, Quantity = 10, Discount = 0.1F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 10, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 28.80m, Quantity = 10, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6065,10 +5573,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05432-043",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 30, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6085,12 +5591,10 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "V3F 2K1",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 7.20m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 7.70m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6107,10 +5611,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05634-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[31], UnitPrice = 10.00m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -6127,12 +5629,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 30.40m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[72], UnitPrice = 27.80m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 10.40m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6149,12 +5649,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6171,11 +5669,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6192,11 +5688,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[15], UnitPrice = 15.50m, Quantity = 12, Discount = 0.05F },
-                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 8, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 8, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -6213,10 +5707,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6233,12 +5725,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6255,11 +5745,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 70, Discount = 0F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6276,13 +5764,11 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6299,10 +5785,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 3, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6319,11 +5803,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 18, Discount = 0.1F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 14, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 14, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6340,11 +5822,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 15, Discount = 0.15F },
-                    new OrderDetail { Product = Products[48], UnitPrice = 12.75m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[48], UnitPrice = 12.75m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -6361,11 +5841,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6382,10 +5860,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 3, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6402,11 +5878,9 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 36, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 36, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 36, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6423,12 +5897,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 50, Discount = 0.15F },
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 50, Discount = 0.15F },
-                    new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 10, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 10, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -6445,13 +5917,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0.15F },
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 9, Discount = 0.15F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 6, Discount = 0.15F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 12, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 12, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -6468,12 +5938,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 40, Discount = 0.2F },
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 50, Discount = 0.2F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 15, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 15, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -6490,14 +5958,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 39, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 35, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 39, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6514,14 +5980,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[9], UnitPrice = 97.00m, Quantity = 16, Discount = 0.15F },
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[27], UnitPrice = 43.90m, Quantity = 120, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 16, Discount = 0.15F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 84, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 84, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -6538,12 +6002,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 25, Discount = 0.1F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 80, Discount = 0.1F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6560,12 +6022,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "SW7 1RZ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6582,12 +6042,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6604,12 +6062,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 16, Discount = 0.05F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -6626,11 +6082,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "4110",
                 ShipCountry = "Norway",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6647,12 +6101,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6669,13 +6121,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 40, Discount = 0.2F },
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 25, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 25, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -6692,13 +6142,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 25, Discount = 0.1F },
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 15, Discount = 0.1F },
                     new OrderDetail { Product = Products[37], UnitPrice = 26.00m, Quantity = 18, Discount = 0.1F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 6, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 6, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6715,13 +6163,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 2, Discount = 0F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6738,11 +6184,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6759,12 +6203,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 8, Discount = 0.15F },
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -6781,11 +6223,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 50, Discount = 0.1F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6802,12 +6242,10 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 8, Discount = 0.2F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6824,12 +6262,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6846,13 +6282,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6869,10 +6303,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 2, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6889,11 +6321,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[66], UnitPrice = 17.00m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[66], UnitPrice = 17.00m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -6910,12 +6340,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 50, Discount = 0.05F },
                     new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 24, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 24, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -6932,12 +6360,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 10, Discount = 0.2F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 10, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 10, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -6954,13 +6380,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 50, Discount = 0.1F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 10, Discount = 0.1F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 5, Discount = 0.1F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -6977,13 +6401,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 15, Discount = 0.25F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -7000,14 +6422,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7024,11 +6444,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 1, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 1, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7045,13 +6463,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 8, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7068,13 +6484,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7091,13 +6505,11 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 35, Discount = 0.1F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 4, Discount = 0.1F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 36, Discount = 0.1F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 9, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 9, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -7114,11 +6526,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 24, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 24, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -7135,11 +6545,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 30, Discount = 0.15F },
-                    new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 70, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 70, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -7156,11 +6564,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7177,10 +6583,8 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "99362",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7197,12 +6601,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7219,11 +6621,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 24, Discount = 0.15F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7240,11 +6640,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44087",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 10, Discount = 0.25F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7261,12 +6659,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 55, Discount = 0.15F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 100, Discount = 0.15F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 48, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 48, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -7283,13 +6679,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 8, Discount = 0.1F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 6, Discount = 0.1F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 10, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 10, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -7306,12 +6700,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 40, Discount = 0.15F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7328,11 +6720,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 18, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7349,14 +6739,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7373,13 +6761,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 30, Discount = 0.05F },
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0.05F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 10, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 10, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -7396,14 +6782,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 30, Discount = 0.2F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 35, Discount = 0.2F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 18, Discount = 0.2F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 40, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 40, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -7420,10 +6804,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 24, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7440,11 +6822,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7461,14 +6841,12 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 18, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7485,11 +6863,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 12, Discount = 0.05F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 18, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 18, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -7506,11 +6882,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 15, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 15, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -7527,11 +6901,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7548,11 +6920,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 20, Discount = 0.1F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -7569,11 +6939,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 70, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 70, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7590,12 +6958,10 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 16, Discount = 0.05F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 6, Discount = 0.05F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 25, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 25, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -7612,11 +6978,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 25, Discount = 0.1F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 18, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 18, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -7633,12 +6997,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 35, Discount = 0.15F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 18, Discount = 0.15F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7655,12 +7017,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 60, Discount = 0.2F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 40, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 40, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -7677,10 +7037,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8022",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7697,11 +7055,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 35, Discount = 0.2F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7718,11 +7074,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 60, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 60, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -7739,11 +7093,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 11, Discount = 0.15F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 28, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 28, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -7760,13 +7112,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 12, Discount = 0.1F },
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 10, Discount = 0.1F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -7783,12 +7133,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7805,13 +7153,11 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98034",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 2, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7828,13 +7174,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "04179",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7851,12 +7195,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7873,12 +7215,10 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98034",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7895,11 +7235,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7916,11 +7254,9 @@ namespace Northwind.Persistence
                 ShipRegion = "CA",
                 ShipPostalCode = "94117",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[15], UnitPrice = 15.50m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -7937,12 +7273,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 15, Discount = 0.05F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 9, Discount = 0.05F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 30, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 30, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -7959,10 +7293,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 50, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 50, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -7979,11 +7311,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8000,12 +7330,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 24, Discount = 0.15F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 10, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 10, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -8022,10 +7350,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 50, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 50, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -8042,10 +7368,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8062,10 +7386,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 4, Discount = 0.15F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 4, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -8082,12 +7404,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8104,11 +7424,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 40, Discount = 0.2F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 100, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 100, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -8125,10 +7443,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8145,11 +7461,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 60, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 60, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -8166,12 +7480,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8188,11 +7500,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[15], UnitPrice = 15.50m, Quantity = 25, Discount = 0.05F },
-                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 5, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 5, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -8209,12 +7519,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 21, Discount = 0.2F },
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 4, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 4, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -8231,11 +7539,9 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8252,12 +7558,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 120, Discount = 0.25F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 65, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 65, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -8274,12 +7578,10 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 5, Discount = 0.2F },
                     new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 24, Discount = 0.2F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -8296,12 +7598,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 35, Discount = 0.2F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 12, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 12, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -8318,11 +7618,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[27], UnitPrice = 43.90m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8339,10 +7637,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8359,11 +7655,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97827",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8380,11 +7674,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8401,10 +7693,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 5, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 5, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -8421,11 +7711,9 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 48, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 25, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 25, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -8442,11 +7730,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[48], UnitPrice = 12.75m, Quantity = 6, Discount = 0.1F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -8463,13 +7749,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 30, Discount = 0.05F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 70, Discount = 0.05F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 15, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 15, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -8486,12 +7770,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05634-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 20, Discount = 0.2F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -8508,14 +7790,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 45, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 100, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 42, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8532,10 +7812,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44087",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 28, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8552,12 +7830,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8574,10 +7850,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 21, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 21, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -8594,12 +7868,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8616,14 +7888,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 55, Discount = 0F },
                     new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 80, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 80, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8640,11 +7910,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 8, Discount = 0.1F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8661,12 +7929,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8683,10 +7949,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8703,13 +7967,11 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 15, Discount = 0.05F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 15, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 15, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -8726,10 +7988,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 30, Discount = 0.15F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 30, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -8746,12 +8006,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8768,11 +8026,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 42, Discount = 0F },
-                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8789,11 +8045,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "V3F 2K1",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8810,13 +8064,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8833,11 +8085,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 18, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 18, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -8854,14 +8104,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 15, Discount = 0.1F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 25, Discount = 0.1F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 30, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 30, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -8878,12 +8126,10 @@ namespace Northwind.Persistence
                 ShipRegion = "MT",
                 ShipPostalCode = "59801",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8900,12 +8146,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05021",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8922,12 +8166,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8944,11 +8186,9 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 35, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 35, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -8965,10 +8205,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -8985,11 +8223,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9006,11 +8242,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 12, Discount = 0.05F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9027,10 +8261,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 8, Discount = 0.1F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 8, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -9047,11 +8279,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 30, Discount = 0.05F },
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -9068,13 +8298,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 36, Discount = 0.15F },
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 13, Discount = 0.15F },
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 35, Discount = 0.15F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 80, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 80, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -9091,13 +8319,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "59000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 35, Discount = 0F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9114,12 +8340,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 10, Discount = 0.1F },
                     new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 15, Discount = 0.1F },
-                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9136,11 +8360,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9157,12 +8379,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 25, Discount = 0.05F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 60, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 60, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -9179,12 +8399,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9201,10 +8419,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "4110",
                 ShipCountry = "Norway",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 8, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9221,11 +8437,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 20, Discount = 0.25F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 15, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 15, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -9242,11 +8456,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9263,11 +8475,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 30, Discount = 0.2F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 20, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 20, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -9284,12 +8494,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "12209",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 15, Discount = 0.25F },
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 21, Discount = 0.25F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 2, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 2, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -9306,12 +8514,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 4, Discount = 0.1F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 21, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 21, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -9328,11 +8534,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9349,13 +8553,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 15, Discount = 0.25F },
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 18, Discount = 0.25F },
                     new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0.25F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -9372,11 +8574,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9393,11 +8593,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -9414,11 +8612,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9435,12 +8631,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 25, Discount = 0.05F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9457,11 +8651,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 12, Discount = 0.25F },
-                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 20, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 20, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -9478,11 +8670,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 2, Discount = 0.25F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9499,11 +8689,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 20, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 20, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -9520,12 +8708,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 12, Discount = 0.1F },
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 20, Discount = 0.1F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 6, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 6, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -9542,10 +8728,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -9562,12 +8746,10 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 3, Discount = 0.1F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 28, Discount = 0.1F },
-                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 6, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 6, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -9584,15 +8766,13 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[15], UnitPrice = 15.50m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 45, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 45, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9609,13 +8789,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 70, Discount = 0.05F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 55, Discount = 0.05F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 70, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 70, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -9632,12 +8810,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 24, Discount = 0.05F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 40, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 40, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -9654,10 +8830,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97827",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 21, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9674,11 +8848,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 3, Discount = 0.2F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 49, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 49, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -9695,10 +8867,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9715,12 +8885,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 30, Discount = 0.05F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 30, Discount = 0.05F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -9737,12 +8905,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 24, Discount = 0.15F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 12, Discount = 0.15F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -9759,12 +8925,10 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 1, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9781,11 +8945,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 36, Discount = 0F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9802,11 +8964,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 45, Discount = 0.2F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 14, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 14, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -9823,12 +8983,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 8, Discount = 0.1F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 4, Discount = 0.1F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -9845,10 +9003,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9865,14 +9021,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 32, Discount = 0F },
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9889,12 +9043,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9911,11 +9063,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 15, Discount = 0.1F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9932,12 +9082,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9954,10 +9102,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9974,12 +9120,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -9996,12 +9140,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 2, Discount = 0F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10018,11 +9160,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 30, Discount = 0.15F },
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 8, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 8, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -10039,13 +9179,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 100, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 120, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10062,10 +9200,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 12, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10082,12 +9218,10 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 50, Discount = 0.25F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0.25F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 40, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 40, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10104,12 +9238,10 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 30, Discount = 0.1F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 12, Discount = 0.1F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 28, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10126,12 +9258,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[66], UnitPrice = 17.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10148,10 +9278,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10168,12 +9296,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10190,12 +9316,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10212,11 +9336,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 30, Discount = 0.2F },
-                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10233,12 +9355,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[9], UnitPrice = 97.00m, Quantity = 50, Discount = 0.25F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 6, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 6, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10255,12 +9375,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 18, Discount = 0.1F },
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 60, Discount = 0.1F },
-                    new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10277,10 +9395,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10297,11 +9413,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0.25F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 30, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 30, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10318,14 +9432,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 48, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 48, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10342,10 +9454,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "12209",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10362,13 +9472,11 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[9], UnitPrice = 97.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 60, Discount = 0.15F },
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 30, Discount = 0.15F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -10385,12 +9493,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 90, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10407,12 +9513,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10429,11 +9533,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10450,13 +9552,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 7, Discount = 0.25F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 9, Discount = 0.25F },
                     new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0.25F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10473,14 +9573,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 8, Discount = 0.05F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 12, Discount = 0.05F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 65, Discount = 0.05F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 8, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 8, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -10497,10 +9595,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "04179",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 12, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10517,13 +9613,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 5, Discount = 0.2F },
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 12, Discount = 0.2F },
                     new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 40, Discount = 0.2F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 60, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 60, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -10540,12 +9634,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 42, Discount = 0.15F },
                     new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 35, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 35, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -10562,11 +9654,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "12209",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10583,12 +9673,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10605,12 +9693,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[48], UnitPrice = 12.75m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[48], UnitPrice = 12.75m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10627,11 +9713,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10648,12 +9732,10 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10670,12 +9752,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 28, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 28, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -10692,11 +9772,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97201",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10713,12 +9791,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 28, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10735,11 +9811,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "10100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10756,12 +9830,10 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 42, Discount = 0F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 120, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 120, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10778,11 +9850,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 3, Discount = 0.05F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10799,13 +9869,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 110, Discount = 0F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10822,14 +9890,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 27, Discount = 0.25F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 50, Discount = 0.25F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 18, Discount = 0.25F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 12, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 12, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10846,11 +9912,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10867,12 +9931,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10889,12 +9951,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 32, Discount = 0.05F },
                     new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 25, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 25, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -10911,13 +9971,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 36, Discount = 0F },
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10934,12 +9992,10 @@ namespace Northwind.Persistence
                 ShipRegion = "CA",
                 ShipPostalCode = "94117",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 12, Discount = 0.25F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 3, Discount = 0.25F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 40, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 40, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -10956,11 +10012,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -10977,10 +10031,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 50, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 50, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -10997,13 +10049,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 45, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 42, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 42, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11020,10 +10070,8 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 15, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11040,11 +10088,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Québec",
                 ShipPostalCode = "H1J 1C3",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 16, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11061,12 +10107,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05442-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11083,11 +10127,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11104,12 +10146,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 10, Discount = 0.05F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 10, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 10, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -11126,13 +10166,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11149,12 +10187,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11171,12 +10207,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 15, Discount = 0.05F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 3, Discount = 0.05F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 10, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 10, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -11193,11 +10227,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 40, Discount = 0.05F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 30, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 30, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -11214,10 +10246,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11234,12 +10264,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11256,12 +10284,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11278,11 +10304,9 @@ namespace Northwind.Persistence
                 ShipRegion = "CA",
                 ShipPostalCode = "94117",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 20, Discount = 0.1F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 2, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 2, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -11299,11 +10323,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11320,11 +10342,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "51100",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11341,10 +10361,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "75016",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 3, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11361,11 +10379,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "51100",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11382,13 +10398,11 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 5, Discount = 0.2F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 35, Discount = 0.2F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 40, Discount = 0.2F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 14, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 14, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -11405,10 +10419,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 15, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 15, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -11425,12 +10437,10 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11447,10 +10457,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 28, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 28, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -11467,10 +10475,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 50, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 50, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -11487,13 +10493,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 45, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11510,13 +10514,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 28, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 9, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11533,13 +10535,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 8, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 35, Discount = 0F },
                     new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 9, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11556,12 +10556,10 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 44, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 28, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11578,12 +10576,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11600,12 +10596,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 5, Discount = 0.15F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 40, Discount = 0.15F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -11622,13 +10616,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 12, Discount = 0.1F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 20, Discount = 0.1F },
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11645,11 +10637,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "SW7 1RZ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11666,11 +10656,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "10100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11687,10 +10675,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 3, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11707,13 +10693,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 14, Discount = 0.25F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 25, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 25, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -11730,13 +10714,11 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 21, Discount = 0.2F },
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 20, Discount = 0.2F },
                     new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 6, Discount = 0.2F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 20, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 20, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -11753,13 +10735,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 7, Discount = 0F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11776,12 +10756,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11798,10 +10776,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05021",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11818,12 +10794,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 12, Discount = 0.25F },
                     new OrderDetail { Product = Products[27], UnitPrice = 43.90m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 30, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 30, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -11840,11 +10814,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 35, Discount = 0.25F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11861,13 +10833,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 28, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11884,12 +10854,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "59000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11906,11 +10874,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 20, Discount = 0.1F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 130, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 130, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -11927,10 +10893,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 80, Discount = 0.1F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 80, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -11947,12 +10911,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11969,10 +10931,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 2, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -11989,13 +10949,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 4, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12012,13 +10970,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 30, Discount = 0.05F },
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 15, Discount = 0.05F },
                     new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12035,10 +10991,8 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -12055,10 +11009,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 16, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12075,11 +11027,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 18, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12096,12 +11046,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 33, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 70, Discount = 0.2F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 7, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 7, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -12118,11 +11066,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 2, Discount = 0.25F },
-                    new OrderDetail { Product = Products[66], UnitPrice = 17.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[66], UnitPrice = 17.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12139,11 +11085,9 @@ namespace Northwind.Persistence
                 ShipRegion = "MT",
                 ShipPostalCode = "59801",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12160,13 +11104,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 16, Discount = 0.05F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 12, Discount = 0.05F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 27, Discount = 0.05F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 120, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 120, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -12183,10 +11125,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -12203,10 +11143,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12223,11 +11161,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "04179",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12244,11 +11180,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12265,12 +11199,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 3, Discount = 0.2F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12287,10 +11219,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 1, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 1, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12307,11 +11237,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12328,12 +11256,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 2, Discount = 0.15F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 30, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 30, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -12350,11 +11276,9 @@ namespace Northwind.Persistence
                 ShipRegion = "DF",
                 ShipPostalCode = "1081",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12371,12 +11295,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 30, Discount = 0.2F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0.2F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 42, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 42, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -12393,11 +11315,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -12414,11 +11334,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 50, Discount = 0.05F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 40, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 40, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -12435,13 +11353,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "59000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12458,11 +11374,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 3, Discount = 0.15F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -12479,11 +11393,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 14, Discount = 0.05F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -12500,12 +11412,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12522,11 +11432,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 14, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12543,11 +11451,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 15, Discount = 0.2F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 6, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 6, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -12564,11 +11470,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 65, Discount = 0F },
-                    new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -12585,13 +11489,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 21, Discount = 0.2F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 35, Discount = 0.2F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 24, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 24, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -12608,10 +11510,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "52066",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12628,11 +11528,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 2, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12649,12 +11547,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0.15F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12671,12 +11567,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 50, Discount = 0.1F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 10, Discount = 0.1F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 7, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 7, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -12693,11 +11587,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28023",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 40, Discount = 0.25F },
-                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 20, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 20, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -12714,13 +11606,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 25, Discount = 0.25F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 60, Discount = 0.25F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 5, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 5, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -12737,12 +11627,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 24, Discount = 0.05F },
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 15, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 15, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -12759,12 +11647,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 36, Discount = 0F },
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 4, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 4, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -12781,11 +11667,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97201",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12802,12 +11686,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 20, Discount = 0.25F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 2, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 15, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 15, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -12824,10 +11706,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "10100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 1, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 1, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12844,11 +11724,9 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 50, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 50, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -12865,10 +11743,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12885,12 +11761,10 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "V3F 2K1",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 7, Discount = 0F },
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12907,12 +11781,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 18, Discount = 0F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12929,12 +11801,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 16, Discount = 0.1F },
                     new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 40, Discount = 0.1F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12951,11 +11821,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 12, Discount = 0.2F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -12972,13 +11840,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 20, Discount = 0.15F },
                     new OrderDetail { Product = Products[48], UnitPrice = 12.75m, Quantity = 8, Discount = 0.15F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 30, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 30, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -12995,10 +11861,8 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 16, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13015,11 +11879,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 30, Discount = 0.05F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -13036,13 +11898,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 40, Discount = 0.15F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 60, Discount = 0.15F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 25, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 25, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -13059,11 +11919,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13080,11 +11938,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13101,10 +11957,8 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13121,11 +11975,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13142,11 +11994,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98034",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13163,13 +12013,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 40, Discount = 0.1F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -13186,11 +12034,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13207,11 +12053,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "52066",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13228,11 +12072,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "67000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13249,11 +12091,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13270,11 +12110,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13291,13 +12129,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13314,13 +12150,11 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05634-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 28, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13337,13 +12171,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "4110",
                 ShipCountry = "Norway",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 2, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 8, Discount = 0F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13360,13 +12192,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 3, Discount = 0.2F },
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 10, Discount = 0.2F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 16, Discount = 0.2F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13383,12 +12213,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 9, Discount = 0.1F },
-                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 9, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 9, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -13405,11 +12233,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05634-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 8, Discount = 0.05F },
-                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -13426,11 +12252,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "12209",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 2, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 2, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -13447,14 +12271,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 52, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13471,13 +12293,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 40, Discount = 0.25F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 21, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 21, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -13494,12 +12314,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 4, Discount = 0.25F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 25, Discount = 0.25F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 50, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 50, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -13516,11 +12334,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05634-030",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 15, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 15, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -13537,11 +12353,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 6, Discount = 0.2F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 10, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 10, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -13558,13 +12372,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 16, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13581,13 +12393,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13604,10 +12414,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 4, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 4, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -13624,10 +12432,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13644,14 +12450,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 70, Discount = 0.1F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 25, Discount = 0.1F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 42, Discount = 0.1F },
                     new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 60, Discount = 0.1F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 48, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 48, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13668,12 +12472,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13690,15 +12492,13 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 80, Discount = 0.2F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 12, Discount = 0.2F },
                     new OrderDetail { Product = Products[37], UnitPrice = 26.00m, Quantity = 60, Discount = 0.2F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 36, Discount = 0.2F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 45, Discount = 0.2F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 55, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 55, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -13715,11 +12515,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX1 6LT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[9], UnitPrice = 97.00m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[9], UnitPrice = 97.00m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13736,11 +12534,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 49, Discount = 0F },
-                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 18, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 18, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -13757,12 +12553,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "69004",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 20, Discount = 0.15F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 4, Discount = 0.15F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -13779,13 +12573,11 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 5, Discount = 0.05F },
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 10, Discount = 0.05F },
                     new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 10, Discount = 0.05F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 42, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 42, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -13802,12 +12594,10 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13824,10 +12614,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13844,11 +12632,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 100, Discount = 0.15F },
-                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 65, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 65, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -13865,13 +12651,11 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 14, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 15, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 15, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -13888,11 +12672,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05023",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13909,12 +12691,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 35, Discount = 0.25F },
-                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 10, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 10, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -13931,12 +12711,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "78000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[27], UnitPrice = 43.90m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13953,12 +12731,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 40, Discount = 0.25F },
                     new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 35, Discount = 0.25F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 30, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 30, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -13975,11 +12751,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -13996,14 +12770,12 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 42, Discount = 0F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14020,11 +12792,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14041,11 +12811,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 12, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 12, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -14062,11 +12830,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14083,11 +12849,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 60, Discount = 0.05F },
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 80, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 80, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14104,12 +12868,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 21, Discount = 0.25F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 6, Discount = 0.25F },
-                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 40, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 40, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -14126,10 +12888,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 3, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14146,12 +12906,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 42, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 42, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -14168,13 +12926,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "OX15 4NB",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 50, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14191,11 +12947,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14212,12 +12966,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 50, Discount = 0.05F },
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 12, Discount = 0.05F },
-                    new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 16, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 16, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14234,13 +12986,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 10, Discount = 0.05F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 21, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 21, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14257,11 +13007,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 3, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14278,10 +13026,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14298,12 +13044,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 21, Discount = 0.1F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14320,11 +13064,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14341,11 +13083,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 30, Discount = 0.25F },
-                    new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14362,10 +13102,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14382,12 +13120,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14404,12 +13140,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 30, Discount = 0.2F },
                     new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 30, Discount = 0.2F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 50, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 50, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -14426,10 +13160,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14446,12 +13178,10 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 20, Discount = 0.15F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 32, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 32, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -14468,10 +13198,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 8, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14488,12 +13216,10 @@ namespace Northwind.Persistence
                 ShipRegion = "CA",
                 ShipPostalCode = "94117",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 40, Discount = 0.05F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 21, Discount = 0.05F },
-                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 12, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 12, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14510,13 +13236,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 25, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14533,12 +13257,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14555,10 +13277,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8022",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14575,11 +13295,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14596,11 +13314,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14617,12 +13333,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14639,10 +13353,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14659,10 +13371,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 40, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 40, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14679,14 +13389,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14703,12 +13411,10 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 28, Discount = 0.05F },
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 50, Discount = 0.05F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 120, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 120, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14725,13 +13431,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 110, Discount = 0F },
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 45, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 91, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 100, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 100, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14748,11 +13452,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 16, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14769,11 +13471,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 80, Discount = 0F },
-                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 36, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 36, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14790,10 +13490,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14810,10 +13508,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 8, Discount = 0.15F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 8, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -14830,10 +13526,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 3, Discount = 0.25F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 3, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -14850,11 +13544,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14871,11 +13563,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 30, Discount = 0.15F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 6, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 6, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -14892,12 +13582,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14914,11 +13602,9 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14935,10 +13621,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 20, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 20, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -14955,10 +13639,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14975,10 +13657,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "75016",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 14, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -14995,11 +13675,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 20, Discount = 0.05F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 14, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 14, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -15016,12 +13694,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "4110",
                 ShipCountry = "Norway",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15038,12 +13714,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15060,12 +13734,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15082,11 +13754,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 40, Discount = 0.25F },
-                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 60, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 60, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -15103,12 +13773,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 40, Discount = 0.25F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15125,10 +13793,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 25, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 25, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15145,12 +13811,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15167,12 +13831,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15189,11 +13851,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28001",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 1, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15210,11 +13870,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 60, Discount = 0.25F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 25, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 25, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -15231,12 +13889,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15253,10 +13909,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 24, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15273,11 +13927,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15294,11 +13946,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15315,12 +13965,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 10, Discount = 0.2F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 10, Discount = 0.2F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 24, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 24, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -15337,12 +13985,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-958 22",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 20, Discount = 0.1F },
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 30, Discount = 0.1F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15359,11 +14005,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 25, Discount = 0.15F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 12, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 12, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -15380,13 +14024,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05021",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 2, Discount = 0F },
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15403,12 +14045,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "78000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15425,11 +14065,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8022",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15446,12 +14084,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 49, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15468,13 +14104,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 36, Discount = 0F },
                     new OrderDetail { Product = Products[27], UnitPrice = 43.90m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 25, Discount = 0.2F },
-                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 30, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -15491,11 +14125,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 42, Discount = 0.15F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15512,13 +14144,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 30, Discount = 0.1F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 14, Discount = 0.1F },
                     new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 16, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -15535,11 +14165,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Isle of Wight",
                 ShipPostalCode = "PO31 7PJ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 2, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15556,10 +14184,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15576,12 +14202,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "08737-363",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 4, Discount = 0.25F },
-                    new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 8, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 8, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -15598,10 +14222,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 30, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -15618,11 +14240,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15639,13 +14259,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0.25F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 24, Discount = 0.25F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 49, Discount = 0.25F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -15662,11 +14280,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0.15F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 40, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 40, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -15683,11 +14299,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15704,13 +14318,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 44, Discount = 0.25F },
                     new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 30, Discount = 0.25F },
                     new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 80, Discount = 0.25F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15727,10 +14339,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 28, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15747,12 +14357,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15769,12 +14377,10 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 5, Discount = 0.25F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 18, Discount = 0.25F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15791,11 +14397,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "04179",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15812,12 +14416,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15834,10 +14436,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15854,12 +14454,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 9, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15876,13 +14474,11 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15899,10 +14495,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "24100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15919,12 +14513,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 15, Discount = 0.05F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 6, Discount = 0.05F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 50, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 50, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -15941,11 +14533,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "12209",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 16, Discount = 0.05F },
-                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -15962,11 +14552,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 50, Discount = 0.05F },
-                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 50, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 50, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -15983,13 +14571,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 28, Discount = 0.15F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 25, Discount = 0.15F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 24, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 24, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -16006,10 +14592,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 12, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 12, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -16026,12 +14610,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 14, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16048,12 +14630,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 40, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 8, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 8, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16070,12 +14650,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16092,10 +14670,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0.15F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 20, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -16112,11 +14688,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0.25F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16133,11 +14707,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 6, Discount = 0.05F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 60, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16154,14 +14726,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 45, Discount = 0F },
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 77, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 9, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 44, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 44, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16178,10 +14748,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1675",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 2, Discount = 0.15F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 2, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -16198,12 +14766,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "75016",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 6, Discount = 0F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 5, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16220,10 +14786,8 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 16, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16240,12 +14804,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[37], UnitPrice = 26.00m, Quantity = 8, Discount = 0F },
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 12, Discount = 0.15F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 12, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 12, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -16262,11 +14824,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44087",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16283,12 +14843,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16305,10 +14863,8 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05432-043",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16325,10 +14881,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28023",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 40, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 40, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -16345,10 +14899,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "44000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 14, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16365,11 +14917,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "78000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 7, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 7, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16386,12 +14936,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "78000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 5, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16408,10 +14956,8 @@ namespace Northwind.Persistence
                 ShipRegion = "WY",
                 ShipPostalCode = "82520",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16428,11 +14974,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 16, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16449,10 +14993,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16469,13 +15011,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[47], UnitPrice = 9.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16492,13 +15032,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 20, Discount = 0.15F },
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 40, Discount = 0.15F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 6, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 6, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -16515,15 +15053,13 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 18, Discount = 0F },
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 80, Discount = 0F },
                     new OrderDetail { Product = Products[27], UnitPrice = 43.90m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 24, Discount = 0F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16540,10 +15076,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 40, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 40, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -16560,10 +15094,8 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 60, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 60, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16580,11 +15112,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16601,11 +15131,9 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 84, Discount = 0.15F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16622,12 +15150,10 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 55, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16644,12 +15170,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 36, Discount = 0.1F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 8, Discount = 0.1F },
-                    new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 35, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 35, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -16666,13 +15190,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16689,12 +15211,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16711,11 +15231,9 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 40, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 40, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -16732,12 +15250,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-673",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16754,13 +15270,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 65, Discount = 0F },
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 60, Discount = 0.15F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 65, Discount = 0.15F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 66, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 66, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -16777,12 +15291,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 50, Discount = 0.2F },
                     new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 20, Discount = 0.2F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 90, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 90, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -16799,10 +15311,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97201",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 2, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16819,11 +15329,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 50, Discount = 0.25F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 35, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 35, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -16840,10 +15348,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8200",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 18, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 18, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -16860,11 +15366,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16881,10 +15385,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16901,12 +15403,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 50, Discount = 0F },
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 20, Discount = 0.25F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 20, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 20, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -16923,13 +15423,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 7, Discount = 0F },
                     new OrderDetail { Product = Products[74], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16946,12 +15444,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 21, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 21, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -16968,12 +15464,10 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 25, Discount = 0.25F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 30, Discount = 0.25F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -16990,13 +15484,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[22], UnitPrice = 21.00m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17013,13 +15505,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 56, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 15, Discount = 0.15F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 24, Discount = 0.15F },
-                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 40, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 40, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17036,12 +15526,10 @@ namespace Northwind.Persistence
                 ShipRegion = "MT",
                 ShipPostalCode = "59801",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 4, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17058,11 +15546,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-1180",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 6, Discount = 0F },
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17079,11 +15565,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "21240",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 2, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17100,11 +15584,9 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 2, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 2, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -17121,12 +15603,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1756",
                 ShipCountry = "Portugal",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[8], UnitPrice = 40.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 14, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 14, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17142,12 +15622,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 70, Discount = 0.05F },
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 90, Discount = 0.05F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 21, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 21, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17164,12 +15642,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 18, Discount = 0.25F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 9, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17186,11 +15662,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17207,11 +15681,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "12209",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[58], UnitPrice = 13.25m, Quantity = 40, Discount = 0.05F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17228,12 +15700,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "80805",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 50, Discount = 0.05F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 36, Discount = 0.05F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 60, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 60, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -17250,13 +15720,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "28001",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[23], UnitPrice = 9.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 4, Discount = 0F },
                     new OrderDetail { Product = Products[45], UnitPrice = 9.50m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17273,10 +15741,8 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 28, Discount = 0.1F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 28, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -17293,11 +15759,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "4110",
                 ShipCountry = "Norway",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 18, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 18, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17314,11 +15778,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Essex",
                 ShipPostalCode = "CO7 6JX",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 16, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17335,12 +15797,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 25, Discount = 0F },
                     new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 110, Discount = 0F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17357,12 +15817,10 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97219",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 5, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 5, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17378,11 +15836,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 3, Discount = 0F },
-                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 2, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17399,10 +15855,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "50739",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 24, Discount = 0.15F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[10], UnitPrice = 31.00m, Quantity = 24, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -17419,14 +15873,12 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01307",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 11, Discount = 0.25F },
                     new OrderDetail { Product = Products[20], UnitPrice = 81.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 63, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 44, Discount = 0.25F },
-                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[72], UnitPrice = 34.80m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17443,11 +15895,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17464,11 +15914,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "EC2 5NT",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17485,13 +15933,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[26], UnitPrice = 31.23m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[65], UnitPrice = 21.05m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17508,11 +15954,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "90110",
                 ShipCountry = "Finland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 10, Discount = 0.1F },
-                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 20, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -17529,11 +15973,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "10100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 8, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17550,11 +15992,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 30, Discount = 0.25F },
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 21, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 21, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -17571,11 +16011,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "14776",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17592,11 +16030,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[56], UnitPrice = 38.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 12, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17613,13 +16049,11 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 100, Discount = 0.25F },
                     new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 70, Discount = 0F },
                     new OrderDetail { Product = Products[29], UnitPrice = 123.79m, Quantity = 60, Discount = 0.25F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 100, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 100, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -17636,14 +16070,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 45, Discount = 0F },
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 80, Discount = 0F },
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 21, Discount = 0F },
                     new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 16, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 16, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17660,12 +16092,10 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[36], UnitPrice = 19.00m, Quantity = 35, Discount = 0F },
                     new OrderDetail { Product = Products[38], UnitPrice = 263.50m, Quantity = 25, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17682,11 +16112,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 70, Discount = 0.1F },
-                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 36, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[69], UnitPrice = 36.00m, Quantity = 36, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -17703,12 +16131,10 @@ namespace Northwind.Persistence
                 ShipRegion = "AK",
                 ShipPostalCode = "99508",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 15, Discount = 0.1F },
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 6, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 6, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17725,13 +16151,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 10, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 60, Discount = 0F },
                     new OrderDetail { Product = Products[42], UnitPrice = 14.00m, Quantity = 30, Discount = 0F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17748,11 +16172,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "52066",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 7, Discount = 0F },
-                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[59], UnitPrice = 55.00m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17769,10 +16191,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "41101",
                 ShipCountry = "Spain",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 4, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17789,12 +16209,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "B-6000",
                 ShipCountry = "Belgium",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 5, Discount = 0.2F },
                     new OrderDetail { Product = Products[52], UnitPrice = 7.00m, Quantity = 2, Discount = 0F },
-                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[71], UnitPrice = 21.50m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17810,13 +16228,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Nueva Esparta",
                 ShipPostalCode = "4980",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 20, Discount = 0F },
                     new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 24, Discount = 0F },
                     new OrderDetail { Product = Products[49], UnitPrice = 20.00m, Quantity = 60, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 28, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 28, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17832,10 +16248,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17852,11 +16266,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "3012",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 30, Discount = 0.2F },
-                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 30, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[63], UnitPrice = 43.90m, Quantity = 30, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17873,11 +16285,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05432-043",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[44], UnitPrice = 19.45m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17894,10 +16304,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "75016",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17914,10 +16322,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "01-012",
                 ShipCountry = "Poland",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 12, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[62], UnitPrice = 49.30m, Quantity = 12, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17933,11 +16339,9 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 15, Discount = 0F },
-                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 24, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 24, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -17954,12 +16358,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "70563",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 20, Discount = 0.05F },
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 18, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[35], UnitPrice = 18.00m, Quantity = 18, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -17976,11 +16378,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 25, Discount = 0.25F },
-                    new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 30, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[5], UnitPrice = 21.35m, Quantity = 30, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -17997,10 +16397,8 @@ namespace Northwind.Persistence
                 ShipRegion = "BC",
                 ShipPostalCode = "T2F 8M4",
                 ShipCountry = "Canada",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 42, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 42, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18017,11 +16415,9 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "04876-786",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0.2F },
-                    new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 4, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[12], UnitPrice = 38.00m, Quantity = 4, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -18038,10 +16434,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "S-844 67",
                 ShipCountry = "Sweden",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 50, Discount = 0.1F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 50, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -18057,10 +16451,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "31000",
                 ShipCountry = "France",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0.2F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 10, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -18077,11 +16469,9 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "05454-876",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 30, Discount = 0.2F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 10, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 10, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -18098,12 +16488,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "5020",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[18], UnitPrice = 62.50m, Quantity = 35, Discount = 0.2F },
                     new OrderDetail { Product = Products[32], UnitPrice = 32.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 25, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 25, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -18119,11 +16507,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1010",
                 ShipCountry = "Argentina",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[33], UnitPrice = 2.50m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[67], UnitPrice = 14.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18140,13 +16526,11 @@ namespace Northwind.Persistence
                 ShipRegion = "Táchira",
                 ShipPostalCode = "5022",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[25], UnitPrice = 14.00m, Quantity = 15, Discount = 0F },
                     new OrderDetail { Product = Products[51], UnitPrice = 53.00m, Quantity = 20, Discount = 0F },
-                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[57], UnitPrice = 19.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18163,12 +16547,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "WX3 6FW",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 35, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 50, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 50, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18185,10 +16567,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "SW7 1RZ",
                 ShipCountry = "UK",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 3, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 3, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18204,12 +16584,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "68306",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[21], UnitPrice = 10.00m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 21, Discount = 0F },
-                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 4, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[61], UnitPrice = 28.50m, Quantity = 4, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18225,12 +16603,10 @@ namespace Northwind.Persistence
                 ShipRegion = "RJ",
                 ShipPostalCode = "02389-890",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 12, Discount = 0F },
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18247,11 +16623,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "10100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 10, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 10, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18267,10 +16641,8 @@ namespace Northwind.Persistence
                 ShipRegion = "OR",
                 ShipPostalCode = "97403",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[60], UnitPrice = 34.00m, Quantity = 15, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18286,11 +16658,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "42100",
                 ShipCountry = "Italy",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 10, Discount = 0.2F },
-                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 12, Discount = 0.2F },
-                }
-            });
+                    new OrderDetail { Product = Products[70], UnitPrice = 15.00m, Quantity = 12, Discount = 0.2F }));
 
             orders.Add(new Order
             {
@@ -18307,12 +16677,10 @@ namespace Northwind.Persistence
                 ShipRegion = "Co. Cork",
                 ShipPostalCode = "",
                 ShipCountry = "Ireland",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 30, Discount = 0F },
                     new OrderDetail { Product = Products[40], UnitPrice = 18.40m, Quantity = 40, Discount = 0.1F },
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 30, Discount = 0.1F },
-                }
-            });
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 30, Discount = 0.1F }));
 
             orders.Add(new Order
             {
@@ -18329,14 +16697,12 @@ namespace Northwind.Persistence
                 ShipRegion = "ID",
                 ShipPostalCode = "83720",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[17], UnitPrice = 39.00m, Quantity = 77, Discount = 0.1F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 12, Discount = 0F },
                     new OrderDetail { Product = Products[53], UnitPrice = 32.80m, Quantity = 25, Discount = 0.1F },
                     new OrderDetail { Product = Products[55], UnitPrice = 24.00m, Quantity = 4, Discount = 0.1F },
-                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 55, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[68], UnitPrice = 12.50m, Quantity = 55, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18352,11 +16718,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[30], UnitPrice = 25.89m, Quantity = 4, Discount = 0.25F },
-                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 20, Discount = 0.25F },
-                }
-            });
+                    new OrderDetail { Product = Products[54], UnitPrice = 7.45m, Quantity = 20, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -18373,12 +16737,10 @@ namespace Northwind.Persistence
                 ShipRegion = "WA",
                 ShipPostalCode = "98124",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 3, Discount = 0F },
                     new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 42, Discount = 0F },
-                    new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 35, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[34], UnitPrice = 14.00m, Quantity = 35, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18395,10 +16757,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "52066",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 9, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 9, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18414,12 +16774,10 @@ namespace Northwind.Persistence
                 ShipRegion = "SP",
                 ShipPostalCode = "05487-020",
                 ShipCountry = "Brazil",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[28], UnitPrice = 45.60m, Quantity = 8, Discount = 0.15F },
                     new OrderDetail { Product = Products[43], UnitPrice = 46.00m, Quantity = 36, Discount = 0.15F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 28, Discount = 0.15F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 28, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -18436,10 +16794,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 20, Discount = 0F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[39], UnitPrice = 18.00m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18455,13 +16811,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "60528",
                 ShipCountry = "Germany",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[1], UnitPrice = 18.00m, Quantity = 40, Discount = 0.15F },
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 20, Discount = 0.15F },
                     new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 30, Discount = 0.15F },
-                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[31], UnitPrice = 12.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18477,11 +16831,9 @@ namespace Northwind.Persistence
                 ShipRegion = "Lara",
                 ShipPostalCode = "3508",
                 ShipCountry = "Venezuela",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[7], UnitPrice = 30.00m, Quantity = 15, Discount = 0.05F },
-                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 10, Discount = 0.05F },
-                }
-            });
+                    new OrderDetail { Product = Products[13], UnitPrice = 6.00m, Quantity = 10, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -18497,13 +16849,11 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "8010",
                 ShipCountry = "Austria",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 8, Discount = 0F },
                     new OrderDetail { Product = Products[41], UnitPrice = 9.65m, Quantity = 40, Discount = 0F },
                     new OrderDetail { Product = Products[50], UnitPrice = 16.25m, Quantity = 22, Discount = 0F },
-                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 130, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[64], UnitPrice = 33.25m, Quantity = 130, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18519,11 +16869,9 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "05033",
                 ShipCountry = "Mexico",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[11], UnitPrice = 21.00m, Quantity = 10, Discount = 0F },
-                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[24], UnitPrice = 4.50m, Quantity = 20, Discount = 0F }));
 
             orders.Add(new Order
             {
@@ -18539,10 +16887,8 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1734",
                 ShipCountry = "Denmark",
-                OrderDetails = new[] {
-                    new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 14, Discount = 0.05F },
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[16], UnitPrice = 17.45m, Quantity = 14, Discount = 0.05F }));
 
             orders.Add(new Order
             {
@@ -18558,13 +16904,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "1204",
                 ShipCountry = "Switzerland",
-                OrderDetails = new[]
-                {
-                    new OrderDetail {Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0.15F},
-                    new OrderDetail {Product = Products[46], UnitPrice = 12.00m, Quantity = 30, Discount = 0.15F},
-                    new OrderDetail {Product = Products[76], UnitPrice = 18.00m, Quantity = 2, Discount = 0.15F},
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 10, Discount = 0.15F },
+                    new OrderDetail { Product = Products[46], UnitPrice = 12.00m, Quantity = 30, Discount = 0.15F },
+                    new OrderDetail { Product = Products[76], UnitPrice = 18.00m, Quantity = 2, Discount = 0.15F }));
 
             orders.Add(new Order
             {
@@ -18580,13 +16923,10 @@ namespace Northwind.Persistence
                 ShipRegion = "",
                 ShipPostalCode = "13008",
                 ShipCountry = "France",
-                OrderDetails = new[]
-                {
-                    new OrderDetail {Product = Products[6], UnitPrice = 25.00m, Quantity = 20, Discount = 0.25F},
-                    new OrderDetail {Product = Products[14], UnitPrice = 23.25m, Quantity = 20, Discount = 0.25F},
-                    new OrderDetail {Product = Products[19], UnitPrice = 9.20m, Quantity = 10, Discount = 0.25F},
-                }
-            });
+            }.AddOrderDetails(
+                    new OrderDetail { Product = Products[6], UnitPrice = 25.00m, Quantity = 20, Discount = 0.25F },
+                    new OrderDetail { Product = Products[14], UnitPrice = 23.25m, Quantity = 20, Discount = 0.25F },
+                    new OrderDetail { Product = Products[19], UnitPrice = 9.20m, Quantity = 10, Discount = 0.25F }));
 
             orders.Add(new Order
             {
@@ -18602,7 +16942,7 @@ namespace Northwind.Persistence
                 ShipRegion = "NM",
                 ShipPostalCode = "87110",
                 ShipCountry = "USA",
-                OrderDetails = new[] {
+            }.AddOrderDetails(
                     new OrderDetail { Product = Products[2], UnitPrice = 19.00m, Quantity = 24, Discount = 0.2F },
                     new OrderDetail { Product = Products[3], UnitPrice = 10.00m, Quantity = 4, Discount = 0F },
                     new OrderDetail { Product = Products[4], UnitPrice = 22.00m, Quantity = 1, Discount = 0F },
@@ -18627,9 +16967,7 @@ namespace Northwind.Persistence
                     new OrderDetail { Product = Products[66], UnitPrice = 17.00m, Quantity = 1, Discount = 0F },
                     new OrderDetail { Product = Products[73], UnitPrice = 15.00m, Quantity = 2, Discount = 0.01F },
                     new OrderDetail { Product = Products[75], UnitPrice = 7.75m, Quantity = 4, Discount = 0F },
-                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 2, Discount = 0F },
-                }
-            });
+                    new OrderDetail { Product = Products[77], UnitPrice = 13.00m, Quantity = 2, Discount = 0F }));
 
             foreach (var order in orders)
             {
