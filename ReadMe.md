@@ -17,7 +17,7 @@ Use these instuctions to get the project up and running.
 You will need the following tools:
 
 * [Visual Studio Code or 2017](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.2 Preview 2](https://www.microsoft.com/net/download/dotnet-core/2.2)
+* [.NET Core SDK 2.2 Preview 3](https://www.microsoft.com/net/download/dotnet-core/2.2)
 
 ### Setup
 Follow these steps to get your development environment set up:

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Northwind.Domain.Entities;
-using Northwind.Persistence.Extensions;
 
 namespace Northwind.Persistence
 {
@@ -37,7 +36,7 @@ namespace Northwind.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyAllConfigurations();
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(NorthwindDbContext).Assembly);
         }
     }
 }
