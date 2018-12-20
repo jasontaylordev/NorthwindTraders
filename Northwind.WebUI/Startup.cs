@@ -89,8 +89,8 @@ namespace Northwind.WebUI
 
             app.UseSwaggerUi3(settings =>
             {
-                settings.SwaggerUiRoute = "/api";
-                settings.SwaggerRoute = "/api/specification.json";
+                settings.Path = "/api";
+                settings.DocumentPath = "/api/specification.json";
             });
 
             app.UseMvc(routes =>

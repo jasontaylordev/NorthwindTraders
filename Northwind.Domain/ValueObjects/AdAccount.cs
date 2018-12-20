@@ -11,32 +11,36 @@ namespace Northwind.Domain.ValueObjects
         {
         }
 
-        public AdAccount(string value)
+        public static AdAccount For(string accountString)
         {
+            var account = new AdAccount();
+
             try
             {
-                var index = value.IndexOf("\\", StringComparison.Ordinal);
-                Domain = value.Substring(0, index);
-                Name = value.Substring(index + 1);
+                var index = accountString.IndexOf("\\", StringComparison.Ordinal);
+                account.Domain = accountString.Substring(0, index);
+                account.Name = accountString.Substring(index + 1);
             }
             catch (Exception ex)
             {
-                throw new AdAccountInvalidException(value, ex);
+                throw new AdAccountInvalidException(accountString, ex);
             }
+
+            return account;
         }
 
         public string Domain { get; private set; }
 
         public string Name { get; private set; }
 
-        public static implicit operator string(AdAccount adAccount)
+        public static implicit operator string(AdAccount account)
         {
-            return adAccount.ToString();
+            return account.ToString();
         }
 
-        public static explicit operator AdAccount(string value)
+        public static explicit operator AdAccount(string accountString)
         {
-            return new AdAccount(value);
+            return For(accountString);
         }
 
         public override string ToString()

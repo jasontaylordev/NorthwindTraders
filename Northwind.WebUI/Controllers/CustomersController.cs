@@ -5,6 +5,7 @@ using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Customers.Commands.UpdateCustomer;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Customers.Commands.DeleteCustomer;
+using System.Net;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -19,32 +20,34 @@ namespace Northwind.WebUI.Controllers
 
         // GET api/customers/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<ActionResult<CustomerDetailModel>> Get(string id)
         {
             return Ok(await Mediator.Send(new GetCustomerDetailQuery { Id = id }));
         }
 
         // POST api/customers
         [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> Create([FromBody]CreateCustomerCommand command)
         {
-            return Ok(await Mediator.Send(command));
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         // PUT api/customers/5
         [HttpPut("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerCommand command)
         {
-            if (command == null || command.Id != id)
-            {
-                return BadRequest();
-            }
+            await Mediator.Send(command);
 
-            return Ok(await Mediator.Send(command));
+            return NoContent();
         }
 
         // DELETE api/customers/5
         [HttpDelete("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> Delete(string id)
         {
             await Mediator.Send(new DeleteCustomerCommand { Id = id });

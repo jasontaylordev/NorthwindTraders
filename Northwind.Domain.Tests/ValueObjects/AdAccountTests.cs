@@ -7,37 +7,30 @@ namespace Northwind.Domain.Tests.ValueObjects
     public class AdAccountTests
     {
         [Fact]
-        public void ShouldHaveCorrectDomain()
+        public void ShouldHaveCorrectDomainAndName()
         {
-            var account = new AdAccount("SSW\\Jason");
+            var account = AdAccount.For("SSW\\Jason");
 
             Assert.Equal("SSW", account.Domain);
-        }
-
-        [Fact]
-        public void ShouldHaveCorrectName()
-        {
-            var account = new AdAccount("SSW\\Jason");
-
             Assert.Equal("Jason", account.Name);
         }
 
         [Fact]
-        public void ToStringReturnsDomainAndName()
+        public void ToStringReturnsCorrectFormat()
         {
             const string value = "SSW\\Jason";
 
-            var account = new AdAccount(value);
+            var account = AdAccount.For(value);
 
             Assert.Equal(value, account.ToString());
         }
 
         [Fact]
-        public void ImplicitConversionToStringReturnsDomainAndName()
+        public void ImplicitConversionToStringResultsInCorrectString()
         {
             const string value = "SSW\\Jason";
 
-            var account = new AdAccount(value);
+            var account = AdAccount.For(value);
 
             string result = account;
 
