@@ -1,4 +1,5 @@
-﻿using Northwind.Application.Customers.Queries.GetCustomersList;
+﻿using AutoMapper;
+using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Tests.Infrastructure;
 using Northwind.Persistence;
 using Shouldly;
@@ -12,16 +13,18 @@ namespace NorthwindTraders.Application.UnitTests.Infrastructure
     public class GetCustomersListQueryHandlerTests
     {
         private readonly NorthwindDbContext _context;
+        private readonly IMapper _mapper;
 
         public GetCustomersListQueryHandlerTests(QueryTestFixture fixture)
         {
             _context = fixture.Context;
+            _mapper = fixture.Mapper;
         }
 
         [Fact]
         public async Task GetCustomersTest()
         {
-            var sut = new GetCustomersListQueryHandler(_context);
+            var sut = new GetCustomersListQueryHandler(_context, _mapper);
 
             var result = await sut.Handle(new GetCustomersListQuery(), CancellationToken.None);
 

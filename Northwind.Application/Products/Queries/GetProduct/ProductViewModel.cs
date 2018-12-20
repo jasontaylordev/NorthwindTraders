@@ -1,10 +1,10 @@
-﻿using Northwind.Domain.Entities;
-using System;
-using System.Linq.Expressions;
+﻿using AutoMapper;
+using Northwind.Application.Interfaces.Mapping;
+using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetProduct
 {
-    public class ProductViewModel
+    public class ProductViewModel : IHaveCustomMapping
     {
         public int ProductId { get; set; }
 
@@ -26,29 +26,27 @@ namespace Northwind.Application.Products.Queries.GetProduct
 
         public bool DeleteEnabled { get; set; }
 
-        public static Expression<Func<Product, ProductViewModel>> Projection
+        public void CreateMappings(Profile configuration)
         {
-            get
-            {
-                return p => new ProductViewModel
-                {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    UnitPrice = p.UnitPrice,
-                    SupplierId = p.SupplierId,
-                    SupplierCompanyName = p.Supplier != null
-                        ? p.Supplier.CompanyName : string.Empty,
-                    CategoryId = p.CategoryId,
-                    CategoryName = p.Category != null
-                        ? p.Category.CategoryName : string.Empty,
-                    Discontinued = p.Discontinued
-                };
-            }
+            configuration.CreateMap<Product, ProductViewModel>()
+                .ForMember(pDTO => pDTO.EditEnabled, opt => opt.MapFrom<PermissionsResolver>())
+                .ForMember(pDTO => pDTO.DeleteEnabled, opt => opt.MapFrom<PermissionsResolver>())
+                .ForMember(pDTO => pDTO.SupplierCompanyName, opt => opt.MapFrom(p => p.Supplier != null ? p.Supplier.CompanyName : string.Empty))
+                .ForMember(pDTO => pDTO.CategoryName, opt => opt.MapFrom(p => p.Category != null ? p.Category.CategoryName : string.Empty));
         }
 
-        public static ProductViewModel Create(Product product)
+        class PermissionsResolver : IValueResolver<Product, ProductViewModel, bool>
         {
-            return Projection.Compile().Invoke(product);
+            // TODO: inject your services and helper here
+            public PermissionsResolver()
+            {
+               
+            }
+
+            public bool Resolve(Product source, ProductViewModel dest, bool destMember, ResolutionContext context)
+            {
+                    return false;
+            }
         }
     }
 }
