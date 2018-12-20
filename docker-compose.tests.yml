@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+
+  northwind.domain.tests:
+    image: northwind-domain-tests:latest
+    build:
+      context: .
+      dockerfile: Northwind.Domain.Tests/Dockerfile
+
+  northwind.application.tests:
+    image: northwind-application-tests:latest
+    build:
+      context: .
+      dockerfile: Northwind.Application.Tests/Dockerfile
