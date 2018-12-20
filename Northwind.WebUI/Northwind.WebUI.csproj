@@ -15,14 +15,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
-    <PackageReference Include="NSwag.AspNetCore" Version="12.0.4" />
-    <PackageReference Include="NSwag.MSBuild" Version="12.0.4">
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
+    <PackageReference Include="NSwag.AspNetCore" Version="12.0.8" />
+    <PackageReference Include="NSwag.MSBuild" Version="12.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Seq.Extensions.Logging" Version="4.0.0" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="7.6.101" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.1.2" />
   </ItemGroup>
 
   <ItemGroup>
