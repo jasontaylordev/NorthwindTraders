@@ -6,7 +6,7 @@ import { ProductsClient, ProductsListViewModel } from '../northwind-traders-api'
 })
 export class ProductsComponent {
 
-  productsListVm: ProductsListViewModel;
+  productsListVm: ProductsListViewModel = new ProductsListViewModel();
 
   constructor(client: ProductsClient) {
     client.getAll().subscribe(result => {
