@@ -35,13 +35,16 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
         {
             private readonly NorthwindDbContext _context;
             private readonly INotificationService _notificationService;
+            private readonly IMediator _mediator;
 
             public Handler(
                 NorthwindDbContext context,
-                INotificationService notificationService)
+                INotificationService notificationService,
+                IMediator mediator)
             {
                 _context = context;
                 _notificationService = notificationService;
+                _mediator = mediator;
             }
 
             public async Task<Unit> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
@@ -63,6 +66,8 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
                 _context.Customers.Add(entity);
 
                 await _context.SaveChangesAsync(cancellationToken);
+
+                await _mediator.Publish(new CustomerCreated { CustomerId = entity.CustomerId });
 
                 return Unit.Value;
             }
