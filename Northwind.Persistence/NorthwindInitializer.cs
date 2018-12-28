@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Northwind.Domain.Entities;
-using Northwind.Persistence.Infrastructure;
+using Northwind.Persistence.Extensions;
 
 namespace Northwind.Persistence
 {
