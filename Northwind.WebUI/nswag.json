@@ -1,5 +1,5 @@
 ﻿{
-  "runtime": "NetCore21",
+  "runtime": "NetCore22",
   "defaultVariables": null,
   "swaggerGenerator": {
     "aspNetCoreToSwagger": {
@@ -95,6 +95,7 @@
       "useGetBaseUrlMethod": false,
       "baseUrlTokenName": "API_BASE_URL",
       "queryNullValue": "",
+      "inlineNamedDictionaries": false,
       "templateDirectory": null,
       "typeNameGeneratorType": null,
       "propertyNameGeneratorType": null,
