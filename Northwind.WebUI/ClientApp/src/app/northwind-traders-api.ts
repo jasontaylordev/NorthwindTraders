@@ -15,7 +15,7 @@ export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface IAdminClient {
     employeeManagerReport(): Observable<EmployeeManagerModel[] | null>;
-    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse>;
+    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<void>;
 }
 
 @Injectable()
@@ -81,7 +81,7 @@ export class AdminClient implements IAdminClient {
         return _observableOf<EmployeeManagerModel[] | null>(<any>null);
     }
 
-    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<FileResponse> {
+    changeEmployeeManager(command: ChangeEmployeesManagerCommand): Observable<void> {
         let url_ = this.baseUrl + "/api/Admin/ChangeEmployeeManager";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -93,7 +93,6 @@ export class AdminClient implements IAdminClient {
             responseType: "blob",
             headers: new HttpHeaders({
                 "Content-Type": "application/json", 
-                "Accept": "application/json"
             })
         };
 
@@ -104,31 +103,29 @@ export class AdminClient implements IAdminClient {
                 try {
                     return this.processChangeEmployeeManager(<any>response_);
                 } catch (e) {
-                    return <Observable<FileResponse>><any>_observableThrow(e);
+                    return <Observable<void>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<FileResponse>><any>_observableThrow(response_);
+                return <Observable<void>><any>_observableThrow(response_);
         }));
     }
 
-    protected processChangeEmployeeManager(response: HttpResponseBase): Observable<FileResponse> {
+    protected processChangeEmployeeManager(response: HttpResponseBase): Observable<void> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200 || status === 206) {
-            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
-            const fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
-            const fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
-            return _observableOf({ fileName: fileName, data: <any>responseBlob, status: status, headers: _headers });
-        } else if (status !== 200 && status !== 204) {
+        if (status === 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            return _observableOf<void>(<any>null);
+            }));
+        } else {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<FileResponse>(<any>null);
     }
 }
 
@@ -362,12 +359,11 @@ export class CustomersClient implements ICustomersClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return _observableOf<void>(<any>null);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            return throwException("A server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
     }
 
     update(id: string | null, command: UpdateCustomerCommand): Observable<void> {
@@ -413,12 +409,11 @@ export class CustomersClient implements ICustomersClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return _observableOf<void>(<any>null);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            return throwException("A server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
     }
 
     delete(id: string | null): Observable<void> {
@@ -460,12 +455,11 @@ export class CustomersClient implements ICustomersClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return _observableOf<void>(<any>null);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            return throwException("A server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
     }
 }
 
@@ -733,12 +727,11 @@ export class ProductsClient implements IProductsClient {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return _observableOf<void>(<any>null);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            return throwException("A server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<void>(<any>null);
     }
 }
 
@@ -1548,13 +1541,6 @@ export interface IUpdateProductCommand {
     supplierId?: number | undefined;
     categoryId?: number | undefined;
     discontinued?: boolean;
-}
-
-export interface FileResponse {
-    data: Blob;
-    status: number;
-    fileName?: string;
-    headers?: { [name: string]: any };
 }
 
 export class SwaggerException extends Error {

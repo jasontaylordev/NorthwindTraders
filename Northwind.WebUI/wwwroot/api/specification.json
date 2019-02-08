@@ -55,15 +55,11 @@
           "x-position": 1
         },
         "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
+          "204": {
+            "description": ""
+          },
+          "default": {
+            "description": ""
           }
         }
       }
@@ -187,6 +183,9 @@
         "responses": {
           "204": {
             "description": ""
+          },
+          "default": {
+            "description": ""
           }
         }
       }
@@ -224,6 +223,9 @@
         "responses": {
           "204": {
             "description": ""
+          },
+          "default": {
+            "description": ""
           }
         }
       }
@@ -248,6 +250,9 @@
         ],
         "responses": {
           "204": {
+            "description": ""
+          },
+          "default": {
             "description": ""
           }
         }
@@ -417,6 +422,9 @@
         ],
         "responses": {
           "204": {
+            "description": ""
+          },
+          "default": {
             "description": ""
           }
         }

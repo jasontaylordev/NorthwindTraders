@@ -6,6 +6,7 @@ using Northwind.Application.Customers.Commands.UpdateCustomer;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Customers.Commands.DeleteCustomer;
 using System.Net;
+using Microsoft.AspNetCore.Http;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -27,7 +28,8 @@ namespace Northwind.WebUI.Controllers
 
         // POST api/customers
         [HttpPost]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> Create([FromBody]CreateCustomerCommand command)
         {
             await Mediator.Send(command);
@@ -37,7 +39,8 @@ namespace Northwind.WebUI.Controllers
 
         // PUT api/customers/5
         [HttpPut("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerCommand command)
         {
             await Mediator.Send(command);
@@ -47,7 +50,8 @@ namespace Northwind.WebUI.Controllers
 
         // DELETE api/customers/5
         [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> Delete(string id)
         {
             await Mediator.Send(new DeleteCustomerCommand { Id = id });

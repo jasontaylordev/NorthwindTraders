@@ -6,6 +6,7 @@ using Northwind.Application.Products.Commands.DeleteProduct;
 using Northwind.Application.Products.Commands.UpdateProduct;
 using Northwind.Application.Products.Queries.GetAllProducts;
 using Northwind.Application.Products.Queries.GetProduct;
+using Microsoft.AspNetCore.Http;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -45,7 +46,8 @@ namespace Northwind.WebUI.Controllers
 
         // DELETE: api/products/5
         [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> Delete(int id)
         {
             await Mediator.Send(new DeleteProductCommand { Id = id });
