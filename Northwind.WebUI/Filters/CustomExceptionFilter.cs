@@ -2,7 +2,8 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Northwind.Application.Exceptions;
+using Northwind.Application.Exceptions.Abstractions;
+using Northwind.Application.Exceptions.Models;
 
 namespace Northwind.WebUI.Filters
 {
@@ -11,30 +12,26 @@ namespace Northwind.WebUI.Filters
     {
         public override void OnException(ExceptionContext context)
         {
-            if (context.Exception is ValidationException)
-            {
-                context.HttpContext.Response.ContentType = "application/json";
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                context.Result = new JsonResult(
-                    ((ValidationException)context.Exception).Failures);
+            HttpStatusCode code;
+            ErrorDto error;
 
-                return;
+            if (context.Exception is BaseException exception)
+            {
+                code = exception.StatusCode;
+                error = exception.ErrorDetails;
+            }
+            else
+            {
+                code = HttpStatusCode.InternalServerError;
+                error = new ErrorDto
+                {
+                    Description = context.Exception.Message
+                };
             }
 
-            var code = HttpStatusCode.InternalServerError;
-
-            if (context.Exception is NotFoundException)
-            {
-                code = HttpStatusCode.NotFound;
-            }
-
-            context.HttpContext.Response.ContentType = "application/json";
+            context.Result = new JsonResult(error);
             context.HttpContext.Response.StatusCode = (int)code;
-            context.Result = new JsonResult(new
-            {
-                error = new[] { context.Exception.Message },
-                stackTrace = context.Exception.StackTrace
-            });
+            context.HttpContext.Response.ContentType = "application/json";
         }
     }
 }

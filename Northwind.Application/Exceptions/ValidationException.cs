@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using FluentValidation.Results;
+using Northwind.Application.Exceptions.Abstractions;
+using Northwind.Application.Exceptions.Models;
 
 namespace Northwind.Application.Exceptions
 {
-    public class ValidationException : Exception
+    public class ValidationException : BaseException
     {
+        public override HttpStatusCode StatusCode => HttpStatusCode.BadRequest;
+
         public ValidationException()
-            : base("One or more validation failures have occurred.")
         {
-            Failures = new Dictionary<string, string[]>();
+            ErrorDetails = new ErrorDto
+            {
+                Description = "One or more validation failures have occurred."
+            };
         }
 
-        public ValidationException(List<ValidationFailure> failures)
+        public ValidationException(IEnumerable<ValidationFailure> failures)
             : this()
         {
             var propertyNames = failures
@@ -26,11 +33,8 @@ namespace Northwind.Application.Exceptions
                     .Where(e => e.PropertyName == propertyName)
                     .Select(e => e.ErrorMessage)
                     .ToArray();
-
-                Failures.Add(propertyName, propertyFailures);
+                ErrorDetails.Failures.Add(propertyName, propertyFailures);
             }
         }
-
-        public IDictionary<string, string[]> Failures { get; }
     }
 }
