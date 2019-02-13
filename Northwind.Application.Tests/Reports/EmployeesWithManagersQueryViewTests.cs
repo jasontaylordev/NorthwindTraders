@@ -14,10 +14,11 @@ namespace Northwind.Application.Tests.Reports
         [Fact]
         public async Task ShouldReturnReport()
         {
-            var context = GetDbContext(useSqlLite: true);
-            NorthwindInitializer.Initialize(context);
+            using (var context = GetDbContext(useSqlLite: true))
+            {
+                NorthwindInitializer.Initialize(context);
 
-            context.Database.GetDbConnection().Execute(@"
+                context.Database.GetDbConnection().Execute(@"
 CREATE VIEW viewEmployeesWithManagers(
         EmployeeFirstName, EmployeeLastName, EmployeeTitle,
         ManagerFirstName, ManagerLastName, ManagerTitle)
@@ -28,14 +29,15 @@ FROM employees AS e
 JOIN employees AS m ON e.ReportsTo = m.EmployeeID
 WHERE e.ReportsTo is not null");
 
-            var query = new EmployeesWithManagersViewQuery();
-            var queryHandler = new EmployeesWithManagersViewQueryHandler(context);
-            var result = await queryHandler.Handle(query, CancellationToken.None);
+                var query = new EmployeesWithManagersViewQuery();
+                var queryHandler = new EmployeesWithManagersViewQueryHandler(context);
+                var result = await queryHandler.Handle(query, CancellationToken.None);
 
-            Assert.NotEmpty(result);
-            Assert.Equal(8, result.Count());
-            Assert.Contains(result, r => r.ManagerTitle == "Vice President, Sales");
-            Assert.DoesNotContain(result, r => r.EmployeeTitle == "Vice President, Sales");
+                Assert.NotEmpty(result);
+                Assert.Equal(8, result.Count());
+                Assert.Contains(result, r => r.ManagerTitle == "Vice President, Sales");
+                Assert.DoesNotContain(result, r => r.EmployeeTitle == "Vice President, Sales");
+            }
         }
     }
 }

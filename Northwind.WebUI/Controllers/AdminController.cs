@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Employees.Commands;
 using Northwind.Application.Employees.Models;
 using Northwind.Application.Employees.Queries;
+using Microsoft.AspNetCore.Http;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -16,6 +17,8 @@ namespace Northwind.WebUI.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
         public IActionResult ChangeEmployeeManager(ChangeEmployeesManagerCommand command)
         {
             Mediator.Send(command);

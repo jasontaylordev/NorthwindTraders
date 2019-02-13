@@ -1,5 +1,5 @@
 ﻿{
-  "runtime": "NetCore21",
+  "runtime": "NetCore22",
   "defaultVariables": null,
   "swaggerGenerator": {
     "aspNetCoreToSwagger": {
@@ -11,6 +11,8 @@
       "noBuild": true,
       "verbose": false,
       "workingDirectory": null,
+      "requireParametersWithoutDefault": true,
+      "apiGroupNames": null,
       "defaultPropertyNameHandling": "CamelCase",
       "defaultReferenceTypeNullHandling": "Null",
       "defaultEnumHandling": "Integer",
@@ -27,7 +29,6 @@
       "infoTitle": "Northwind Traders API",
       "infoDescription": null,
       "infoVersion": "1.0.0",
-      "includedVersions": null,
       "documentTemplate": null,
       "documentProcessorTypes": [],
       "operationProcessorTypes": [],
@@ -35,11 +36,18 @@
       "schemaNameGeneratorType": null,
       "contractResolverType": null,
       "serializerSettingsType": null,
+      "useDocumentProvider": false,
+      "documentName": "v1",
+      "aspNetCoreEnvironment": null,
+      "createWebHostBuilderMethod": null,
+      "startupType": null,
+      "allowNullableBodyParameters": true,
       "output": "wwwroot/api/specification.json",
       "outputType": "OpenApi3",
       "assemblyPaths": [],
       "assemblyConfig": null,
-      "referencePaths": []
+      "referencePaths": [],
+      "useNuGetCache": false
     }
   },
   "codeGenerators": {
@@ -59,6 +67,7 @@
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateOptionalParameters": false,
+      "exportTypes": true,
       "wrapDtoExceptions": false,
       "clientBaseClass": null,
       "wrapResponses": false,
@@ -86,6 +95,7 @@
       "useGetBaseUrlMethod": false,
       "baseUrlTokenName": "API_BASE_URL",
       "queryNullValue": "",
+      "inlineNamedDictionaries": false,
       "templateDirectory": null,
       "typeNameGeneratorType": null,
       "propertyNameGeneratorType": null,

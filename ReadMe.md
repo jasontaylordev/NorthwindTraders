@@ -10,14 +10,16 @@ The initial construction of this project is explained in the following blog post
 * [Create Northwind Traders Code First with Entity Framework Core – Part 1](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-1/)
 * [Create Northwind Traders Code First with Entity Framework Core – Part 2](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-2/)
 
+For information on upcoming features and fixes, take a look at the [product roadmap](https://github.com/JasonGT/NorthwindTraders/wiki/Roadmap).
+
 ## Getting Started
-Use these instuctions to get the project up and running.
+Use these instructions to get the project up and running.
 
 ### Prerequisites
 You will need the following tools:
 
 * [Visual Studio Code or 2017](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.2 Preview 2](https://www.microsoft.com/net/download/dotnet-core/2.2)
+* [.NET Core SDK 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)
 
 ### Setup
 Follow these steps to get your development environment set up:
@@ -44,9 +46,9 @@ Follow these steps to get your development environment set up:
   6. Launch [http://localhost:52468/api](http://localhost:52468/api) in your browser to view the API
 
 ## Technologies
-* [.NET Core 2.2](https://blogs.msdn.microsoft.com/dotnet/2018/09/12/announcing-net-core-2-2-preview-2/)
-* [ASP.NET Core 2.2](https://blogs.msdn.microsoft.com/webdev/2018/08/22/asp-net-core-2-2-0-preview1-now-available/)
-* [Entity Framework Core 2.2](https://blogs.msdn.microsoft.com/dotnet/2018/09/12/announcing-entity-framework-core-2-2-preview-2/)
+* .NET Core 2.2
+* ASP.NET Core 2.2
+* Entity Framework Core 2.2
 
 ## License
 

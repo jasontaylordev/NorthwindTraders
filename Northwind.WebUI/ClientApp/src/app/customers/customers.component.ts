@@ -7,7 +7,7 @@ import { CustomersClient, CustomersListViewModel } from '../northwind-traders-ap
 })
 export class CustomersComponent {
 
-  vm: CustomersListViewModel;
+  vm: CustomersListViewModel = new CustomersListViewModel();
 
   constructor(client: CustomersClient) {
     client.getAll().subscribe(result => {

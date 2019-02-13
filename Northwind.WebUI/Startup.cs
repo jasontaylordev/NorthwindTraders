@@ -1,3 +1,4 @@
+using AutoMapper;
 using FluentValidation.AspNetCore;
 using MediatR;
 using MediatR.Pipeline;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Infrastructure;
+using Northwind.Application.Infrastructure.AutoMapper;
 using Northwind.Application.Interfaces;
 using Northwind.Application.Products.Queries.GetProduct;
 using Northwind.Common;
@@ -32,6 +34,9 @@ namespace Northwind.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add AutoMapper
+            services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
+
             // Add framework services.
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IDateTime, MachineDateTime>();
@@ -40,7 +45,7 @@ namespace Northwind.WebUI
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
-            services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);            
 
             // Add DbContext using SQL Server Provider
             services.AddDbContext<NorthwindDbContext>(options =>
@@ -84,8 +89,8 @@ namespace Northwind.WebUI
 
             app.UseSwaggerUi3(settings =>
             {
-                settings.SwaggerUiRoute = "/api";
-                settings.SwaggerRoute = "/api/specification.json";
+                settings.Path = "/api";
+                settings.DocumentPath = "/api/specification.json";
             });
 
             app.UseMvc(routes =>
