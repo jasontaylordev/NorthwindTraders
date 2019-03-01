@@ -1,12 +1,11 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Northwind.Application.Customers.Queries.GetCustomersList;
-using Northwind.Application.Customers.Queries.GetCustomerDetail;
-using Northwind.Application.Customers.Commands.UpdateCustomer;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Customers.Commands.DeleteCustomer;
-using System.Net;
-using Microsoft.AspNetCore.Http;
+using Northwind.Application.Customers.Commands.UpdateCustomer;
+using Northwind.Application.Customers.Queries.GetCustomerDetail;
+using Northwind.Application.Customers.Queries.GetCustomersList;
+using System.Threading.Tasks;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -14,6 +13,7 @@ namespace Northwind.WebUI.Controllers
     {
         // GET api/customers
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<CustomersListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetCustomersListQuery()));
@@ -21,6 +21,7 @@ namespace Northwind.WebUI.Controllers
 
         // GET api/customers/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<CustomerDetailModel>> Get(string id)
         {
             return Ok(await Mediator.Send(new GetCustomerDetailQuery { Id = id }));
