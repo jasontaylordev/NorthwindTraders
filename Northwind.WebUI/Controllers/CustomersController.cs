@@ -14,6 +14,7 @@ namespace Northwind.WebUI.Controllers
         // GET api/customers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<CustomersListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetCustomersListQuery()));
@@ -22,6 +23,7 @@ namespace Northwind.WebUI.Controllers
         // GET api/customers/5
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<CustomerDetailModel>> Get(string id)
         {
             return Ok(await Mediator.Send(new GetCustomerDetailQuery { Id = id }));
@@ -41,7 +43,7 @@ namespace Northwind.WebUI.Controllers
         // PUT api/customers/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesDefaultResponseType]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerCommand command)
         {
             await Mediator.Send(command);
@@ -52,7 +54,7 @@ namespace Northwind.WebUI.Controllers
         // DELETE api/customers/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesDefaultResponseType]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(string id)
         {
             await Mediator.Send(new DeleteCustomerCommand { Id = id });

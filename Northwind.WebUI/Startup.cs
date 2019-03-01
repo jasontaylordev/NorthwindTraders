@@ -4,6 +4,7 @@ using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -45,14 +46,30 @@ namespace Northwind.WebUI
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
-            services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);            
+            services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
 
             // Add DbContext using SQL Server Provider
             services.AddDbContext<NorthwindDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
 
             services
-                .AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
+                .AddMvc(
+                    options =>
+                    {
+                        options.Filters.Add(typeof(CustomExceptionFilterAttribute));
+
+                        options.Filters.Add(
+                          new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
+                        options.Filters.Add(
+                            new ProducesResponseTypeAttribute(StatusCodes.Status401Unauthorized));
+                        options.Filters.Add(
+                            new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
+                        options.Filters.Add(
+                            new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
+                        options.Filters.Add(
+                            new ProducesDefaultResponseTypeAttribute());
+                    }
+                    )
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
