@@ -5,5 +5,6 @@ namespace Northwind.Common
     public interface IDateTime
     {
         DateTime Now { get; }
+        int CurrentYear { get; }
     }
 }
