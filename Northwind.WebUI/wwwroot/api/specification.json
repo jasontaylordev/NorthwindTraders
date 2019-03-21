@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v12.0.8.0 (NJsonSchema v9.13.9.0 (Newtonsoft.Json v11.0.0.0))",
+  "x-generator": "NSwag v12.0.13.0 (NJsonSchema v9.13.17.0 (Newtonsoft.Json v11.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Northwind Traders API",
@@ -55,15 +55,11 @@
           "x-position": 1
         },
         "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
+          "204": {
+            "description": ""
+          },
+          "default": {
+            "description": ""
           }
         }
       }
@@ -187,6 +183,9 @@
         "responses": {
           "204": {
             "description": ""
+          },
+          "default": {
+            "description": ""
           }
         }
       }
@@ -224,6 +223,9 @@
         "responses": {
           "204": {
             "description": ""
+          },
+          "default": {
+            "description": ""
           }
         }
       }
@@ -248,6 +250,9 @@
         ],
         "responses": {
           "204": {
+            "description": ""
+          },
+          "default": {
             "description": ""
           }
         }
@@ -417,6 +422,9 @@
         ],
         "responses": {
           "204": {
+            "description": ""
+          },
+          "default": {
             "description": ""
           }
         }

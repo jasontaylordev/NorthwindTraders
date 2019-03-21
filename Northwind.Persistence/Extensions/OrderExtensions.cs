@@ -1,6 +1,6 @@
 ﻿using Northwind.Domain.Entities;
 
-namespace Northwind.Persistence.Infrastructure
+namespace Northwind.Persistence.Extensions
 {
     internal static class OrderExtensions
     {
@@ -12,6 +12,6 @@ namespace Northwind.Persistence.Infrastructure
             }
 
             return order;
-        } 
+        }
     }
 }
