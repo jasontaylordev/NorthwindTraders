@@ -170,6 +170,21 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    }
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -248,7 +263,7 @@
           "204": {
             "description": ""
           },
-          "default": {
+          "404": {
             "description": "",
             "content": {
               "application/json": {
@@ -288,7 +303,7 @@
           "204": {
             "description": ""
           },
-          "default": {
+          "404": {
             "description": "",
             "content": {
               "application/json": {
