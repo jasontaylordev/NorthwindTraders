@@ -123,7 +123,10 @@ export class AdminClient implements IAdminClient {
             }));
         } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("A server error occurred.", status, _responseText, _headers);
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = resultDatadefault ? ProblemDetails.fromJS(resultDatadefault) : <any>null;
+            return throwException("A server error occurred.", status, _responseText, _headers, resultdefault);
             }));
         }
     }
@@ -361,7 +364,10 @@ export class CustomersClient implements ICustomersClient {
             }));
         } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("A server error occurred.", status, _responseText, _headers);
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = resultDatadefault ? ProblemDetails.fromJS(resultDatadefault) : <any>null;
+            return throwException("A server error occurred.", status, _responseText, _headers, resultdefault);
             }));
         }
     }
@@ -411,7 +417,10 @@ export class CustomersClient implements ICustomersClient {
             }));
         } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("A server error occurred.", status, _responseText, _headers);
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = resultDatadefault ? ProblemDetails.fromJS(resultDatadefault) : <any>null;
+            return throwException("A server error occurred.", status, _responseText, _headers, resultdefault);
             }));
         }
     }
@@ -457,7 +466,10 @@ export class CustomersClient implements ICustomersClient {
             }));
         } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("A server error occurred.", status, _responseText, _headers);
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = resultDatadefault ? ProblemDetails.fromJS(resultDatadefault) : <any>null;
+            return throwException("A server error occurred.", status, _responseText, _headers, resultdefault);
             }));
         }
     }
@@ -729,7 +741,10 @@ export class ProductsClient implements IProductsClient {
             }));
         } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("A server error occurred.", status, _responseText, _headers);
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = resultDatadefault ? ProblemDetails.fromJS(resultDatadefault) : <any>null;
+            return throwException("A server error occurred.", status, _responseText, _headers, resultdefault);
             }));
         }
     }
@@ -797,6 +812,58 @@ export interface IEmployeeManagerModel {
     managerFirstName?: string | undefined;
     managerLastName?: string | undefined;
     managerTitle?: string | undefined;
+}
+
+export class ProblemDetails implements IProblemDetails {
+    type?: string | undefined;
+    title?: string | undefined;
+    status?: number | undefined;
+    detail?: string | undefined;
+    instance?: string | undefined;
+
+    constructor(data?: IProblemDetails) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.type = data["type"];
+            this.title = data["title"];
+            this.status = data["status"];
+            this.detail = data["detail"];
+            this.instance = data["instance"];
+        }
+    }
+
+    static fromJS(data: any): ProblemDetails {
+        data = typeof data === 'object' ? data : {};
+        let result = new ProblemDetails();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["type"] = this.type;
+        data["title"] = this.title;
+        data["status"] = this.status;
+        data["detail"] = this.detail;
+        data["instance"] = this.instance;
+        return data; 
+    }
+}
+
+export interface IProblemDetails {
+    type?: string | undefined;
+    title?: string | undefined;
+    status?: number | undefined;
+    detail?: string | undefined;
+    instance?: string | undefined;
 }
 
 export class ChangeEmployeesManagerCommand implements IChangeEmployeesManagerCommand {
