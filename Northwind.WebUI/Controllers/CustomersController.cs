@@ -14,7 +14,6 @@ namespace Northwind.WebUI.Controllers
         // GET api/customers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<CustomersListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetCustomersListQuery()));
