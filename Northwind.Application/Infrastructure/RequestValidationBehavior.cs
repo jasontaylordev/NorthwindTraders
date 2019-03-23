@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ValidationException = Northwind.Application.Exceptions.ValidationException;
 
 namespace Northwind.Application.Infrastructure
 {
@@ -29,7 +30,7 @@ namespace Northwind.Application.Infrastructure
 
             if (failures.Count != 0)
             {
-                throw new Exceptions.ValidationException(failures);
+                throw new ValidationException(failures);
             }
 
             return next();
