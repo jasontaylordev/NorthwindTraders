@@ -13,7 +13,7 @@ namespace Northwind.WebUI.Filters
         {
             if (context.Exception is ValidationException)
             {
-                context.HttpContext.Response.ContentType = "application/json";
+                context.HttpContext.Response.ContentType = "application/problem+json";
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 context.Result = new JsonResult(
                     ((ValidationException)context.Exception).Failures);
@@ -28,7 +28,7 @@ namespace Northwind.WebUI.Filters
                 code = HttpStatusCode.NotFound;
             }
 
-            context.HttpContext.Response.ContentType = "application/json";
+            context.HttpContext.Response.ContentType = "application/problem+json";
             context.HttpContext.Response.StatusCode = (int)code;
             context.Result = new JsonResult(new
             {
