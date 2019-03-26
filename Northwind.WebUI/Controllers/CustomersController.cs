@@ -11,7 +11,6 @@ namespace Northwind.WebUI.Controllers
 {
     public class CustomersController : BaseController
     {
-        // GET api/customers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<CustomersListViewModel>> GetAll()
@@ -19,7 +18,6 @@ namespace Northwind.WebUI.Controllers
             return Ok(await Mediator.Send(new GetCustomersListQuery()));
         }
 
-        // GET api/customers/5
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -28,7 +26,6 @@ namespace Northwind.WebUI.Controllers
             return Ok(await Mediator.Send(new GetCustomerDetailQuery { Id = id }));
         }
 
-        // POST api/customers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
@@ -39,7 +36,6 @@ namespace Northwind.WebUI.Controllers
             return NoContent();
         }
 
-        // PUT api/customers/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -50,7 +46,6 @@ namespace Northwind.WebUI.Controllers
             return NoContent();
         }
 
-        // DELETE api/customers/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

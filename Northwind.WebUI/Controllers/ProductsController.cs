@@ -11,21 +11,18 @@ namespace Northwind.WebUI.Controllers
 {
     public class ProductsController : BaseController
     {
-        // GET: api/products
         [HttpGet]
         public async Task<ActionResult<ProductsListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllProductsQuery()));
         }
 
-        // GET: api/products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductViewModel>> Get(int id)
         {
             return Ok(await Mediator.Send(new GetProductQuery { Id = id }));
         }
 
-        // POST: api/products
         [HttpPost]
         public async Task<ActionResult<int>> Create([FromBody] CreateProductCommand command)
         {
@@ -34,14 +31,12 @@ namespace Northwind.WebUI.Controllers
             return Ok(productId);
         }
 
-        // PUT: api/products
         [HttpPut]
         public async Task<ActionResult<ProductDto>> Update([FromBody] UpdateProductCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
 
-        // DELETE: api/products/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
