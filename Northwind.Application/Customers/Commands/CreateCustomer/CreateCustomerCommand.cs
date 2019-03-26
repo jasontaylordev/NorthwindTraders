@@ -34,16 +34,11 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
         public class Handler : IRequestHandler<CreateCustomerCommand, Unit>
         {
             private readonly NorthwindDbContext _context;
-            private readonly INotificationService _notificationService;
             private readonly IMediator _mediator;
 
-            public Handler(
-                NorthwindDbContext context,
-                INotificationService notificationService,
-                IMediator mediator)
+            public Handler(NorthwindDbContext context, IMediator mediator)
             {
                 _context = context;
-                _notificationService = notificationService;
                 _mediator = mediator;
             }
 
@@ -67,7 +62,7 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 
                 await _context.SaveChangesAsync(cancellationToken);
 
-                await _mediator.Publish(new CustomerCreated { CustomerId = entity.CustomerId });
+                await _mediator.Publish(new CustomerCreated { CustomerId = entity.CustomerId }, cancellationToken);
 
                 return Unit.Value;
             }

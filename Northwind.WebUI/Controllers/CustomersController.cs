@@ -43,7 +43,7 @@ namespace Northwind.WebUI.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerCommand command)
+        public async Task<IActionResult> Update([FromBody]UpdateCustomerCommand command)
         {
             await Mediator.Send(command);
 
