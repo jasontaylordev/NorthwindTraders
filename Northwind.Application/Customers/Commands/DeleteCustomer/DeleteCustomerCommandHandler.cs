@@ -30,6 +30,7 @@ namespace Northwind.Application.Customers.Commands.DeleteCustomer
             var hasOrders = _context.Orders.Any(o => o.CustomerId == entity.CustomerId);
             if (hasOrders)
             {
+                // TODO: Add functional test for this behaviour.
                 throw new DeleteFailureException(nameof(Customer), request.Id, "There are existing orders associated with this customer.");
             }
 

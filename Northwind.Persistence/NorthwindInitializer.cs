@@ -142,7 +142,8 @@ namespace Northwind.Persistence
                 new Customer { CustomerId = "WELLI", Address = "Rua do Mercado, 12", City = "Resende", CompanyName = "Wellington Importadora", ContactName = "Paula Parente", ContactTitle = "Sales Manager", Country = "Brazil", Fax = "", Phone = "(14) 555-8122", PostalCode = "08737-363", Region = "SP" },
                 new Customer { CustomerId = "WHITC", Address = "305 - 14th Ave. S. Suite 3B", City = "Seattle", CompanyName = "White Clover Markets", ContactName = "Karl Jablonski", ContactTitle = "Owner", Country = "USA", Fax = "(206) 555-4115", Phone = "(206) 555-4112", PostalCode = "98128", Region = "WA" },
                 new Customer { CustomerId = "WILMK", Address = "Keskuskatu 45", City = "Helsinki", CompanyName = "Wilman Kala", ContactName = "Matti Karttunen", ContactTitle = "Owner/Marketing Assistant", Country = "Finland", Fax = "90-224 8858", Phone = "90-224 8858", PostalCode = "21240" },
-                new Customer { CustomerId = "WOLZA", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" }
+                new Customer { CustomerId = "WOLZA", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" },
+                new Customer { CustomerId = "JASON", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" }
             };
 
             context.Customers.AddRange(customers);
