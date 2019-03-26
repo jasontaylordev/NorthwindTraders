@@ -34,8 +34,8 @@ namespace Northwind.WebUI.Controllers
             return Ok(productId);
         }
 
-        // PUT: api/products/5
-        [HttpPut("{id}")]
+        // PUT: api/products
+        [HttpPut]
         public async Task<ActionResult<ProductDto>> Update([FromBody] UpdateProductCommand command)
         {
             return Ok(await Mediator.Send(command));

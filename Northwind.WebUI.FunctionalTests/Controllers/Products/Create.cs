@@ -17,7 +17,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         }
 
         [Fact]
-        public async Task GivenValidCreateProductCommand_ReturnsNewProductId()
+        public async Task GivenCreateProductCommand_ReturnsNewProductId()
         {
             var command = new CreateProductCommand
             {

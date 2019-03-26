@@ -17,7 +17,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         }
 
         [Fact]
-        public async Task GivenValidId_ReturnsProductViewModel()
+        public async Task GivenId_ReturnsProductViewModel()
         {
             var id = 67;
 
@@ -31,7 +31,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         }
 
         [Fact]
-        public async Task GivenInvalidId_ReturnsProductViewModel()
+        public async Task GivenInvalidId_ReturnsNotFoundStatusCode()
         {
             var invalidId = 0;
 
