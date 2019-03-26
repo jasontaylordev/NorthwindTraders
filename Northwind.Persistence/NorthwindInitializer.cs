@@ -711,6 +711,7 @@ namespace Northwind.Persistence
             Products.Add(75, new Product { ProductName = "Rhönbräu Klosterbier", Supplier = Suppliers[12], Category = Categories[1], QuantityPerUnit = "24 - 0.5 l bottles", UnitPrice = 7.75m, UnitsInStock = 125, UnitsOnOrder = 0, ReorderLevel = 25, Discontinued = false });
             Products.Add(76, new Product { ProductName = "Lakkalikööri", Supplier = Suppliers[23], Category = Categories[1], QuantityPerUnit = "500 ml", UnitPrice = 18.00m, UnitsInStock = 57, UnitsOnOrder = 0, ReorderLevel = 20, Discontinued = false });
             Products.Add(77, new Product { ProductName = "Original Frankfurter grüne Soße", Supplier = Suppliers[12], Category = Categories[2], QuantityPerUnit = "12 boxes", UnitPrice = 13.00m, UnitsInStock = 32, UnitsOnOrder = 0, ReorderLevel = 15, Discontinued = false });
+            Products.Add(78, new Product { ProductName = "Coffee", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "1 boxes", UnitPrice = 25.00m, UnitsInStock = 32, UnitsOnOrder = 0, ReorderLevel = 15, Discontinued = false });
 
             foreach (var product in Products.Values)
             {
