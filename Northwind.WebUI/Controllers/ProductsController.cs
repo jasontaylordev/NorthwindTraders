@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Products.Commands.CreateProduct;
 using Northwind.Application.Products.Commands.DeleteProduct;
