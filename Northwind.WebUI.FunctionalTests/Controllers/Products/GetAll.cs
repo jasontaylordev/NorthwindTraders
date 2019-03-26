@@ -22,9 +22,10 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 
             response.EnsureSuccessStatusCode();
 
-            var result = await Utilities.GetResponseContent<ProductsListViewModel>(response);
+            var vm = await Utilities.GetResponseContent<ProductsListViewModel>(response);
 
-            Assert.IsType<ProductsListViewModel>(result);
+            Assert.IsType<ProductsListViewModel>(vm);
+            Assert.NotEmpty(vm.Products);
         }
     }
 }

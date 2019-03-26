@@ -25,9 +25,9 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 
             response.EnsureSuccessStatusCode();
 
-            var result = await Utilities.GetResponseContent<ProductViewModel>(response);
+            var product = await Utilities.GetResponseContent<ProductViewModel>(response);
 
-            Assert.Equal(id, result.ProductId);
+            Assert.Equal(id, product.ProductId);
         }
 
         [Fact]
