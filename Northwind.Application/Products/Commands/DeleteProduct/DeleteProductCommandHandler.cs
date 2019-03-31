@@ -29,6 +29,7 @@ namespace Northwind.Application.Products.Commands.DeleteProduct
             var hasOrders = _context.OrderDetails.Any(od => od.ProductId == entity.ProductId);
             if (hasOrders)
             {
+                // TODO: Add functional test for this behaviour.
                 throw new DeleteFailureException(nameof(Product), request.Id, "There are existing orders associated with this product.");
             }
 

@@ -20,7 +20,7 @@ namespace Northwind.Application.Customers.Commands.UpdateCustomer
         public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var entity = await _context.Customers
-                .SingleAsync(c => c.CustomerId == request.Id, cancellationToken);
+                .SingleOrDefaultAsync(c => c.CustomerId == request.Id, cancellationToken);
 
             if (entity == null)
             {
