@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Commands.CreateCustomer
 {
@@ -33,10 +32,10 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 
         public class Handler : IRequestHandler<CreateCustomerCommand, Unit>
         {
-            private readonly NorthwindDbContext _context;
+            private readonly INorthwindDbContext _context;
             private readonly IMediator _mediator;
 
-            public Handler(NorthwindDbContext context, IMediator mediator)
+            public Handler(INorthwindDbContext context, IMediator mediator)
             {
                 _context = context;
                 _mediator = mediator;

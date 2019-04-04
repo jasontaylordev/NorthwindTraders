@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj" />
+    <ProjectReference Include="..\Northwind.Persistence\Northwind.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

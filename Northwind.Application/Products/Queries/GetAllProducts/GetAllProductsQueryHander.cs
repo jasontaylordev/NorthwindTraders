@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Persistence;
+using Northwind.Application.Interfaces;
 
 namespace Northwind.Application.Products.Queries.GetAllProducts
 {
     public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, ProductsListViewModel>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetAllProductsQueryHandler(NorthwindDbContext context, IMapper mapper)
+        public GetAllProductsQueryHandler(INorthwindDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

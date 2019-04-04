@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Categories.Models;
-using Northwind.Persistence;
+using Northwind.Application.Interfaces;
 
 namespace Northwind.Application.Categories.Queries
 {
     public class GetCategoryPreviewQueryHandler : IRequestHandler<GetCategoryPreviewQuery, List<CategoryPreviewDto>>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public GetCategoryPreviewQueryHandler(NorthwindDbContext context)
+        public GetCategoryPreviewQueryHandler(INorthwindDbContext context)
         {
             _context = context;
         }

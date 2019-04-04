@@ -2,16 +2,16 @@
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Exceptions;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Queries.GetCustomerDetail
 {
     public class GetCustomerDetailQueryHandler : IRequestHandler<GetCustomerDetailQuery, CustomerDetailModel>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public GetCustomerDetailQueryHandler(NorthwindDbContext context)
+        public GetCustomerDetailQueryHandler(INorthwindDbContext context)
         {
             _context = context;
         }

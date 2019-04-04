@@ -34,9 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj" />
     <ProjectReference Include="..\Northwind.Common\Northwind.Common.csproj" />
     <ProjectReference Include="..\Northwind.Infrastructure\Northwind.Infrastructure.csproj" />
+    <ProjectReference Include="..\Northwind.Persistence\Northwind.Persistence.csproj" />
   </ItemGroup>
   
   <!--<Target Name="NSwag" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">

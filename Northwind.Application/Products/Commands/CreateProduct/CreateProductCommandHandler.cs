@@ -1,16 +1,16 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public CreateProductCommandHandler(NorthwindDbContext context)
+        public CreateProductCommandHandler(INorthwindDbContext context)
         {
             _context = context;
         }

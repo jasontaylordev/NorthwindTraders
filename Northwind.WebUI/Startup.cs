@@ -49,7 +49,7 @@ namespace Northwind.WebUI
             services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
 
             // Add DbContext using SQL Server Provider
-            services.AddDbContext<NorthwindDbContext>(options =>
+            services.AddDbContext<INorthwindDbContext, NorthwindDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
 
             services

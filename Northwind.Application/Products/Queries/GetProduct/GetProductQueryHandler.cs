@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Exceptions;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,10 +11,10 @@ namespace Northwind.Application.Products.Queries.GetProduct
 {
     public class GetProductQueryHandler : MediatR.IRequestHandler<GetProductQuery, ProductViewModel>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetProductQueryHandler(NorthwindDbContext context, IMapper mapper)
+        public GetProductQueryHandler(INorthwindDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

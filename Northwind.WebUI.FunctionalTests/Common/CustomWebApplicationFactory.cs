@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Northwind.Application.Interfaces;
 using Northwind.Persistence;
 
 namespace Northwind.WebUI.FunctionalTests.Common
@@ -21,7 +22,7 @@ namespace Northwind.WebUI.FunctionalTests.Common
 
                 // Add a database context using an in-memory 
                 // database for testing.
-                services.AddDbContext<NorthwindDbContext>(options =>
+                services.AddDbContext<INorthwindDbContext, NorthwindDbContext>(options =>
                 {
                     options.UseInMemoryDatabase("InMemoryDbForTesting");
                     options.UseInternalServiceProvider(serviceProvider);
@@ -35,17 +36,19 @@ namespace Northwind.WebUI.FunctionalTests.Common
                 using (var scope = sp.CreateScope())
                 {
                     var scopedServices = scope.ServiceProvider;
-                    var context = scopedServices.GetRequiredService<NorthwindDbContext>();
+                    var context = scopedServices.GetRequiredService<INorthwindDbContext>();
                     var logger = scopedServices
                         .GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
 
+                    var concreteContext = (NorthwindDbContext)context;
+
                     // Ensure the database is created.
-                    context.Database.EnsureCreated();
+                    concreteContext.Database.EnsureCreated();
 
                     try
                     {
                         // Seed the database with test data.
-                        Utilities.InitializeDbForTests(context);
+                        Utilities.InitializeDbForTests(concreteContext);
                     }
                     catch (Exception ex)
                     {

@@ -3,16 +3,16 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Application.Exceptions;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Commands.UpdateCustomer
 {
     public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, Unit>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public UpdateCustomerCommandHandler(NorthwindDbContext context)
+        public UpdateCustomerCommandHandler(INorthwindDbContext context)
         {
             _context = context;
         }

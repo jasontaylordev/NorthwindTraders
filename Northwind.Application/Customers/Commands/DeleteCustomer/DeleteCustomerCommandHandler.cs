@@ -3,16 +3,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Exceptions;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Customers.Commands.DeleteCustomer
 {
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public DeleteCustomerCommandHandler(NorthwindDbContext context)
+        public DeleteCustomerCommandHandler(INorthwindDbContext context)
         {
             _context = context;
         }
