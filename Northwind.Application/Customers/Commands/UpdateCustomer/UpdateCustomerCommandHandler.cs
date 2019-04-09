@@ -37,8 +37,6 @@ namespace Northwind.Application.Customers.Commands.UpdateCustomer
             entity.Phone = request.Phone;
             entity.PostalCode = request.PostalCode;
 
-            _context.Customers.Update(entity);
-
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
