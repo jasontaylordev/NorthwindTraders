@@ -2,7 +2,7 @@
 
 namespace Northwind.Application.Products.Commands.UpdateProduct
 {
-    public class UpdateProductCommand : IRequest
+    public class UpdateProductCommand : IRequest<Unit>
     {
         public int ProductId { get; set; }
 
