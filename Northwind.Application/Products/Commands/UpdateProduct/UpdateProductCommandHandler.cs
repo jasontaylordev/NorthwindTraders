@@ -2,16 +2,16 @@
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Exceptions;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Commands.UpdateProduct
 {
     public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Unit>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public UpdateProductCommandHandler(NorthwindDbContext context)
+        public UpdateProductCommandHandler(INorthwindDbContext context)
         {
             _context = context;
         }

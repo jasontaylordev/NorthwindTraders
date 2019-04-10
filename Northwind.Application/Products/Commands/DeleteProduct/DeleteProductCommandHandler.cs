@@ -3,16 +3,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Northwind.Application.Exceptions;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence;
 
 namespace Northwind.Application.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
 
-        public DeleteProductCommandHandler(NorthwindDbContext context)
+        public DeleteProductCommandHandler(INorthwindDbContext context)
         {
             _context = context;
         }
@@ -29,6 +29,7 @@ namespace Northwind.Application.Products.Commands.DeleteProduct
             var hasOrders = _context.OrderDetails.Any(od => od.ProductId == entity.ProductId);
             if (hasOrders)
             {
+                // TODO: Add functional test for this behaviour.
                 throw new DeleteFailureException(nameof(Product), request.Id, "There are existing orders associated with this product.");
             }
 

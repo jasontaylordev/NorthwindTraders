@@ -142,7 +142,8 @@ namespace Northwind.Persistence
                 new Customer { CustomerId = "WELLI", Address = "Rua do Mercado, 12", City = "Resende", CompanyName = "Wellington Importadora", ContactName = "Paula Parente", ContactTitle = "Sales Manager", Country = "Brazil", Fax = "", Phone = "(14) 555-8122", PostalCode = "08737-363", Region = "SP" },
                 new Customer { CustomerId = "WHITC", Address = "305 - 14th Ave. S. Suite 3B", City = "Seattle", CompanyName = "White Clover Markets", ContactName = "Karl Jablonski", ContactTitle = "Owner", Country = "USA", Fax = "(206) 555-4115", Phone = "(206) 555-4112", PostalCode = "98128", Region = "WA" },
                 new Customer { CustomerId = "WILMK", Address = "Keskuskatu 45", City = "Helsinki", CompanyName = "Wilman Kala", ContactName = "Matti Karttunen", ContactTitle = "Owner/Marketing Assistant", Country = "Finland", Fax = "90-224 8858", Phone = "90-224 8858", PostalCode = "21240" },
-                new Customer { CustomerId = "WOLZA", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" }
+                new Customer { CustomerId = "WOLZA", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" },
+                new Customer { CustomerId = "JASON", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" }
             };
 
             context.Customers.AddRange(customers);
@@ -711,6 +712,7 @@ namespace Northwind.Persistence
             Products.Add(75, new Product { ProductName = "Rhönbräu Klosterbier", Supplier = Suppliers[12], Category = Categories[1], QuantityPerUnit = "24 - 0.5 l bottles", UnitPrice = 7.75m, UnitsInStock = 125, UnitsOnOrder = 0, ReorderLevel = 25, Discontinued = false });
             Products.Add(76, new Product { ProductName = "Lakkalikööri", Supplier = Suppliers[23], Category = Categories[1], QuantityPerUnit = "500 ml", UnitPrice = 18.00m, UnitsInStock = 57, UnitsOnOrder = 0, ReorderLevel = 20, Discontinued = false });
             Products.Add(77, new Product { ProductName = "Original Frankfurter grüne Soße", Supplier = Suppliers[12], Category = Categories[2], QuantityPerUnit = "12 boxes", UnitPrice = 13.00m, UnitsInStock = 32, UnitsOnOrder = 0, ReorderLevel = 15, Discontinued = false });
+            Products.Add(78, new Product { ProductName = "Coffee", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "1 boxes", UnitPrice = 25.00m, UnitsInStock = 32, UnitsOnOrder = 0, ReorderLevel = 15, Discontinued = false });
 
             foreach (var product in Products.Values)
             {

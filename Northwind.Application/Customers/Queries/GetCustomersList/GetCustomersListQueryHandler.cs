@@ -2,7 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Persistence;
+using Northwind.Application.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,10 +10,10 @@ namespace Northwind.Application.Customers.Queries.GetCustomersList
 {
     public class GetCustomersListQueryHandler : IRequestHandler<GetCustomersListQuery, CustomersListViewModel>
     {
-        private readonly NorthwindDbContext _context;
+        private readonly INorthwindDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetCustomersListQueryHandler(NorthwindDbContext context, IMapper mapper)
+        public GetCustomersListQueryHandler(INorthwindDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
