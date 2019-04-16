@@ -8,7 +8,7 @@
   <div *ngIf="detailKeys">
       <div *ngFor="let detailKey of detailKeys; let i = index">
         <span class="row" *ngIf="customer[detailKey]">
-            <b class="col-md-5">{{ detailLabelKeys[i] | firstLetterUpperCase }} :</b>
+            <b class="col-md-5">{{ detailKey | firstLetterUpperCase }} :</b>
             <span class="col-md-7">{{ customer[detailKey] }}</span>
         </span>
       </div>

@@ -19,7 +19,6 @@ export class CustomerDetailComponent implements OnInit {
     this.detailKeys = Object
       .keys(this.customer)
       .filter(keys => keys !== 'id');
-    this.detailLabelKeys = this.detailKeys.map(key => key.match(/[A-Z][a-z]+|[a-z]+/g).join(' '));
   }
 
 }

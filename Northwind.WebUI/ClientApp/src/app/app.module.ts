@@ -1,21 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './/app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NavSideMenuComponent } from './nav-side-menu/nav-side-menu.component';
-import { NavTopMenuComponent } from './nav-top-menu/nav-top-menu.component';
 import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
+import { NavTopMenuComponent } from './nav-top-menu/nav-top-menu.component';
+import { NavSideMenuComponent } from './nav-side-menu/nav-side-menu.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 
 import { CustomersClient, ProductsClient } from './northwind-traders-api';
-import { AppRoutingModule } from './/app-routing.module';
-import { ProductsComponent } from './products/products.component';
+
+import { LowerCamelCaseToLabel } from './../pipes/lower-camel-case-to-label';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { FirstLetterUpperCasePipe } from '../pipes/first-letter-upper-case.pipe';
+
 
 const modules = [
   BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +35,7 @@ const components = [
   CustomersComponent,
   CustomerDetailComponent
 ];
-const pipes = [FirstLetterUpperCasePipe];
+const pipes = [LowerCamelCaseToLabel];
 
 @NgModule({
   declarations: [...components, ...pipes],
