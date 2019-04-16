@@ -10,15 +10,17 @@ import { CustomerDetailModel } from '../northwind-traders-api';
 export class CustomerDetailComponent implements OnInit {
   public customer: CustomerDetailModel;
   public detailKeys: string[] = [];
-  public detailLabelKeys: string[] = [];
-  constructor(public bsModalRef: BsModalRef) {
 
-   }
+  constructor(private bsModalRef: BsModalRef) {}
 
   ngOnInit() {
     this.detailKeys = Object
       .keys(this.customer)
       .filter(keys => keys !== 'id');
+  }
+
+  closeModal() {
+    this.bsModalRef.hide();
   }
 
 }
