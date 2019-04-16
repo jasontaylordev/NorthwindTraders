@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of vm.customers">
+      <tr *ngFor="let customer of vm.customers"(click)="customerDetail(customer.id)" style="cursor: pointer;">
         <td>{{ customer.id }}</td>
         <td>{{ customer.name }}</td>
       </tr>
