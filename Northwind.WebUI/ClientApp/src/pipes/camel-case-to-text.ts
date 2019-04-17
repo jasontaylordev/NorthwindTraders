@@ -10,11 +10,11 @@ export class CamelCaseToText implements PipeTransform {
       return value;
     }
 
-    const splitByLowerCamelCase: string[] = value.match(/[A-Z][a-z]+|[a-z]+/g);
-    if (splitByLowerCamelCase.length <= 1) {
+    const splitByCamelCase: string[] = value.match(/[A-Z][a-z]+|[a-z]+/g);
+    if (splitByCamelCase.length <= 1) {
       value = this.upFirstLetter(value);
     } else {
-      value = splitByLowerCamelCase.map(val => {
+      value = splitByCamelCase.map(val => {
         return this.upFirstLetter(val);
       }).join(' ');
     }

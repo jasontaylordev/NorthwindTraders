@@ -19,7 +19,7 @@ export class CustomerDetailComponent implements OnInit {
       .filter(keys => keys !== 'id');
   }
 
-  closeModal() {
+  public closeModal() {
     this.bsModalRef.hide();
   }
 
