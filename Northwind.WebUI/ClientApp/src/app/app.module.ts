@@ -14,7 +14,7 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 
 import { CustomersClient, ProductsClient } from './northwind-traders-api';
 
-import { LowerCamelCaseToLabel } from './../pipes/lower-camel-case-to-label';
+import { CamelCaseToText } from '../pipes/camel-case-to-text';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 
@@ -35,7 +35,7 @@ const components = [
   CustomersComponent,
   CustomerDetailComponent
 ];
-const pipes = [LowerCamelCaseToLabel];
+const pipes = [CamelCaseToText];
 
 @NgModule({
   declarations: [...components, ...pipes],

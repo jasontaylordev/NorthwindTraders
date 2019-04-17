@@ -19,7 +19,7 @@ export class CustomersComponent {
     }, error => console.error(error));
   }
 
-  customerDetail(id: string) {
+  public customerDetail(id: string) {
     this.client.get(id).subscribe(result => {
       const initialState = {
         customer: result
