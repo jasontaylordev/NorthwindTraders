@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ customer.id }} Detail</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div *ngIf="detailKeys">
+      <div *ngFor="let detailKey of detailKeys; let i = index">
+        <span class="row" *ngIf="customer[detailKey]">
+            <b class="col-md-5">{{ detailKey | camelCaseToText }} :</b>
+            <span class="col-md-7">{{ customer[detailKey] }}</span>
+        </span>
+      </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+</div>
