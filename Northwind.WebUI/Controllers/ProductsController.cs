@@ -32,9 +32,13 @@ namespace Northwind.WebUI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<ProductDto>> Update([FromBody] UpdateProductCommand command)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
+        public async Task<IActionResult> Update([FromBody] UpdateProductCommand command)
         {
-            return Ok(await Mediator.Send(command));
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

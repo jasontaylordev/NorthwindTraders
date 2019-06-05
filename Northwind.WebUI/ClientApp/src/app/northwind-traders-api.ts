@@ -378,7 +378,7 @@ export interface IProductsClient {
     getAll(): Observable<ProductsListViewModel | null>;
     get(id: number): Observable<ProductViewModel | null>;
     create(command: CreateProductCommand): Observable<number>;
-    update(command: UpdateProductCommand): Observable<ProductDto | null>;
+    update(command: UpdateProductCommand): Observable<void>;
     delete(id: number): Observable<void>;
 }
 
@@ -544,7 +544,7 @@ export class ProductsClient implements IProductsClient {
         return _observableOf<number>(<any>null);
     }
 
-    update(command: UpdateProductCommand): Observable<ProductDto | null> {
+    update(command: UpdateProductCommand): Observable<void> {
         let url_ = this.baseUrl + "/api/Products/Update";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -556,7 +556,6 @@ export class ProductsClient implements IProductsClient {
             responseType: "blob",
             headers: new HttpHeaders({
                 "Content-Type": "application/json", 
-                "Accept": "application/json"
             })
         };
 
@@ -567,33 +566,32 @@ export class ProductsClient implements IProductsClient {
                 try {
                     return this.processUpdate(<any>response_);
                 } catch (e) {
-                    return <Observable<ProductDto | null>><any>_observableThrow(e);
+                    return <Observable<void>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<ProductDto | null>><any>_observableThrow(response_);
+                return <Observable<void>><any>_observableThrow(response_);
         }));
     }
 
-    protected processUpdate(response: HttpResponseBase): Observable<ProductDto | null> {
+    protected processUpdate(response: HttpResponseBase): Observable<void> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200) {
+        if (status === 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 ? ProductDto.fromJS(resultData200) : <any>null;
-            return _observableOf(result200);
+            return _observableOf<void>(<any>null);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = resultDatadefault ? ProblemDetails.fromJS(resultDatadefault) : <any>null;
+            return throwException("A server error occurred.", status, _responseText, _headers, resultdefault);
             }));
         }
-        return _observableOf<ProductDto | null>(<any>null);
     }
 
     delete(id: number): Observable<void> {

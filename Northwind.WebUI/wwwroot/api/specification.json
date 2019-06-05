@@ -364,7 +364,10 @@
           "x-position": 1
         },
         "responses": {
-          "200": {
+          "204": {
+            "description": ""
+          },
+          "default": {
             "description": "",
             "content": {
               "application/json": {
@@ -372,7 +375,7 @@
                   "nullable": true,
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/ProductDto"
+                      "$ref": "#/components/schemas/ProblemDetails"
                     }
                   ]
                 }
