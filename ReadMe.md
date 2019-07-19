@@ -20,6 +20,7 @@ You will need the following tools:
 
 * [Visual Studio Code or 2017](https://www.visualstudio.com/downloads/)
 * [.NET Core SDK 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)
+ * [Node.js](https://nodejs.org/en/) (version 10 or later) with npm (version 6.9.0 or later)
 
 ### Setup
 Follow these steps to get your development environment set up:
