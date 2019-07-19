@@ -22,15 +22,16 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/platform-server": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@angular/http": "~7.2.0",
+    "@nguniversal/module-map-ngfactory-loader": "~7.1.1",
+    "aspnet-prerendering": "^3.0.1",
     "core-js": "^2.5.4",
+    "font-awesome": "^4.7.0",
+    "ngx-bootstrap": "5.1.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
-    "bootstrap": "^4.3.1",
-    "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
-    "aspnet-prerendering": "^3.0.1",
-    "font-awesome": "^4.7.0",
-    "ngx-bootstrap": "^3.0.1"
+    "ajv": "6.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",

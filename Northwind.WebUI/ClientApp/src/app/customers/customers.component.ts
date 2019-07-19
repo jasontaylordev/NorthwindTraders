@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomersClient, CustomersListViewModel } from '../northwind-traders-api';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { BsModalService } from 'ngx-bootstrap/modal/bs-modal.service';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-customers',
