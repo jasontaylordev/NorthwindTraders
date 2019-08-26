@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Northwind.Application.Categories.Models;
-using Northwind.Application.Categories.Queries;
+using Northwind.Application.Categories.Queries.GetCategoryList;
 
 namespace Northwind.WebUI.Controllers
 {
     public class CategoriesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryPreviewDto>>> GetCategoryPreview([FromQuery] GetCategoryPreviewQuery query)
+        public async Task<ActionResult<IList<CategoryLookupModel>>> GetAll()
         {
-            return Ok(await Mediator.Send(query));
+            return Ok(await Mediator.Send(new GetCategoryListQuery()));
         }
     }
 }

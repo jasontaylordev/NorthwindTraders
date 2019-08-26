@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <!--<Import Project="..\Northwind.CodeAnalysis.targets" />-->
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Northwind.Application</AssemblyName>
     <RootNamespace>Northwind.Application</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="8.1.3" />
-    <PackageReference Include="MediatR" Version="6.0.0" />
-    <PackageReference Include="AutoMapper" Version="8.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.3" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
+    <PackageReference Include="FluentValidation" Version="8.5.0-preview4" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0-rc1.19424.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0-rc1.19424.3" />
   </ItemGroup>
 
   <ItemGroup>

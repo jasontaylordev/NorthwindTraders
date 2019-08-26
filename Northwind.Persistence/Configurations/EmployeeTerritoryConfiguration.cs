@@ -9,7 +9,7 @@ namespace Northwind.Persistence.Configurations
         public void Configure(EntityTypeBuilder<EmployeeTerritory> builder)
         {
             builder.HasKey(e => new { e.EmployeeId, e.TerritoryId })
-                .ForSqlServerIsClustered(false);
+                .IsClustered(false);
 
             builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 

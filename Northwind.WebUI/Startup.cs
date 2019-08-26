@@ -1,14 +1,16 @@
-using AutoMapper;
-using FluentValidation.AspNetCore;
-using MediatR;
-using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.Reflection;
+
+using AutoMapper;
+using FluentValidation.AspNetCore;
+using MediatR;
+
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Application.Infrastructure;
 using Northwind.Application.Infrastructure.AutoMapper;
@@ -18,8 +20,6 @@ using Northwind.Common;
 using Northwind.Infrastructure;
 using Northwind.Persistence;
 using Northwind.WebUI.Filters;
-using NSwag.AspNetCore;
-using System.Reflection;
 
 namespace Northwind.WebUI
 {
@@ -52,8 +52,8 @@ namespace Northwind.WebUI
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindDatabase")));
 
             services
-                .AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddControllersWithViews(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
+                .AddNewtonsoftJson()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
             // Customise default API behavour
@@ -67,19 +67,24 @@ namespace Northwind.WebUI
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "Northwind Traders API";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
             }
             else
             {
                 app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -87,17 +92,20 @@ namespace Northwind.WebUI
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            app.UseOpenApi();
             app.UseSwaggerUi3(settings =>
             {
                 settings.Path = "/api";
-                settings.DocumentPath = "/api/specification.json";
+                //    settings.DocumentPath = "/api/specification.json";   Enable when NSwag.MSBuild is upgraded to .NET Core 3.0
             });
 
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>

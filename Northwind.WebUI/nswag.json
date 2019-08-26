@@ -1,8 +1,8 @@
 ﻿{
   "runtime": "NetCore22",
   "defaultVariables": null,
-  "swaggerGenerator": {
-    "aspNetCoreToSwagger": {
+  "documentGenerator": {
+    "aspNetCoreToOpenApi": {
       "project": "Northwind.WebUI.csproj",
       "msBuildProjectExtensionsPath": null,
       "configuration": null,
@@ -15,11 +15,15 @@
       "apiGroupNames": null,
       "defaultPropertyNameHandling": "CamelCase",
       "defaultReferenceTypeNullHandling": "Null",
+      "defaultDictionaryValueReferenceTypeNullHandling": "NotNull",
+      "defaultResponseReferenceTypeNullHandling": "NotNull",
       "defaultEnumHandling": "Integer",
       "flattenInheritanceHierarchy": false,
       "generateKnownTypes": true,
+      "generateEnumMappingDescription": false,
       "generateXmlObjects": false,
       "generateAbstractProperties": false,
+      "generateAbstractSchemas": true,
       "ignoreObsoleteProperties": false,
       "allowReferencesWithProperties": false,
       "excludedTypeNames": [],
@@ -51,7 +55,7 @@
     }
   },
   "codeGenerators": {
-    "swaggerToTypeScriptClient": {
+    "openApiToTypeScriptClient": {
       "className": "{controller}Client",
       "moduleName": "",
       "namespace": "",
@@ -69,6 +73,7 @@
       "generateOptionalParameters": false,
       "exportTypes": true,
       "wrapDtoExceptions": false,
+      "exceptionClass": "SwaggerException",
       "clientBaseClass": null,
       "wrapResponses": false,
       "wrapResponseMethods": [],
@@ -88,6 +93,7 @@
       "extensionCode": null,
       "generateDefaultValues": true,
       "excludedTypeNames": [],
+      "excludedParameterNames": [],
       "handleReferences": false,
       "generateConstructorInterface": true,
       "convertConstructorInterfaceData": false,
@@ -96,6 +102,7 @@
       "baseUrlTokenName": "API_BASE_URL",
       "queryNullValue": "",
       "inlineNamedDictionaries": false,
+      "inlineNamedAny": false,
       "templateDirectory": null,
       "typeNameGeneratorType": null,
       "propertyNameGeneratorType": null,

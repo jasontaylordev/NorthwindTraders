@@ -18,8 +18,8 @@ Use these instructions to get the project up and running.
 ### Prerequisites
 You will need the following tools:
 
-* [Visual Studio Code or 2017](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)
+* [Visual Studio Code or Visual Studio 2019 Preview](https://visualstudio.microsoft.com/vs/preview/)
+* [.NET Core SDK 3 RC1](https://github.com/dotnet/core-sdk/blob/master/README.md#installers-and-binaries) (development build)
  * [Node.js](https://nodejs.org/en/) (version 10 or later) with npm (version 6.9.0 or later)
 
 ### Setup
@@ -27,7 +27,7 @@ Follow these steps to get your development environment set up:
 
   1. Clone the repository
   2. At the root directory, restore required packages by running:
-     ```
+      ```
      dotnet restore
      ```
   3. Next, build the solution by running:
@@ -35,7 +35,7 @@ Follow these steps to get your development environment set up:
      dotnet build
      ```
   4. Next, within the `Northwind.WebUI\ClientApp` directory, launch the front end by running:
-     ```
+      ```
      npm start
      ```
   5. Once the front end has started, within the `Northwind.WebUI` directory, launch the back end by running:
@@ -46,10 +46,22 @@ Follow these steps to get your development environment set up:
   
   6. Launch [http://localhost:52468/api](http://localhost:52468/api) in your browser to view the API
 
+
+If you need to regenerate the Northwind Traders TypeScript client (`Northwind.WebUI\ClientApp\src\app\northwind-traders-api.ts`) follow these steps:
+
+  1. First, launch the application as per the above instructions
+  2. Next, from the `Northwind.WebUI\ClientApp` directory, run:
+     ```
+	 nswag run
+	 ```
+
+This was previously managed by an MSBuild task, however NSwag.MSBuild has not yet been updated to support .NET Core 3. The MSBuild task will be re-enabled when this happens.
+
 ## Technologies
-* .NET Core 2.2
-* ASP.NET Core 2.2
-* Entity Framework Core 2.2
+* .NET Core 3.0.0-rc1-19425-03
+* ASP.NET Core 3.0.0-rc1.19424.9
+* Entity Framework Core 3.0.0-rc1.19424.6
+* Angular 8
 
 ## License
 

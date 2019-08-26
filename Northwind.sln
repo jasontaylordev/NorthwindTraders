@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Persistence", "No
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebUI", "Northwind.WebUI\Northwind.WebUI.csproj", "{B3A105C1-F3E0-4290-A330-D0D3F29D2B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebUI.FunctionalTests", "Northwind.WebUI.FunctionalTests\Northwind.WebUI.FunctionalTests.csproj", "{A5A16118-2C05-4433-8C39-384AB81E07CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebUI.FunctionalTests", "Northwind.WebUI.FunctionalTests\Northwind.WebUI.FunctionalTests.csproj", "{A5A16118-2C05-4433-8C39-384AB81E07CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
