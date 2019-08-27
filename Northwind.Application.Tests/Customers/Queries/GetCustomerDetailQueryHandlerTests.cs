@@ -18,6 +18,7 @@ namespace Northwind.Application.Tests.Customers.Queries
             _context = fixture.Context;
         }    
 
+        [Fact]
         public async Task GetCustomerDetail()
         {
             var sut = new GetCustomerDetailQueryHandler(_context);
