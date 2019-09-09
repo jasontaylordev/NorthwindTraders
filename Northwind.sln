@@ -13,31 +13,38 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9FEDAEFB-297C-4201-8FAA-F502F94CAFED}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C1158497-4B38-48DD-B698-57B7A0D50249}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Src\Common\Common.csproj", "{3C7E8164-A2CE-471A-9C15-E1A74E4BE9D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common", "Northwind.Common\Northwind.Common.csproj", "{3C7E8164-A2CE-471A-9C15-E1A74E4BE9D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Src\Domain\Domain.csproj", "{0A18018C-95CA-43CB-BFBF-5DB086E93009}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Domain", "Northwind.Domain\Northwind.Domain.csproj", "{0A18018C-95CA-43CB-BFBF-5DB086E93009}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Src\Application\Application.csproj", "{5FB1A4D7-D13E-47C3-9152-3890B8CA9C37}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Application", "Northwind.Application\Northwind.Application.csproj", "{5FB1A4D7-D13E-47C3-9152-3890B8CA9C37}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Application.Tests", "Northwind.Application.Tests\Northwind.Application.Tests.csproj", "{C379031A-C615-4F06-BBAB-B27196335FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Tests", "Tests\Application.Tests\Application.Tests.csproj", "{C379031A-C615-4F06-BBAB-B27196335FB4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FB1A4D7-D13E-47C3-9152-3890B8CA9C37} = {5FB1A4D7-D13E-47C3-9152-3890B8CA9C37}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{36DA64CD-41D5-48FD-8AFE-EBBF8EFD57ED}"
 	ProjectSection(SolutionItems) = preProject
-		ReadMe.md = ReadMe.md
-		Slides.pdf = Slides.pdf
+		README.md = README.md
+		Docs\Slides.pdf = Docs\Slides.pdf
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Infrastructure", "Northwind.Infrastructure\Northwind.Infrastructure.csproj", "{1C11E54E-54DB-47A2-9D10-03AFDA347F22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Src\Infrastructure\Infrastructure.csproj", "{1C11E54E-54DB-47A2-9D10-03AFDA347F22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Domain.Tests", "Northwind.Domain.Tests\Northwind.Domain.Tests.csproj", "{73C1627E-BB1D-4159-A418-3F4F5BA7820C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Tests\Domain.Tests\Domain.Tests.csproj", "{73C1627E-BB1D-4159-A418-3F4F5BA7820C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A18018C-95CA-43CB-BFBF-5DB086E93009} = {0A18018C-95CA-43CB-BFBF-5DB086E93009}
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Persistence", "Northwind.Persistence\Northwind.Persistence.csproj", "{34BB0A51-74B9-46B6-BEAA-94A914F552EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Src\Persistence\Persistence.csproj", "{34BB0A51-74B9-46B6-BEAA-94A914F552EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebUI", "Northwind.WebUI\Northwind.WebUI.csproj", "{B3A105C1-F3E0-4290-A330-D0D3F29D2B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "Src\WebUI\WebUI.csproj", "{B3A105C1-F3E0-4290-A330-D0D3F29D2B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebUI.FunctionalTests", "Northwind.WebUI.FunctionalTests\Northwind.WebUI.FunctionalTests.csproj", "{A5A16118-2C05-4433-8C39-384AB81E07CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI.FunctionalTests", "Tests\WebUI.FunctionalTests\WebUI.FunctionalTests.csproj", "{A5A16118-2C05-4433-8C39-384AB81E07CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B3A105C1-F3E0-4290-A330-D0D3F29D2B26} = {B3A105C1-F3E0-4290-A330-D0D3F29D2B26}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,8 +96,7 @@ Global
 		{0FEB6ADF-29FD-48CE-AE0F-9E19E9209795} = {4B785E7E-2F35-4198-BD73-D2B861E5518A}
 		{1EC1EEFF-3888-4125-9229-623C564F3E7E} = {4B785E7E-2F35-4198-BD73-D2B861E5518A}
 		{833DEA57-A970-418C-831C-2355B8294766} = {4B785E7E-2F35-4198-BD73-D2B861E5518A}
-		{C1158497-4B38-48DD-B698-57B7A0D50249} = {4B785E7E-2F35-4198-BD73-D2B861E5518A}
-		{3C7E8164-A2CE-471A-9C15-E1A74E4BE9D9} = {C1158497-4B38-48DD-B698-57B7A0D50249}
+		{3C7E8164-A2CE-471A-9C15-E1A74E4BE9D9} = {0FEB6ADF-29FD-48CE-AE0F-9E19E9209795}
 		{0A18018C-95CA-43CB-BFBF-5DB086E93009} = {0FEB6ADF-29FD-48CE-AE0F-9E19E9209795}
 		{5FB1A4D7-D13E-47C3-9152-3890B8CA9C37} = {0FEB6ADF-29FD-48CE-AE0F-9E19E9209795}
 		{C379031A-C615-4F06-BBAB-B27196335FB4} = {9FEDAEFB-297C-4201-8FAA-F502F94CAFED}
