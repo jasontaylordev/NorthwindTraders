@@ -19,8 +19,8 @@ Use these instructions to get the project up and running.
 You will need the following tools:
 
 * [Visual Studio Code or Visual Studio 2019 Preview](https://visualstudio.microsoft.com/vs/preview/)
-* [.NET Core SDK 3 RC1](https://github.com/dotnet/core-sdk/blob/master/README.md#installers-and-binaries) (development build)
- * [Node.js](https://nodejs.org/en/) (version 10 or later) with npm (version 6.9.0 or later)
+* [.NET Core SDK 3 Preview](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+ * [Node.js](https://nodejs.org/en/) (version 10 or later) with npm (version 6.11.3 or later)
 
 ### Setup
 Follow these steps to get your development environment set up:
@@ -58,9 +58,9 @@ If you need to regenerate the Northwind Traders TypeScript client (`Northwind.We
 This was previously managed by an MSBuild task, however NSwag.MSBuild has not yet been updated to support .NET Core 3. The MSBuild task will be re-enabled when this happens.
 
 ## Technologies
-* .NET Core 3.0.0-rc1-19425-03
-* ASP.NET Core 3.0.0-rc1.19424.9
-* Entity Framework Core 3.0.0-rc1.19424.6
+* .NET Core 3
+* ASP.NET Core 3
+* Entity Framework Core 3
 * Angular 8
 
 ## License
