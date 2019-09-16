@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Northwind.Domain.Infrastructure;
 
 namespace Northwind.Domain.Entities
 {
-    public class Product
+    public class Product : AuditableEntity
     {
         public Product()
         {

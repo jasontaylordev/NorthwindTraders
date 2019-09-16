@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Northwind.Domain.Infrastructure;
 
 namespace Northwind.Domain.Entities
 {
-    public class Employee
+    public class Employee : AuditableEntity
     {
         public Employee()
         {

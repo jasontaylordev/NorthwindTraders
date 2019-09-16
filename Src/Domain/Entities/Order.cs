@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Northwind.Domain.Infrastructure;
 
 namespace Northwind.Domain.Entities
 {
-    public class Order
+    public class Order : AuditableEntity
     {
         public Order()
         {
