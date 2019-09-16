@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Northwind.Application.Products.Commands.UpdateProduct;
 using Northwind.WebUI.FunctionalTests.Common;
@@ -9,16 +8,18 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 {
     public class Update : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public Update(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenUpdateProductCommand_ReturnsSuccessStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var command = new UpdateProductCommand
             {
                 ProductId = 77,
@@ -31,7 +32,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 
             var content = Utilities.GetRequestContent(command);
 
-            var response = await _client.PutAsync($"/api/products/update", content);
+            var response = await client.PutAsync($"/api/products/update", content);
 
             response.EnsureSuccessStatusCode();
         }
@@ -39,6 +40,8 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         [Fact]
         public async Task GivenUpdateProductCommandWithInvalidId_ReturnsNotFoundStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var invalidCommand = new UpdateProductCommand
             {
                 ProductId = 0,
@@ -51,7 +54,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 
             var content = Utilities.GetRequestContent(invalidCommand);
 
-            var response = await _client.PutAsync($"/api/products/update", content);
+            var response = await client.PutAsync($"/api/products/update", content);
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }

@@ -7,7 +7,7 @@ using Northwind.Persistence;
 namespace Northwind.WebUI.FunctionalTests.Common
 {
     public class Utilities
-    { 
+    {
         public static StringContent GetRequestContent(object obj)
         {
             return new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");

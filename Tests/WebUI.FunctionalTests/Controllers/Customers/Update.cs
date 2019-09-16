@@ -9,16 +9,18 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 {
     public class Update : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public Update(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenUpdateCustomerCommand_ReturnsSuccessStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var command = new UpdateCustomerCommand
             {
                 Id = "ALFKI",
@@ -35,7 +37,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 
             var content = Utilities.GetRequestContent(command);
 
-            var response = await _client.PutAsync($"/api/customers/update/{command.Id}", content);
+            var response = await client.PutAsync($"/api/customers/update/{command.Id}", content);
 
             response.EnsureSuccessStatusCode();
         }
@@ -43,6 +45,8 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
         [Fact]
         public async Task GivenUpdateCustomerCommandWithInvalidId_ReturnsNotFoundStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var invalidCommand = new UpdateCustomerCommand
             {
                 Id = "AAAAA",
@@ -59,7 +63,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 
             var content = Utilities.GetRequestContent(invalidCommand);
 
-            var response = await _client.PutAsync($"/api/customers/update/{invalidCommand.Id}", content);
+            var response = await client.PutAsync($"/api/customers/update/{invalidCommand.Id}", content);
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }

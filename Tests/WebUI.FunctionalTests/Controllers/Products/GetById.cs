@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Northwind.Application.Products.Queries.GetProduct;
 using Northwind.WebUI.FunctionalTests.Common;
@@ -9,19 +8,21 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 {
     public class GetById : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public GetById(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenId_ReturnsProductViewModel()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var id = 67;
 
-            var response = await _client.GetAsync($"/api/products/get/{id}");
+            var response = await client.GetAsync($"/api/products/get/{id}");
 
             response.EnsureSuccessStatusCode();
 
@@ -33,9 +34,11 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         [Fact]
         public async Task GivenInvalidId_ReturnsNotFoundStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var invalidId = 0;
 
-            var response = await _client.GetAsync($"/api/products/get/{invalidId}");
+            var response = await client.GetAsync($"/api/products/get/{invalidId}");
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }

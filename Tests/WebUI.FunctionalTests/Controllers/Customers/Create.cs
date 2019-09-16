@@ -8,16 +8,18 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 {
     public class Create : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public Create(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenCreateCustomerCommand_ReturnsSuccessStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var command = new CreateCustomerCommand
             {
                 Id = "ABCDE",
@@ -34,7 +36,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 
             var content = Utilities.GetRequestContent(command);
 
-            var response = await _client.PostAsync($"/api/customers/create", content);
+            var response = await client.PostAsync($"/api/customers/create", content);
 
             response.EnsureSuccessStatusCode();
         }

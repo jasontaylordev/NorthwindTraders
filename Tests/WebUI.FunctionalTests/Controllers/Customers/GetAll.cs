@@ -8,17 +8,19 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 {
     public class GetAll : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public GetAll(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task ReturnsCustomersListViewModel()
         {
-            var response = await _client.GetAsync("/api/customers/getall");
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/customers/getall");
 
             response.EnsureSuccessStatusCode();
 

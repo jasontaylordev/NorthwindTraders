@@ -9,16 +9,18 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 {
     public class Create : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public Create(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenCreateProductCommand_ReturnsNewProductId()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var command = new CreateProductCommand
             {
                 ProductName = "Coffee",
@@ -30,7 +32,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 
             var content = Utilities.GetRequestContent(command);
 
-            var response = await _client.PostAsync($"/api/products/create", content);
+            var response = await client.PostAsync($"/api/products/create", content);
 
             response.EnsureSuccessStatusCode();
 

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Northwind.WebUI.Controllers
 {
+    [Authorize]
     public class CustomersController : BaseController
     {
         [HttpGet]

@@ -8,19 +8,21 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 {
     public class Delete : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public Delete(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenId_ReturnsSuccessStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var validId = 78;
 
-            var response = await _client.DeleteAsync($"/api/products/delete/{validId}");
+            var response = await client.DeleteAsync($"/api/products/delete/{validId}");
 
             response.EnsureSuccessStatusCode();
         }
@@ -28,9 +30,11 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         [Fact]
         public async Task GivenInvalidId_ReturnsNotFoundStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var invalidId = 0;
 
-            var response = await _client.DeleteAsync($"/api/products/delete/{invalidId}");
+            var response = await client.DeleteAsync($"/api/products/delete/{invalidId}");
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }

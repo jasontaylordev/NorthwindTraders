@@ -1,4 +1,3 @@
-using System.Net.Http;
 using System.Threading.Tasks;
 using Northwind.Application.Products.Queries.GetAllProducts;
 using Northwind.WebUI.FunctionalTests.Common;
@@ -8,17 +7,19 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 {
     public class GetAll : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public GetAll(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task ReturnsProductsListViewModel()
         {
-            var response = await _client.GetAsync("/api/products/getall");
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/products/getall");
 
             response.EnsureSuccessStatusCode();
 

@@ -6,6 +6,7 @@ using Northwind.Application.Categories.Queries.GetCategoryList;
 
 namespace Northwind.WebUI.Controllers
 {
+    [Authorize]
     public class CategoriesController : BaseController
     {
         [HttpGet]

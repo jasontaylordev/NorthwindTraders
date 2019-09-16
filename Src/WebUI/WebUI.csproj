@@ -12,6 +12,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <UserSecretsId>f887bb79-4c4b-46b5-a783-c7ca8d16c955</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -54,6 +55,7 @@
 
   <ItemGroup>
     <None Remove="app-routing.module.ts" />
+    <None Remove="ClientApp\src\app\home\home.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,6 +66,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\app.routing.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\home\home.component.ts" />
   </ItemGroup>
   
   <!--

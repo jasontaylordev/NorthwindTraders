@@ -9,19 +9,21 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
 {
     public class GetById : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
-        private readonly HttpClient _client;
+        private readonly CustomWebApplicationFactory<Startup> _factory;
 
         public GetById(CustomWebApplicationFactory<Startup> factory)
         {
-            _client = factory.CreateClient();
+            _factory = factory;
         }
 
         [Fact]
         public async Task GivenId_ReturnsCustomerViewModel()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
             var id = "ALFKI";
 
-            var response = await _client.GetAsync($"/api/customers/get/{id}");
+            var response = await client.GetAsync($"/api/customers/get/{id}");
 
             response.EnsureSuccessStatusCode();
 
@@ -33,9 +35,11 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Customers
         [Fact]
         public async Task GivenInvalidId_ReturnsNotFoundStatusCode()
         {
+            var client = await _factory.GetAuthenticatedClientAsync();
+            
             var invalidId = "AAAAA";
 
-            var response = await _client.GetAsync($"/api/customers/get/{invalidId}");
+            var response = await client.GetAsync($"/api/customers/get/{invalidId}");
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
