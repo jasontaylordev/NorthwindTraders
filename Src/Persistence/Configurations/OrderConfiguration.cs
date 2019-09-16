@@ -8,8 +8,6 @@ namespace Northwind.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(e => e.OrderId);
-
             builder.Property(e => e.OrderId).HasColumnName("OrderID");
 
             builder.Property(e => e.CustomerId)
@@ -39,16 +37,6 @@ namespace Northwind.Persistence.Configurations
             builder.Property(e => e.ShipRegion).HasMaxLength(15);
 
             builder.Property(e => e.ShippedDate).HasColumnType("datetime");
-
-            builder.HasOne(d => d.Customer)
-                .WithMany(p => p.Orders)
-                .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK_Orders_Customers");
-
-            builder.HasOne(d => d.Employee)
-                .WithMany(p => p.Orders)
-                .HasForeignKey(d => d.EmployeeId)
-                .HasConstraintName("FK_Orders_Employees");
 
             builder.HasOne(d => d.Shipper)
                 .WithMany(p => p.Orders)

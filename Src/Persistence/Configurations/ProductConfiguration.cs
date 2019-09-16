@@ -8,8 +8,6 @@ namespace Northwind.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.HasKey(e => e.ProductId);
-
             builder.Property(e => e.ProductId).HasColumnName("ProductID");
 
             builder.Property(e => e.CategoryId).HasColumnName("CategoryID");
@@ -31,16 +29,6 @@ namespace Northwind.Persistence.Configurations
             builder.Property(e => e.UnitsInStock).HasDefaultValueSql("((0))");
 
             builder.Property(e => e.UnitsOnOrder).HasDefaultValueSql("((0))");
-
-            builder.HasOne(d => d.Category)
-                .WithMany(p => p.Products)
-                .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("FK_Products_Categories");
-
-            builder.HasOne(d => d.Supplier)
-                .WithMany(p => p.Products)
-                .HasForeignKey(d => d.SupplierId)
-                .HasConstraintName("FK_Products_Suppliers");
         }
     }
 }

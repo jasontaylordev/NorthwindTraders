@@ -8,8 +8,6 @@ namespace Northwind.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
-            builder.HasKey(e => e.EmployeeId);
-
             builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
             builder.Property(e => e.Address).HasMaxLength(60);

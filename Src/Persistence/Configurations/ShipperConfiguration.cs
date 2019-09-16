@@ -8,8 +8,6 @@ namespace Northwind.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Shipper> builder)
         {
-            builder.HasKey(e => e.ShipperId);
-
             builder.Property(e => e.ShipperId).HasColumnName("ShipperID");
 
             builder.Property(e => e.CompanyName)
