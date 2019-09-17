@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Http;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Infrastructure;
 using Northwind.Persistence;
@@ -15,6 +17,8 @@ namespace Northwind.WebUI
 {
     public class Startup
     {
+        private IServiceCollection _services;
+
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
@@ -56,6 +60,8 @@ namespace Northwind.WebUI
             {
                 configure.Title = "Northwind Traders API";
             });
+
+            _services = services;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +71,7 @@ namespace Northwind.WebUI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                RegisteredServicesPage(app);
             }
             else
             {
@@ -111,6 +118,28 @@ namespace Northwind.WebUI
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
+        }
+
+        private void RegisteredServicesPage(IApplicationBuilder app)
+        {
+            app.Map("/services", builder => builder.Run(async context =>
+            {
+                var sb = new StringBuilder();
+                sb.Append("<h1>Registered Services</h1>");
+                sb.Append("<table><thead>");
+                sb.Append("<tr><th>Type</th><th>Lifetime</th><th>Instance</th></tr>");
+                sb.Append("</thead><tbody>");
+                foreach (var svc in _services)
+                {
+                    sb.Append("<tr>");
+                    sb.Append($"<td>{svc.ServiceType.FullName}</td>");
+                    sb.Append($"<td>{svc.Lifetime}</td>");
+                    sb.Append($"<td>{svc.ImplementationType?.FullName}</td>");
+                    sb.Append("</tr>");
+                }
+                sb.Append("</tbody></table>");
+                await context.Response.WriteAsync(sb.ToString());
+            }));
         }
     }
 }
