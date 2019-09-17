@@ -20,7 +20,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         {
             var client = await _factory.GetAuthenticatedClientAsync();
 
-            var validId = 78;
+            var validId = 1;
 
             var response = await client.DeleteAsync($"/api/products/delete/{validId}");
 

@@ -1,54 +1,80 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Northwind.Application.Interfaces;
 using Northwind.Domain.Entities;
-using Northwind.Persistence.Extensions;
 
 namespace Northwind.Persistence
 {
-    public class NorthwindInitializer
+    public class SampleDataSeeder
     {
+        private readonly INorthwindDbContext _context;
+        private readonly IUserManager _userManager;
+
         private readonly Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
         private readonly Dictionary<int, Supplier> Suppliers = new Dictionary<int, Supplier>();
         private readonly Dictionary<int, Category> Categories = new Dictionary<int, Category>();
         private readonly Dictionary<int, Shipper> Shippers = new Dictionary<int, Shipper>();
         private readonly Dictionary<int, Product> Products = new Dictionary<int, Product>();
 
-        public static void Initialize(NorthwindDbContext context)
+        public SampleDataSeeder(INorthwindDbContext context, IUserManager userManager)
         {
-            var initializer = new NorthwindInitializer();
-            initializer.SeedEverything(context);
+            _context = context;
+            _userManager = userManager;
         }
 
-        public void SeedEverything(NorthwindDbContext context)
+        public async Task SeedAllAsync(CancellationToken cancellationToken)
         {
-            context.Database.EnsureCreated();
+            await SeedCustomersAsync(cancellationToken);
 
-            if (context.Customers.Any())
+            await SeedRegionsAsync(cancellationToken);
+
+            await SeedTerritoriesAsync(cancellationToken);
+
+            await SeedEmployeesAsync(cancellationToken);
+
+            await SeedCategoriesAsync(cancellationToken);
+
+            await SeedShippersAsync(cancellationToken);
+
+            await SeedSuppliersAsync(cancellationToken);
+
+            await SeedProductsAsync(cancellationToken);
+
+            await SeedOrdersAsync(cancellationToken);
+
+            await SeedUsersAsync(cancellationToken);
+        }
+
+        private async Task SeedUsersAsync(CancellationToken cancellationToken)
+        {
+            var employees = await _context.Employees
+                .Include(e => e.DirectReports)
+                .Where(e => e.UserId == null)
+                .ToListAsync(cancellationToken);
+
+            if (employees.Any())
             {
-                return; // Db has been seeded
+                foreach (var employee in employees)
+                {
+                    var userName = $"{employee.FirstName}@northwind".ToLower();
+                    var userId = await _userManager.CreateUserAsync(userName, "Northwind1!");
+                    employee.UserId = userId;
+
+                    if (employee.DirectReports.Any())
+                    {
+                        // TODO: Add to manager role
+                    }
+                }
+
+                await _context.SaveChangesAsync(cancellationToken);
             }
-
-            SeedCustomers(context);
-
-            SeedRegions(context);
-
-            SeedTerritories(context);
-
-            SeedEmployees(context);
-
-            SeedCategories(context);
-
-            SeedShippers(context);
-
-            SeedSuppliers(context);
-
-            SeedProducts(context);
-
-            SeedOrders(context);
         }
 
-        public void SeedCustomers(NorthwindDbContext context)
+        private async Task SeedCustomersAsync(CancellationToken cancellationToken)
         {
             var customers = new[]
             {
@@ -146,12 +172,12 @@ namespace Northwind.Persistence
                 new Customer { CustomerId = "JASON", Address = "ul. Filtrowa 68", City = "Warszawa", CompanyName = "Wolski  Zajazd", ContactName = "Zbyszek Piestrzeniewicz", ContactTitle = "Owner", Country = "Poland", Fax = "(26) 642-7012", Phone = "(26) 642-7012", PostalCode = "01-012" }
             };
 
-            context.Customers.AddRange(customers);
+            _context.Customers.AddRange(customers);
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedRegions(NorthwindDbContext context)
+        private async Task SeedRegionsAsync(CancellationToken cancellationToken)
         {
             var regions = new[]
             {
@@ -161,12 +187,12 @@ namespace Northwind.Persistence
                 new Region { RegionId = 4, RegionDescription = "Southern"}
             };
 
-            context.Region.AddRange(regions);
+            _context.Region.AddRange(regions);
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedTerritories(NorthwindDbContext context)
+        private async Task SeedTerritoriesAsync(CancellationToken cancellationToken)
         {
             var territories = new[]
             {
@@ -225,12 +251,12 @@ namespace Northwind.Persistence
                 new Territory {TerritoryId = "98104", RegionId = 2, TerritoryDescription = "Seattle"}
             };
 
-            context.Territories.AddRange(territories);
+            _context.Territories.AddRange(territories);
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedEmployees(NorthwindDbContext context)
+        private async Task SeedEmployeesAsync(CancellationToken cancellationToken)
         {
             Employees.Add(2,
                 new Employee
@@ -507,13 +533,13 @@ namespace Northwind.Persistence
 
             foreach (var employee in Employees.Values)
             {
-                context.Employees.Add(employee);
+                _context.Employees.Add(employee);
             }
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedCategories(NorthwindDbContext context)
+        private async Task SeedCategoriesAsync(CancellationToken cancellationToken)
         {
             Categories.Add(1, new Category
             {
@@ -573,13 +599,13 @@ namespace Northwind.Persistence
 
             foreach (var category in Categories.Values)
             {
-                context.Categories.Add(category);
+                _context.Categories.Add(category);
             }
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedShippers(NorthwindDbContext context)
+        private async Task SeedShippersAsync(CancellationToken cancellationToken)
         {
             Shippers.Add(1, new Shipper { CompanyName = "Speedy Express", Phone = "(503) 555-9831" });
             Shippers.Add(2, new Shipper { CompanyName = "United Package", Phone = "(503) 555-3199" });
@@ -587,13 +613,13 @@ namespace Northwind.Persistence
 
             foreach (var shipper in Shippers.Values)
             {
-                context.Shippers.Add(shipper);
+                _context.Shippers.Add(shipper);
             }
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedSuppliers(NorthwindDbContext context)
+        private async Task SeedSuppliersAsync(CancellationToken cancellationToken)
         {
             Suppliers.Add(1, new Supplier { CompanyName = "Exotic Liquids", ContactName = "Charlotte Cooper", ContactTitle = "Purchasing Manager", Address = "49 Gilbert St.", City = "London", PostalCode = "EC1 4SD", Fax = "", Phone = "(171) 555-2222", HomePage = "" });
             Suppliers.Add(2, new Supplier { CompanyName = "New Orleans Cajun Delights", ContactName = "Shelley Burke", ContactTitle = "Order Administrator", Address = "P.O. Box 78934", City = "New Orleans", Region = "LA", PostalCode = "70117", Fax = "", Phone = "(100) 555-4822", HomePage = "#CAJUN.HTM#" });
@@ -627,13 +653,13 @@ namespace Northwind.Persistence
 
             foreach (var supplier in Suppliers.Values)
             {
-                context.Suppliers.Add(supplier);
+                _context.Suppliers.Add(supplier);
             }
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedProducts(NorthwindDbContext context)
+        private async Task SeedProductsAsync(CancellationToken cancellationToken)
         {
             Products.Add(1, new Product { ProductName = "Chai", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "10 boxes x 20 bags", UnitPrice = 18.00m, UnitsInStock = 39, UnitsOnOrder = 0, ReorderLevel = 10, Discontinued = false });
             Products.Add(2, new Product { ProductName = "Chang", Supplier = Suppliers[1], Category = Categories[1], QuantityPerUnit = "24 - 12 oz bottles", UnitPrice = 19.00m, UnitsInStock = 17, UnitsOnOrder = 40, ReorderLevel = 25, Discontinued = false });
@@ -716,13 +742,13 @@ namespace Northwind.Persistence
 
             foreach (var product in Products.Values)
             {
-                context.Products.Add(product);
+                _context.Products.Add(product);
             }
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        private void SeedOrders(NorthwindDbContext context)
+        private async Task SeedOrdersAsync(CancellationToken cancellationToken)
         {
             var orders = new List<Order>
             {
@@ -16974,10 +17000,10 @@ namespace Northwind.Persistence
 
             foreach (var order in orders)
             {
-                context.Orders.Add(order);
+                _context.Orders.Add(order);
             }
 
-            context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
         private static byte[] StringToByteArray(string hex)
@@ -16986,6 +17012,19 @@ namespace Northwind.Persistence
                 .Where(x => x % 2 == 0)
                 .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
                 .ToArray();
+        }
+    }
+
+    internal static class OrderExtensions
+    {
+        public static Order AddOrderDetails(this Order order, params OrderDetail[] orderDetails)
+        {
+            foreach (var orderDetail in orderDetails)
+            {
+                order.OrderDetails.Add(orderDetail);
+            }
+
+            return order;
         }
     }
 }

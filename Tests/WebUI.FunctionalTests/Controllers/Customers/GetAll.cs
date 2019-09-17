@@ -1,4 +1,3 @@
-using System.Net.Http;
 using System.Threading.Tasks;
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.WebUI.FunctionalTests.Common;

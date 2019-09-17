@@ -22,10 +22,10 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
 
             var command = new UpdateProductCommand
             {
-                ProductId = 77,
-                ProductName = "Original Frankfurter grüne Soße",
-                SupplierId = 12,
-                CategoryId = 2,
+                ProductId = 1,
+                ProductName = "Chai",
+                SupplierId = 1,
+                CategoryId = 1,
                 UnitPrice = 15.00m,
                 Discontinued = false
             };

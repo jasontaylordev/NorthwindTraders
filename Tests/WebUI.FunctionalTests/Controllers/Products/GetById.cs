@@ -20,7 +20,7 @@ namespace Northwind.WebUI.FunctionalTests.Controllers.Products
         {
             var client = await _factory.GetAuthenticatedClientAsync();
 
-            var id = 67;
+            var id = 1;
 
             var response = await client.GetAsync($"/api/products/get/{id}");
 
