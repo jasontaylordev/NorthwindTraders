@@ -12,6 +12,8 @@ using Northwind.Infrastructure;
 using Northwind.Persistence;
 using Northwind.WebUI.Filters;
 using Northwind.Application;
+using Northwind.Application.Interfaces;
+using Northwind.WebUI.Services;
 
 namespace Northwind.WebUI
 {
@@ -34,6 +36,8 @@ namespace Northwind.WebUI
             services.AddInfrastructure(Configuration, Environment);
             services.AddPersistence(Configuration);
             services.AddApplication();
+
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddHttpContextAccessor();
 

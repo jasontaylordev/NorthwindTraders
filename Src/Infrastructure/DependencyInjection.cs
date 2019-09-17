@@ -19,7 +19,6 @@ namespace Northwind.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
-            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<IUserManager, UserManagerService>();
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IDateTime, MachineDateTime>();

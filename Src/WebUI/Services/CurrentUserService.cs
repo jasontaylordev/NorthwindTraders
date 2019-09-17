@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Northwind.Application.Interfaces;
 
-namespace Northwind.Infrastructure.Identity
+namespace Northwind.WebUI.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
