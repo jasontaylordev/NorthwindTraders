@@ -20,15 +20,11 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0-rc1.19457.4" />
     <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.0.0-rc1.19457.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0-rc1.19457.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0-rc1.19457.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0-rc1.19457.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0-rc1.19456.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />  
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />  
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-rc1.19456.10" />  
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0-rc1-19462-10" />  
     <PackageReference Include="NSwag.AspNetCore" Version="13.0.6" />
@@ -47,26 +43,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="ClientAppOld\**" />
-    <EmbeddedResource Remove="_ClientApp\**" />
-    <None Remove="ClientAppOld\**" />
-    <None Remove="_ClientApp\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="app-routing.module.ts" />
-    <None Remove="ClientApp\src\app\home\home.component.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\Persistence\Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\app.routing.module.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\home\home.component.ts" />
   </ItemGroup>
   
   <!--
