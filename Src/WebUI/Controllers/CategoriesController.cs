@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Northwind.Application.Categories.Queries.GetCategoryList;
+using Northwind.Application.Categories.Queries.GetCategoriesList;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -12,7 +12,7 @@ namespace Northwind.WebUI.Controllers
         [HttpGet]
         public async Task<ActionResult<IList<CategoryLookupModel>>> GetAll()
         {
-            return Ok(await Mediator.Send(new GetCategoryListQuery()));
+            return Ok(await Mediator.Send(new GetCategoriesListQuery()));
         }
     }
 }

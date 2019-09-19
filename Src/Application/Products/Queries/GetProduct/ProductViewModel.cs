@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Northwind.Application.Interfaces.Mapping;
+using Northwind.Application.Infrastructure.Mappings;
 using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetProduct
 {
-    public class ProductViewModel : IHaveCustomMapping
+    public class ProductViewModel : MapFrom<Product>
     {
         public int ProductId { get; set; }
 
@@ -26,18 +26,18 @@ namespace Northwind.Application.Products.Queries.GetProduct
 
         public bool DeleteEnabled { get; set; }
 
-        public void CreateMappings(Profile configuration)
+        public override void Mapping(Profile profile)
         {
-            configuration.CreateMap<Product, ProductViewModel>()
-                .ForMember(pDTO => pDTO.EditEnabled, opt => opt.MapFrom<PermissionsResolver>())
-                .ForMember(pDTO => pDTO.DeleteEnabled, opt => opt.MapFrom<PermissionsResolver>())
-                .ForMember(pDTO => pDTO.SupplierCompanyName, opt => opt.MapFrom(p => p.Supplier != null ? p.Supplier.CompanyName : string.Empty))
-                .ForMember(pDTO => pDTO.CategoryName, opt => opt.MapFrom(p => p.Category != null ? p.Category.CategoryName : string.Empty));
+            profile.CreateMap<Product, ProductViewModel>()
+                .ForMember(d => d.EditEnabled, opt => opt.MapFrom<PermissionsResolver>())
+                .ForMember(d => d.DeleteEnabled, opt => opt.MapFrom<PermissionsResolver>())
+                .ForMember(d => d.SupplierCompanyName, opt => opt.MapFrom(s => s.Supplier != null ? s.Supplier.CompanyName : string.Empty))
+                .ForMember(d => d.CategoryName, opt => opt.MapFrom(s => s.Category != null ? s.Category.CategoryName : string.Empty));
         }
 
-        class PermissionsResolver : IValueResolver<Product, ProductViewModel, bool>
+        public class PermissionsResolver : IValueResolver<Product, ProductViewModel, bool>
         {
-            // TODO: inject your services and helper here
+            // TODO: Inject your services and helper here
             public PermissionsResolver()
             {
                

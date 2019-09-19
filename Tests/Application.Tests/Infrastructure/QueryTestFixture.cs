@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using Northwind.Application.Infrastructure.Mappings;
 using Northwind.Persistence;
 using Xunit;
 
@@ -13,7 +14,13 @@ namespace Northwind.Application.Tests.Infrastructure
         public QueryTestFixture()
         {
             Context = NorthwindContextFactory.Create();
-            Mapper = AutoMapperFactory.Create();
+
+            var configurationProvider = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+
+            Mapper = configurationProvider.CreateMapper();
         }
 
         public void Dispose()

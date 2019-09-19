@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq.Expressions;
-using AutoMapper;
-using Northwind.Application.Interfaces.Mapping;
+﻿using AutoMapper;
+using Northwind.Application.Infrastructure.Mappings;
 using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetAllProducts
 {
-    public class ProductDto : IHaveCustomMapping
+    public class ProductDto : MapFrom<Product>
     {
         public int ProductId { get; set; }
 
@@ -24,11 +22,11 @@ namespace Northwind.Application.Products.Queries.GetAllProducts
 
         public bool Discontinued { get; set; }
 
-        public void CreateMappings(Profile configuration)
+        public override void Mapping(Profile profile)
         {
-            configuration.CreateMap<Product, ProductDto>()
-                .ForMember(pDTO => pDTO.SupplierCompanyName, opt => opt.MapFrom(p => p.Supplier != null ? p.Supplier.CompanyName : string.Empty))
-                .ForMember(pDTO => pDTO.CategoryName, opt => opt.MapFrom(p => p.Category != null ? p.Category.CategoryName : string.Empty));
+            profile.CreateMap<Product, ProductDto>()
+                .ForMember(d => d.SupplierCompanyName, opt => opt.MapFrom(s => s.Supplier != null ? s.Supplier.CompanyName : string.Empty))
+                .ForMember(d => d.CategoryName, opt => opt.MapFrom(s => s.Category != null ? s.Category.CategoryName : string.Empty));
         }
     }
 }
