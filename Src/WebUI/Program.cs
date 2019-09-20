@@ -29,7 +29,7 @@ namespace Northwind.WebUI
 
                 try
                 {
-                    var northwindContext = (NorthwindDbContext)services.GetService<INorthwindDbContext>();
+                    var northwindContext = services.GetRequiredService<NorthwindDbContext>();
                     northwindContext.Database.EnsureDeleted();
                     northwindContext.Database.Migrate();
 

@@ -36,6 +36,9 @@ namespace Northwind.WebUI
             services.AddPersistence(Configuration);
             services.AddApplication();
 
+            services.AddHealthChecks()
+                .AddDbContextCheck<NorthwindDbContext>();
+
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddHttpContextAccessor();
@@ -47,7 +50,7 @@ namespace Northwind.WebUI
 
             services.AddRazorPages();
 
-            // Customise default API behavour
+            // Customise default API behaviour
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
@@ -84,6 +87,7 @@ namespace Northwind.WebUI
             }
 
             app.UseCustomExceptionHandler();
+            app.UseHealthChecks("/health");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
