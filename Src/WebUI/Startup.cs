@@ -7,12 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Http;
-using Northwind.Application.Customers.Commands.CreateCustomer;
 using Northwind.Infrastructure;
 using Northwind.Persistence;
-using Northwind.WebUI.Filters;
 using Northwind.Application;
 using Northwind.Application.Interfaces;
+using Northwind.WebUI.Infrastructure;
 using Northwind.WebUI.Services;
 
 namespace Northwind.WebUI
@@ -42,9 +41,9 @@ namespace Northwind.WebUI
             services.AddHttpContextAccessor();
 
             services
-                .AddControllersWithViews(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
+                .AddControllersWithViews()
                 .AddNewtonsoftJson()
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<INorthwindDbContext>());
 
             services.AddRazorPages();
 
@@ -84,6 +83,7 @@ namespace Northwind.WebUI
                 app.UseHsts();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
