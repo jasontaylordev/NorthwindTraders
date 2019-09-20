@@ -9,7 +9,7 @@ import { AuthorizeGuard } from '../api-authorization/authorize.guard';
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'customers', component: CustomersComponent, canActivate: [AuthorizeGuard] },
-    { path: 'products', component: ProductsComponent, canActivate: [AuthorizeGuard] }
+    { path: 'products', component: ProductsComponent }
 ];
 
 @NgModule({

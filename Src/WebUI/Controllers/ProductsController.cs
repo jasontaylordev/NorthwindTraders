@@ -15,6 +15,7 @@ namespace Northwind.WebUI.Controllers
     public class ProductsController : BaseController
     {
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<ProductsListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllProductsQuery()));
