@@ -3,6 +3,7 @@ using Northwind.Application.Categories.Queries.GetCategoriesList;
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Products.Queries.GetAllProducts;
 using Northwind.Application.Products.Queries.GetProduct;
+using Northwind.Application.Products.Queries.GetProductsFile;
 using Northwind.Domain.Entities;
 using Shouldly;
 using Xunit;
@@ -68,6 +69,17 @@ namespace Northwind.Application.Tests
 
             result.ShouldNotBeNull();
             result.ShouldBeOfType<ProductDto>();
+        }
+
+        [Fact]
+        public void ShouldMapProductToProductFileRecord()
+        {
+            var entity = new Product();
+
+            var result = _mapper.Map<ProductFileRecord>(entity);
+
+            result.ShouldNotBeNull();
+            result.ShouldBeOfType<ProductFileRecord>();
         }
     }
 }

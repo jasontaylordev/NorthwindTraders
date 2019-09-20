@@ -7,6 +7,7 @@ using Northwind.Application.Products.Commands.UpdateProduct;
 using Northwind.Application.Products.Queries.GetAllProducts;
 using Northwind.Application.Products.Queries.GetProduct;
 using Microsoft.AspNetCore.Http;
+using Northwind.Application.Products.Queries.GetProductsFile;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -17,6 +18,15 @@ namespace Northwind.WebUI.Controllers
         public async Task<ActionResult<ProductsListViewModel>> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllProductsQuery()));
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<FileResult> Download()
+        {
+            var vm = await Mediator.Send(new GetProductsFileQuery());
+
+            return File(vm.Content, vm.ContentType, vm.FileName);
         }
 
         [HttpGet("{id}")]
