@@ -1,12 +1,12 @@
-﻿using FluentValidation;
-using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
+using MediatR;
 using ValidationException = Northwind.Application.Exceptions.ValidationException;
 
-namespace Northwind.Application.Infrastructure
+namespace Northwind.Application.Infrastructure.Behaviours
 {
     public class RequestValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Northwind.Application.Interfaces;
 
-namespace Northwind.Application.Infrastructure
+namespace Northwind.Application.Infrastructure.Behaviours
 {
     public class RequestPerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
