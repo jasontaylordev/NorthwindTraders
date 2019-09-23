@@ -18,8 +18,8 @@ Use these instructions to get the project up and running.
 ### Prerequisites
 You will need the following tools:
 
-* [Visual Studio Code or Visual Studio 2019 Preview](https://visualstudio.microsoft.com/vs/preview/)
-* [.NET Core SDK 3 Preview](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* [Visual Studio Code or Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (version 16.3 or later)
+* [.NET Core SDK 3](https://dotnet.microsoft.com/download/dotnet-core/3.0)
  * [Node.js](https://nodejs.org/en/) (version 10 or later) with npm (version 6.11.3 or later)
 
 ### Setup
@@ -34,17 +34,17 @@ Follow these steps to get your development environment set up:
      ```
      dotnet build
      ```
-  4. Next, within the `Northwind.WebUI\ClientApp` directory, launch the front end by running:
+  4. Next, within the `\Src\WebUI\ClientApp` directory, launch the front end by running:
       ```
      npm start
      ```
-  5. Once the front end has started, within the `Northwind.WebUI` directory, launch the back end by running:
+  5. Once the front end has started, within the `\Src\WebUI` directory, launch the back end by running:
      ```
 	 dotnet run
 	 ```
-  5. Launch [http://localhost:52468/](http://localhost:52468/) in your browser to view the Web UI
+  5. Launch [https://localhost:44376/](http://localhost:44376/) in your browser to view the Web UI
   
-  6. Launch [http://localhost:52468/api](http://localhost:52468/api) in your browser to view the API
+  6. Launch [https://localhost:44376/api](http://localhost:44376/api) in your browser to view the API
 
 
 If you need to regenerate the Northwind Traders TypeScript client (`Northwind.WebUI\ClientApp\src\app\northwind-traders-api.ts`) follow these steps:
