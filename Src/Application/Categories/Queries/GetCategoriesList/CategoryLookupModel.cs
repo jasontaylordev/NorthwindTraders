@@ -4,12 +4,12 @@ using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Categories.Queries.GetCategoriesList
 {
-    public class CategoryLookupModel : MapFrom<Category>
+    public class CategoryLookupModel : IMapFrom<Category>
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public override void Mapping(Profile profile)
+        public void Mapping(Profile profile)
         {
             profile.CreateMap<Category, CategoryLookupModel>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.CategoryId))

@@ -4,7 +4,7 @@ using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetAllProducts
 {
-    public class ProductDto : MapFrom<Product>
+    public class ProductDto : IMapFrom<Product>
     {
         public int ProductId { get; set; }
 
@@ -22,7 +22,7 @@ namespace Northwind.Application.Products.Queries.GetAllProducts
 
         public bool Discontinued { get; set; }
 
-        public override void Mapping(Profile profile)
+        public void Mapping(Profile profile)
         {
             profile.CreateMap<Product, ProductDto>()
                 .ForMember(d => d.SupplierCompanyName, opt => opt.MapFrom(s => s.Supplier != null ? s.Supplier.CompanyName : string.Empty))

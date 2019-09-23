@@ -4,7 +4,7 @@ using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetProduct
 {
-    public class ProductViewModel : MapFrom<Product>
+    public class ProductViewModel : IMapFrom<Product>
     {
         public int ProductId { get; set; }
 
@@ -26,7 +26,7 @@ namespace Northwind.Application.Products.Queries.GetProduct
 
         public bool DeleteEnabled { get; set; }
 
-        public override void Mapping(Profile profile)
+        public void Mapping(Profile profile)
         {
             profile.CreateMap<Product, ProductViewModel>()
                 .ForMember(d => d.EditEnabled, opt => opt.MapFrom<PermissionsResolver>())
