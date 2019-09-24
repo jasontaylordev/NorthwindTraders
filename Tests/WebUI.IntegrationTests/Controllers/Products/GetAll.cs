@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Northwind.Application.Products.Queries.GetAllProducts;
+using Northwind.Application.Products.Queries.GetProductsList;
 using Northwind.WebUI.IntegrationTests.Common;
 using Xunit;
 
@@ -23,9 +23,9 @@ namespace Northwind.WebUI.IntegrationTests.Controllers.Products
 
             response.EnsureSuccessStatusCode();
 
-            var vm = await Utilities.GetResponseContent<ProductsListViewModel>(response);
+            var vm = await Utilities.GetResponseContent<ProductsListVm>(response);
 
-            Assert.IsType<ProductsListViewModel>(vm);
+            Assert.IsType<ProductsListVm>(vm);
             Assert.NotEmpty(vm.Products);
         }
     }

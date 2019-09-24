@@ -2,7 +2,7 @@
 using Northwind.Application.Common.Mappings;
 using Northwind.Domain.Entities;
 
-namespace Northwind.Application.Products.Queries.GetAllProducts
+namespace Northwind.Application.Products.Queries.GetProductsList
 {
     public class ProductDto : IMapFrom<Product>
     {

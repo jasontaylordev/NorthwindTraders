@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Products.Commands.CreateProduct;
 using Northwind.Application.Products.Commands.DeleteProduct;
 using Northwind.Application.Products.Commands.UpdateProduct;
-using Northwind.Application.Products.Queries.GetAllProducts;
+using Northwind.Application.Products.Queries.GetProductsList;
 using Northwind.Application.Products.Queries.GetProduct;
 using Microsoft.AspNetCore.Http;
 using Northwind.Application.Products.Queries.GetProductsFile;
@@ -16,9 +16,9 @@ namespace Northwind.WebUI.Controllers
     {
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<ProductsListViewModel>> GetAll()
+        public async Task<ActionResult<ProductsListVm>> GetAll()
         {
-            return Ok(await Mediator.Send(new GetAllProductsQuery()));
+            return Ok(await Mediator.Send(new GetProductsListQuery()));
         }
 
         [HttpGet]

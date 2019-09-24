@@ -1,10 +1,10 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Northwind.Application.Common.Exceptions;
 using Northwind.Application.Common.Interfaces;
 using Northwind.Domain.Entities;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Northwind.Application.Customers.Queries.GetCustomerDetail
 {

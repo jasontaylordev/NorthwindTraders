@@ -2,7 +2,7 @@
 using Northwind.Application.Categories.Queries.GetCategoriesList;
 using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Customers.Queries.GetCustomersList;
-using Northwind.Application.Products.Queries.GetAllProducts;
+using Northwind.Application.Products.Queries.GetProductsList;
 using Northwind.Application.Products.Queries.GetProduct;
 using Northwind.Application.Products.Queries.GetProductsFile;
 using Northwind.Domain.Entities;

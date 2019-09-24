@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
 using Northwind.Application.Common.Interfaces;
 using Northwind.Persistence;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Northwind.Application.System.Commands.SeedSampleData
 {
