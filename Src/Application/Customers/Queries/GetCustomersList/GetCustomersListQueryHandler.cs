@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Application.Customers.Queries.GetCustomersList
 {
-    public class GetCustomersListQueryHandler : IRequestHandler<GetCustomersListQuery, CustomersListViewModel>
+    public class GetCustomersListQueryHandler : IRequestHandler<GetCustomersListQuery, CustomersListVm>
     {
         private readonly INorthwindDbContext _context;
         private readonly IMapper _mapper;
@@ -19,12 +19,18 @@ namespace Northwind.Application.Customers.Queries.GetCustomersList
             _mapper = mapper;
         }
 
-        public async Task<CustomersListViewModel> Handle(GetCustomersListQuery request, CancellationToken cancellationToken)
+        public async Task<CustomersListVm> Handle(GetCustomersListQuery request, CancellationToken cancellationToken)
         {
-            return new CustomersListViewModel
+            var customers = await _context.Customers
+                .ProjectTo<CustomerLookup>(_mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
+
+            var vm = new CustomersListVm
             {
-                Customers = await _context.Customers.ProjectTo<CustomerLookupModel>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken)
+                Customers = customers
             };
+
+            return vm;
         }
     }
 }

@@ -23,9 +23,9 @@ namespace Northwind.WebUI.IntegrationTests.Controllers.Customers
 
             response.EnsureSuccessStatusCode();
 
-            var vm = await Utilities.GetResponseContent<CustomersListViewModel>(response);
+            var vm = await Utilities.GetResponseContent<CustomersListVm>(response);
 
-            Assert.IsType<CustomersListViewModel>(vm);
+            Assert.IsType<CustomersListVm>(vm);
             Assert.NotEmpty(vm.Customers);
         }
     }

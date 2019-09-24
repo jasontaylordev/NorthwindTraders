@@ -28,7 +28,7 @@ namespace NorthwindTraders.Application.UnitTests.Infrastructure
 
             var result = await sut.Handle(new GetCustomersListQuery(), CancellationToken.None);
 
-            result.ShouldBeOfType<CustomersListViewModel>();
+            result.ShouldBeOfType<CustomersListVm>();
 
             result.Customers.Count.ShouldBe(3);
         }

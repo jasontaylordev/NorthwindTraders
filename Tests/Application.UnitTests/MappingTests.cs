@@ -44,10 +44,10 @@ namespace Northwind.Application.UnitTests
         {
             var entity = new Customer();
 
-            var result = _mapper.Map<CustomerLookupModel>(entity);
+            var result = _mapper.Map<CustomerLookup>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<CustomerLookupModel>();
+            result.ShouldBeOfType<CustomerLookup>();
         }
 
         [Fact]

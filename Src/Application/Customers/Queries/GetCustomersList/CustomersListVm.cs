@@ -2,8 +2,8 @@
 
 namespace Northwind.Application.Customers.Queries.GetCustomersList
 {
-    public class CustomersListViewModel
+    public class CustomersListVm
     {
-        public IList<CustomerLookupModel> Customers { get; set; }
+        public IList<CustomerLookup> Customers { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Northwind.Application.Customers.Queries.GetCustomersList
 {
-    public class GetCustomersListQuery : IRequest<CustomersListViewModel>
+    public class GetCustomersListQuery : IRequest<CustomersListVm>
     {
     }
 }
