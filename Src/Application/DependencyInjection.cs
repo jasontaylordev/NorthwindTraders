@@ -2,7 +2,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Northwind.Application.Infrastructure.Behaviours;
+using Northwind.Application.Common.Behaviours;
 
 namespace Northwind.Application
 {

@@ -5,7 +5,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 
 namespace Northwind.Application.Categories.Queries.GetCategoriesList
 {

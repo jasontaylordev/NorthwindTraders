@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 
 namespace Northwind.Application.Products.Queries.GetAllProducts
 {

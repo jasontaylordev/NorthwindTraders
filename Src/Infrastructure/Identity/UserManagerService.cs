@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 
 namespace Northwind.Infrastructure.Identity
 {

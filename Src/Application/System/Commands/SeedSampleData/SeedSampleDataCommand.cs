@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Persistence;
 
 namespace Northwind.Application.System.Commands.SeedSampleData

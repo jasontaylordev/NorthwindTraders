@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Northwind.Domain.Infrastructure
+namespace Northwind.Domain.Common
 {
     public class AuditableEntity
     {

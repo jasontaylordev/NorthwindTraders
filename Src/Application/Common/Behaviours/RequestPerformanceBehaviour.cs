@@ -3,9 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 
-namespace Northwind.Application.Infrastructure.Behaviours
+namespace Northwind.Application.Common.Behaviours
 {
     public class RequestPerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

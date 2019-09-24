@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 
-namespace Northwind.Application.Infrastructure.Behaviours
+namespace Northwind.Application.Common.Behaviours
 {
     public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     {

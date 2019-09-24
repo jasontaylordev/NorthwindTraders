@@ -3,7 +3,7 @@ using Northwind.Persistence;
 using Shouldly;
 using System.Threading;
 using System.Threading.Tasks;
-using Northwind.Application.UnitTests.Infrastructure;
+using Northwind.Application.UnitTests.Common;
 using Xunit;
 
 namespace Northwind.Application.UnitTests.Customers.Queries

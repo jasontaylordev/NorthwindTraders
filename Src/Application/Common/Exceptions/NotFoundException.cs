@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Northwind.Application.Exceptions
+namespace Northwind.Application.Common.Exceptions
 {
     public class NotFoundException : Exception
     {

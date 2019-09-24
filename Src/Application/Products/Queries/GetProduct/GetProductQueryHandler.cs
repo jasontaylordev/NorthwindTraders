@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Exceptions;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Exceptions;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Domain.Entities;
 using System.Linq;
 using System.Threading;

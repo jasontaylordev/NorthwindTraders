@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using AutoMapper;
 
-namespace Northwind.Application.Infrastructure.Mappings
+namespace Northwind.Application.Common.Mappings
 {
     public class MappingProfile : Profile
     {

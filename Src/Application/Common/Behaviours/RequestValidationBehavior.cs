@@ -4,9 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
-using ValidationException = Northwind.Application.Exceptions.ValidationException;
+using ValidationException = Northwind.Application.Common.Exceptions.ValidationException;
 
-namespace Northwind.Application.Infrastructure.Behaviours
+namespace Northwind.Application.Common.Behaviours
 {
     public class RequestValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

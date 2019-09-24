@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Northwind.Application.Infrastructure.Mappings;
+using Northwind.Application.Common.Mappings;
 
 namespace Northwind.Application.UnitTests
 {

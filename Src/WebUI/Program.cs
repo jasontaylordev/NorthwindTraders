@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Application.System.Commands.SeedSampleData;
 using Northwind.Infrastructure.Identity;
 

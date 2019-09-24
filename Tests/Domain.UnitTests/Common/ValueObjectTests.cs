@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Northwind.Domain.Infrastructure;
+using Northwind.Domain.Common;
 using Xunit;
 
-namespace Northwind.Domain.UnitTests.Infrastructure
+namespace Northwind.Domain.UnitTests.Common
 {
     public class ValueObjectTests
     {

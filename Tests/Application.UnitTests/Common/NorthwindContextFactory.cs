@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Northwind.Domain.Entities;
 using Northwind.Persistence;
 
-namespace Northwind.Application.UnitTests.Infrastructure
+namespace Northwind.Application.UnitTests.Common
 {
     public class NorthwindContextFactory
     {

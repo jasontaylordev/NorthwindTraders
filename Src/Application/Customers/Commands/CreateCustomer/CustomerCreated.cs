@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Application.Notifications.Models;
 using System.Threading;
 using System.Threading.Tasks;

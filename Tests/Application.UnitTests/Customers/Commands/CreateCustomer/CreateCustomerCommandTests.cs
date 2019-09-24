@@ -2,7 +2,7 @@
 using Moq;
 using Northwind.Application.Customers.Commands.CreateCustomer;
 using System.Threading;
-using Northwind.Application.UnitTests.Infrastructure;
+using Northwind.Application.UnitTests.Common;
 using Xunit;
 
 namespace Northwind.Application.UnitTests.Customers.Commands.CreateCustomer

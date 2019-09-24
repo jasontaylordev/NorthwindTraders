@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using Northwind.Application.Exceptions;
+using Northwind.Application.Common.Exceptions;
 
-namespace Northwind.WebUI.Infrastructure
+namespace Northwind.WebUI.Common
 {
     public class CustomExceptionHandlerMiddleware
     {

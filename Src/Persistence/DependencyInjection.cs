@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 
 namespace Northwind.Persistence
 {

@@ -3,7 +3,7 @@ using Northwind.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Interfaces
+namespace Northwind.Application.Common.Interfaces
 {
     public interface INorthwindDbContext
     {

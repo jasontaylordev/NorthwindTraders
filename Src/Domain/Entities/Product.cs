@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Northwind.Domain.Infrastructure;
+using Northwind.Domain.Common;
 
 namespace Northwind.Domain.Entities
 {

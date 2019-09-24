@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Common;
 using Northwind.Domain.Entities;
-using Northwind.Domain.Infrastructure;
+using Northwind.Domain.Common;
 
 namespace Northwind.Persistence
 {

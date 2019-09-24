@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Northwind.Application.Infrastructure.Mappings
+namespace Northwind.Application.Common.Mappings
 {
     public interface IMapFrom<T>
     {   

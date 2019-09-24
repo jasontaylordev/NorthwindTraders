@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Exceptions;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Exceptions;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;

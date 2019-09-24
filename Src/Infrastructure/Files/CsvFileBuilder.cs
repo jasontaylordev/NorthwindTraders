@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using CsvHelper;
-using Northwind.Application.Interfaces;
+using Northwind.Application.Common.Interfaces;
 using Northwind.Application.Products.Queries.GetProductsFile;
 
 namespace Northwind.Infrastructure.Files
