@@ -1,0 +1,77 @@
+<nav class="col-lg-2 col-md-3 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i-feather name="home"></i-feather>
+          Home
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="file"></i-feather>
+          Orders
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products" routerLinkActive="active">
+          <i-feather name="shopping-cart"></i-feather>
+          Products
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/customers" routerLinkActive="active">
+          <i-feather name="users"></i-feather>
+          Customers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="bar-chart-2"></i-feather>
+          Reports
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="layers"></i-feather>
+          Integrations
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Saved reports</span>
+      <a class="d-flex align-items-center text-muted" href="#">
+        <i-feather name="plus-circle"></i-feather>
+      </a>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="file-text"></i-feather>
+          Current month
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="file-text"></i-feather>
+          Last quarter
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="file-text"></i-feather>
+          Social engagement
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i-feather name="file-text"></i-feather>
+          Year-end sale
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

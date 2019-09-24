@@ -1,0 +1,5 @@
+@media (min-width: 576px) {
+  .ml-sm-auto, .mx-sm-auto {
+    margin-left: auto !important;
+  }
+}
