@@ -1,7 +1,7 @@
+using Northwind.Application.Products.Queries.GetProductDetail;
+using Northwind.WebUI.IntegrationTests.Common;
 using System.Net;
 using System.Threading.Tasks;
-using Northwind.Application.Products.Queries.GetProduct;
-using Northwind.WebUI.IntegrationTests.Common;
 using Xunit;
 
 namespace Northwind.WebUI.IntegrationTests.Controllers.Products
@@ -26,7 +26,7 @@ namespace Northwind.WebUI.IntegrationTests.Controllers.Products
 
             response.EnsureSuccessStatusCode();
 
-            var product = await Utilities.GetResponseContent<ProductViewModel>(response);
+            var product = await Utilities.GetResponseContent<ProductDetailVm>(response);
 
             Assert.Equal(id, product.ProductId);
         }

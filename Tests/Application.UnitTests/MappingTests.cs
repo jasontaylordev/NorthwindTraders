@@ -3,7 +3,7 @@ using Northwind.Application.Categories.Queries.GetCategoriesList;
 using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Products.Queries.GetProductsList;
-using Northwind.Application.Products.Queries.GetProduct;
+using Northwind.Application.Products.Queries.GetProductDetail;
 using Northwind.Application.Products.Queries.GetProductsFile;
 using Northwind.Domain.Entities;
 using Shouldly;
@@ -55,10 +55,10 @@ namespace Northwind.Application.UnitTests
         {
             var entity = new Product();
 
-            var result = _mapper.Map<ProductViewModel>(entity);
+            var result = _mapper.Map<ProductDetailVm>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<ProductViewModel>();
+            result.ShouldBeOfType<ProductDetailVm>();
         }
 
         [Fact]

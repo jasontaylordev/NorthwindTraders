@@ -5,7 +5,7 @@ using Northwind.Application.Products.Commands.CreateProduct;
 using Northwind.Application.Products.Commands.DeleteProduct;
 using Northwind.Application.Products.Commands.UpdateProduct;
 using Northwind.Application.Products.Queries.GetProductsList;
-using Northwind.Application.Products.Queries.GetProduct;
+using Northwind.Application.Products.Queries.GetProductDetail;
 using Microsoft.AspNetCore.Http;
 using Northwind.Application.Products.Queries.GetProductsFile;
 
@@ -31,9 +31,9 @@ namespace Northwind.WebUI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductViewModel>> Get(int id)
+        public async Task<ActionResult<ProductDetailVm>> Get(int id)
         {
-            return Ok(await Mediator.Send(new GetProductQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetProductDetailQuery { Id = id }));
         }
 
         [HttpPost]

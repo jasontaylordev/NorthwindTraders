@@ -1,8 +1,6 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Northwind.Application.Products.Commands.CreateProduct;
-using Northwind.Application.Products.Queries.GetProduct;
+﻿using Northwind.Application.Products.Commands.CreateProduct;
 using Northwind.WebUI.IntegrationTests.Common;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Northwind.WebUI.IntegrationTests.Controllers.Products

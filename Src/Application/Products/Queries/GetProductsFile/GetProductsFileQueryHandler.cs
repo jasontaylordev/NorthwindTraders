@@ -32,11 +32,14 @@ namespace Northwind.Application.Products.Queries.GetProductsFile
 
             var fileContent = _fileBuilder.BuildProductsFile(records);
 
-            return new ProductsFileVm
+            var vm = new ProductsFileVm
             {
                 Content = fileContent,
+                ContentType = "text/csv",
                 FileName = $"{_dateTime.Now:yyyy-MM-dd}-Products.csv"
             };
+
+            return vm;
         }
     }
 }
