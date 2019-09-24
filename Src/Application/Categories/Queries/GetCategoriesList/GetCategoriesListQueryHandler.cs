@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -9,7 +8,7 @@ using Northwind.Application.Common.Interfaces;
 
 namespace Northwind.Application.Categories.Queries.GetCategoriesList
 {
-    public class GetCategoriesListQueryHandler : IRequestHandler<GetCategoriesListQuery, IList<CategoryLookupModel>>
+    public class GetCategoriesListQueryHandler : IRequestHandler<GetCategoriesListQuery, CategoriesListVm>
     {
         private readonly INorthwindDbContext _context;
         private readonly IMapper _mapper;
@@ -20,13 +19,18 @@ namespace Northwind.Application.Categories.Queries.GetCategoriesList
             _mapper = mapper;
         }
 
-        public async Task<IList<CategoryLookupModel>> Handle(GetCategoriesListQuery request, CancellationToken cancellationToken)
+        public async Task<CategoriesListVm> Handle(GetCategoriesListQuery request, CancellationToken cancellationToken)
         {
             var categories = await _context.Categories
-                .ProjectTo<CategoryLookupModel>(_mapper.ConfigurationProvider)
+                .ProjectTo<CategoryLookup>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return categories;
+            var vm = new CategoriesListVm
+            {
+                Categories = categories
+            };
+
+            return vm;
         }
     }
 }

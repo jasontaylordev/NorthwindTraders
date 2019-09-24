@@ -32,10 +32,10 @@ namespace Northwind.Application.UnitTests
         {
             var entity = new Category();
 
-            var result = _mapper.Map<CategoryLookupModel>(entity);
+            var result = _mapper.Map<CategoryLookup>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<CategoryLookupModel>();
+            result.ShouldBeOfType<CategoryLookup>();
         }
 
         [Fact]
