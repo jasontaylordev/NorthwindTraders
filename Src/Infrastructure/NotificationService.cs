@@ -6,7 +6,7 @@ namespace Northwind.Infrastructure
 {
     public class NotificationService : INotificationService
     {
-        public Task SendAsync(Message message)
+        public Task SendAsync(MessageDto message)
         {
             return Task.CompletedTask;
         }

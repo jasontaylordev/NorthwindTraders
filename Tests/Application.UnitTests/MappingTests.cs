@@ -29,29 +29,29 @@ namespace Northwind.Application.UnitTests
         }
 
         [Fact]
-        public void ShouldMapCategoryToCategoryLookupModel()
+        public void ShouldMapCategoryToCategoryLookupDto()
         {
             var entity = new Category();
 
-            var result = _mapper.Map<CategoryLookup>(entity);
+            var result = _mapper.Map<CategoryLookupDto>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<CategoryLookup>();
+            result.ShouldBeOfType<CategoryLookupDto>();
         }
 
         [Fact]
-        public void ShouldMapCustomerToCustomerLookupModel()
+        public void ShouldMapCustomerToCustomerLookupDto()
         {
             var entity = new Customer();
 
-            var result = _mapper.Map<CustomerLookup>(entity);
+            var result = _mapper.Map<CustomerLookupDto>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<CustomerLookup>();
+            result.ShouldBeOfType<CustomerLookupDto>();
         }
 
         [Fact]
-        public void ShouldMapProductToProductViewModel()
+        public void ShouldMapProductToProductDetailVm()
         {
             var entity = new Product();
 
@@ -73,14 +73,14 @@ namespace Northwind.Application.UnitTests
         }
 
         [Fact]
-        public void ShouldMapProductToProductFileRecord()
+        public void ShouldMapProductToProductRecordDto()
         {
             var entity = new Product();
 
-            var result = _mapper.Map<ProductFileRecord>(entity);
+            var result = _mapper.Map<ProductRecordDto>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<ProductFileRecord>();
+            result.ShouldBeOfType<ProductRecordDto>();
         }
 
         [Fact]

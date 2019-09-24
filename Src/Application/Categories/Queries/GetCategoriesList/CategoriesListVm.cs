@@ -4,6 +4,6 @@ namespace Northwind.Application.Categories.Queries.GetCategoriesList
 {
     public class CategoriesListVm
     {
-        public IList<CategoryLookup> Categories { get; set; }
+        public IList<CategoryLookupDto> Categories { get; set; }
     }
 }

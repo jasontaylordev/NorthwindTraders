@@ -5,6 +5,6 @@ namespace Northwind.Application.Common.Interfaces
 {
     public interface ICsvFileBuilder
     {
-        byte[] BuildProductsFile(IEnumerable<ProductFileRecord> records);
+        byte[] BuildProductsFile(IEnumerable<ProductRecordDto> records);
     }
 }

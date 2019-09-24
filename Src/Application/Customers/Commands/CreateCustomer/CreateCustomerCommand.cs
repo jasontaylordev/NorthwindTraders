@@ -30,7 +30,7 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 
         public string Region { get; set; }
 
-        public class Handler : IRequestHandler<CreateCustomerCommand, Unit>
+        public class Handler : IRequestHandler<CreateCustomerCommand>
         {
             private readonly INorthwindDbContext _context;
             private readonly IMediator _mediator;

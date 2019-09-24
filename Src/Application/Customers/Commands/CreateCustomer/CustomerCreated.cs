@@ -21,7 +21,7 @@ namespace Northwind.Application.Customers.Commands.CreateCustomer
 
             public async Task Handle(CustomerCreated notification, CancellationToken cancellationToken)
             {
-                await _notification.SendAsync(new Message());
+                await _notification.SendAsync(new MessageDto());
             }
         }
     }

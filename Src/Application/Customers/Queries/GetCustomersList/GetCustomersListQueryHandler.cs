@@ -22,7 +22,7 @@ namespace Northwind.Application.Customers.Queries.GetCustomersList
         public async Task<CustomersListVm> Handle(GetCustomersListQuery request, CancellationToken cancellationToken)
         {
             var customers = await _context.Customers
-                .ProjectTo<CustomerLookup>(_mapper.ConfigurationProvider)
+                .ProjectTo<CustomerLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
             var vm = new CustomersListVm

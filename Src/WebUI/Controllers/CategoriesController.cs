@@ -10,7 +10,7 @@ namespace Northwind.WebUI.Controllers
     public class CategoriesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<IList<CategoryLookup>>> GetAll()
+        public async Task<ActionResult<IList<CategoryLookupDto>>> GetAll()
         {
             return Ok(await Mediator.Send(new GetCategoriesListQuery()));
         }

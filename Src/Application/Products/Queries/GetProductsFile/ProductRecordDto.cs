@@ -4,7 +4,7 @@ using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Queries.GetProductsFile
 {
-    public class ProductFileRecord : IMapFrom<Product>
+    public class ProductRecordDto : IMapFrom<Product>
     {
         public string Category { get; set; }
 
@@ -16,7 +16,7 @@ namespace Northwind.Application.Products.Queries.GetProductsFile
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Product, ProductFileRecord>()
+            profile.CreateMap<Product, ProductRecordDto>()
                 .ForMember(d => d.Name, opt => opt.MapFrom(s => s.ProductName))
                 .ForMember(d => d.Category, opt => opt.MapFrom(s => s.Category != null ? s.Category.CategoryName : string.Empty));
         }

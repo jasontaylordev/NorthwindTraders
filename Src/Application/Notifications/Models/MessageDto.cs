@@ -1,6 +1,6 @@
 ﻿namespace Northwind.Application.Notifications.Models
 {
-    public class Message
+    public class MessageDto
     {
         public string From { get; set; }
         public string To { get; set; }

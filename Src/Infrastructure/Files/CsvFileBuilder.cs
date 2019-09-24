@@ -8,7 +8,7 @@ namespace Northwind.Infrastructure.Files
 {
     public class CsvFileBuilder : ICsvFileBuilder
     {
-        public byte[] BuildProductsFile(IEnumerable<ProductFileRecord> records)
+        public byte[] BuildProductsFile(IEnumerable<ProductRecordDto> records)
         {
             using (var memoryStream = new MemoryStream())
             {

@@ -27,7 +27,7 @@ namespace Northwind.Application.Products.Queries.GetProductsFile
         public async Task<ProductsFileVm> Handle(GetProductsFileQuery request, CancellationToken cancellationToken)
         {
             var records = await _context.Products
-                .ProjectTo<ProductFileRecord>(_mapper.ConfigurationProvider)
+                .ProjectTo<ProductRecordDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
             var fileContent = _fileBuilder.BuildProductsFile(records);

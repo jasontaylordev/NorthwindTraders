@@ -22,7 +22,7 @@ namespace Northwind.Application.Categories.Queries.GetCategoriesList
         public async Task<CategoriesListVm> Handle(GetCategoriesListQuery request, CancellationToken cancellationToken)
         {
             var categories = await _context.Categories
-                .ProjectTo<CategoryLookup>(_mapper.ConfigurationProvider)
+                .ProjectTo<CategoryLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
             var vm = new CategoriesListVm

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Northwind.Application.System.Commands.SeedSampleData
 {
-    public class SeedSampleDataCommand : IRequest<Unit>
+    public class SeedSampleDataCommand : IRequest
     {
     }
 
-    public class SeedSampleDataCommandHandler : IRequestHandler<SeedSampleDataCommand, Unit>
+    public class SeedSampleDataCommandHandler : IRequestHandler<SeedSampleDataCommand>
     {
         private readonly INorthwindDbContext _context;
         private readonly IUserManager _userManager;

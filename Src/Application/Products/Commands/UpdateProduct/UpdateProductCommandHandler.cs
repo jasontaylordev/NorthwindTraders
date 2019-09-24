@@ -7,7 +7,7 @@ using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Products.Commands.UpdateProduct
 {
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Unit>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
     {
         private readonly INorthwindDbContext _context;
 

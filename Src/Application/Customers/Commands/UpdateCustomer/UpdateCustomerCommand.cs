@@ -22,7 +22,7 @@ namespace Northwind.Application.Customers.Commands.UpdateCustomer
         public string PostalCode { get; set; }
         public string Region { get; set; }
 
-        public class Handler : IRequestHandler<UpdateCustomerCommand, Unit>
+        public class Handler : IRequestHandler<UpdateCustomerCommand>
         {
             private readonly INorthwindDbContext _context;
 
