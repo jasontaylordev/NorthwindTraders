@@ -23,7 +23,7 @@ namespace Northwind.WebUI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CustomerDetailModel>> Get(string id)
+        public async Task<ActionResult<CustomerDetailVm>> Get(string id)
         {
             return Ok(await Mediator.Send(new GetCustomerDetailQuery { Id = id }));
         }

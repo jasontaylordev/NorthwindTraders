@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using AutoMapper;
+using Northwind.Application.Common.Mappings;
 using Northwind.Domain.Entities;
 
 namespace Northwind.Application.Customers.Queries.GetCustomerDetail
 {
-    public class CustomerDetailModel
+    public class CustomerDetailVm : IMapFrom<Customer>
     {
         public string Id { get; set; }
         public string Address { get; set; }
@@ -18,11 +18,21 @@ namespace Northwind.Application.Customers.Queries.GetCustomerDetail
         public string PostalCode { get; set; }
         public string Region { get; set; }
 
-        public static Expression<Func<Customer, CustomerDetailModel>> Projection
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<Customer, CustomerDetailVm>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.CustomerId));
+        }
+
+        /*
+         * 
+         * A good example of how AutoMapper can help.
+         * 
+        public static Expression<Func<Customer, CustomerDetailVm>> Projection
         {
             get
             {
-                return customer => new CustomerDetailModel
+                return customer => new CustomerDetailVm
                 {
                     Id = customer.CustomerId,
                     Address = customer.Address,
@@ -39,9 +49,10 @@ namespace Northwind.Application.Customers.Queries.GetCustomerDetail
             }
         }
 
-        public static CustomerDetailModel Create(Customer customer)
+        public static CustomerDetailVm Create(Customer customer)
         {
             return Projection.Compile().Invoke(customer);
         }
+        */
     }
 }

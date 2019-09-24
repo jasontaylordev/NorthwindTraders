@@ -27,7 +27,7 @@ namespace Northwind.WebUI.IntegrationTests.Controllers.Customers
 
             response.EnsureSuccessStatusCode();
 
-            var customer = await Utilities.GetResponseContent<CustomerDetailModel>(response);
+            var customer = await Utilities.GetResponseContent<CustomerDetailVm>(response);
 
             Assert.Equal(id, customer.Id);
         }

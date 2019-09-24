@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Northwind.Application.Categories.Queries.GetCategoriesList;
+using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using Northwind.Application.Products.Queries.GetAllProducts;
 using Northwind.Application.Products.Queries.GetProduct;
@@ -80,6 +81,17 @@ namespace Northwind.Application.UnitTests
 
             result.ShouldNotBeNull();
             result.ShouldBeOfType<ProductFileRecord>();
+        }
+
+        [Fact]
+        public void ShouldMapCustomerToCustomerDetailVm()
+        {
+            var entity = new Customer();
+
+            var result = _mapper.Map<CustomerDetailVm>(entity);
+
+            result.ShouldNotBeNull();
+            result.ShouldBeOfType<CustomerDetailVm>();
         }
     }
 }
