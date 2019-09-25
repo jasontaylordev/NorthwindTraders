@@ -12,8 +12,7 @@ namespace Northwind.Persistence
             services.AddDbContext<NorthwindDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("NorthwindDatabase")));
 
-            services.AddDbContext<INorthwindDbContext, NorthwindDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("NorthwindDatabase")));
+            services.AddScoped<INorthwindDbContext>(provider => provider.GetService<NorthwindDbContext>());
 
             return services;
         }
