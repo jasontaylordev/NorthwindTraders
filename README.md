@@ -12,6 +12,10 @@ The initial construction of this project is explained in the following blog post
 
 For information on upcoming features and fixes, take a look at the [product roadmap](https://github.com/JasonGT/NorthwindTraders/wiki/Roadmap).
 
+## Build
+
+[![Build Status](https://codingflow.visualstudio.com/NorthwindTraders/_apis/build/status/NorthwindTraders%20-%20CI?branchName=master)](https://codingflow.visualstudio.com/NorthwindTraders/_build/latest?definitionId=22&branchName=master)
+
 ## Getting Started
 Use these instructions to get the project up and running.
 
