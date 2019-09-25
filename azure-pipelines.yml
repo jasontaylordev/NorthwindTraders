@@ -13,18 +13,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreInstaller@0
-  displayName: 'Install .NET Core SDK 3.0'
+
+- task: UseDotNet@2
   inputs:
-    version: '3.0.100'
+    packageType: 'sdk'
+    useGlobalJson: true
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-
-- task: PublishBuildArtifacts@1
-  displayName: 'publish artifacts'
