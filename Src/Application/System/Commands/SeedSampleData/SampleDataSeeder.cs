@@ -28,6 +28,11 @@ namespace Northwind.Persistence
 
         public async Task SeedAllAsync(CancellationToken cancellationToken)
         {
+            if (_context.Customers.Any())
+            {
+                return;
+            }
+
             await SeedCustomersAsync(cancellationToken);
 
             await SeedRegionsAsync(cancellationToken);
