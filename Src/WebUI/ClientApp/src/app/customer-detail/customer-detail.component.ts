@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CustomerDetailModel } from '../northwind-traders-api';
+import { CustomerDetailVm } from '../northwind-traders-api';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -8,7 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerDetailComponent implements OnInit {
-  public customer: CustomerDetailModel;
+  public customer: CustomerDetailVm;
   public detailKeys: string[] = [];
 
   constructor(private bsModalRef: BsModalRef) {}

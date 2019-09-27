@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomersClient, CustomersListViewModel } from '../northwind-traders-api';
+import { CustomersClient, CustomersListVm } from '../northwind-traders-api';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -9,7 +9,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class CustomersComponent {
 
-  public vm: CustomersListViewModel = new CustomersListViewModel();
+  public vm: CustomersListVm = new CustomersListVm();
   private bsModalRef: BsModalRef;
 
   constructor(private client: CustomersClient, private modalService: BsModalService) {

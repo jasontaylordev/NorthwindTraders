@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { ProductsClient, ProductsListViewModel } from '../northwind-traders-api';
+import { ProductsClient, ProductsListVm } from '../northwind-traders-api';
 
 @Component({
   templateUrl: './products.component.html'
 })
 export class ProductsComponent {
 
-  productsListVm: ProductsListViewModel = new ProductsListViewModel();
+  productsListVm: ProductsListVm = new ProductsListVm();
 
   constructor(client: ProductsClient) {
     client.getAll().subscribe(result => {
