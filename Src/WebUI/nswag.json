@@ -1,9 +1,9 @@
 ﻿{
-  "runtime": "NetCore22",
+  "runtime": "NetCore30",
   "defaultVariables": null,
   "documentGenerator": {
     "aspNetCoreToOpenApi": {
-      "project": "Northwind.WebUI.csproj",
+      "project": "WebUI.csproj",
       "msBuildProjectExtensionsPath": null,
       "configuration": null,
       "runtime": null,
