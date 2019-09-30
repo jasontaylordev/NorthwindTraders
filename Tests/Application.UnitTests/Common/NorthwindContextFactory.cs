@@ -23,6 +23,11 @@ namespace Northwind.Application.UnitTests.Common
                 new Customer { CustomerId = "BREND", ContactName = "Brendan Richards" },
             });
 
+            context.Orders.Add(new Order
+            {
+                CustomerId = "BREND"
+            });
+
             context.SaveChanges();
 
             return context;
