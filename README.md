@@ -54,6 +54,10 @@ Follow these steps to get your development environment set up:
 * Entity Framework Core 3
 * Angular 8
 
+## Versions
+The [master](https://github.com/JasonGT/NorthwindTraders/tree/master) branch is running .NET Core 3. 
+The [dotnetcore22](https://github.com/JasonGT/NorthwindTraders/tree/dotnetcore22) branch contains an earlier version built with .NET Core 2.2. This is the version closely related to the talks on Clean Architecture with ASP.NET Core 2.1 / 2.2.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/JasonGT/NorthwindTraders/blob/master/LICENSE.md) file for details.
