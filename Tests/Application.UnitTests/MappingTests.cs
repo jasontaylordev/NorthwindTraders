@@ -29,14 +29,14 @@ namespace Northwind.Application.UnitTests
         }
 
         [Fact]
-        public void ShouldMapCategoryToCategoryLookupDto()
+        public void ShouldMapCategoryToCategoryDto()
         {
             var entity = new Category();
 
-            var result = _mapper.Map<CategoryLookupDto>(entity);
+            var result = _mapper.Map<CategoryDto>(entity);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<CategoryLookupDto>();
+            result.ShouldBeOfType<CategoryDto>();
         }
 
         [Fact]

@@ -15,7 +15,9 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angula
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface ICategoriesClient {
-    getAll(): Observable<CategoryLookupDto[]>;
+    getAll(): Observable<CategoryDto[]>;
+    upsert(command: UpsertCategoryCommand): Observable<void>;
+    delete(id: number): Observable<void>;
 }
 
 @Injectable()
@@ -29,7 +31,7 @@ export class CategoriesClient implements ICategoriesClient {
         this.baseUrl = baseUrl ? baseUrl : "";
     }
 
-    getAll(): Observable<CategoryLookupDto[]> {
+    getAll(): Observable<CategoryDto[]> {
         let url_ = this.baseUrl + "/api/Categories/GetAll";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -48,14 +50,14 @@ export class CategoriesClient implements ICategoriesClient {
                 try {
                     return this.processGetAll(<any>response_);
                 } catch (e) {
-                    return <Observable<CategoryLookupDto[]>><any>_observableThrow(e);
+                    return <Observable<CategoryDto[]>><any>_observableThrow(e);
                 }
             } else
-                return <Observable<CategoryLookupDto[]>><any>_observableThrow(response_);
+                return <Observable<CategoryDto[]>><any>_observableThrow(response_);
         }));
     }
 
-    protected processGetAll(response: HttpResponseBase): Observable<CategoryLookupDto[]> {
+    protected processGetAll(response: HttpResponseBase): Observable<CategoryDto[]> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -69,7 +71,7 @@ export class CategoriesClient implements ICategoriesClient {
             if (Array.isArray(resultData200)) {
                 result200 = [] as any;
                 for (let item of resultData200)
-                    result200!.push(CategoryLookupDto.fromJS(item));
+                    result200!.push(CategoryDto.fromJS(item));
             }
             return _observableOf(result200);
             }));
@@ -78,7 +80,111 @@ export class CategoriesClient implements ICategoriesClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
         }
-        return _observableOf<CategoryLookupDto[]>(<any>null);
+        return _observableOf<CategoryDto[]>(<any>null);
+    }
+
+    upsert(command: UpsertCategoryCommand): Observable<void> {
+        let url_ = this.baseUrl + "/api/Categories/Upsert";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(command);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processUpsert(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUpsert(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processUpsert(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let resultdefault: any = null;
+            let resultDatadefault = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            resultdefault = ProblemDetails.fromJS(resultDatadefault);
+            return throwException("A server side error occurred.", status, _responseText, _headers, resultdefault);
+            }));
+        }
+    }
+
+    delete(id: number): Observable<void> {
+        let url_ = this.baseUrl + "/api/Categories/Delete/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processDelete(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status === 404) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result404: any = null;
+            let resultData404 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result404 = ProblemDetails.fromJS(resultData404);
+            return throwException("A server side error occurred.", status, _responseText, _headers, result404);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
     }
 }
 
@@ -687,11 +793,13 @@ export class ProductsClient implements IProductsClient {
     }
 }
 
-export class CategoryLookupDto implements ICategoryLookupDto {
+export class CategoryDto implements ICategoryDto {
     id?: number;
     name?: string | undefined;
+    description?: string | undefined;
+    picture?: string | undefined;
 
-    constructor(data?: ICategoryLookupDto) {
+    constructor(data?: ICategoryDto) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -704,12 +812,14 @@ export class CategoryLookupDto implements ICategoryLookupDto {
         if (data) {
             this.id = data["id"];
             this.name = data["name"];
+            this.description = data["description"];
+            this.picture = data["picture"];
         }
     }
 
-    static fromJS(data: any): CategoryLookupDto {
+    static fromJS(data: any): CategoryDto {
         data = typeof data === 'object' ? data : {};
-        let result = new CategoryLookupDto();
+        let result = new CategoryDto();
         result.init(data);
         return result;
     }
@@ -718,13 +828,133 @@ export class CategoryLookupDto implements ICategoryLookupDto {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
         data["name"] = this.name;
+        data["description"] = this.description;
+        data["picture"] = this.picture;
         return data; 
     }
 }
 
-export interface ICategoryLookupDto {
+export interface ICategoryDto {
     id?: number;
     name?: string | undefined;
+    description?: string | undefined;
+    picture?: string | undefined;
+}
+
+export class ProblemDetails implements IProblemDetails {
+    type?: string | undefined;
+    title?: string | undefined;
+    status?: number | undefined;
+    detail?: string | undefined;
+    instance?: string | undefined;
+    extensions?: { [key: string]: any; } | undefined;
+
+    constructor(data?: IProblemDetails) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.type = data["type"];
+            this.title = data["title"];
+            this.status = data["status"];
+            this.detail = data["detail"];
+            this.instance = data["instance"];
+            if (data["extensions"]) {
+                this.extensions = {} as any;
+                for (let key in data["extensions"]) {
+                    if (data["extensions"].hasOwnProperty(key))
+                        this.extensions![key] = data["extensions"][key];
+                }
+            }
+        }
+    }
+
+    static fromJS(data: any): ProblemDetails {
+        data = typeof data === 'object' ? data : {};
+        let result = new ProblemDetails();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["type"] = this.type;
+        data["title"] = this.title;
+        data["status"] = this.status;
+        data["detail"] = this.detail;
+        data["instance"] = this.instance;
+        if (this.extensions) {
+            data["extensions"] = {};
+            for (let key in this.extensions) {
+                if (this.extensions.hasOwnProperty(key))
+                    data["extensions"][key] = this.extensions[key];
+            }
+        }
+        return data; 
+    }
+}
+
+export interface IProblemDetails {
+    type?: string | undefined;
+    title?: string | undefined;
+    status?: number | undefined;
+    detail?: string | undefined;
+    instance?: string | undefined;
+    extensions?: { [key: string]: any; } | undefined;
+}
+
+export class UpsertCategoryCommand implements IUpsertCategoryCommand {
+    id?: number | undefined;
+    name?: string | undefined;
+    description?: string | undefined;
+    picture?: string | undefined;
+
+    constructor(data?: IUpsertCategoryCommand) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.id = data["id"];
+            this.name = data["name"];
+            this.description = data["description"];
+            this.picture = data["picture"];
+        }
+    }
+
+    static fromJS(data: any): UpsertCategoryCommand {
+        data = typeof data === 'object' ? data : {};
+        let result = new UpsertCategoryCommand();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["name"] = this.name;
+        data["description"] = this.description;
+        data["picture"] = this.picture;
+        return data; 
+    }
+}
+
+export interface IUpsertCategoryCommand {
+    id?: number | undefined;
+    name?: string | undefined;
+    description?: string | undefined;
+    picture?: string | undefined;
 }
 
 export class CustomersListVm implements ICustomersListVm {
@@ -885,74 +1115,6 @@ export interface ICustomerDetailVm {
     phone?: string | undefined;
     postalCode?: string | undefined;
     region?: string | undefined;
-}
-
-export class ProblemDetails implements IProblemDetails {
-    type?: string | undefined;
-    title?: string | undefined;
-    status?: number | undefined;
-    detail?: string | undefined;
-    instance?: string | undefined;
-    extensions?: { [key: string]: any; } | undefined;
-
-    constructor(data?: IProblemDetails) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.type = data["type"];
-            this.title = data["title"];
-            this.status = data["status"];
-            this.detail = data["detail"];
-            this.instance = data["instance"];
-            if (data["extensions"]) {
-                this.extensions = {} as any;
-                for (let key in data["extensions"]) {
-                    if (data["extensions"].hasOwnProperty(key))
-                        this.extensions![key] = data["extensions"][key];
-                }
-            }
-        }
-    }
-
-    static fromJS(data: any): ProblemDetails {
-        data = typeof data === 'object' ? data : {};
-        let result = new ProblemDetails();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["type"] = this.type;
-        data["title"] = this.title;
-        data["status"] = this.status;
-        data["detail"] = this.detail;
-        data["instance"] = this.instance;
-        if (this.extensions) {
-            data["extensions"] = {};
-            for (let key in this.extensions) {
-                if (this.extensions.hasOwnProperty(key))
-                    data["extensions"][key] = this.extensions[key];
-            }
-        }
-        return data; 
-    }
-}
-
-export interface IProblemDetails {
-    type?: string | undefined;
-    title?: string | undefined;
-    status?: number | undefined;
-    detail?: string | undefined;
-    instance?: string | undefined;
-    extensions?: { [key: string]: any; } | undefined;
 }
 
 export class CreateCustomerCommand implements ICreateCustomerCommand {
