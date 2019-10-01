@@ -34,19 +34,5 @@ namespace Northwind.Application.Products.Queries.GetProductDetail
                 .ForMember(d => d.SupplierCompanyName, opt => opt.MapFrom(s => s.Supplier != null ? s.Supplier.CompanyName : string.Empty))
                 .ForMember(d => d.CategoryName, opt => opt.MapFrom(s => s.Category != null ? s.Category.CategoryName : string.Empty));
         }
-
-        public class PermissionsResolver : IValueResolver<Product, ProductDetailVm, bool>
-        {
-            // TODO: Inject your services and helper here
-            public PermissionsResolver()
-            {
-
-            }
-
-            public bool Resolve(Product source, ProductDetailVm dest, bool destMember, ResolutionContext context)
-            {
-                return false;
-            }
-        }
     }
 }

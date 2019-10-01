@@ -31,6 +31,7 @@ namespace Northwind.WebUI.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<ProductDetailVm>> Get(int id)
         {
             return Ok(await Mediator.Send(new GetProductDetailQuery { Id = id }));
