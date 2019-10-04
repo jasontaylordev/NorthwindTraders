@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Northwind.Application.Categories.Commands.CreateCategory;
 using Northwind.Application.Categories.Commands.DeleteCategory;
+using Northwind.Application.Categories.Commands.UpsertCategory;
 using Northwind.Application.Categories.Queries.GetCategoriesList;
 
 namespace Northwind.WebUI.Controllers
