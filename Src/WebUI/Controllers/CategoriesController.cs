@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Categories.Commands.CreateCategory;
 using Northwind.Application.Categories.Commands.DeleteCategory;
 using Northwind.Application.Categories.Queries.GetCategoriesList;
+using System.Threading.Tasks;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -13,14 +12,14 @@ namespace Northwind.WebUI.Controllers
     public class CategoriesController : BaseController
     {
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IList<CategoryDto>>> GetAll()
+        [AllowAnonymous]
+        public async Task<ActionResult<CategoriesListVm>> GetAll()
         {
             return Ok(await Mediator.Send(new GetCategoriesListQuery()));
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> Upsert(UpsertCategoryCommand command)
         {

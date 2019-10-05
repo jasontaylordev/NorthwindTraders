@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Northwind.Application.Common.Interfaces;
+using Northwind.Application.Common.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Northwind.Infrastructure.Identity
 {
@@ -13,7 +15,7 @@ namespace Northwind.Infrastructure.Identity
             _userManager = userManager;
         }
 
-        public async Task<string> CreateUserAsync(string userName, string password)
+        public async Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password)
         {
             var user = new ApplicationUser
             {
@@ -23,12 +25,27 @@ namespace Northwind.Infrastructure.Identity
 
             var result = await _userManager.CreateAsync(user, password);
 
-            if (result.Succeeded)
+            return (result.ToApplicationResult(), user.Id);
+        }
+
+        public async Task<Result> DeleteUserAsync(string userId)
+        {
+            var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);
+
+            if (user != null)
             {
-                return user.Id;
+                return await DeleteUserAsync(user);
             }
 
-            return null;
+            return Result.Success();
+        }
+
+
+        public async Task<Result> DeleteUserAsync(ApplicationUser user)
+        {
+            var result = await _userManager.DeleteAsync(user);
+
+            return result.ToApplicationResult();
         }
     }
 }

@@ -18,23 +18,18 @@ namespace Northwind.WebUI.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<ProductsListVm>> GetAll()
         {
-            return Ok(await Mediator.Send(new GetProductsListQuery()));
-        }
+            var vm = await Mediator.Send(new GetProductsListQuery());
 
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<FileResult> Download()
-        {
-            var vm = await Mediator.Send(new GetProductsFileQuery());
-
-            return File(vm.Content, vm.ContentType, vm.FileName);
+            return base.Ok(vm);
         }
 
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<ActionResult<ProductDetailVm>> Get(int id)
         {
-            return Ok(await Mediator.Send(new GetProductDetailQuery { Id = id }));
+            var vm = await Mediator.Send(new GetProductDetailQuery { Id = id });
+
+            return base.Ok(vm);
         }
 
         [HttpPost]
@@ -63,6 +58,15 @@ namespace Northwind.WebUI.Controllers
             await Mediator.Send(new DeleteProductCommand { Id = id });
 
             return NoContent();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<FileResult> Download()
+        {
+            var vm = await Mediator.Send(new GetProductsFileQuery());
+
+            return File(vm.Content, vm.ContentType, vm.FileName);
         }
     }
 }

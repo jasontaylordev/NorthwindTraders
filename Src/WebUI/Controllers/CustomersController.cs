@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Customers.Commands.CreateCustomer;
@@ -6,7 +7,6 @@ using Northwind.Application.Customers.Commands.UpdateCustomer;
 using Northwind.Application.Customers.Queries.GetCustomerDetail;
 using Northwind.Application.Customers.Queries.GetCustomersList;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Northwind.WebUI.Controllers
 {
@@ -14,10 +14,11 @@ namespace Northwind.WebUI.Controllers
     public class CustomersController : BaseController
     {
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<CustomersListVm>> GetAll()
         {
-            return Ok(await Mediator.Send(new GetCustomersListQuery()));
+            var vm = await Mediator.Send(new GetCustomersListQuery());
+
+            return Ok(vm);
         }
 
         [HttpGet("{id}")]
@@ -25,7 +26,9 @@ namespace Northwind.WebUI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<CustomerDetailVm>> Get(string id)
         {
-            return Ok(await Mediator.Send(new GetCustomerDetailQuery { Id = id }));
+            var vm = await Mediator.Send(new GetCustomerDetailQuery { Id = id });
+
+            return Ok(vm);
         }
 
         [HttpPost]

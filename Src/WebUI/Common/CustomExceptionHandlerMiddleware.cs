@@ -1,10 +1,10 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Northwind.Application.Common.Exceptions;
+using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Northwind.WebUI.Common
 {
@@ -39,9 +39,11 @@ namespace Northwind.WebUI.Common
             {
                 case ValidationException validationException:
                     code = HttpStatusCode.BadRequest;
-                    context.Response.ContentType = "application/json";
-                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     result = JsonConvert.SerializeObject(validationException.Failures);
+                    break;
+                case BadRequestException badRequestException:
+                    code = HttpStatusCode.BadRequest;
+                    result = badRequestException.Message;
                     break;
                 case NotFoundException _:
                     code = HttpStatusCode.NotFound;

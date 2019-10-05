@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using Northwind.Application.Common.Interfaces;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Northwind.Application.Common.Behaviours
 {
@@ -34,7 +34,7 @@ namespace Northwind.Application.Common.Behaviours
                 var name = typeof(TRequest).Name;
 
                 _logger.LogWarning("Northwind Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@Request}", 
-                    name, _timer.ElapsedMilliseconds, _currentUserService.GetUserId(), request);
+                    name, _timer.ElapsedMilliseconds, _currentUserService.UserId, request);
             }
 
             return response;
