@@ -2,6 +2,8 @@
 {
     public interface ICurrentUserService
     {
-        string GetUserId();
+        string UserId { get; }
+
+        bool IsAuthenticated { get; }
     }
 }

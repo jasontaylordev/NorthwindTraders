@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using MediatR.Pipeline;
+﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 using Northwind.Application.Common.Interfaces;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Northwind.Application.Common.Behaviours
 {
@@ -22,7 +22,7 @@ namespace Northwind.Application.Common.Behaviours
             var name = typeof(TRequest).Name;
 
             _logger.LogInformation("Northwind Request: {Name} {@UserId} {@Request}", 
-                name, _currentUserService.GetUserId(), request);
+                name, _currentUserService.UserId, request);
 
             return Task.CompletedTask;
         }

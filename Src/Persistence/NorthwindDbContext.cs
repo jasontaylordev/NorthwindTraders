@@ -58,13 +58,13 @@ namespace Northwind.Persistence
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.CreatedBy = _currentUserService.GetUserId();
+                    entry.Entity.CreatedBy = _currentUserService.UserId;
                     entry.Entity.Created = _dateTime.Now;
                     
                 }
                 else if (entry.State == EntityState.Modified)
                 {
-                    entry.Entity.LastModifiedBy = _currentUserService.GetUserId();
+                    entry.Entity.LastModifiedBy = _currentUserService.UserId;
                     entry.Entity.LastModified = _dateTime.Now;
                 }
             }

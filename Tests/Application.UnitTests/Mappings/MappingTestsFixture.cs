@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Northwind.Application.Common.Mappings;
 
-namespace Northwind.Application.UnitTests
+namespace Northwind.Application.UnitTests.Mappings
 {
     public class MappingTestsFixture
     {
