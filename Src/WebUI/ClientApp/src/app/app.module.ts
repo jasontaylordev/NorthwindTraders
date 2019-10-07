@@ -20,7 +20,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppIconsModule } from './app.icons.module';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { environment } from "../environments/environment";
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,9 @@ import { environment } from "../environments/environment";
     AppRoutingModule,
     ApiAuthorizationModule,
     ModalModule.forRoot()
+  ],
+  entryComponents: [
+    CustomerDetailComponent
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },

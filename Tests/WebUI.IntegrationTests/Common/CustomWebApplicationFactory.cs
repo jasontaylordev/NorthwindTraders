@@ -37,25 +37,23 @@ namespace Northwind.WebUI.IntegrationTests.Common
                     var sp = services.BuildServiceProvider();
 
                     // Create a scope to obtain a reference to the database
-                    using (var scope = sp.CreateScope())
+                    using var scope = sp.CreateScope();
+                    var scopedServices = scope.ServiceProvider;
+                    var context = scopedServices.GetRequiredService<NorthwindDbContext>();
+                    var logger = scopedServices.GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
+
+                    // Ensure the database is created.
+                    context.Database.EnsureCreated();
+
+                    try
                     {
-                        var scopedServices = scope.ServiceProvider;
-                        var context = scopedServices.GetRequiredService<NorthwindDbContext>();
-                        var logger = scopedServices.GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
-
-                        // Ensure the database is created.
-                        context.Database.EnsureCreated();
-
-                        try
-                        {
-                            // Seed the database with test data.
-                            Utilities.InitializeDbForTests(context);
-                        }
-                        catch (Exception ex)
-                        {
-                            logger.LogError(ex, $"An error occurred seeding the " +
-                                                "database with test messages. Error: {ex.Message}");
-                        }
+                        // Seed the database with test data.
+                        Utilities.InitializeDbForTests(context);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.LogError(ex, "An error occurred seeding the " +
+                                            $"database with test messages. Error: {ex.Message}");
                     }
                 })
                 .UseEnvironment("Test");
