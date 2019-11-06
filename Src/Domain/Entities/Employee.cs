@@ -1,6 +1,7 @@
 ﻿using Dms;
 using System;
 using System.Collections.Generic;
+using Dms.Domain.Common;
 
 namespace Dms.Domain.Entities
 {

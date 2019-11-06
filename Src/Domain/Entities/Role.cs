@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Dms;
+using Dms.Domain.Common;
 
 namespace Dms.Domain.Entities
 {

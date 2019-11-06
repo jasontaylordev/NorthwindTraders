@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Authentication.ExtendedProtection;
 using Dms;
+using Dms.Domain.Common;
 
 namespace Dms.Domain.Entities
 {
