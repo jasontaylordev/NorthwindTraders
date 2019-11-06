@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Persistence;
+using Dms.Application.Common.Interfaces;
+using Dms.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.System.Commands.SeedSampleData
+namespace Dms.Application.System.Commands.SeedSampleData
 {
     public class SeedSampleDataCommand : IRequest
     {

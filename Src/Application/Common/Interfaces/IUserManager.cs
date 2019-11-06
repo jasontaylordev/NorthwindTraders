@@ -1,7 +1,7 @@
-﻿using Northwind.Application.Common.Models;
+﻿using Dms.Application.Common.Models;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Common.Interfaces
+namespace Dms.Application.Common.Interfaces
 {
     public interface IUserManager
     {

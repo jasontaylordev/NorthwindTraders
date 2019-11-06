@@ -2,10 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Common;
-using Northwind.Domain.Entities;
-using Northwind.Persistence;
+using Dms.Application.Common.Interfaces;
+using Dms.Common;
+using Dms.Domain.Entities;
+using Dms.Persistence;
 using Shouldly;
 using Xunit;
 
@@ -17,7 +17,7 @@ namespace Persistence.IntegrationTests
         private readonly DateTime _dateTime;
         private readonly Mock<IDateTime> _dateTimeMock;
         private readonly Mock<ICurrentUserService> _currentUserServiceMock;
-        private readonly NorthwindDbContext _sut;
+        private readonly DmsDbContext _sut;
 
         public NorthwindDbContextTests()
         {
@@ -29,11 +29,11 @@ namespace Persistence.IntegrationTests
             _currentUserServiceMock = new Mock<ICurrentUserService>();
             _currentUserServiceMock.Setup(m => m.UserId).Returns(_userId);
 
-            var options = new DbContextOptionsBuilder<NorthwindDbContext>()
+            var options = new DbContextOptionsBuilder<DmsDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
 
-            _sut = new NorthwindDbContext(options, _currentUserServiceMock.Object, _dateTimeMock.Object);
+            _sut = new DmsDbContext(options, _currentUserServiceMock.Object, _dateTimeMock.Object);
 
             _sut.Products.Add(new Product
             {

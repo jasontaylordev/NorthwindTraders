@@ -1,10 +1,10 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
-using Northwind.Application.Customers.Commands.CreateCustomer;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.WebUI.IntegrationTests.Common;
+using Dms.Application.Customers.Commands.CreateCustomer;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Customers
+namespace Dms.WebUI.IntegrationTests.Controllers.Customers
 {
     public class Create : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

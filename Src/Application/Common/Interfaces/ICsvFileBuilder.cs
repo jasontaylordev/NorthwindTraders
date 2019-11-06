@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Northwind.Application.Products.Queries.GetProductsFile;
+using Dms.Application.Products.Queries.GetProductsFile;
 
-namespace Northwind.Application.Common.Interfaces
+namespace Dms.Application.Common.Interfaces
 {
     public interface ICsvFileBuilder
     {

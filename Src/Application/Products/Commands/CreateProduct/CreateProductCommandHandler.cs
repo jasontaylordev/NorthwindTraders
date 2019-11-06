@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Interfaces;
+using Dms.Domain.Entities;
 
-namespace Northwind.Application.Products.Commands.CreateProduct
+namespace Dms.Application.Products.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {

@@ -2,12 +2,12 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Common.Interfaces;
+using Dms.Application.Common.Interfaces;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Employees.Queries.GetEmployeesList
+namespace Dms.Application.Employees.Queries.GetEmployeesList
 {
     public class GetEmployeesListQuery : IRequest<EmployeesListVm>
     {

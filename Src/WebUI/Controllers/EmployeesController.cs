@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Northwind.Application.Employees.Commands.DeleteEmployee;
-using Northwind.Application.Employees.Commands.UpsertEmployee;
-using Northwind.Application.Employees.Queries.GetEmployeeDetail;
-using Northwind.Application.Employees.Queries.GetEmployeesList;
+using Dms.Application.Employees.Commands.DeleteEmployee;
+using Dms.Application.Employees.Commands.UpsertEmployee;
+using Dms.Application.Employees.Queries.GetEmployeeDetail;
+using Dms.Application.Employees.Queries.GetEmployeesList;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Northwind.WebUI.Controllers
+namespace Dms.WebUI.Controllers
 {
     public class EmployeesController : BaseController
     {

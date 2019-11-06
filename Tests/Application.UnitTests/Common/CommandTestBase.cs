@@ -1,11 +1,11 @@
 using System;
-using Northwind.Persistence;
+using Dms.Persistence;
 
-namespace Northwind.Application.UnitTests.Common
+namespace Dms.Application.UnitTests.Common
 {
     public class CommandTestBase : IDisposable
     {
-        protected readonly NorthwindDbContext _context;
+        protected readonly DmsDbContext _context;
 
         public CommandTestBase()
         {

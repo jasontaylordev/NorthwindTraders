@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Northwind.Domain.Exceptions;
-using Northwind.Domain.Common;
+using Dms;
+using Dms.Domain.Exceptions;
 
-namespace Northwind.Domain.ValueObjects
+namespace Dms.Domain.ValueObjects
 {
     public class AdAccount : ValueObject
     {

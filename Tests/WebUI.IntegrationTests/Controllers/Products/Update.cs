@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
-using Northwind.Application.Products.Commands.UpdateProduct;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.WebUI.IntegrationTests.Common;
+using Dms.Application.Products.Commands.UpdateProduct;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Products
+namespace Dms.WebUI.IntegrationTests.Controllers.Products
 {
     public class Update : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using Northwind.Application.Common.Exceptions;
+using Dms.Application.Common.Exceptions;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Northwind.WebUI.Common
+namespace Dms.WebUI.Common
 {
     public class CustomExceptionHandlerMiddleware
     {

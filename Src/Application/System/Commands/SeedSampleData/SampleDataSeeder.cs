@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Interfaces;
+using Dms.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Persistence
+namespace Dms.Persistence
 {
     public class SampleDataSeeder
     {

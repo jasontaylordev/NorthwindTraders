@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Application.Notifications.Models;
+using Dms.Application.Common.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
+using Dms.Application.Notifications.Models;
 
-namespace Northwind.Application.Customers.Commands.CreateCustomer
+namespace Dms.Application.Customers.Commands.CreateCustomer
 {
     public class CustomerCreated : INotification
     {

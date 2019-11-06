@@ -1,25 +1,25 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Common;
-using Northwind.Domain.Entities;
-using Northwind.Domain.Common;
+using Dms.Application.Common.Interfaces;
+using Dms.Common;
+using Dms.Domain.Entities;
+using Dms.Domain.Common;
 
-namespace Northwind.Persistence
+namespace Dms.Persistence
 {
-    public class NorthwindDbContext : DbContext, INorthwindDbContext
+    public class DmsDbContext : DbContext, INorthwindDbContext
     {
         private readonly ICurrentUserService _currentUserService;
         private readonly IDateTime _dateTime;
 
-        public NorthwindDbContext(DbContextOptions<NorthwindDbContext> options)
+        public DmsDbContext(DbContextOptions<DmsDbContext> options)
             : base(options)
         {
         }
 
-        public NorthwindDbContext(
-            DbContextOptions<NorthwindDbContext> options, 
+        public DmsDbContext(
+            DbContextOptions<DmsDbContext> options, 
             ICurrentUserService currentUserService,
             IDateTime dateTime)
             : base(options)
@@ -72,7 +72,7 @@ namespace Northwind.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(NorthwindDbContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DmsDbContext).Assembly);
         }
     }
 }

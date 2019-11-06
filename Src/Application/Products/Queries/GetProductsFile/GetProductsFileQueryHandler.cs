@@ -2,12 +2,12 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Common;
+using Dms.Application.Common.Interfaces;
+using Dms.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Products.Queries.GetProductsFile
+namespace Dms.Application.Products.Queries.GetProductsFile
 {
     public class GetProductsFileQueryHandler : IRequestHandler<GetProductsFileQuery, ProductsFileVm>
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Northwind.Application.Common.Models;
+using Dms.Application.Common.Models;
 using System.Linq;
 
-namespace Northwind.Infrastructure.Identity
+namespace Dms.Infrastructure.Identity
 {
     public static class IdentityResultExtensions
     {

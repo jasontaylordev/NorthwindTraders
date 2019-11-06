@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(Northwind.WebUI.Areas.Identity.IdentityHostingStartup))]
-namespace Northwind.WebUI.Areas.Identity
+[assembly: HostingStartup(typeof(Dms.WebUI.Areas.Identity.IdentityHostingStartup))]
+namespace Dms.WebUI.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

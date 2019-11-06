@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using CsvHelper;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Application.Products.Queries.GetProductsFile;
+using Dms.Application.Common.Interfaces;
+using Dms.Application.Products.Queries.GetProductsFile;
 
-namespace Northwind.Infrastructure.Files
+namespace Dms.Infrastructure.Files
 {
     public class CsvFileBuilder : ICsvFileBuilder
     {

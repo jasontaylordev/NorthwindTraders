@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Interfaces;
+using Dms.Domain.Entities;
 
-namespace Northwind.Application.Categories.Commands.UpsertCategory
+namespace Dms.Application.Categories.Commands.UpsertCategory
 {
     public class UpsertCategoryCommand : IRequest<int>
     {

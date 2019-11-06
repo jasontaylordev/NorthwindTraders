@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentValidation.Results;
 
-namespace Northwind.Application.Common.Exceptions
+namespace Dms.Application.Common.Exceptions
 {
     public class ValidationException : Exception
     {

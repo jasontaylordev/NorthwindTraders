@@ -1,8 +1,8 @@
-using Northwind.Domain.Exceptions;
-using Northwind.Domain.ValueObjects;
+using Dms.Domain.Exceptions;
+using Dms.Domain.ValueObjects;
 using Xunit;
 
-namespace Northwind.Domain.UnitTests.ValueObjects
+namespace Dms.Domain.UnitTests.ValueObjects
 {
     public class AdAccountTests
     {

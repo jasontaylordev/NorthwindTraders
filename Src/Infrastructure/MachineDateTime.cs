@@ -1,7 +1,7 @@
 ﻿using System;
-using Northwind.Common;
+using Dms.Common;
 
-namespace Northwind.Infrastructure
+namespace Dms.Infrastructure
 {
     public class MachineDateTime : IDateTime
     {

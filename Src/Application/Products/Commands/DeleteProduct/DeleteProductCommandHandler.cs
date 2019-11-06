@@ -2,11 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Northwind.Application.Common.Exceptions;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Exceptions;
+using Dms.Application.Common.Interfaces;
+using Dms.Domain.Entities;
 
-namespace Northwind.Application.Products.Commands.DeleteProduct
+namespace Dms.Application.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
     {

@@ -1,4 +1,5 @@
 using System.Text;
+using Dms.WebUI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,14 +8,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Http;
-using Northwind.Infrastructure;
-using Northwind.Persistence;
-using Northwind.Application;
-using Northwind.Application.Common.Interfaces;
-using Northwind.WebUI.Common;
-using Northwind.WebUI.Services;
+using Dms.Infrastructure;
+using Dms.Persistence;
+using Dms.Application;
+using Dms.Application.Common.Interfaces;
+using Dms.WebUI.Common;
 
-namespace Northwind.WebUI
+namespace Dms.WebUI
 {
     public class Startup
     {
@@ -37,7 +37,7 @@ namespace Northwind.WebUI
             services.AddApplication();
 
             services.AddHealthChecks()
-                .AddDbContextCheck<NorthwindDbContext>();
+                .AddDbContextCheck<DmsDbContext>();
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 

@@ -1,11 +1,11 @@
 ﻿using MediatR;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Interfaces;
+using Dms.Domain.Entities;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Employees.Commands.UpsertEmployee
+namespace Dms.Application.Employees.Commands.UpsertEmployee
 {
     public class UpsertEmployeeCommand : IRequest<int>
     {

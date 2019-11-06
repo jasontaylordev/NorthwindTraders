@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Northwind.Domain;
+using Dms.Domain;
 
-namespace Northwind.Persistence.Migrations
+namespace Dms.Persistence.Migrations
 {
-    [DbContext(typeof(NorthwindDbContext))]
+    [DbContext(typeof(DmsDbContext))]
     [Migration("20180607065932_InitialCreate")]
     partial class InitialCreate
     {

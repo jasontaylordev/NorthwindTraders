@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Northwind.Infrastructure.Identity
+namespace Dms.Infrastructure.Identity
 {
     public class ApplicationUser : IdentityUser
     {

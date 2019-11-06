@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
+using Dms.Infrastructure.Files;
+using Dms.Infrastructure.Identity;
 using IdentityModel;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
@@ -9,12 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Common;
-using Northwind.Infrastructure.Files;
-using Northwind.Infrastructure.Identity;
+using Dms.Application.Common.Interfaces;
+using Dms.Common;
 
-namespace Northwind.Infrastructure
+namespace Dms.Infrastructure
 {
     public static class DependencyInjection
     {

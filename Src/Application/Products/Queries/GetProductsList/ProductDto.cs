@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Northwind.Application.Common.Mappings;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Mappings;
+using Dms.Domain.Entities;
 
-namespace Northwind.Application.Products.Queries.GetProductsList
+namespace Dms.Application.Products.Queries.GetProductsList
 {
     public class ProductDto : IMapFrom<Product>
     {

@@ -1,11 +1,11 @@
-﻿using Northwind.Application.Common.Exceptions;
-using Northwind.Application.Customers.Commands.DeleteCustomer;
-using Northwind.Application.UnitTests.Common;
+﻿using Dms.Application.Common.Exceptions;
 using System.Threading;
 using System.Threading.Tasks;
+using Dms.Application.Customers.Commands.DeleteCustomer;
+using Dms.Application.UnitTests.Common;
 using Xunit;
 
-namespace Northwind.Application.UnitTests.Customers.Commands.DeleteCustomer
+namespace Dms.Application.UnitTests.Customers.Commands.DeleteCustomer
 {
     public class DeleteCustomerCommandTests : CommandTestBase
     {

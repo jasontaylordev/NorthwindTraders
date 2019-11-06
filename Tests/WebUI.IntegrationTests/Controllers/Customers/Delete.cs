@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.WebUI.IntegrationTests.Common;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Customers
+namespace Dms.WebUI.IntegrationTests.Controllers.Customers
 {
     public class Delete : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

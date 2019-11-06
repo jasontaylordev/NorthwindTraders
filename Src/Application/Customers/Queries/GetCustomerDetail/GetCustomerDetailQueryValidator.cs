@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Northwind.Application.Customers.Queries.GetCustomerDetail
+namespace Dms.Application.Customers.Queries.GetCustomerDetail
 {
     public class GetCustomerDetailQueryValidator : AbstractValidator<GetCustomerDetailQuery>
     {

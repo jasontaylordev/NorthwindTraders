@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.WebUI.IntegrationTests.Common;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Categories
+namespace Dms.WebUI.IntegrationTests.Controllers.Categories
 {
     public class GetCategoryList : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

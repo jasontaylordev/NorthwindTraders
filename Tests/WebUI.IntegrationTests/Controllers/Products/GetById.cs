@@ -1,10 +1,10 @@
-using Northwind.Application.Products.Queries.GetProductDetail;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.Application.Products.Queries.GetProductDetail;
 using System.Net;
 using System.Threading.Tasks;
+using Dms.WebUI.IntegrationTests.Common;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Products
+namespace Dms.WebUI.IntegrationTests.Controllers.Products
 {
     public class GetById : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

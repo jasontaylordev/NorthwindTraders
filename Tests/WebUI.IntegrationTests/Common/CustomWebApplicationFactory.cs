@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Persistence;
+using Dms.Application.Common.Interfaces;
+using Dms.Persistence;
 
-namespace Northwind.WebUI.IntegrationTests.Common
+namespace Dms.WebUI.IntegrationTests.Common
 {
     public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {
@@ -26,20 +26,20 @@ namespace Northwind.WebUI.IntegrationTests.Common
 
                     // Add a database context using an in-memory 
                     // database for testing.
-                    services.AddDbContext<NorthwindDbContext>(options =>
+                    services.AddDbContext<DmsDbContext>(options =>
                     {
                         options.UseInMemoryDatabase("InMemoryDbForTesting");
                         options.UseInternalServiceProvider(serviceProvider);
                     });
 
-                    services.AddScoped<INorthwindDbContext>(provider => provider.GetService<NorthwindDbContext>());
+                    services.AddScoped<INorthwindDbContext>(provider => provider.GetService<DmsDbContext>());
 
                     var sp = services.BuildServiceProvider();
 
                     // Create a scope to obtain a reference to the database
                     using var scope = sp.CreateScope();
                     var scopedServices = scope.ServiceProvider;
-                    var context = scopedServices.GetRequiredService<NorthwindDbContext>();
+                    var context = scopedServices.GetRequiredService<DmsDbContext>();
                     var logger = scopedServices.GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
 
                     // Ensure the database is created.

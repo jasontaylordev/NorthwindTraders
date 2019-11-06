@@ -1,18 +1,18 @@
-﻿using Northwind.Application.Customers.Queries.GetCustomerDetail;
-using Northwind.Persistence;
+﻿using Dms.Persistence;
 using Shouldly;
 using System.Threading;
 using System.Threading.Tasks;
-using Northwind.Application.UnitTests.Common;
 using Xunit;
 using AutoMapper;
+using Dms.Application.Customers.Queries.GetCustomerDetail;
+using Dms.Application.UnitTests.Common;
 
-namespace Northwind.Application.UnitTests.Customers.Queries
+namespace Dms.Application.UnitTests.Customers.Queries
 {
     [Collection("QueryCollection")]
     public class GetCustomerDetailQueryHandlerTests
     { 
-        private readonly NorthwindDbContext _context;
+        private readonly DmsDbContext _context;
         private readonly IMapper _mapper;
 
         public GetCustomerDetailQueryHandlerTests(QueryTestFixture fixture)

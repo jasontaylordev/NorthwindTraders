@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Northwind.Application.Common.Mappings;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Mappings;
+using Dms.Domain.Entities;
 
-namespace Northwind.Application.Categories.Queries.GetCategoriesList
+namespace Dms.Application.Categories.Queries.GetCategoriesList
 {
     public class CategoryDto : IMapFrom<Category>
     {

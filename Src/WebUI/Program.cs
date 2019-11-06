@@ -2,7 +2,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Northwind.Persistence;
+using Dms.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Reflection;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Application.System.Commands.SeedSampleData;
-using Northwind.Infrastructure.Identity;
+using Dms.Application.Common.Interfaces;
+using Dms.Application.System.Commands.SeedSampleData;
+using Dms.Infrastructure.Identity;
 
-namespace Northwind.WebUI
+namespace Dms.WebUI
 {
     public class Program
     {
@@ -29,7 +29,7 @@ namespace Northwind.WebUI
 
                 try
                 {
-                    var northwindContext = services.GetRequiredService<NorthwindDbContext>();
+                    var northwindContext = services.GetRequiredService<DmsDbContext>();
                     northwindContext.Database.Migrate();
 
                     var identityContext = services.GetRequiredService<ApplicationDbContext>();

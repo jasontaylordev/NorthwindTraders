@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Northwind.Infrastructure.Identity;
+using Dms.Infrastructure.Identity;
 
-namespace Northwind.WebUI.Areas.Identity.Pages.Account
+namespace Dms.WebUI.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel

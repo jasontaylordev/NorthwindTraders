@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
-using Northwind.Application.Categories.Queries.GetCategoriesList;
-using Northwind.Application.Customers.Queries.GetCustomerDetail;
-using Northwind.Application.Customers.Queries.GetCustomersList;
-using Northwind.Application.Employees.Queries.GetEmployeeDetail;
-using Northwind.Application.Employees.Queries.GetEmployeesList;
-using Northwind.Application.Products.Queries.GetProductDetail;
-using Northwind.Application.Products.Queries.GetProductsFile;
-using Northwind.Application.Products.Queries.GetProductsList;
-using Northwind.Domain.Entities;
+using Dms.Application.Categories.Queries.GetCategoriesList;
+using Dms.Application.Customers.Queries.GetCustomerDetail;
+using Dms.Application.Customers.Queries.GetCustomersList;
+using Dms.Application.Employees.Queries.GetEmployeeDetail;
+using Dms.Application.Employees.Queries.GetEmployeesList;
+using Dms.Application.Products.Queries.GetProductDetail;
+using Dms.Application.Products.Queries.GetProductsFile;
+using Dms.Application.Products.Queries.GetProductsList;
+using Dms.Domain.Entities;
 using Shouldly;
 using Xunit;
 
-namespace Northwind.Application.UnitTests.Mappings
+namespace Dms.Application.UnitTests.Mappings
 {
     public class MappingTests : IClassFixture<MappingTestsFixture>
     {

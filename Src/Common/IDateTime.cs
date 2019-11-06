@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Northwind.Common
+namespace Dms.Common
 {
     public interface IDateTime
     {

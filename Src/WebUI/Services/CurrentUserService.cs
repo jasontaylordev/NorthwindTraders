@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using Northwind.Application.Common.Interfaces;
+using Dms.Application.Common.Interfaces;
 
-namespace Northwind.WebUI.Services
+namespace Dms.WebUI.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

@@ -1,10 +1,10 @@
 ﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
-using Northwind.Application.Common.Interfaces;
+using Dms.Application.Common.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Common.Behaviours
+namespace Dms.Application.Common.Behaviours
 {
     public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     {

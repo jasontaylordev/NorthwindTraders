@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Domain.Entities;
+using Dms.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Common.Interfaces
+namespace Dms.Application.Common.Interfaces
 {
     public interface INorthwindDbContext
     {

@@ -1,14 +1,14 @@
 using System;
 using AutoMapper;
-using Northwind.Application.Common.Mappings;
-using Northwind.Persistence;
+using Dms.Application.Common.Mappings;
+using Dms.Persistence;
 using Xunit;
 
-namespace Northwind.Application.UnitTests.Common
+namespace Dms.Application.UnitTests.Common
 {
     public class QueryTestFixture : IDisposable
     {
-        public NorthwindDbContext Context { get; private set; }
+        public DmsDbContext Context { get; private set; }
         public IMapper Mapper { get; private set; }
 
         public QueryTestFixture()

@@ -3,10 +3,10 @@ using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
-using Northwind.Domain.Entities;
-using Northwind.Persistence;
+using Dms.Domain.Entities;
+using Dms.Persistence;
 
-namespace Northwind.WebUI.IntegrationTests.Common
+namespace Dms.WebUI.IntegrationTests.Common
 {
     public class Utilities
     {
@@ -24,7 +24,7 @@ namespace Northwind.WebUI.IntegrationTests.Common
             return result;
         }
 
-        public static void InitializeDbForTests(NorthwindDbContext context)
+        public static void InitializeDbForTests(DmsDbContext context)
         {
             context.Customers.Add(new Customer
             {

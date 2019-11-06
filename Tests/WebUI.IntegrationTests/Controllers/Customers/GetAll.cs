@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Northwind.Application.Customers.Queries.GetCustomersList;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.WebUI.IntegrationTests.Common;
+using Dms.Application.Customers.Queries.GetCustomersList;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Customers
+namespace Dms.WebUI.IntegrationTests.Controllers.Customers
 {
     public class GetAll : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

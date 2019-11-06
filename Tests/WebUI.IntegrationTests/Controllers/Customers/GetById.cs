@@ -1,11 +1,11 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Northwind.Application.Customers.Queries.GetCustomerDetail;
-using Northwind.WebUI.IntegrationTests.Common;
+using Dms.WebUI.IntegrationTests.Common;
+using Dms.Application.Customers.Queries.GetCustomerDetail;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Customers
+namespace Dms.WebUI.IntegrationTests.Controllers.Customers
 {
     public class GetById : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

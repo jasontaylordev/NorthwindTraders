@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Northwind.Domain.Entities;
+using Dms.Domain.Entities;
 
-namespace Northwind.Persistence.Configurations
+namespace Dms.Persistence.Configurations
 {
     public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
     {

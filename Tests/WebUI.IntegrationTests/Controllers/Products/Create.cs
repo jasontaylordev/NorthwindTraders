@@ -1,9 +1,9 @@
-﻿using Northwind.Application.Products.Commands.CreateProduct;
-using Northwind.WebUI.IntegrationTests.Common;
+﻿using Dms.Application.Products.Commands.CreateProduct;
 using System.Threading.Tasks;
+using Dms.WebUI.IntegrationTests.Common;
 using Xunit;
 
-namespace Northwind.WebUI.IntegrationTests.Controllers.Products
+namespace Dms.WebUI.IntegrationTests.Controllers.Products
 {
     public class Create : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

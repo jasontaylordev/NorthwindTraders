@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace Northwind.Infrastructure.Identity
+namespace Dms.Infrastructure.Identity
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Northwind.Application.Customers.Queries.GetCustomersList;
-using Northwind.Application.UnitTests.Common;
-using Northwind.Persistence;
+using Dms.Application.Customers.Queries.GetCustomersList;
+using Dms.Application.UnitTests.Common;
+using Dms.Persistence;
 using Shouldly;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +12,7 @@ namespace NorthwindTraders.Application.UnitTests.Infrastructure
     [Collection("QueryCollection")]
     public class GetCustomersListQueryHandlerTests
     {
-        private readonly NorthwindDbContext _context;
+        private readonly DmsDbContext _context;
         private readonly IMapper _mapper;
 
         public GetCustomersListQueryHandlerTests(QueryTestFixture fixture)

@@ -1,7 +1,7 @@
-﻿using Northwind.Application.Notifications.Models;
+﻿using Dms.Application.Notifications.Models;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Common.Interfaces
+namespace Dms.Application.Common.Interfaces
 {
     public interface INotificationService
     {

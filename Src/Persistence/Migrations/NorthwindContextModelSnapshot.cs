@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Northwind.Persistence;
+using Dms.Persistence;
 
-namespace Northwind.Persistence.Migrations
+namespace Dms.Persistence.Migrations
 {
-    [DbContext(typeof(NorthwindDbContext))]
+    [DbContext(typeof(DmsDbContext))]
     partial class NorthwindContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

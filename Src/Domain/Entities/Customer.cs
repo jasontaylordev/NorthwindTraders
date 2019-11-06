@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Northwind.Domain.Entities
+namespace Dms.Domain.Entities
 {
     public class Customer
     {

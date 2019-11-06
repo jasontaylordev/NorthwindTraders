@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Domain.Entities;
+using Dms.Application.Common.Interfaces;
+using Dms.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Northwind.Application.Customers.Commands.CreateCustomer
+namespace Dms.Application.Customers.Commands.CreateCustomer
 {
     public class CreateCustomerCommand : IRequest
     {

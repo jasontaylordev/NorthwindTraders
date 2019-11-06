@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Northwind.Domain.Common;
+using Dms;
 
-namespace Northwind.Domain.Entities
+namespace Dms.Domain.Entities
 {
     public class Product : AuditableEntity
     {

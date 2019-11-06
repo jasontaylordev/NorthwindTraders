@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Northwind.Persistence;
+using Dms.Persistence;
 
-namespace Northwind.Persistence.Migrations
+namespace Dms.Persistence.Migrations
 {
-    [DbContext(typeof(NorthwindDbContext))]
+    [DbContext(typeof(DmsDbContext))]
     [Migration("20190916021407_SimplifyEntityConfigurations")]
     partial class SimplifyEntityConfigurations
     {

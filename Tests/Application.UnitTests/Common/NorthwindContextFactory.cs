@@ -1,19 +1,19 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using Northwind.Domain.Entities;
-using Northwind.Persistence;
+using Dms.Domain.Entities;
+using Dms.Persistence;
 
-namespace Northwind.Application.UnitTests.Common
+namespace Dms.Application.UnitTests.Common
 {
     public class NorthwindContextFactory
     {
-        public static NorthwindDbContext Create()
+        public static DmsDbContext Create()
         {
-            var options = new DbContextOptionsBuilder<NorthwindDbContext>()
+            var options = new DbContextOptionsBuilder<DmsDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
 
-            var context = new NorthwindDbContext(options);
+            var context = new DmsDbContext(options);
 
             context.Database.EnsureCreated();
 
@@ -33,7 +33,7 @@ namespace Northwind.Application.UnitTests.Common
             return context;
         }
 
-        public static void Destroy(NorthwindDbContext context)
+        public static void Destroy(DmsDbContext context)
         {
             context.Database.EnsureDeleted();
 

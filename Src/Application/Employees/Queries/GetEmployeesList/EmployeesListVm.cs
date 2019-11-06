@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Northwind.Application.Employees.Queries.GetEmployeesList
+namespace Dms.Application.Employees.Queries.GetEmployeesList
 {
     public class EmployeesListVm
     {

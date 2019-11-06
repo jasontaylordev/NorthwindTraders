@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Northwind.Application.Common.Interfaces;
-using Northwind.Application.Common.Models;
+using Dms.Application.Common.Interfaces;
+using Dms.Application.Common.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Northwind.Infrastructure.Identity
+namespace Dms.Infrastructure.Identity
 {
     public class UserManagerService : IUserManager
     {
