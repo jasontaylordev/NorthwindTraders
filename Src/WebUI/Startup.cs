@@ -67,6 +67,8 @@ namespace Northwind.WebUI
                 configure.Title = "Northwind Traders API";
             });
 
+            services.AddCors();
+
             _services = services;
         }
 
@@ -78,6 +80,7 @@ namespace Northwind.WebUI
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 RegisteredServicesPage(app);
+                app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             }
             else
             {
