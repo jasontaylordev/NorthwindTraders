@@ -21,6 +21,7 @@ import { AppIconsModule } from './app.icons.module';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { environment } from '../environments/environment';
+import { AUTH_BASE_URL } from 'src/api-authorization/authorize.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { environment } from '../environments/environment';
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
       { provide: API_BASE_URL, useValue: environment.apiBaseUrl },
+      { provide: AUTH_BASE_URL, useValue: environment.apiBaseUrl },
       CustomersClient,
       ProductsClient
   ],

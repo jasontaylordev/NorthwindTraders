@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { User, UserManager, WebStorageStateStore } from 'oidc-client';
 import { BehaviorSubject, concat, from, Observable } from 'rxjs';
 import { filter, map, mergeMap, take, tap } from 'rxjs/operators';
 import { ApplicationPaths, ApplicationName } from './api-authorization.constants';
+
+export const AUTH_BASE_URL = new InjectionToken<string>('IDENTITY_BASE_URL');
 
 export type IAuthenticationResult =
   SuccessAuthenticationResult |
@@ -56,6 +58,8 @@ export class AuthorizeService {
   private popUpDisabled = true;
   private userManager: UserManager;
   private userSubject: BehaviorSubject<IUser | null> = new BehaviorSubject(null);
+
+  constructor(@Inject(AUTH_BASE_URL) private baseUrl: string) { }
 
   public isAuthenticated(): Observable<boolean> {
     return this.getUser().pipe(map(u => !!u));
@@ -230,7 +234,7 @@ export class AuthorizeService {
       return;
     }
 
-    const response = await fetch(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
+    const response = await fetch(this.baseUrl + ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
     if (!response.ok) {
       throw new Error(`Could not load settings for '${ApplicationName}'`);
     }
