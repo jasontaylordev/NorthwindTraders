@@ -8,9 +8,9 @@ Northwind Traders is a sample application built using ASP.NET Core and Entity Fr
 
 The initial construction of this project is explained in the following blog posts:
 
-* [Code: Northwind Traders with Entity Framework Core](http://www.codingflow.net/northwind-traders-with-entity-framework-core/)
-* [Create Northwind Traders Code First with Entity Framework Core – Part 1](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-1/)
-* [Create Northwind Traders Code First with Entity Framework Core – Part 2](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-2/)
+* [Code: Northwind Traders with Entity Framework Core](https://jasontaylor.dev/northwind-traders-with-entity-framework-core/)
+* [Create Northwind Traders Code First with Entity Framework Core – Part 1](https://jasontaylor.dev/create-northwind-traders-code-first-with-entity-framework-core-part-1/)
+* [Create Northwind Traders Code First with Entity Framework Core – Part 2](https://jasontaylor.dev/create-northwind-traders-code-first-with-entity-framework-core-part-2/)
 
 For information on upcoming features and fixes, take a look at the [product roadmap](https://github.com/jasontaylordev/NorthwindTraders/wiki/Roadmap).
 
