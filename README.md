@@ -12,7 +12,7 @@ The initial construction of this project is explained in the following blog post
 * [Create Northwind Traders Code First with Entity Framework Core – Part 1](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-1/)
 * [Create Northwind Traders Code First with Entity Framework Core – Part 2](http://www.codingflow.net/create-northwind-traders-code-first-with-entity-framework-core-part-2/)
 
-For information on upcoming features and fixes, take a look at the [product roadmap](https://github.com/JasonGT/NorthwindTraders/wiki/Roadmap).
+For information on upcoming features and fixes, take a look at the [product roadmap](https://github.com/jasontaylordev/NorthwindTraders/wiki/Roadmap).
 
 ## Getting Started
 Use these instructions to get the project up and running.
@@ -55,9 +55,9 @@ Follow these steps to get your development environment set up:
 * Angular 8
 
 ## Versions
-The [master](https://github.com/JasonGT/NorthwindTraders/tree/master) branch is running .NET Core 3. 
-The [dotnetcore22](https://github.com/JasonGT/NorthwindTraders/tree/dotnetcore22) branch contains an earlier version built with .NET Core 2.2. This is the version closely related to the talks on Clean Architecture with ASP.NET Core 2.1 / 2.2.
+The [master](https://github.com/jasontaylordev/NorthwindTraders/tree/master) branch is running .NET Core 3. 
+The [dotnetcore22](https://github.com/jasontaylordev/NorthwindTraders/tree/dotnetcore22) branch contains an earlier version built with .NET Core 2.2. This is the version closely related to the talks on Clean Architecture with ASP.NET Core 2.1 / 2.2.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/JasonGT/NorthwindTraders/blob/master/LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/jasontaylordev/NorthwindTraders/blob/master/LICENSE.md) file for details.
