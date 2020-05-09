@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Categories.Commands.DeleteCategory;
 using Northwind.Application.Categories.Commands.UpsertCategory;
 using Northwind.Application.Categories.Queries.GetCategoriesList;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace Northwind.WebUI.Controllers
@@ -31,7 +32,7 @@ namespace Northwind.WebUI.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<int>> Upsert(UpsertCategoryCommand command)
+        public async Task<ActionResult<int>> Upsert([Required]UpsertCategoryCommand command)
         {
             var id = await Mediator.Send(command);
 
