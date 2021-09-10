@@ -7,7 +7,7 @@ namespace Northwind.Infrastructure.Files
     {
         public ProductFileRecordMap()
         {
-            AutoMap();
+            AutoMap(System.Globalization.CultureInfo.CurrentCulture);
             Map(m => m.UnitPrice).Name("Unit Price").ConvertUsing(c => (c.UnitPrice ?? 0).ToString("C"));
         }
     }
