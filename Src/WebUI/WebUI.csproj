@@ -27,13 +27,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="5.0.9" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />  
-    <PackageReference Include="NSwag.AspNetCore" Version="13.13.2" />  
-    <PackageReference Include="NSwag.Core" Version="13.13.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.13.2" />
+    <PackageReference Include="NSwag.Core" Version="13.13.2" />
     <PackageReference Include="NSwag.MSBuild" Version="13.13.2">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
@@ -52,7 +52,7 @@
   
   <Target Name="NSwag" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
     <Copy SourceFiles="@(Reference)" DestinationFolder="$(OutDir)References" />
-    <Exec Command="$(NSwagExe_Core30) run /variables:Configuration=$(Configuration) /runtime:NetCore30" />
+    <Exec Command="$(NSwagExe_Net50) run /variables:Configuration=$(Configuration) /runtime:Net50" />
     <RemoveDir Directories="$(OutDir)References" />
   </Target>
 
