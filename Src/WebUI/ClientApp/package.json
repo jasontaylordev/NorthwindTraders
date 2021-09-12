@@ -12,15 +12,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "8.2.5",
-    "@angular/common": "8.2.5",
-    "@angular/compiler": "8.2.5",
-    "@angular/core": "8.2.5",
-    "@angular/forms": "8.2.5",
-    "@angular/platform-browser": "8.2.5",
-    "@angular/platform-browser-dynamic": "8.2.5",
-    "@angular/platform-server": "8.2.5",
-    "@angular/router": "8.2.5",
+    "@angular/animations": "9.1.13",
+    "@angular/common": "9.1.13",
+    "@angular/compiler": "9.1.13",
+    "@angular/core": "9.1.13",
+    "@angular/forms": "9.1.13",
+    "@angular/platform-browser": "9.1.13",
+    "@angular/platform-browser-dynamic": "9.1.13",
+    "@angular/platform-server": "9.1.13",
+    "@angular/router": "9.1.13",
     "@nguniversal/module-map-ngfactory-loader": "^8.1.1",
     "angular-feather": "^6.0.2",
     "aspnet-prerendering": "^3.0.1",
@@ -29,13 +29,13 @@
     "ngx-bootstrap": "^5.1.1",
     "oidc-client": "^1.9.1",
     "rxjs": "^6.5.3",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.3",
-    "@angular/cli": "^8.3.3",
-    "@angular/compiler-cli": "8.2.5",
-    "@angular/language-service": "8.2.5",
+    "@angular-devkit/build-angular": "^0.901.15",
+    "@angular/cli": "^9.1.15",
+    "@angular/compiler-cli": "9.1.13",
+    "@angular/language-service": "9.1.13",
     "@types/jasmine": "~3.3.9",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "~11.10.5",
@@ -47,7 +47,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.5",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
-    "typescript": "3.4.5"
+    "typescript": "3.8.3"
   },
   "optionalDependencies": {
     "node-sass": "^4.9.3",
