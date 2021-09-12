@@ -25,6 +25,7 @@
     "angular-feather": "^6.0.2",
     "aspnet-prerendering": "^3.0.1",
     "core-js": "^2.6.5",
+    "ng": "^0.0.0",
     "ngx-bootstrap": "^5.1.1",
     "oidc-client": "^1.9.1",
     "rxjs": "^6.5.3",
@@ -32,7 +33,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.3",
-    "@angular/cli": "8.3.3",
+    "@angular/cli": "^8.3.3",
     "@angular/compiler-cli": "8.2.5",
     "@angular/language-service": "8.2.5",
     "@types/jasmine": "~3.3.9",
