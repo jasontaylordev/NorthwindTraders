@@ -47,7 +47,7 @@ namespace Northwind.WebUI
                 .AddControllersWithViews()
                 .AddNewtonsoftJson()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<INorthwindDbContext>());
-
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddRazorPages();
 
             // Customise default API behaviour
@@ -76,7 +76,6 @@ namespace Northwind.WebUI
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
                 RegisteredServicesPage(app);
             }
             else

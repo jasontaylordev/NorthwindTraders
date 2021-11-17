@@ -29,7 +29,7 @@ namespace Northwind.Application.Customers.Commands.UpdateCustomer
                 .WithMessage("Customers in QLD require at least one QLD landline.");
         }
 
-        private static bool HaveQueenslandLandLine(UpdateCustomerCommand model, string phoneValue, PropertyValidatorContext ctx)
+        private static bool HaveQueenslandLandLine(UpdateCustomerCommand model, string phoneValue)
         {
             return model.Phone.StartsWith("07") || model.Fax.StartsWith("07");
         }
