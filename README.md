@@ -1,63 +1,33 @@
-[![Build Status](https://codingflow.visualstudio.com/NorthwindTraders/_apis/build/status/NorthwindTraders%20-%20CI?branchName=master)](https://codingflow.visualstudio.com/NorthwindTraders/_build/latest?definitionId=22&branchName=master)
+# Northwind Traders
 
-# NorthwindTraders
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Northwind Traders is a sample application built using ASP.NET Core and Entity Framework Core. The architecture and design of the project is explained in the video:
+## Description
 
-* [Clean Architecture with ASP.NET Core 2.1](https://youtu.be/_lwCVE_XgqI) ([slide deck](/Docs/Slides.pdf))
+This repository has been archived and is no longer actively maintained or supported. The project was initially developed to demonstrate the simplest approach to Clean Architecture with .NET Core. While it is no longer actively maintained, feel free to explore the codebase and adapt it to your own needs if it serves as a useful reference.
 
-The initial construction of this project is explained in the following blog posts:
+For an updated version of this project, you can check out the [Clean Architecture Solution Template](https://github.com/jasontaylordev/CleanArchitecture). The Clean Architecture Solution Template is a new project that demonstrates the simplest approach to Clean Architecture with .NET. It is actively maintained and supported, providing an improved and up-to-date implementation of the principles showcased in this archived repository.
 
-* [Code: Northwind Traders with Entity Framework Core](https://jasontaylor.dev/northwind-traders-with-entity-framework-core/)
-* [Create Northwind Traders Code First with Entity Framework Core – Part 1](https://jasontaylor.dev/create-northwind-traders-code-first-with-entity-framework-core-part-1/)
-* [Create Northwind Traders Code First with Entity Framework Core – Part 2](https://jasontaylor.dev/create-northwind-traders-code-first-with-entity-framework-core-part-2/)
+## Project Status
 
-For information on upcoming features and fixes, take a look at the [product roadmap](https://github.com/jasontaylordev/NorthwindTraders/wiki/Roadmap).
+This project has been archived, which means that no further updates, bug fixes, or support will be provided. You can still fork the repository and make modifications if desired.
 
-## Getting Started
-Use these instructions to get the project up and running.
+## Installation and Usage
 
-### Prerequisites
-You will need the following tools:
+As this project is archived, there are no installation instructions or usage guidelines provided. However, if you decide to fork the repository, make sure to update any necessary dependencies, configurations, or settings.
 
-* [Visual Studio Code or Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (version 16.3 or later)
-* [.NET Core SDK 3](https://dotnet.microsoft.com/download/dotnet-core/3.0)
- * [Node.js](https://nodejs.org/en/) (version 10 or later) with npm (version 6.11.3 or later)
+## Contributing
 
-### Setup
-Follow these steps to get your development environment set up:
+Contributions to this project are no longer accepted as it has been archived. You can still fork the repository and work on your own version.
 
-  1. Clone the repository
-  2. At the root directory, restore required packages by running:
-      ```
-     dotnet restore
-     ```
-  3. Next, build the solution by running:
-     ```
-     dotnet build
-     ```
-  4. Next, within the `\Src\WebUI\ClientApp` directory, launch the front end by running:
-      ```
-     npm start
-     ```
-  5. Once the front end has started, within the `\Src\WebUI` directory, launch the back end by running:
-     ```
-	 dotnet run
-	 ```
-  5. Launch [https://localhost:44376/](http://localhost:44376/) in your browser to view the Web UI
-  
-  6. Launch [https://localhost:44376/api](http://localhost:44376/api) in your browser to view the API
+## Issues
 
-## Technologies
-* .NET Core 3
-* ASP.NET Core 3
-* Entity Framework Core 3
-* Angular 8
-
-## Versions
-The [master](https://github.com/jasontaylordev/NorthwindTraders/tree/master) branch is running .NET Core 3. 
-The [dotnetcore22](https://github.com/jasontaylordev/NorthwindTraders/tree/dotnetcore22) branch contains an earlier version built with .NET Core 2.2. This is the version closely related to the talks on Clean Architecture with ASP.NET Core 2.1 / 2.2.
+As this project is archived, any existing issues have also been closed. You can refer to the existing issues for historical context, but no new issues will be addressed.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/jasontaylordev/NorthwindTraders/blob/master/LICENSE.md) file for details.
+This project is licensed under the [MIT License](LICENSE). Please review the license file for more information.
+
+## Contact
+
+As this project is archived, there is no active contact person or maintainer. You may refer to the contributors listed in the repository for individual contact information.
